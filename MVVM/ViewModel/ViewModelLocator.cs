@@ -43,6 +43,10 @@ namespace MVVM.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<TopViewModel>();
+            SimpleIoc.Default.Register<SideViewModel>();
+            SimpleIoc.Default.Register<ControlViewModel>();
+            SimpleIoc.Default.Register<EngineeringViewModel>();
         }
 
         public MainViewModel Main
@@ -52,7 +56,40 @@ namespace MVVM.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
+        public TopViewModel Top
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TopViewModel>();
+            }
+        }
+
+        public SideViewModel Side
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SideViewModel>();
+            }
+        }
+
+        public ControlViewModel Control
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ControlViewModel>();
+            }
+        }
+
+        public EngineeringViewModel Engineering
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EngineeringViewModel>();
+            }
+        }
+
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

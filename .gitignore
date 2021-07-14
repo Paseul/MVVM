@@ -1,1 +1,5 @@
 .vs
+MVVM\obj
+MVVM\bin
+RealTimeGraphX
+RealTimeGraphX.WPF

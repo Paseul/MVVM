@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\71871\source\repos\MVVM_1\RealTimeGraphX.WPF\obj\Debug\
+C:\github\MVVM\RealTimeGraphX.WPF\obj\Debug\
 RealTimeGraphX.WPF
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 1-731644535
 
 121631648927
-121861724932
+1211280230469
 Themes\Generic.xaml;
 
 False

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\71871\\source\\repos\\MVVM_1\\RealTimeGraphX\\RealTimeGraphX.csproj": {}
+    "C:\\github\\MVVM\\RealTimeGraphX\\RealTimeGraphX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\71871\\source\\repos\\MVVM_1\\RealTimeGraphX\\RealTimeGraphX.csproj": {
+    "C:\\github\\MVVM\\RealTimeGraphX\\RealTimeGraphX.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\71871\\source\\repos\\MVVM_1\\RealTimeGraphX\\RealTimeGraphX.csproj",
+        "projectUniqueName": "C:\\github\\MVVM\\RealTimeGraphX\\RealTimeGraphX.csproj",
         "projectName": "RealTimeGraphX",
-        "projectPath": "C:\\Users\\71871\\source\\repos\\MVVM_1\\RealTimeGraphX\\RealTimeGraphX.csproj",
+        "projectPath": "C:\\github\\MVVM\\RealTimeGraphX\\RealTimeGraphX.csproj",
         "packagesPath": "C:\\Users\\71871\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\71871\\source\\repos\\MVVM_1\\RealTimeGraphX\\obj\\",
+        "outputPath": "C:\\github\\MVVM\\RealTimeGraphX\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

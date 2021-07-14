@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\71871\source\repos\MVVM_1\MVVM\obj\Debug\
+C:\github\MVVM\MVVM\obj\Debug\
 MVVM
 none
 false
 DEBUG;TRACE
-C:\Users\71871\source\repos\MVVM_1\MVVM\App.xaml
-2419903590
+C:\github\MVVM\MVVM\App.xaml
+6-303191569
 
-8-314329621
-124-1668330982
-MainWindow.xaml;Themes\Generic.xaml;
+181614064424
+1241647902857
+MainWindow.xaml;Themes\Generic.xaml;View\ControlView.xaml;View\EngineeringView.xaml;View\SideView.xaml;View\TopView.xaml;
 
 False
 

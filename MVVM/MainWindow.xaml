@@ -3,22 +3,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVM"        
-        xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
-        xmlns:realTimeGraphX="clr-namespace:RealTimeGraphX.WPF;assembly=RealTimeGraphX.WPF"
+        xmlns:local="clr-namespace:MVVM"       
+        xmlns:view="clr-namespace:MVVM.View"
+        xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"        
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:Command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <local:WpfGraphControl Margin="10,10,10,0" Controller="{Binding MultiController}" Height="360" VerticalAlignment="Top" Grid.Column="1" />
-        <Button Content="Send" Width="50" Height="25" Margin="706,375,36,19">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <Command:EventToCommand Command="{Binding OnClickCommand}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </Button>
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="1500" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <view:SideView/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+                <RowDefinition Height="735" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <view:TopView/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <TabControl>
+                    <TabItem Header="Control Mode">
+                        <view:ControlView/>
+
+                    </TabItem>
+                    <TabItem Header="Engineering Mode">
+                        <view:EngineeringView/>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+
+        </Grid>
+
+
     </Grid>
 </Window>

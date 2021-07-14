@@ -1,5 +1,9 @@
-﻿C:\Users\71871\source\repos\MVVM_1\MVVM\obj\Debug\GeneratedInternalTypeHelper.g.cs
-FC:\Users\71871\source\repos\MVVM_1\MVVM\App.xaml;;
-FC:\Users\71871\source\repos\MVVM_1\MVVM\MainWindow.xaml;;
-FC:\Users\71871\source\repos\MVVM_1\MVVM\Themes\Generic.xaml;;
+﻿
+FC:\github\MVVM\MVVM\App.xaml;;
+FC:\github\MVVM\MVVM\MainWindow.xaml;;
+FC:\github\MVVM\MVVM\Themes\Generic.xaml;;
+FC:\github\MVVM\MVVM\View\ControlView.xaml;;
+FC:\github\MVVM\MVVM\View\EngineeringView.xaml;;
+FC:\github\MVVM\MVVM\View\SideView.xaml;;
+FC:\github\MVVM\MVVM\View\TopView.xaml;;
 

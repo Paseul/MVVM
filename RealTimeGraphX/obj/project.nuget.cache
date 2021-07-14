@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e7MPhdfvms89h0p9rbifqRF8t0LAErO4DMqijEP5iRxpt2EvWF/I1yFIu/aEPoKdE19yu57LlcP6/PSFcmiH2Q==",
+  "dgSpecHash": "5aAqst3efBWxgcYf/sndakAfTBGov4zEWZACGIrhsbQ96xLQYqVyVrtmfCuexvfNBf0BbsMJKANdBYYOX/6vFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\71871\\source\\repos\\MVVM_1\\RealTimeGraphX\\RealTimeGraphX.csproj",
+  "projectFilePath": "C:\\github\\MVVM\\RealTimeGraphX\\RealTimeGraphX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\71871\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\71871\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
