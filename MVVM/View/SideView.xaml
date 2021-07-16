@@ -6,8 +6,109 @@
              xmlns:local="clr-namespace:MVVM.View"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Side}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="400">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="POWER" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+            <TabControl HorizontalAlignment="Left" Height="236" Margin="0,24,0,0" VerticalAlignment="Top" Width="400">
+                <TabItem Header="Status">
+                    <Grid Background="White">
+                        
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Set">
+                    <Grid Background="White">
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Value">
+                    <Grid Background="White">
+                        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="SEED Current" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="97,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="SEED LD Temp"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="97,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.616,0.501"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="SEED HS Temp"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="97,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
+                    </Grid>
+                </TabItem>
+                
+            </TabControl>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="CHILLER" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+            <TabControl HorizontalAlignment="Left" Height="236" Margin="0,24,0,0" VerticalAlignment="Top" Width="400">
+                <TabItem Header="Status">
+                    <Grid Background="White">
+                        <Button Content="Connect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Run" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="170,14,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188"/>
+                        <Button Content="High Temp1" HorizontalAlignment="Left" Margin="42,107,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Low Temp1" HorizontalAlignment="Left" Margin="122,107,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Low Temp2" HorizontalAlignment="Left" Margin="202,107,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Level Sensor" HorizontalAlignment="Left" Margin="282,107,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Temp Sensor" HorizontalAlignment="Left" Margin="42,143,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Flow Switch" HorizontalAlignment="Left" Margin="122,143,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Flow Meter" HorizontalAlignment="Left" Margin="202,143,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="High Press" HorizontalAlignment="Left" Margin="282,143,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Low Press" HorizontalAlignment="Left" Margin="42,178,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Over Current" HorizontalAlignment="Left" Margin="122,178,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button Content="Comp Heat" HorizontalAlignment="Left" Margin="202,178,0,0" VerticalAlignment="Top" Width="75"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="22,45,0,0" TextWrapping="Wrap" Text="Ch0 Temp" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="102,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="202,45,0,0" TextWrapping="Wrap" Text="Ch1 Temp" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="282,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="22,66,0,0" TextWrapping="Wrap" Text="Flow" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="102,66,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="22,66,0,0" TextWrapping="Wrap" Text="Flow" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="102,66,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="202,66,0,0" TextWrapping="Wrap" Text="PID" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="282,66,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Set">
+                    <Grid Background="White">
+                        <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="Target Temp" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="118,10,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" Text="High Temp Warn" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="118,38,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="High Temp Alarm" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="118,66,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="Low Temp Warn" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="118,94,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,126,0,0" TextWrapping="Wrap" Text="Low Temp Alarm" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="118,122,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120"/>
+                        <Button Content="Set" HorizontalAlignment="Left" Margin="309,126,0,0" VerticalAlignment="Top" Width="75"/>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INTERLOCK" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <Button Content="E-Stop" HorizontalAlignment="Left" Margin="20,45,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="SEED Input" HorizontalAlignment="Left" Margin="150,45,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="SEED Output" HorizontalAlignment="Left" Margin="280,45,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="AMP Temp" HorizontalAlignment="Left" Margin="20,115,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="AMP Current" HorizontalAlignment="Left" Margin="150,115,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="AMP Voltage" HorizontalAlignment="Left" Margin="280,115,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="AMP PD" HorizontalAlignment="Left" Margin="20,185,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="CHILLER&#xA;Temp" HorizontalAlignment="Left" Margin="150,185,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+            <Button Content="Housing&#xA;Humidity" HorizontalAlignment="Left" Margin="280,185,0,0" VerticalAlignment="Top" Width="100" Height="50" FontWeight="Bold" FontSize="14"/>
+
+        </Grid>
+        <Grid Grid.Row="3">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Emergency Stop" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontWeight="Bold" FontSize="14"/>
+            <Button Content="STOP" HorizontalAlignment="Left" Margin="155,100,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="Red" FontWeight="Bold" FontSize="24"/>
+        </Grid>
     </Grid>
 </UserControl>

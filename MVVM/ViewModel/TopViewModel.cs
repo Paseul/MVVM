@@ -18,7 +18,15 @@ namespace MVVM.ViewModel
 {
     public class TopViewModel : ViewModelBase
     {
+        #region Fields
         private bool _count;
+        private string _data1;
+        private string _data2;
+        private string _data3;
+        private string _data4;
+        #endregion
+
+        #region Properties
         public bool count
         {
             get { return _count; }
@@ -28,11 +36,6 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("count");
             }
         }
-
-        private string _data1;
-        private string _data2;
-        private string _data3;
-        private string _data4;
 
         public string data1
         {
@@ -73,6 +76,7 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("data4");
             }
         }
+        #endregion
         public WpfGraphController<TimeSpanDataPoint, DoubleDataPoint> MultiController { get; set; }
 
         public TopViewModel()

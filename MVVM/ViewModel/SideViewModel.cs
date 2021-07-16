@@ -9,5 +9,6 @@ namespace MVVM.ViewModel
 {
     public class SideViewModel : ViewModelBase
     {
+
     }
 }
