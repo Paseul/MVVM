@@ -28,13 +28,18 @@
                 <view:TopView/>
             </Grid>
             <Grid Grid.Row="1">
-                <TabControl>
-                    <TabItem Header="Control Mode">
+                <TabControl FontWeight="Bold">
+                    <TabItem Header="Control">
                         <view:ControlView/>
-
                     </TabItem>
-                    <TabItem Header="Engineering Mode">
+                    <TabItem Header="Engineering">
                         <view:EngineeringView/>
+                    </TabItem>
+                    <TabItem Header="Engineering2">
+                        <view:EngineeringView2/>
+                    </TabItem>
+                    <TabItem Header="Detail BIT">
+                        <view:BitView/>
                     </TabItem>
                 </TabControl>
             </Grid>

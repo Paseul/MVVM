@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\github\MVVM\MVVM\App.xaml
-6-303191569
+8-150562819
 
-181614064424
+22-508347709
 1241647902857
-MainWindow.xaml;Themes\Generic.xaml;View\ControlView.xaml;View\EngineeringView.xaml;View\SideView.xaml;View\TopView.xaml;
+MainWindow.xaml;Themes\Generic.xaml;View\BitView.xaml;View\ControlView.xaml;View\EngineeringView.xaml;View\EngineeringView2.xaml;View\SideView.xaml;View\TopView.xaml;
 
 False
 

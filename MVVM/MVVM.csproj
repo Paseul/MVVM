@@ -72,17 +72,25 @@
     </ApplicationDefinition>
     <Compile Include="Messages\ViewModelMessage.cs" />
     <Compile Include="Model\Brushes.cs" />
+    <Compile Include="ViewModel\BitViewModel.cs" />
     <Compile Include="ViewModel\ControlViewModel.cs" />
+    <Compile Include="ViewModel\EngineeringView2Model.cs" />
     <Compile Include="ViewModel\EngineeringViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SideViewModel.cs" />
     <Compile Include="ViewModel\TopViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\BitView.xaml.cs">
+      <DependentUpon>BitView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ControlView.xaml.cs">
       <DependentUpon>ControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EngineeringView.xaml.cs">
       <DependentUpon>EngineeringView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EngineeringView2.xaml.cs">
+      <DependentUpon>EngineeringView2.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SideView.xaml.cs">
       <DependentUpon>SideView.xaml</DependentUpon>
@@ -107,11 +115,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\BitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EngineeringView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EngineeringView2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

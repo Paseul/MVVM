@@ -108,3 +108,7 @@ C:\github\MVVM\MVVM\obj\Debug\MVVM.csproj.CoreCompileInputs.cache
 C:\github\MVVM\MVVM\obj\Debug\MVVM.csproj.CopyComplete
 C:\github\MVVM\MVVM\obj\Debug\MVVM.exe
 C:\github\MVVM\MVVM\obj\Debug\MVVM.pdb
+C:\github\MVVM\MVVM\obj\Debug\View\BitView.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\BitView.baml
+C:\github\MVVM\MVVM\obj\Debug\View\EngineeringView2.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\EngineeringView2.baml

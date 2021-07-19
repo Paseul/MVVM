@@ -1,52 +1,22 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:MVVM"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
 
 namespace MVVM.ViewModel
 {
-    /// <summary>
-    /// This class contains static references to all the view models in the
-    /// application and provides an entry point for the bindings.
-    /// </summary>
     public class ViewModelLocator
     {
-        /// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<TopViewModel>();
             SimpleIoc.Default.Register<SideViewModel>();
             SimpleIoc.Default.Register<ControlViewModel>();
             SimpleIoc.Default.Register<EngineeringViewModel>();
+            SimpleIoc.Default.Register<EngineeringView2Model>();
+            SimpleIoc.Default.Register<BitViewModel>();
         }
 
         public MainViewModel Main
@@ -86,6 +56,22 @@ namespace MVVM.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<EngineeringViewModel>();
+            }
+        }
+
+        public EngineeringView2Model Engineering2
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EngineeringView2Model>();
+            }
+        }
+
+        public BitViewModel Bit
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BitViewModel>();
             }
         }
 
