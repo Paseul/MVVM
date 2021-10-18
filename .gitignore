@@ -1,5 +1,7 @@
 .vs
 MVVM\obj
 MVVM\bin
+MVVM\bin\Debug
+MVVM\bin\Release
 RealTimeGraphX
 RealTimeGraphX.WPF
