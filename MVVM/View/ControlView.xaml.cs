@@ -24,5 +24,18 @@ namespace MVVM.View
         {
             InitializeComponent();
         }
+
+
+        private void pa1_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (pa1_btn.Content == FindResource("pa1_base"))
+            {
+                pa1_btn.Content = FindResource("pa1_normal");
+            }
+            else
+            {
+                pa1_btn.Content = FindResource("pa1_base");
+            }
+        }
     }
 }

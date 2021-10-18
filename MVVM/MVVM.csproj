@@ -167,7 +167,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\RealTimeGraphX.WPF\RealTimeGraphX.WPF.csproj">
       <Project>{6b9774f7-960d-438e-ad81-c6b9be328d50}</Project>
@@ -177,6 +176,51 @@
       <Project>{50bc0e0c-28aa-4315-a350-f3f61ee1b21c}</Project>
       <Name>RealTimeGraphX</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\SEED_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA1_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA2_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA3_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA4_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\SEED_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA1_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA2_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA3_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA4_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\SEED_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA1_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA2_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA3_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\PA4_error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

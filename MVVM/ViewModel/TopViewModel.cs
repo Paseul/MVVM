@@ -78,7 +78,7 @@ namespace MVVM.ViewModel
         }
         #endregion
         public WpfGraphController<TimeSpanDataPoint, DoubleDataPoint> MultiController { get; set; }
-
+        //<local:WpfGraphControl Margin="10,10,420,0" Controller="{Binding MultiController}" VerticalAlignment="Top" Height="280"/>
         public TopViewModel()
         {
             MultiController = new WpfGraphController<TimeSpanDataPoint, DoubleDataPoint>();
@@ -119,10 +119,19 @@ namespace MVVM.ViewModel
                 while (true)
                 {
                     Messenger.Default.Register<ViewModelMessage>(this, OnReceiveMessageAction);
-                    var d1 = Convert.ToInt32(data1);
-                    var d2 = Convert.ToInt32(data2);
-                    var d3 = Convert.ToInt32(data3);
-                    var d4 = Convert.ToInt32(data4);
+
+                    var d1 = Convert.ToInt32('0');
+                    var d2 = Convert.ToInt32('0');
+                    var d3 = Convert.ToInt32('0');
+                    var d4 = Convert.ToInt32('0');
+                    
+                    if(data1 != null)
+                    {
+                        d1 = Int32.Parse(data1, System.Globalization.NumberStyles.HexNumber);
+                        d2 = Int32.Parse(data2, System.Globalization.NumberStyles.HexNumber);
+                        d3 = Int32.Parse(data3, System.Globalization.NumberStyles.HexNumber);
+                        d4 = Int32.Parse(data4, System.Globalization.NumberStyles.HexNumber);
+                    }                    
 
                     List<DoubleDataPoint> yy = new List<DoubleDataPoint>()
                     {

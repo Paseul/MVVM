@@ -6,337 +6,200 @@
              xmlns:local="clr-namespace:MVVM.View"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Engineering2}"
-             d:DesignHeight="760" d:DesignWidth="1500">
+             d:DesignHeight="760" d:DesignWidth="1200">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="672" Margin="10,10,0,0" VerticalAlignment="Top" Width="586" Background="#FFE6E6E6">
+        <StackPanel HorizontalAlignment="Left" Height="672" Margin="10,10,0,0" VerticalAlignment="Top" Width="697" Background="#FFE6E6E6">
             <Grid>
-                <TextBlock TextWrapping="Wrap" Text="Set High Limit" Height="24" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,546"/>
-                <Button Content="SEED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,43,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,43,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,43,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,68,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,68,0,0"/>
-                <Button Content="PA1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,93,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,93,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,93,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,118,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,118,0,0"/>
-                <Button Content="PA2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,143,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,143,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,143,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,168,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,168,0,0"/>
-                <Button Content="PA3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,193,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,193,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,193,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,193,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,218,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,218,0,0"/>
-                <Button Content="PA4-1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,243,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,243,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,243,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,268,0,0"/>
-                <Button Content="PA4-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,293,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,293,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,293,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,318,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,318,0,0"/>
-                <Button Content="PA4-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,343,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,343,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,368,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,368,0,0"/>
-                <Button Content="PA4-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,393,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,393,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,393,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,393,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,418,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,418,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,418,0,0"/>
-                <Button Content="PA4-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,443,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,443,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,443,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,443,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,468,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,468,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,468,0,0"/>
-                <Button Content="PA4-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,493,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,493,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,493,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,493,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,518,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,518,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,518,0,0"/>
-                <Button Content="PD1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,43,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,43,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,68,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,68,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,93,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,93,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,118,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,118,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,143,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,143,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,168,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,168,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,193,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,193,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,193,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,218,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,218,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,243,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,243,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,268,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,293,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,293,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,318,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,318,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,343,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,368,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,368,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,393,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,393,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,393,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,418,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,418,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,418,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,443,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,443,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,443,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,468,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,468,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,468,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,494,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,494,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,494,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp11" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,520,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,520,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,520,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp12" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,544,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,544,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,544,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,570,0,-20"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,570,0,-20" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,570,0,-20" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,594,0,-44"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,594,0,-44" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,594,0,-44" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,620,0,-70"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,620,0,-70" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,620,0,-70" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,644,0,-94"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,644,0,-94" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,644,0,-94" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="RF Vxp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,544,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,544,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,544,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="RF Vamp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,569,0,-19"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,569,0,-19" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,569,0,-19" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="RF V Monitoring" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,594,0,-44"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,594,0,-44" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,594,0,-44" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Humid" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,619,0,-69"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,619,0,-69" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,619,0,-69" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="536,14,0,0" FontWeight="Bold"/>
+                <TextBlock TextWrapping="Wrap" Text="Limit Setting" Height="24" Background="#FFC8C8C8" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,658"/>
+                <Button Content="SEED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,60,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,60,0,0"/>
+                <Button Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,85,0,0"/>
+                <Button Content="PA1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,110,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,110,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,135,0,0"/>
+                <Button Content="PA2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,160,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,160,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,185,0,0"/>
+                <Button Content="PA3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,210,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,210,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,235,0,0"/>
+                <Button Content="PA4-1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,260,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,260,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,285,0,0"/>
+                <Button Content="PA4-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,310,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,310,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,335,0,0"/>
+                <Button Content="PA4-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,360,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,360,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,385,0,0"/>
+                <Button Content="PA4-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,410,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,410,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,435,0,0"/>
+                <Button Content="PA4-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,460,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,460,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,485,0,0"/>
+                <Button Content="PA4-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,510,0,0"/>
+                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,510,0,0"/>
+                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,535,0,0"/>
+                <Button Content="PA1 Input" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,60,0,0"/>
+                <Button Content="PA1 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,85,0,0"/>
+                <Button Content="PA2 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,110,0,0"/>
+                <Button Content="PA3 Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,135,0,0"/>
+                <Button Content="PA3 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,160,0,0"/>
+                <Button Content="PA4 Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,185,0,0"/>
+                <Button Content="PA4 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,210,0,0"/>
+                <Button Content="PA4 LD1 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,235,0,0"/>
+                <Button Content="PA4 LD2 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,260,0,0"/>
+                <Button Content="PA4 LD3 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,285,0,0"/>
+                <Button Content="PA4 LD4 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,310,0,0"/>
+                <Button Content="PA4 LD5 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,335,0,0"/>
+                <Button Content="PA4 LD6 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,360,0,0"/>
+                <Button Content="PA4 FET1 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,385,0,0"/>
+                <Button Content="PA4 FET2 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,410,0,0"/>
+                <Button Content="PA4 FET3 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,435,0,0"/>
+                <Button Content="PA4 FET4 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,461,0,0"/>
+                <Button Content="PA4 FET5 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,487,0,0"/>
+                <Button Content="PA4 FET6 Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,511,0,0"/>
+                <Button Content="Output Water Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,537,0,0"/>
+                <Button Content="PA4 TFB Comb" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,561,0,0"/>
+                <Button Content="PA4 Pump Dump" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,587,0,0"/>
+                <Button Content="PA3 LD Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="335,611,0,0"/>
+                <Button Content="RF Vxp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,561,0,0"/>
+                <Button Content="RF Vamp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,586,0,0"/>
+                <Button Content="RF V Monitoring" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,611,0,0"/>
+                <Button Content="Humid" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,636,0,0"/>
+                <StackPanel HorizontalAlignment="Left" Height="628" Margin="144,27,0,0" VerticalAlignment="Top" Width="86">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#FFCBC2C2" Opacity="0.665"/>
+                    </StackPanel.Background>
+                    <Grid>
+                        <TextBlock TextWrapping="Wrap" Text="Low" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,542"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,610,0,-60" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="628" Margin="242,27,0,0" VerticalAlignment="Top" Width="86">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#FFCBC2C2" Opacity="0.665"/>
+                    </StackPanel.Background>
+                    <Grid>
+                        <TextBlock TextWrapping="Wrap" Text="High" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,542"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,610,0,-60" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="611" Margin="464,26,0,0" VerticalAlignment="Top" Width="86">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#FFCBC2C2" Opacity="0.665"/>
+                    </StackPanel.Background>
+                    <Grid Height="559">
+                        <TextBlock TextWrapping="Wrap" Text="Low" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,531"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-21" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,585,0,-46" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="610" Margin="565,27,0,0" VerticalAlignment="Top" Width="86">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#FFCBC2C2" Opacity="0.665"/>
+                    </StackPanel.Background>
+                    <Grid>
+                        <TextBlock TextWrapping="Wrap" Text="High" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,542"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                    </Grid>
+                </StackPanel>
+                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="647,14,-1,0" FontWeight="Bold"/>
             </Grid>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="672" Margin="607,10,0,0" VerticalAlignment="Top" Width="586" Background="#FFE6E6E6">
+        <StackPanel HorizontalAlignment="Left" Height="123" Margin="724,10,0,0" VerticalAlignment="Top" Width="224" Background="#FFE6E6E0">
             <Grid>
-                <TextBlock TextWrapping="Wrap" Text="Set Low Limit" Height="24" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,-1,0,547"/>
-                <Button Content="SEED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,43,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,43,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,43,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,68,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,68,0,0"/>
-                <Button Content="PA1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,93,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,93,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,93,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,118,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,118,0,0"/>
-                <Button Content="PA2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,143,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,143,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,143,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,168,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,168,0,0"/>
-                <Button Content="PA3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,193,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,193,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,193,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,193,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,218,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,218,0,0"/>
-                <Button Content="PA4-1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,243,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,243,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,243,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,268,0,0"/>
-                <Button Content="PA4-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,293,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,293,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,293,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,318,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,318,0,0"/>
-                <Button Content="PA4-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,343,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,343,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,368,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,368,0,0"/>
-                <Button Content="PA4-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,393,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,393,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,393,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,393,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,418,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,418,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,418,0,0"/>
-                <Button Content="PA4-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,443,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,443,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,443,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,443,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,468,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,468,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,468,0,0"/>
-                <Button Content="PA4-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,493,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,493,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,493,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,493,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,518,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,518,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Margin="81,518,0,0"/>
-                <Button Content="PD1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,43,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,43,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,68,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,68,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,93,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,93,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,118,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,118,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,143,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,143,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,168,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,168,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,193,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,193,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,193,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,218,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,218,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,218,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="PD9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,243,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,243,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,268,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,268,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,268,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,293,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,293,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,293,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,318,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,318,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,318,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,343,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,343,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,368,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,368,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,368,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,393,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,393,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,393,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,418,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,418,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,418,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,443,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,443,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,443,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,468,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,468,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,468,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,494,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,494,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,494,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp11" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,520,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,520,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,520,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp12" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,544,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,544,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,544,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp13" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,570,0,-20"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,570,0,-20" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,570,0,-20" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,594,0,-44"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,594,0,-44" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,594,0,-44" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,620,0,-70"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,620,0,-70" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,620,0,-70" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Temp16" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="297,644,0,-94"/>
-                <TextBlock HorizontalAlignment="Left" Margin="506,644,0,-94" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="423,644,0,-94" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="RF Vxp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,544,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,544,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,544,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="RF Vamp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,569,0,-19"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,569,0,-19" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,569,0,-19" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="RF V Monitoring" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,594,0,-44"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,594,0,-44" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,594,0,-44" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Humid" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,619,0,-69"/>
-                <TextBlock HorizontalAlignment="Left" Margin="219,619,0,-69" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Background="#FFF0F0F0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,619,0,-69" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="536,14,0,0" FontWeight="Bold"/>
-            </Grid>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="123" Margin="1204,10,0,0" VerticalAlignment="Top" Width="224" Background="#FFE6E6E0">
-            <Grid>
-                <TextBlock TextWrapping="Wrap" Text="    Version" Height="24" Background="#FFDDDDDD" TextAlignment="Left" FontSize="14" FontWeight="Bold" Margin="0,0,0,546"/>
+                <TextBlock TextWrapping="Wrap" Text="    Version" Height="24" Background="#FFC8C8C8" TextAlignment="Left" FontSize="14" FontWeight="Bold" Margin="0,0,0,546"/>
                 <Button Content="LCB SW Version" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,43,0,0"/>
                 <TextBox HorizontalAlignment="Left" Height="20" Margin="136,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
                 <Button Content="LCB HW Version" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,68,0,0"/>
@@ -347,5 +210,6 @@
 
             </Grid>
         </StackPanel>
+
     </Grid>
 </UserControl>

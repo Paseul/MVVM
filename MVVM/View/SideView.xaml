@@ -4,57 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MVVM.View"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:Command="http://www.galasoft.ch/mvvmlight"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Side}"
              d:DesignHeight="1080" d:DesignWidth="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="340" />
-            <RowDefinition Height="270" />
             <RowDefinition Height="135" />
             <RowDefinition Height="175" />
-            <RowDefinition Height="200" />
+            <RowDefinition Height="340" />
+            <RowDefinition Height="470" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="POWER" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="LASER STATUS" VerticalAlignment="Top" Height="24" Width="400" Background="#FFC8C8C8" TextAlignment="Center" FontWeight="Bold" FontSize="18"/>
+            <Button Content="Laser ready" HorizontalAlignment="Left" Margin="25,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="Laser On" HorizontalAlignment="Left" Margin="150,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="Laser error" HorizontalAlignment="Left" Margin="275,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Red"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INTERLOCK" VerticalAlignment="Top" Height="24" Width="400" Background="#FFC8C8C8" TextAlignment="Center" FontWeight="Bold" FontSize="18"/>
+            <Button Content="E-Stop" HorizontalAlignment="Left" Margin="25,57,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="SEED Humid" HorizontalAlignment="Left" Margin="150,57,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="PA Humid" HorizontalAlignment="Left" Margin="275,57,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="PA Leak" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="Chiller" HorizontalAlignment="Left" Margin="150,108,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+            <Button Content="Polarization" HorizontalAlignment="Left" Margin="275,108,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="DC POWER SUPPLY" VerticalAlignment="Top" Height="24" Width="400" Background="#FFC8C8C8" TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
             <TabControl HorizontalAlignment="Left" Height="316" Margin="0,24,0,0" VerticalAlignment="Top" Width="400" FontWeight="Bold">
-                <TabItem Header="Control">
+                <TabItem Header="Status">
                     <Grid Background="White">
-                        <Button Content="Board" HorizontalAlignment="Left" Margin="12,15,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA1, 2" HorizontalAlignment="Left" Margin="87,15,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA3" HorizontalAlignment="Left" Margin="162,15,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA4-1" HorizontalAlignment="Left" Margin="237,15,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA4-2" HorizontalAlignment="Left" Margin="312,15,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA4-3" HorizontalAlignment="Left" Margin="12,45,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA4-4" HorizontalAlignment="Left" Margin="87,45,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA4-5" HorizontalAlignment="Left" Margin="162,45,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <Button Content="PA4-6" HorizontalAlignment="Left" Margin="237,45,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold"/>
-                        <StackPanel HorizontalAlignment="Left" Height="178" Margin="30,80,0,0" VerticalAlignment="Top" Width="334" Background="#FFF0F0F0">
-                            <Grid>
-                                <TextBlock TextWrapping="Wrap" Text="BIT" Height="24" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,264" />
-                                <Button Content="BIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="284,14,0,0" FontWeight="Bold"/>
-                                <Button Content="380VAC" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="90,47,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="50VDC 2" HorizontalAlignment="Left" Margin="170,47,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="12VDC 1" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="90,72,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="50VDC 3" HorizontalAlignment="Left" Margin="170,72,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="250,72,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="5VDC" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="90,97,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="50VDC 4" HorizontalAlignment="Left" Margin="170,97,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="250,97,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="12VDC 2" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="90,122,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="50VDC 5" HorizontalAlignment="Left" Margin="170,122,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="250,122,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="50VDC 1" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="90,147,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="50VDC 6" HorizontalAlignment="Left" Margin="170,147,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="250,147,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Normal" HorizontalAlignment="Left" Margin="250,47,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                            </Grid>
-                        </StackPanel>
+                        <Button Content="" HorizontalAlignment="Left" Margin="40,118,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" Height="40" Background="Lime" BorderBrush="{x:Null}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="130,72,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="380.2" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="279,98,0,0" TextWrapping="Wrap" Text="V" VerticalAlignment="Top" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="130,141,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="34.5" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="279,167,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" FontSize="24"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Value">
@@ -116,17 +102,17 @@
                 </TabItem>
                 <TabItem Header="Detail BIT">
                     <Grid Background="White">
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Temp Low" HorizontalAlignment="Left" Margin="69,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt Low" HorizontalAlignment="Left" Margin="69,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Temp Low" HorizontalAlignment="Left" Margin="69,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,8,0,0" TextWrapping="Wrap" Text="380VAC" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="Board" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" Text="PA1, 2" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
@@ -138,122 +124,96 @@
                         <TextBlock HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="PA4-5" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,233,0,0" TextWrapping="Wrap" Text="PA4-6" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,260,0,0" TextWrapping="Wrap" Text="ETC" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Temp High" HorizontalAlignment="Left" Margin="149,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="E-STOP" HorizontalAlignment="Left" Margin="229,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Volt High" HorizontalAlignment="Left" Margin="149,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Temp High" HorizontalAlignment="Left" Margin="149,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur Low" HorizontalAlignment="Left" Margin="229,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="E-STOP" HorizontalAlignment="Left" Margin="229,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,6,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,31,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,56,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,81,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,106,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,131,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,181,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Cur High" HorizontalAlignment="Left" Margin="309,231,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
                     </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid Grid.Row="1">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="CHILLER" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+        <Grid Grid.Row="3" Margin="0,0,0,200">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="CHILLER" VerticalAlignment="Top" Height="24" Width="400" Background="#FFC8C8C8" TextAlignment="Center" FontSize="18" FontWeight="Bold"/>
             <TabControl HorizontalAlignment="Left" Height="246" Margin="0,24,0,0" VerticalAlignment="Top" Width="400" FontWeight="Bold">
                 <TabItem Header="Status">
-                    <Grid Background="#FFF0F0F0">
-                        <Button Content="Connect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <Button Content="Run" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="170,10,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="20" Width="194" Background="White" FontWeight="Bold"/>
-
-                        <TextBlock HorizontalAlignment="Left" Margin="40,39,0,0" TextWrapping="Wrap" Text="Ch0 Temp" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="120,39,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold" Background="White"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="202,39,0,0" TextWrapping="Wrap" Text="Ch1 Temp" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="282,39,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold" Background="White"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="40,60,0,0" TextWrapping="Wrap" Text="Flow" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="120,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold" Background="White"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="202,60,0,0" TextWrapping="Wrap" Text="PID" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="282,60,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold" Background="White"/>
-                        <StackPanel HorizontalAlignment="Left" Height="121" Margin="30,87,0,0" VerticalAlignment="Top" Width="334" Background="#FFE6E6E6">
-                            <Grid>
-                                <TextBlock TextWrapping="Wrap" Text="BIT" Height="24" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,264" />
-                                <Button Content="BIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="284,14,0,0" FontWeight="Bold"/>
-                                <Button Content="High Temp1" HorizontalAlignment="Left" Margin="9,44,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Low Temp1" HorizontalAlignment="Left" Margin="89,44,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Low Temp2" HorizontalAlignment="Left" Margin="169,44,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Level Sensor" HorizontalAlignment="Left" Margin="249,44,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Temp Sensor" HorizontalAlignment="Left" Margin="9,69,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Flow Switch" HorizontalAlignment="Left" Margin="89,69,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Flow Meter" HorizontalAlignment="Left" Margin="169,69,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="High Press" HorizontalAlignment="Left" Margin="249,69,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Low Press" HorizontalAlignment="Left" Margin="9,94,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Over Current" HorizontalAlignment="Left" Margin="89,94,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                                <Button Content="Comp Heat" HorizontalAlignment="Left" Margin="169,94,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-                            </Grid>
-                        </StackPanel>
+                    <Grid Background="white">
+                        <Button Content="Run" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="18" Background="Lime" Click="Button_Click_1"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="133,10,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="28" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="18"/>
+                        <Button Content="" HorizontalAlignment="Left" Margin="40,91,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="40" Background="Lime" BorderBrush="{x:Null}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="133,48,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="19.1" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="282,74,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" FontSize="24"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="133,113,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="23.4" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="282,139,0,0" TextWrapping="Wrap" Text="LPM" VerticalAlignment="Top" FontSize="24"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Set">
+                <TabItem Header="Value">
+                    <Grid Background="#FFF0F0F0">
+                        <TextBlock HorizontalAlignment="Left" Margin="85,54,0,0" TextWrapping="Wrap" Text="Target Temp" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="193,50,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="85,82,0,0" TextWrapping="Wrap" Text="High Temp Warn" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="193,78,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="85,110,0,0" TextWrapping="Wrap" Text="High Temp Alarm" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="193,106,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="85,138,0,0" TextWrapping="Wrap" Text="Low Temp Warn" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="193,134,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="85,166,0,0" TextWrapping="Wrap" Text="Low Temp Alarm" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="193,162,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
+                        <Button Content="Set" HorizontalAlignment="Left" Margin="331,162,0,0" VerticalAlignment="Top" Width="40" Height="23" FontWeight="Bold" Click="Button_Click"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="42,15,0,0" TextWrapping="Wrap" Text="Ch0 Temp" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="chiller_ch1_temp_rcv" HorizontalAlignment="Left" Margin="122,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold" Background="White"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="204,15,0,0" TextWrapping="Wrap" Text="Ch1 Temp" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="284,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontWeight="Bold" Background="White"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Detail BIT">
                     <Grid Background="White">
-                        <TextBlock HorizontalAlignment="Left" Margin="46,31,0,0" TextWrapping="Wrap" Text="Target Temp" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,27,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="46,59,0,0" TextWrapping="Wrap" Text="High Temp Warn" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,55,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="46,87,0,0" TextWrapping="Wrap" Text="High Temp Alarm" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,83,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="46,115,0,0" TextWrapping="Wrap" Text="Low Temp Warn" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,111,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="46,143,0,0" TextWrapping="Wrap" Text="Low Temp Alarm" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,139,0,0" TextWrapping="Wrap" Text="+20.0" VerticalAlignment="Top" Width="120" FontWeight="Bold"/>
-                        <Button Content="Set" HorizontalAlignment="Left" Margin="331,139,0,0" VerticalAlignment="Top" Width="40" Height="23" FontWeight="Bold"/>
-
+                        <Button Content="Comp Heat" HorizontalAlignment="Left" Margin="69,32,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" RenderTransformOrigin="1.307,-2.028" Background="Lime"/>
+                        <Button Content="Over&#xA;Current" HorizontalAlignment="Left" Margin="149,32,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Low&#xA;Pressure" HorizontalAlignment="Left" Margin="229,32,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="High&#xA;Pressure" HorizontalAlignment="Left" Margin="309,32,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Flow Meter&#xA;Sensor" HorizontalAlignment="Left" Margin="69,73,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Flow Switch&#xA;Sensor" HorizontalAlignment="Left" Margin="149,73,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Flow Meter&#xA;Low" HorizontalAlignment="Left" Margin="229,73,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Flow Switch&#xA;Low" HorizontalAlignment="Left" Margin="309,73,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Temp&#xA;Sensor" HorizontalAlignment="Left" Margin="69,114,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Level&#xA;Sensor" HorizontalAlignment="Left" Margin="149,114,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
+                        <Button Content="Low Level2" HorizontalAlignment="Left" Margin="229,114,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Low Level1&#xA;Warning" HorizontalAlignment="Left" Margin="309,114,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Low Temp2" HorizontalAlignment="Left" Margin="69,155,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="Low Temp1&#xA;Warning" HorizontalAlignment="Left" Margin="149,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="36" Background="Lime"/>
+                        <Button Content="High Temp2" HorizontalAlignment="Left" Margin="229,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="35" Background="Lime"/>
+                        <Button Content="High Temp1&#xA;warning" HorizontalAlignment="Left" Margin="309,156,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="Lime"/>
                     </Grid>
                 </TabItem>
             </TabControl>
-
-        </Grid>
-        <Grid Grid.Row="2">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="LASER BIT" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontWeight="Bold" FontSize="14"/>
-            <Button Content="LCB Ethernet" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="LCB MCU" HorizontalAlignment="Left" Margin="150,40,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="LCB FPGA" HorizontalAlignment="Left" Margin="275,40,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="LCV SD CAN" HorizontalAlignment="Left" Margin="25,85,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="SD MCU" HorizontalAlignment="Left" Margin="150,85,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="SD POL" HorizontalAlignment="Left" Margin="275,85,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="BIT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="335,14,0,0" FontWeight="Bold"/>
-        </Grid>
-        <Grid Grid.Row="3">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="INTERLOCK" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontWeight="Bold" FontSize="14"/>
-            <Button Content="E-Stop" HorizontalAlignment="Left" Margin="25,34,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="SEED Input" HorizontalAlignment="Left" Margin="150,34,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="SEED Output" HorizontalAlignment="Left" Margin="275,34,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="AMP Temp" HorizontalAlignment="Left" Margin="25,79,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="AMP Current" HorizontalAlignment="Left" Margin="150,79,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="AMP Voltage" HorizontalAlignment="Left" Margin="275,79,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="AMP PD" HorizontalAlignment="Left" Margin="25,124,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="CHILLER&#xA;  Temp" HorizontalAlignment="Left" Margin="150,124,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-            <Button Content="Housing&#xA;Humidity" HorizontalAlignment="Left" Margin="275,124,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="14"/>
-        </Grid>
-        <Grid Grid.Row="4">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="EMERGENCY STOP" VerticalAlignment="Top" Height="24" Width="400" Background="#FFDDDDDD" TextAlignment="Center" FontWeight="Bold" FontSize="14"/>
-            <Button Content="STOP" HorizontalAlignment="Left" Margin="140,35,0,0" VerticalAlignment="Top" Width="120" Height="70" Background="Red" FontWeight="Bold" FontSize="24"/>
         </Grid>
     </Grid>
 </UserControl>

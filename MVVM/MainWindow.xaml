@@ -10,19 +10,19 @@
         xmlns:Command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="MainWindow" Height="960" Width="1420">
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400" />
-            <ColumnDefinition Width="1500" />
+            <ColumnDefinition Width="1000" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <view:SideView/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="300" />
-                <RowDefinition Height="735" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="720" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <view:TopView/>
@@ -32,20 +32,17 @@
                     <TabItem Header="Control">
                         <view:ControlView/>
                     </TabItem>
+                    <TabItem Header="Detail BIT">
+                        <view:BitView/>
+                    </TabItem>
                     <TabItem Header="Engineering">
                         <view:EngineeringView/>
                     </TabItem>
                     <TabItem Header="Engineering2">
                         <view:EngineeringView2/>
-                    </TabItem>
-                    <TabItem Header="Detail BIT">
-                        <view:BitView/>
-                    </TabItem>
+                    </TabItem>                    
                 </TabControl>
             </Grid>
-
         </Grid>
-
-
     </Grid>
 </Window>
