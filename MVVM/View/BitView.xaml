@@ -7,85 +7,217 @@
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Bit}"
              d:DesignHeight="460" d:DesignWidth="1500">
+    <UserControl.Resources>
+        <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
+        <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
+        <LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFF" Offset="0.0"/>
+            <GradientStop Color="#CCC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="PressedBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#BBB" Offset="0.0"/>
+            <GradientStop Color="#EEE" Offset="0.1"/>
+            <GradientStop Color="#EEE" Offset="0.9"/>
+            <GradientStop Color="#FFF" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="NormalBorderBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#CCC" Offset="0.0"/>
+            <GradientStop Color="#444" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="BorderBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#CCC" Offset="0.0"/>
+            <GradientStop Color="#444" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="PressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#444" Offset="0.0"/>
+            <GradientStop Color="#888" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="SimpleButton" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+            <Setter Property="Background" Value="{StaticResource NormalBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource NormalBorderBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="Grid">
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" Value="{StaticResource PressedBrush}" TargetName="Border"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource PressedBorderBrush}" TargetName="Border"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="322" Margin="10,12,0,0" VerticalAlignment="Top" Width="307" Background="#FFE6E6E0">
-            <Grid Height="123">
-                <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="LASER" Margin="0,0,0,88"/>                
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,48,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Seed Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,35,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,48,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,88,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="SEED Temp." HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,75,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,88,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,128,0,-25" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="SEED RF Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,115,0,-20" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,128,0,-25" VerticalAlignment="Top" Width="40" FontWeight="Bold" RenderTransformOrigin="0.675,2.35"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,170,0,-67" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Amp. Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,155,0,-67" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,168,0,-65" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,210,0,-107" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Amp. Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,195,0,-107" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,208,0,-105" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,247,0,-144" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Amp. Temp." HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,235,0,-147" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,248,0,-145" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,287,0,-184" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Amp. PD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,275,0,-187" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,288,0,-185" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="LASER" Height="30" Margin="0,0,0,93"/>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,80,0,0" Background="{Binding SeedStatus, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,120,0,-17" Background="{Binding AmpCurrent, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,160,0,-57" Background="{Binding AmpVoltage, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,200,0,-97" Background="{Binding AmpTemp, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,241,0,-138" Background="{Binding AmpPd, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <TextBlock Text="SEED Status" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" FontWeight="Bold" Margin="76,76,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Amp. Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" FontWeight="Bold" Margin="76,116,0,-17" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Amp. Voltage" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" FontWeight="Bold" Margin="76,156,0,-57" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Amp. Temp." HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" FontWeight="Bold" Margin="76,196,0,-97" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Amp. PD" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" FontWeight="Bold" Margin="76,237,0,-138" Background="{x:Null}" FontSize="18" Height="24"/>
+                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,80,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="Button_Click" Style="{StaticResource SimpleButton}" Height="20"/>
+                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,120,0,-17" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="Button_Click_1" Style="{StaticResource SimpleButton}" Height="20"/>
+                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,160,0,-57" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="Button_Click_2" Style="{StaticResource SimpleButton}" Height="20"/>
+                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,200,0,-97" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="Button_Click_4" Style="{StaticResource SimpleButton}" Height="20"/>
+                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,241,0,-138" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="Button_Click_3" Style="{StaticResource SimpleButton}" Height="20"/>
             </Grid>
+
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="322" Margin="344,12,0,0" VerticalAlignment="Top" Width="307" Background="#FFE6E6E0">
-            <Grid Height="123">
-                <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="DC POWER SUPPLY" Margin="0,0,0,88"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="15,76,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="380VAC" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,63,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,76,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="15,116,0,-13" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Board" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="76,103,0,-15" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,116,0,-13" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="15,156,0,-53" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="PA 1,2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,143,0,-55" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,156,0,-53" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="15,196,0,-93" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="PA3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,183,0,-95" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,196,0,-93" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="15,236,0,-133" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="PA4" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="71,223,0,-135" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,236,0,-133" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="15,276,0,-173" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="ETC" HorizontalAlignment="Left" VerticalAlignment="Top" Width="181" FontWeight="Bold" Margin="71,263,0,-175" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="35"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="257,276,0,-173" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="DC POWER SUPPLY"/>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Background="{Binding VacInput, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}" Margin="10,80,0,-70">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Background="{Binding PowerBoard, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}" Margin="10,120,0,-110">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Background="{Binding Amp1_2, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}" Margin="10,160,0,-150">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Background="{Binding Amp3, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}" Margin="10,200,0,-190">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Background="{Binding Amp4, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}" Margin="10,240,0,-230">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Background="{Binding Etc, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}" Margin="10,280,0,-270">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <TextBlock Text="380VAC" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="80,76,0,-70" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Board" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="80,116,0,-110" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="PA 1,2" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="80,156,0,-150" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="PA3" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="80,196,0,-190" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="PA4" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="80,236,0,-230" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="ETC" HorizontalAlignment="Left" Width="181" FontWeight="Bold" Margin="80,276,0,-270" Background="{x:Null}" FontSize="18" Height="24"/>
+                <Button Content="&gt;&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" FontWeight="Bold" Margin="257,51,0,-41" Click="Button_Click_5" Style="{StaticResource SimpleButton}" Height="20"/>
             </Grid>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="322" Margin="677,12,0,0" VerticalAlignment="Top" Width="308" Background="#FFE6E6E0">
-            <Grid Height="277">
-                <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="CHILLER" Margin="0,0,0,241"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,54,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Comp. Over Heat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,47,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,54,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,93,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Over Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,80,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="36"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,93,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,133,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Pressure" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,120,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="36"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,133,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,172,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Flow" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,159,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="36"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,172,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,213,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Low level" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,200,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="36"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,213,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,251,0,0" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="Low Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,238,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="36"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,251,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,288,0,-31" Background="Lime" BorderBrush="{x:Null}"/>
-                <Button Content="High Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="71,275,0,-34" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="18" Height="36"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" Margin="258,288,0,-31" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-
+        <StackPanel HorizontalAlignment="Left" Height="322" Margin="677,12,0,0" VerticalAlignment="Top" Width="323" Background="#FFE6E6E0">
+            <Grid>
+                <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="CHILLER" Height="30" Margin="0,0,0,247"/>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,80,0,0" Background="{Binding CompOverHeat, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,120,0,0" Background="{Binding OverCurrent, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,160,0,0" Background="{Binding Pressure, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,200,0,0" Background="{Binding FlowMeter, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,240,0,0" Background="{Binding Level, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,280,0,-23" Background="{Binding Temp, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <TextBlock Text="Comp. Over Heat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="80,77,0,0" Background="{x:Null}" FontSize="18"/>
+                <TextBlock Text="Over Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="80,116,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Pressure" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="80,156,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Flow Meter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="80,196,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Level" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="80,236,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+                <TextBlock Text="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" FontWeight="Bold" Margin="80,276,0,-23" Background="{x:Null}" FontSize="18" Height="24"/>
+                <Button Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding PressureLow, Converter={StaticResource BoolLimeRedConverter}}" Margin="208,160,0,0" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding FlowMeterLow, Converter={StaticResource BoolLimeRedConverter}}" Margin="208,201,0,0" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding LevelLow, Converter={StaticResource BoolLimeRedConverter}}" Margin="208,240,0,0" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding TempLow, Converter={StaticResource BoolLimeRedConverter}}" Margin="208,280,0,-23" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="High" HorizontalAlignment="Left" Margin="263,160,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding PressureHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="Sensor" HorizontalAlignment="Left" Margin="263,200,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding FlowMeterSensor, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="Sensor" HorizontalAlignment="Left" Margin="263,240,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding LevelSensor, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="High" HorizontalAlignment="Left" Margin="262,280,0,-23" VerticalAlignment="Top" Width="50" FontWeight="Bold" Background="{Binding TempHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+                    </Button.Effect>
+                </Button>
             </Grid>
         </StackPanel>
-
     </Grid>
 </UserControl>

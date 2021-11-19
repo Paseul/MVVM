@@ -1,0 +1,256 @@
+﻿<Window x:Class="MVVM.View.PowerBit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM.View"
+        mc:Ignorable="d"
+        Title="PowerBit" Height="400" Width="404"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
+        <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <TextBlock HorizontalAlignment="Left" Margin="122,9,0,0" TextWrapping="Wrap" Text="Voltage" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="282,8,0,0" TextWrapping="Wrap" Text="Current" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" Text="380VAC" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="Board" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="PA1, 2" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="PA3" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,135,0,0" TextWrapping="Wrap" Text="PA4-1" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,160,0,0" TextWrapping="Wrap" Text="PA4-2" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,185,0,0" TextWrapping="Wrap" Text="PA4-3" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,210,0,0" TextWrapping="Wrap" Text="PA4-4" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,235,0,0" TextWrapping="Wrap" Text="PA4-5" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,260,0,0" TextWrapping="Wrap" Text="PA4-6" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,336,0,0" TextWrapping="Wrap" Text="E-Stop" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,286,0,0" TextWrapping="Wrap" Text="Humid" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,311,0,0" TextWrapping="Wrap" Text="Temp" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
+        <Button x:Name="vacVoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,33,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding VacVoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pbVoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,58,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding PbVoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp1_2VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,83,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp1_2VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp3VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,108,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp3VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_1VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,133,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_1VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_2VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,158,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_2VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_3VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,183,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_3VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_4VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,208,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_4VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_5VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,233,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_5VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_6VoltLow" Content="Low" HorizontalAlignment="Left" Margin="69,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_6VoltLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="e_stop" Content="" HorizontalAlignment="Left" Margin="69,334,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding E_stop, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="vacVoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,33,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding VacVoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pbVoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,58,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding PbVoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp1_2VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,83,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp1_2VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp3VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,108,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp3VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_1VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,133,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_1VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_2VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,158,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_2VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_3VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,183,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_3VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_4VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,208,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_4VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_5VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,233,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_5VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_6VoltHigh" Content="High" HorizontalAlignment="Left" Margin="149,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_6VoltHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="humidityLow" Content="Low" HorizontalAlignment="Left" Margin="69,284,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding HumidityLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="vacCurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,33,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding VacCurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pbCurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,58,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding PbCurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp1_2CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,83,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding amp1_2CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp3CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,108,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding amp3CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_1CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,133,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_1CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_2CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,158,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_2CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_3CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,183,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_3CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_4CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,208,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_4CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_5CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,233,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_5CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_6CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_6CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="tempLow" Content="Low" HorizontalAlignment="Left" Margin="69,309,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding TempLow, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="vacCurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,33,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding VacCurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pbCurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,58,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding PbCurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp1_2CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,83,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp1_2CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp3CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,108,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp3CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_1CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,133,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_1CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_2CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,158,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_2CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_3CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,183,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_3CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_4CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,208,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_4CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_5CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,233,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_5CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="amp4_6CurrHigh" Content="High" HorizontalAlignment="Left" Margin="309,258,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp4_6CurrHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="humidityHigh" Content="High" HorizontalAlignment="Left" Margin="149,284,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding HumidityHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="tempHigh" Content="High" HorizontalAlignment="Left" Margin="149,309,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding TempHigh, Converter={StaticResource BoolLimeRedConverter}}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

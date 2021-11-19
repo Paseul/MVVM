@@ -1,0 +1,115 @@
+﻿<Window x:Class="MVVM.View.AmpVoltage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM.View"
+        mc:Ignorable="d"
+        Title="AmpVoltage" Height="420" Width="260"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
+        <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <TextBlock Text="PA1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,22,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,62,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,101,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4-1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,144,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,184,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,221,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,260,0,0" Background="{x:Null}" FontSize="18" Height="24" RenderTransformOrigin="0.483,0.153"/>
+        <TextBlock Text="PA4-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,300,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" FontWeight="Bold" Margin="10,339,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <Button x:Name="pa1VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,26,0,0" Background="{Binding Pa1VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa2VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,66,0,0" Background="{Binding Pa2VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa3VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,106,0,0" Background="{Binding Pa3VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_1VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,148,0,0" Background="{Binding Pa4_1VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_2VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,188,0,0" Background="{Binding Pa4_2VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_3VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,225,0,0" Background="{Binding Pa4_3VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_4VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,265,0,0" Background="{Binding Pa4_4VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_5VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,304,0,0" Background="{Binding Pa4_5VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_6VoltageLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="112,344,0,0" Background="{Binding Pa4_6VoltageLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa1VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,26,0,0" Background="{Binding Pa1VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa2VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,66,0,0" Background="{Binding Pa2VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa3VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,106,0,0" Background="{Binding Pa3VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_1VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,148,0,0" Background="{Binding Pa4_1VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_2VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,188,0,0" Background="{Binding Pa4_2VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_3VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,225,0,0" Background="{Binding Pa4_3VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_4VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,265,0,0" Background="{Binding Pa4_4VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_5VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,304,0,0" Background="{Binding Pa4_5VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4_6VoltageHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="173,344,0,0" Background="{Binding Pa4_6VoltageHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

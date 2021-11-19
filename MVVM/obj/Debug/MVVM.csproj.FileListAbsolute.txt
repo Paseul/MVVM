@@ -112,3 +112,17 @@ C:\github\MVVM\MVVM\obj\Debug\View\BitView.g.cs
 C:\github\MVVM\MVVM\obj\Debug\View\BitView.baml
 C:\github\MVVM\MVVM\obj\Debug\View\EngineeringView2.g.cs
 C:\github\MVVM\MVVM\obj\Debug\View\EngineeringView2.baml
+C:\github\MVVM\MVVM\obj\Debug\View\AmpCurrent.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\AmpPD.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\AmpTemp.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\AmpVoltage.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\AmpCurrent.baml
+C:\github\MVVM\MVVM\obj\Debug\View\AmpPD.baml
+C:\github\MVVM\MVVM\obj\Debug\View\AmpTemp.baml
+C:\github\MVVM\MVVM\obj\Debug\View\AmpVoltage.baml
+C:\github\MVVM\MVVM\obj\Debug\View\PA4_PD_Setting.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\PowerBit.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\SeedStatus.g.cs
+C:\github\MVVM\MVVM\obj\Debug\View\PA4_PD_Setting.baml
+C:\github\MVVM\MVVM\obj\Debug\View\PowerBit.baml
+C:\github\MVVM\MVVM\obj\Debug\View\SeedStatus.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\github\MVVM\MVVM\App.xaml
-8-150562819
+15-1650386403
 
-22-508347709
-1241647902857
-MainWindow.xaml;Themes\Generic.xaml;View\BitView.xaml;View\ControlView.xaml;View\EngineeringView.xaml;View\EngineeringView2.xaml;View\SideView.xaml;View\TopView.xaml;
+32658829017
+1251469976336
+MainWindow.xaml;Themes\Generic.xaml;View\AmpCurrent.xaml;View\AmpPD.xaml;View\AmpTemp.xaml;View\AmpVoltage.xaml;View\BitView.xaml;View\ControlView.xaml;View\EngineeringView.xaml;View\EngineeringView2.xaml;View\PA4_PD_Setting.xaml;View\PowerBit.xaml;View\SeedStatus.xaml;View\SideView.xaml;View\TopView.xaml;
 
 False
 

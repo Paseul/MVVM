@@ -10,11 +10,11 @@
         xmlns:Command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="960" Width="1420">
+        Title="MainWindow" Height="960" Width="1540" ResizeMode="NoResize">
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400" />
-            <ColumnDefinition Width="1000" />
+            <ColumnDefinition Width="340" />
+            <ColumnDefinition Width="1200" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
             <view:SideView/>
@@ -29,7 +29,7 @@
             </Grid>
             <Grid Grid.Row="1">
                 <TabControl FontWeight="Bold">
-                    <TabItem Header="Control">
+                    <TabItem Header="Laser Operation">
                         <view:ControlView/>
                     </TabItem>
                     <TabItem Header="Detail BIT">

@@ -44,3 +44,17 @@ C:\github\MVVM\MVVM\obj\Release\MVVM.csproj.CoreCompileInputs.cache
 C:\github\MVVM\MVVM\obj\Release\MVVM.csproj.CopyComplete
 C:\github\MVVM\MVVM\obj\Release\MVVM.exe
 C:\github\MVVM\MVVM\obj\Release\MVVM.pdb
+C:\github\MVVM\MVVM\obj\Release\View\AmpCurrent.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\AmpPD.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\AmpTemp.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\AmpVoltage.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\AmpCurrent.baml
+C:\github\MVVM\MVVM\obj\Release\View\AmpPD.baml
+C:\github\MVVM\MVVM\obj\Release\View\AmpTemp.baml
+C:\github\MVVM\MVVM\obj\Release\View\AmpVoltage.baml
+C:\github\MVVM\MVVM\obj\Release\View\PA4_PD_Setting.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\PowerBit.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\SeedStatus.g.cs
+C:\github\MVVM\MVVM\obj\Release\View\PA4_PD_Setting.baml
+C:\github\MVVM\MVVM\obj\Release\View\PowerBit.baml
+C:\github\MVVM\MVVM\obj\Release\View\SeedStatus.baml

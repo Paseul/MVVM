@@ -1,0 +1,193 @@
+﻿<Window x:Class="MVVM.View.AmpTemp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM.View"
+        mc:Ignorable="d"
+        Title="AmpTemp" Height="380" Width="580"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
+        <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <TextBlock Text="PA4 LD1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,22,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 LD2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,63,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 LD3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,101,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 LD4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,143,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 LD5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,183,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 LD6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,221,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA3 LD3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,261,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 FET1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,22,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 FET2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,62,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 FET3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,102,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 FET4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,144,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 FET5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,184,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 FET6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,222,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 TFB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,261,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="Output Water" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="8,299,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="PA4 Pump" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" FontWeight="Bold" Margin="300,300,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <Button x:Name="pa4Ld1Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,26,0,0" Background="{Binding PaTemp1Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld2Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,66,0,0" Background="{Binding PaTemp2Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld3Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,106,0,0" Background="{Binding PaTemp3Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld4Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,148,0,0" Background="{Binding PaTemp4Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld5Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,188,0,0" Background="{Binding PaTemp5Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld6Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,225,0,0" Background="{Binding PaTemp6Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld16Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,265,0,0" Background="{Binding PaTemp16Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld7Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,27,0,0" Background="{Binding PaTemp7Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld8Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,67,0,0" Background="{Binding PaTemp8Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld9Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,107,0,0" Background="{Binding PaTemp9Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld10Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,149,0,0" Background="{Binding PaTemp10Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld11Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,189,0,0" Background="{Binding PaTemp11Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld12Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,226,0,0" Background="{Binding PaTemp12Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld14Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,266,0,0" Background="{Binding PaTemp14Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld13Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="144,304,0,0" Background="{Binding PaTemp13Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld15Low" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="438,305,0,0" Background="{Binding PaTemp15Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld1High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,27,0,0" Background="{Binding PaTemp1High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld2High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,67,0,0" Background="{Binding PaTemp2High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld3High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,107,0,0" Background="{Binding PaTemp3High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld4High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,149,0,0" Background="{Binding PaTemp4High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld5High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,189,0,0" Background="{Binding PaTemp5High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld6High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,226,0,0" Background="{Binding PaTemp6High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld16High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,266,0,0" Background="{Binding PaTemp16High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld13High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="205,305,0,0" Background="{Binding PaTemp13High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld7High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,26,0,0" Background="{Binding PaTemp7High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld8High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,66,0,0" Background="{Binding PaTemp8High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld9High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,106,0,0" Background="{Binding PaTemp9High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld10High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,148,0,0" Background="{Binding PaTemp10High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld11High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,188,0,0" Background="{Binding PaTemp11High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld12High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,225,0,0" Background="{Binding PaTemp12High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld14High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,265,0,0" Background="{Binding PaTemp14High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="pa4Ld15High" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="499,304,0,0" Background="{Binding PaTemp15High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
+            </Button.Effect>
+        </Button>
+
+    </Grid>
+</Window>

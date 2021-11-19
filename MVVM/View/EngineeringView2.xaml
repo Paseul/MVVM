@@ -7,8 +7,66 @@
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Engineering2}"
              d:DesignHeight="760" d:DesignWidth="1200">
-    <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="672" Margin="10,10,0,0" VerticalAlignment="Top" Width="697" Background="#FFE6E6E6">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFF" Offset="0.0"/>
+            <GradientStop Color="#CCC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="PressedBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#BBB" Offset="0.0"/>
+            <GradientStop Color="#EEE" Offset="0.1"/>
+            <GradientStop Color="#EEE" Offset="0.9"/>
+            <GradientStop Color="#FFF" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="NormalBorderBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#CCC" Offset="0.0"/>
+            <GradientStop Color="#444" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="BorderBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#CCC" Offset="0.0"/>
+            <GradientStop Color="#444" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="PressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#444" Offset="0.0"/>
+            <GradientStop Color="#888" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="SimpleButton" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+            <Setter Property="Background" Value="{StaticResource NormalBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource NormalBorderBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="Grid">
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" Value="{StaticResource PressedBrush}" TargetName="Border"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource PressedBorderBrush}" TargetName="Border"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Margin="2,2,1,1"/>
+                            <Border BorderBrush="#FFBAB7B7" BorderThickness="0,0,1,1" Margin="1,1,0,0"/>
+                            <Border BorderBrush="Black" BorderThickness="1,1,0,0" Width="Auto"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="#FFE6E6E6">
+        <StackPanel HorizontalAlignment="Left" Height="672" Margin="10,10,0,0" VerticalAlignment="Top" Width="697" Background="White">
             <Grid>
                 <TextBlock TextWrapping="Wrap" Text="Limit Setting" Height="24" Background="#FFC8C8C8" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,658"/>
                 <Button Content="SEED" HorizontalAlignment="Left" VerticalAlignment="Top" Width="66" FontWeight="Bold" Height="45" Margin="10,60,0,0"/>
@@ -74,30 +132,30 @@
                     </StackPanel.Background>
                     <Grid>
                         <TextBlock TextWrapping="Wrap" Text="Low" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,542"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,610,0,-60" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,610,0,-60" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                     </Grid>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="628" Margin="242,27,0,0" VerticalAlignment="Top" Width="86">
@@ -106,30 +164,30 @@
                     </StackPanel.Background>
                     <Grid>
                         <TextBlock TextWrapping="Wrap" Text="High" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,542"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,610,0,-60" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,610,0,-60" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                     </Grid>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="611" Margin="464,26,0,0" VerticalAlignment="Top" Width="86">
@@ -138,29 +196,29 @@
                     </StackPanel.Background>
                     <Grid Height="559">
                         <TextBlock TextWrapping="Wrap" Text="Low" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,531"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-21" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,585,0,-46" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-21" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,585,0,-46" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                     </Grid>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="610" Margin="565,27,0,0" VerticalAlignment="Top" Width="86">
@@ -169,47 +227,45 @@
                     </StackPanel.Background>
                     <Grid>
                         <TextBlock TextWrapping="Wrap" Text="High" Background="#FFDDDDDD" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,542"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,33,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,133,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,258,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,283,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,308,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,383,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,408,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,433,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,458,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,484,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,510,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,534,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,560,0,-10" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="5,584,0,-34" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                     </Grid>
                 </StackPanel>
-                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="647,14,-1,0" FontWeight="Bold"/>
+                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="647,14,-1,0" FontWeight="Bold" Style="{StaticResource SimpleButton}"/>
             </Grid>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="123" Margin="724,10,0,0" VerticalAlignment="Top" Width="224" Background="#FFE6E6E0">
+        <StackPanel HorizontalAlignment="Left" Height="123" Margin="724,10,0,0" VerticalAlignment="Top" Width="224" Background="White">
             <Grid>
                 <TextBlock TextWrapping="Wrap" Text="    Version" Height="24" Background="#FFC8C8C8" TextAlignment="Left" FontSize="14" FontWeight="Bold" Margin="0,0,0,546"/>
                 <Button Content="LCB SW Version" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,43,0,0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,43,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,43,0,0" TextWrapping="Wrap" Text="{Binding SwVer}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                 <Button Content="LCB HW Version" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,68,0,0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,68,0,0" TextWrapping="Wrap" Text="{Binding HwVer}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                 <Button Content="Device ID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="10,93,0,0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
-                <Button Content="Req" HorizontalAlignment="Left" Margin="174,14,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold"/>
-
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="136,93,0,0" TextWrapping="Wrap" Text="{Binding DeviceId}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <Button Content="Req" HorizontalAlignment="Left" Margin="174,14,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Style="{StaticResource SimpleButton}"/>
             </Grid>
         </StackPanel>
-
     </Grid>
 </UserControl>

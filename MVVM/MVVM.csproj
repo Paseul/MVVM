@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -70,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\BoolGrayRedConverter.cs" />
+    <Compile Include="View\BoolLimeRedConverter.cs" />
+    <Compile Include="View\IntToColorConverter.cs" />
     <Compile Include="Messages\ViewModelMessage.cs" />
     <Compile Include="Model\Brushes.cs" />
     <Compile Include="ViewModel\BitViewModel.cs" />
@@ -80,6 +84,18 @@
     <Compile Include="ViewModel\SideViewModel.cs" />
     <Compile Include="ViewModel\TopViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AmpCurrent.xaml.cs">
+      <DependentUpon>AmpCurrent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmpPD.xaml.cs">
+      <DependentUpon>AmpPD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmpTemp.xaml.cs">
+      <DependentUpon>AmpTemp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmpVoltage.xaml.cs">
+      <DependentUpon>AmpVoltage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BitView.xaml.cs">
       <DependentUpon>BitView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +107,15 @@
     </Compile>
     <Compile Include="View\EngineeringView2.xaml.cs">
       <DependentUpon>EngineeringView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PA4_PD_Setting.xaml.cs">
+      <DependentUpon>PA4_PD_Setting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PowerBit.xaml.cs">
+      <DependentUpon>PowerBit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SeedStatus.xaml.cs">
+      <DependentUpon>SeedStatus.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SideView.xaml.cs">
       <DependentUpon>SideView.xaml</DependentUpon>
@@ -115,6 +140,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\AmpCurrent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmpPD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmpTemp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmpVoltage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +169,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EngineeringView2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PA4_PD_Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PowerBit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SeedStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,49 +231,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\SEED_base.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="View\Background.PNG" />
     <Resource Include="View\PA1_base.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA2_base.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA3_base.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA4_base.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\SEED_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="View\PA1_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="View\PA2_base.png" />
     <Resource Include="View\PA2_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="View\PA3_base.png" />
     <Resource Include="View\PA3_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="View\PA4_base.png" />
     <Resource Include="View\PA4_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\SEED_error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA1_error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA2_error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA3_error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\PA4_error.png" />
+    <Resource Include="View\SEED_base.png" />
+    <Resource Include="View\SEED_normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

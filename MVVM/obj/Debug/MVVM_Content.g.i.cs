@@ -8,6 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa1_base.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa1_error.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa1_normal.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa2_base.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa2_error.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa2_normal.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa3_base.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa3_error.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa3_normal.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa4_base.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa4_error.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pa4_normal.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/seed_base.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/seed_error.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/seed_normal.png")]
 
 
