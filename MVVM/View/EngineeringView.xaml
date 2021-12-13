@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM.View"
+             xmlns:local="clr-namespace:MVVM.ViewModel"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:Command="http://www.galasoft.ch/mvvmlight"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Engineering}"
              d:DesignHeight="760" d:DesignWidth="1500">
     <UserControl.Resources>
+        <local:BoolGrayLimeConverter x:Key="BoolGrayLimeConverter"/>
         <LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#FFF" Offset="0.0"/>
             <GradientStop Color="#CCC" Offset="1.0"/>
@@ -223,53 +226,76 @@
                 <TextBox HorizontalAlignment="Left" Height="20" Margin="420,595,0,-45" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR3}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                 <TextBox HorizontalAlignment="Left" Height="20" Margin="420,118,0,0" TextWrapping="Wrap" Text="{Binding RfVxpVoltReadValue}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
                 <TextBox HorizontalAlignment="Left" Height="20" Margin="420,142,0,0" TextWrapping="Wrap" Text="{Binding RfVampVoltReadValue}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="536,14,0,0" FontWeight="Bold" Style="{StaticResource SimpleButton}"/>
+                <Button Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="493,14,0,0" FontWeight="Bold" Background="LightGray" Style="{StaticResource SimpleButton}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <Command:EventToCommand Command="{Binding OnSetLoadCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="536,14,0,0" FontWeight="Bold" Background="LightGray" Style="{StaticResource SimpleButton}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <Command:EventToCommand Command="{Binding OnSetSetCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="RF TEC" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="294,94,0,0" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Margin="503,95,0,0" TextWrapping="Wrap" Text="{Binding HsTempSetValue}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="420,94,0,0" TextWrapping="Wrap" Text="{Binding HsTempReadValue}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <Button Content="Polarization&#x0a;Controller" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Margin="294,44,0,0" FontWeight="Bold" Height="45"/>
+                <TextBox HorizontalAlignment="Left" Margin="420,69,0,0" TextWrapping="Wrap" Text="{Binding PolResponseSet}" VerticalAlignment="Top" Height="20" Width="153" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="420,45,0,0" TextWrapping="Wrap" Text="{Binding PolResponseRead}" VerticalAlignment="Top" Width="153" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>                
             </Grid>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="215" Margin="601,10,0,0" VerticalAlignment="Top" Width="351" Background="White">
-            <Grid Height="244">
-                <TextBlock TextWrapping="Wrap" Text="Callibration" Height="24" Background="#FFC8C8C8" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,220"/>
-                <Button Content="&gt;&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="301,185,0,0" FontWeight="Bold" Click="Button_Click" Style="{StaticResource SimpleButton}"/>
-                <Button Content="PD1 Input" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,37,0,0"/>
-                <Button Content="PA1 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,62,0,0"/>
-                <Button Content="PA2 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,87,0,0"/>
-                <Button Content="PA3 Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,112,0,0"/>
-                <Button Content="PA3 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,137,0,0"/>
-                <Button Content="PA4 Back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,162,0,0"/>
-                <Button Content="PA4 Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" FontWeight="Bold" Margin="11,187,0,0"/>
-                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="301,13,0,0" FontWeight="Bold" Style="{StaticResource SimpleButton}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,37,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,62,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,87,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,112,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,137,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,137,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,162,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,162,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="220,187,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="137,187,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-            </Grid>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="150" Margin="601,230,0,0" VerticalAlignment="Top" Width="351" Background="White">
-            <Grid Height="244">
-                <TextBlock TextWrapping="Wrap" Text="Polarization Controller" Height="24" Background="#FFC8C8C8" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,220"/>
-                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="301,13,0,0" FontWeight="Bold" Style="{StaticResource SimpleButton}"/>
-                <TextBlock Text="Avg." HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontWeight="Bold" Margin="11,37,0,0" Background="{x:Null}"/>
-                <TextBlock Text="Step" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontWeight="Bold" Margin="76,37,0,0" Background="{x:Null}"/>
-                <TextBlock Text="Delay" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontWeight="Bold" Margin="141,37,0,0" Background="{x:Null}"/>
-                <TextBlock Text="Thres." HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontWeight="Bold" Margin="206,37,0,0" Background="{x:Null}"/>
-                <TextBlock Text="Mode" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontWeight="Bold" Margin="271,37,0,0" Background="{x:Null}"/>
-                <TextBlock Text="Resopnse" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" FontWeight="Bold" Margin="11,87,0,0" Background="{x:Null}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="11,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="76,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="141,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="206,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="271,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="11,112,0,0" TextWrapping="Wrap" Text="{Binding PolResponseSet}" VerticalAlignment="Top" Width="320" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+        <StackPanel HorizontalAlignment="Left" Height="400" Margin="601,10,0,0" VerticalAlignment="Top" Width="349" Background="White">
+            <Grid Height="400">
+                <TextBlock TextWrapping="Wrap" Text="Callibration" Background="#FFC8C8C8" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,377"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,47,0,0" TextWrapping="Wrap" Text="{Binding PdChannel}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,72,0,0" TextWrapping="Wrap" Text="{Binding TableLength}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,139,0,0" TextWrapping="Wrap" Text="{Binding PdAdc1}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,164,0,0" TextWrapping="Wrap" Text="{Binding PdAdc2}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,189,0,0" TextWrapping="Wrap" Text="{Binding PdAdc3}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,214,0,0" TextWrapping="Wrap" Text="{Binding PdAdc4}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,239,0,0" TextWrapping="Wrap" Text="{Binding PdAdc5}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,264,0,0" TextWrapping="Wrap" Text="{Binding PdAdc6}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,289,0,0" TextWrapping="Wrap" Text="{Binding PdAdc7}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,314,0,0" TextWrapping="Wrap" Text="{Binding PdAdc8}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,339,0,0" TextWrapping="Wrap" Text="{Binding PdAdc9}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,364,0,0" TextWrapping="Wrap" Text="{Binding PdAdc10}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,139,0,0" TextWrapping="Wrap" Text="{Binding PdPower1}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,164,0,0" TextWrapping="Wrap" Text="{Binding PdPower2}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,189,0,0" TextWrapping="Wrap" Text="{Binding PdPower3}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,214,0,0" TextWrapping="Wrap" Text="{Binding PdPower4}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,239,0,0" TextWrapping="Wrap" Text="{Binding PdPower5}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,264,0,0" TextWrapping="Wrap" Text="{Binding PdPower6}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,289,0,0" TextWrapping="Wrap" Text="{Binding PdPower7}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,314,0,0" TextWrapping="Wrap" Text="{Binding PdPower8}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,339,0,0" TextWrapping="Wrap" Text="{Binding PdPower9}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Margin="261,364,0,0" TextWrapping="Wrap" Text="{Binding PdPower10}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="21,138,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,163,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,188,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,213,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,238,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,263,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,288,0,0" TextWrapping="Wrap" Text="7" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,313,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,338,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="21,363,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="261,111,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="15,111,0,0" TextWrapping="Wrap" Text="No." VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="150,111,0,0" TextWrapping="Wrap" Text="PD" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
+                <Button Content="Set" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Margin="301,14,0,0" FontWeight="Bold" Style="{StaticResource SimpleButton}" RenderTransformOrigin="2.625,-15.444">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <Command:EventToCommand Command="{Binding OnCalSetCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Margin="14,48,0,0" TextWrapping="Wrap" Text="PD Channel" VerticalAlignment="Top" Height="20" Width="128" FontWeight="Bold" />
+                <TextBlock HorizontalAlignment="Left" Margin="14,75,0,0" TextWrapping="Wrap" Text="Table Length" VerticalAlignment="Top" Height="20" Width="128" FontWeight="Bold" />
+                
             </Grid>
         </StackPanel>
     </Grid>

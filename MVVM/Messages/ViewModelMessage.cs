@@ -79,6 +79,7 @@ namespace MVVM.Messages
     {
         public float SeedCurrentSetValue { get; set; }
         public float SeedTempSetValue { get; set; }
+        public float HsTempSetValue { get; set; }
         public float Pa1CurrentSetValue { get; set; }
         public float Pa2CurrentSetValue { get; set; }
         public float Pa3CurrentSetValue { get; set; }
@@ -326,6 +327,7 @@ namespace MVVM.Messages
     {
         public float SeedCurrentReadValue { get; set; }
         public float SeedTempReadValue { get; set; }
+        public float HsTempReadValue { get; set; }
         public float Pa1CurrentReadValue { get; set; }
         public float Pa2CurrentReadValue { get; set; }
         public float Pa3CurrentReadValue { get; set; }
@@ -634,5 +636,93 @@ namespace MVVM.Messages
     {
         public string cmd { get; set; }
         public string data { get; set; }
+    }
+    class lcb002Cmd : MessageBase
+    {
+        public string cmd { get; set; }
+    }
+    class lcb003Cmd : MessageBase
+    {
+        public string cmd { get; set; }
+    }
+
+    class lcb004writeSetCmd : MessageBase
+    {
+        public float SeedCurrentSetValue { get; set; }
+        public float SeedTempSetValue { get; set; }
+        public float HsTempSetValue { get; set; }
+        public float Pa1CurrentSetValue { get; set; }
+        public float Pa2CurrentSetValue { get; set; }
+        public float Pa3CurrentSetValue { get; set; }
+        public float Pa4_1CurrentSetValueR1 { get; set; }
+        public float Pa4_1TimeSetValueR1 { get; set; }
+        public float Pa4_1CurrentSetValueR2 { get; set; }
+        public float Pa4_1TimeSetValueR2 { get; set; }
+        public float Pa4_1CurrentSetValueR3 { get; set; }
+        public float Pa4_1TimeSetValueR3 { get; set; }
+        public float Pa4_2CurrentSetValueR1 { get; set; }
+        public float Pa4_2TimeSetValueR1 { get; set; }
+        public float Pa4_2CurrentSetValueR2 { get; set; }
+        public float Pa4_2TimeSetValueR2 { get; set; }
+        public float Pa4_2CurrentSetValueR3 { get; set; }
+        public float Pa4_2TimeSetValueR3 { get; set; }
+        public float Pa4_3CurrentSetValueR1 { get; set; }
+        public float Pa4_3TimeSetValueR1 { get; set; }
+        public float Pa4_3CurrentSetValueR2 { get; set; }
+        public float Pa4_3TimeSetValueR2 { get; set; }
+        public float Pa4_3CurrentSetValueR3 { get; set; }
+        public float Pa4_3TimeSetValueR3 { get; set; }
+        public float Pa4_4CurrentSetValueR1 { get; set; }
+        public float Pa4_4TimeSetValueR1 { get; set; }
+        public float Pa4_4CurrentSetValueR2 { get; set; }
+        public float Pa4_4TimeSetValueR2 { get; set; }
+        public float Pa4_4CurrentSetValueR3 { get; set; }
+        public float Pa4_4TimeSetValueR3 { get; set; }
+        public float Pa4_5CurrentSetValueR1 { get; set; }
+        public float Pa4_5TimeSetValueR1 { get; set; }
+        public float Pa4_5CurrentSetValueR2 { get; set; }
+        public float Pa4_5TimeSetValueR2 { get; set; }
+        public float Pa4_5CurrentSetValueR3 { get; set; }
+        public float Pa4_5TimeSetValueR3 { get; set; }
+        public float Pa4_6CurrentSetValueR1 { get; set; }
+        public float Pa4_6TimeSetValueR1 { get; set; }
+        public float Pa4_6CurrentSetValueR2 { get; set; }
+        public float Pa4_6TimeSetValueR2 { get; set; }
+        public float Pa4_6CurrentSetValueR3 { get; set; }
+        public float Pa4_6TimeSetValueR3 { get; set; }
+        public float RfVxpVoltSetValue { get; set; }
+        public float RfVampVoltSetValue { get; set; }
+        public string PolResponseSet { get; set; }
+    }
+
+    class lcb004ReadSetCmd : MessageBase
+    {
+        public string cmd { get; set; }
+    }
+
+    class lcb004PdCalCmd : MessageBase
+    {
+        public float PdChannel { get; set; }
+        public float TableLength { get; set; }
+        public float PdAdc1 { get; set; }
+        public float PdAdc2 { get; set; }
+        public float PdAdc3 { get; set; }
+        public float PdAdc4 { get; set; }
+        public float PdAdc5 { get; set; }
+        public float PdAdc6 { get; set; }
+        public float PdAdc7 { get; set; }
+        public float PdAdc8 { get; set; }
+        public float PdAdc9 { get; set; }
+        public float PdAdc10 { get; set; }
+        public float PdPower1 { get; set; }
+        public float PdPower2 { get; set; }
+        public float PdPower3 { get; set; }
+        public float PdPower4 { get; set; }
+        public float PdPower5 { get; set; }
+        public float PdPower6 { get; set; }
+        public float PdPower7 { get; set; }
+        public float PdPower8 { get; set; }
+        public float PdPower9 { get; set; }
+        public float PdPower10 { get; set; }
     }
 }

@@ -71,9 +71,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\BoolGrayRedConverter.cs" />
-    <Compile Include="View\BoolLimeRedConverter.cs" />
-    <Compile Include="View\IntToColorConverter.cs" />
+    <Compile Include="ViewModel\AmpCurrentModel.cs" />
+    <Compile Include="ViewModel\AmpPDModel.cs" />
+    <Compile Include="ViewModel\AmpTempModel.cs" />
+    <Compile Include="ViewModel\AmpVoltageModel.cs" />
+    <Compile Include="ViewModel\BoolGrayLimeConverter.cs" />
+    <Compile Include="ViewModel\BoolGrayRedConverter.cs" />
+    <Compile Include="ViewModel\BoolLimeRedConverter.cs" />
+    <Compile Include="ViewModel\ImageConverter.cs" />
+    <Compile Include="ViewModel\IntToColorConverter.cs" />
+    <Compile Include="ViewModel\PowerBitModel.cs" />
+    <Compile Include="ViewModel\SeedStatusModel.cs" />
     <Compile Include="Messages\ViewModelMessage.cs" />
     <Compile Include="Model\Brushes.cs" />
     <Compile Include="ViewModel\BitViewModel.cs" />
@@ -108,9 +116,6 @@
     <Compile Include="View\EngineeringView2.xaml.cs">
       <DependentUpon>EngineeringView2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PA4_PD_Setting.xaml.cs">
-      <DependentUpon>PA4_PD_Setting.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PowerBit.xaml.cs">
       <DependentUpon>PowerBit.xaml</DependentUpon>
     </Compile>
@@ -123,7 +128,6 @@
     <Compile Include="View\TopView.xaml.cs">
       <DependentUpon>TopView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WpfGraphControl.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,10 +176,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PA4_PD_Setting.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\PowerBit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,29 +219,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RealTimeGraphX.WPF\RealTimeGraphX.WPF.csproj">
-      <Project>{6b9774f7-960d-438e-ad81-c6b9be328d50}</Project>
-      <Name>RealTimeGraphX.WPF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RealTimeGraphX\RealTimeGraphX.csproj">
-      <Project>{50bc0e0c-28aa-4315-a350-f3f61ee1b21c}</Project>
-      <Name>RealTimeGraphX</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="View\Background.PNG" />
-    <Resource Include="View\PA1_base.png" />
-    <Resource Include="View\PA1_normal.png" />
-    <Resource Include="View\PA2_base.png" />
-    <Resource Include="View\PA2_normal.png" />
-    <Resource Include="View\PA3_base.png" />
-    <Resource Include="View\PA3_normal.png" />
-    <Resource Include="View\PA4_base.png" />
-    <Resource Include="View\PA4_normal.png" />
-    <Resource Include="View\SEED_base.png" />
-    <Resource Include="View\SEED_normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

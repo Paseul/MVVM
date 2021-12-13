@@ -24,11 +24,5 @@ namespace MVVM.View
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            PA4_PD_Setting pdSettingWindow = new PA4_PD_Setting();
-            pdSettingWindow.Show();
-        }
     }
 }

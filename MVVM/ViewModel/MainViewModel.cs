@@ -36,6 +36,7 @@ namespace MVVM.ViewModel
         private static ManualResetEvent connectDone =
         new ManualResetEvent(false);
         private bool dcPBit;
+        private UInt16 seqNum = 0;
 
         delegate void TimerEventFiredDelegate();
 
@@ -50,11 +51,14 @@ namespace MVVM.ViewModel
         public MainViewModel()
         {
             connect();
-            Messenger.Default.Register<chillerCmd>(this, OnReceiveMessageAction);            
-        }
-
-        
-
+            Console.WriteLine("???");
+            Messenger.Default.Register<chillerCmd>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<lcb002Cmd>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<lcb003Cmd>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<lcb004writeSetCmd>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<lcb004ReadSetCmd>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<lcb004PdCalCmd>(this, OnReceiveMessageAction);
+        }       
 
         private void connect()
         {
@@ -433,7 +437,7 @@ namespace MVVM.ViewModel
                     ushort tempValue = BitConverter.ToUInt16(tempByte, 0);
                     realValue[i] = (float)tempValue;                    
                 }
-                var writeCalValue = new writeCalValue()
+                /*var writeCalValue = new writeCalValue()
                 {
                     SeedCurrentCal =    (short)realValue[0],
                     SeedTempCal =       (short)realValue[1],
@@ -450,7 +454,7 @@ namespace MVVM.ViewModel
                     RfVxpCal =          (sbyte)result[25],
                     RfVampCal =         (sbyte)result[26],
                 };
-                Messenger.Default.Send(writeCalValue);
+                Messenger.Default.Send(writeCalValue);*/
             }
             else if (result[0] == 4)
             {
@@ -461,7 +465,7 @@ namespace MVVM.ViewModel
                     ushort tempValue = BitConverter.ToUInt16(tempByte, 0);
                     realValue[i] = (float)tempValue;
                 }
-                var readCalValue = new readCalValue()
+                /*var readCalValue = new readCalValue()
                 {
                     SeedCurrentCal =    (short)realValue[0],
                     SeedTempCal =       (short)realValue[1],
@@ -504,7 +508,7 @@ namespace MVVM.ViewModel
                     PaTemp16Cal =       (short)realValue[39],
                     RfVmonCal =         (short)realValue[40],
                 };
-                Messenger.Default.Send(readCalValue);
+                Messenger.Default.Send(readCalValue);*/
             }
             else if (result[0] == 8)
             {
@@ -516,7 +520,7 @@ namespace MVVM.ViewModel
                     realValue[i] = (float)tempValue;
                 }
 
-                var setHighLimit = new setHighLimit()
+                /*var setHighLimit = new setHighLimit()
                 {
                     SeedCurrent = realValue[0] / 100,
                     SeedTemp = realValue[1] / 1000,
@@ -569,7 +573,7 @@ namespace MVVM.ViewModel
                     SeedHumid = result[99],
                     PaHumid = result[100]
                 };
-                Messenger.Default.Send(setHighLimit);
+                Messenger.Default.Send(setHighLimit);*/
             
             }
             else if (result[0] == 16)
@@ -582,7 +586,7 @@ namespace MVVM.ViewModel
                     realValue[i] = (float)tempValue;
                 }
 
-                var setLowLimit = new setLowLimit()
+                /*var setLowLimit = new setLowLimit()
                 {
                     SeedCurrent = realValue[0] / 100,
                     SeedTemp = realValue[1] / 1000,
@@ -635,7 +639,7 @@ namespace MVVM.ViewModel
                     SeedHumid = result[99],
                     PaHumid = result[100]
                 };
-                Messenger.Default.Send(setLowLimit);
+                Messenger.Default.Send(setLowLimit);*/
             }
             else if (result[0] == 32)
             {
@@ -654,7 +658,7 @@ namespace MVVM.ViewModel
                     realValue[i] = (float)tempValue;
                 }
 
-                var pdCalibration = new pdCalibration()
+                /*var pdCalibration = new pdCalibration()
                 {
                     PdChennel = result[1],
                     TableLength = result[2],
@@ -686,7 +690,7 @@ namespace MVVM.ViewModel
                     PdLaserPower9 = realValue[18] / 100,
                     PdLaserPower10 = realValue[19] / 100,
                 };
-                Messenger.Default.Send(pdCalibration);
+                Messenger.Default.Send(pdCalibration);*/
             }
             else if (result[0] == 128)
             {
@@ -958,11 +962,362 @@ namespace MVVM.ViewModel
             }
         }
 
+        private void OnReceiveMessageAction(lcb002Cmd obj)
+        {
+            byte[] Ack = new byte[2] { 0xAC, 0x13 };
+            byte source = 0x01;
+            byte destination = 0x02;
+            byte opcode = 0x02;
+            byte[] dataSize = BitConverter.GetBytes((ushort)0);
+            byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
+            byte cmdFlag = 0x00;
+            byte reset = 0x01;
+            byte seedControl = 0x00;
+            byte[] ampControl = BitConverter.GetBytes((ushort)0);
+            byte checkSum = 0x00;
+            byte[] Etx = new byte[2] { 0xE7, 0xE8 };
+
+            if (obj.cmd == "seedOn")
+            {
+                Console.WriteLine("seedOn");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x02;
+                seedControl = 0x31;
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + seedControl);
+                byte[] bytesToSend = new byte[14] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, seedControl, checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 14; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp1On")
+            {
+                Console.WriteLine("amp1On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)1);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp2On")
+            {
+                Console.WriteLine("amp2On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)2);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp3On")
+            {
+                Console.WriteLine("amp3On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)4);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp4_1On")
+            {
+                Console.WriteLine("amp4_1On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)8);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp4_2On")
+            {
+                Console.WriteLine("amp4_2On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)16);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp4_3On")
+            {
+                Console.WriteLine("amp4_3On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)32);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp4_4On")
+            {
+                Console.WriteLine("amp4_4On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)64);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp4_5On")
+            {
+                Console.WriteLine("amp4_5On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)128);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "amp4_6On")
+            {
+                Console.WriteLine("amp4_6On");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x04;
+                ampControl = BitConverter.GetBytes((ushort)256);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + ampControl[0] + ampControl[1]);
+                byte[] bytesToSend = new byte[15] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, ampControl[0], ampControl[1], checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 15; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "polOn")
+            {
+                Console.WriteLine("polOn");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x02;
+                seedControl = 0x62;
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + seedControl);
+                byte[] bytesToSend = new byte[14] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, seedControl, checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 14; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            else if (obj.cmd == "resetOn")
+            {
+                Console.WriteLine("resetOn");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                cmdFlag = 0x01;
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + reset);
+                byte[] bytesToSend = new byte[14] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, reset, checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 14; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            seqNum += 1;
+        }
+
+        private void OnReceiveMessageAction(lcb003Cmd obj)
+        {
+            byte[] Ack = new byte[2] { 0xAC, 0x13 };
+            byte source = 0x01;
+            byte destination = 0x02;
+            byte opcode = 0x03;
+            byte[] dataSize = BitConverter.GetBytes((ushort)0);
+            byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
+            byte cmdFlag = 0x01;
+            byte reqVer = 0x01;
+            byte checkSum = 0x00;
+            byte[] Etx = new byte[2] { 0xE7, 0xE8 };
+
+            if (obj.cmd == "verReq")
+            {
+                Console.WriteLine("verReq");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + reqVer);
+                byte[] bytesToSend = new byte[14] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, reqVer, checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 14; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            seqNum += 1;
+        }
+
+        private void OnReceiveMessageAction(lcb004ReadSetCmd obj)
+        {
+            byte[] Ack = new byte[2] { 0xAC, 0x13 };
+            byte source = 0x01;
+            byte destination = 0x02;
+            byte opcode = 0x04;
+            byte[] dataSize = BitConverter.GetBytes((ushort)0);
+            byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
+            byte cmdFlag = 0x80;
+            byte readSet = 0x01;
+            byte checkSum = 0x00;
+            byte[] Etx = new byte[2] { 0xE7, 0xE8 };
+
+            if (obj.cmd == "readSet")
+            {
+                Console.WriteLine("readSet");
+                dataSize = BitConverter.GetBytes((ushort)2);
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + readSet);
+                byte[] bytesToSend = new byte[14] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, readSet, checkSum, Etx[0], Etx[1] };
+                /*for (int i = 0; i < 14; i++)
+                    Console.WriteLine(bytesToSend[i]);*/
+                laserClient.Send(bytesToSend);
+            }
+            seqNum += 1;
+        }
+
+        private void OnReceiveMessageAction(lcb004PdCalCmd obj)
+        {
+            Console.WriteLine("PD Calibration");
+
+            byte[] Ack = new byte[2] { 0xAC, 0x13 };
+            byte source = 0x01;
+            byte destination = 0x02;
+            byte opcode = 0x04;
+            byte[] dataSize = BitConverter.GetBytes((ushort)43);
+            byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
+            byte cmdFlag = 0x40;
+            byte PdChannel = (byte)obj.PdChannel;
+            byte TableLength = (byte)obj.TableLength;
+            byte[] PdAdc1 = BitConverter.GetBytes((ushort)obj.PdAdc1);
+            byte[] PdAdc2 = BitConverter.GetBytes((ushort)obj.PdAdc2);
+            byte[] PdAdc3 = BitConverter.GetBytes((ushort)obj.PdAdc3);
+            byte[] PdAdc4 = BitConverter.GetBytes((ushort)obj.PdAdc4);
+            byte[] PdAdc5 = BitConverter.GetBytes((ushort)obj.PdAdc5);
+            byte[] PdAdc6 = BitConverter.GetBytes((ushort)obj.PdAdc6);
+            byte[] PdAdc7 = BitConverter.GetBytes((ushort)obj.PdAdc7);
+            byte[] PdAdc8 = BitConverter.GetBytes((ushort)obj.PdAdc8);
+            byte[] PdAdc9 = BitConverter.GetBytes((ushort)obj.PdAdc9);
+            byte[] PdAdc10 = BitConverter.GetBytes((ushort)obj.PdAdc10);
+            byte[] PdPower1 = BitConverter.GetBytes((ushort)(obj.PdPower1 * 100));
+            byte[] PdPower2 = BitConverter.GetBytes((ushort)(obj.PdPower2 * 100));
+            byte[] PdPower3 = BitConverter.GetBytes((ushort)(obj.PdPower3 * 100));
+            byte[] PdPower4 = BitConverter.GetBytes((ushort)(obj.PdPower4 * 100));
+            byte[] PdPower5 = BitConverter.GetBytes((ushort)(obj.PdPower5 * 100));
+            byte[] PdPower6 = BitConverter.GetBytes((ushort)(obj.PdPower6 * 100));
+            byte[] PdPower7 = BitConverter.GetBytes((ushort)(obj.PdPower7 * 100));
+            byte[] PdPower8 = BitConverter.GetBytes((ushort)(obj.PdPower8 * 100));
+            byte[] PdPower9 = BitConverter.GetBytes((ushort)(obj.PdPower9 * 100));
+            byte[] PdPower10 = BitConverter.GetBytes((ushort)(obj.PdPower10 * 100)); 
+            byte checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + PdChannel + TableLength + PdAdc1[0] + PdAdc1[1] + PdAdc2[0] + PdAdc2[1] + PdAdc3[0] + PdAdc3[1]
+                + PdAdc4[0] + PdAdc4[1] + PdAdc5[0] + PdAdc5[1] + PdAdc6[0] + PdAdc6[1] + PdAdc7[0] + PdAdc7[1] + PdAdc8[0] + PdAdc8[1] + PdAdc9[0] + PdAdc9[1] + PdAdc10[0] + PdAdc10[1] + PdPower1[0] + PdPower1[1] + PdPower2[0] + PdPower2[1]
+                 + PdPower3[0] + PdPower3[1] + PdPower4[0] + PdPower4[1] + PdPower5[0] + PdPower5[1] + PdPower6[0] + PdPower6[1] + PdPower7[0] + PdPower7[1] + PdPower8[0] + PdPower8[1] + PdPower9[0] + PdPower9[1] + PdPower10[0] + PdPower10[1]);
+            byte[] Etx = new byte[2] { 0xE7, 0xE8 };
+            byte[] bytesToSend = new byte[55] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, PdChannel, TableLength, PdAdc1[0], PdAdc1[1], PdAdc2[0], PdAdc2[1], PdAdc3[0], PdAdc3[1]
+                ,PdAdc4[0], PdAdc4[1], PdAdc5[0], PdAdc5[1], PdAdc6[0], PdAdc6[1], PdAdc7[0], PdAdc7[1], PdAdc8[0], PdAdc8[1], PdAdc9[0], PdAdc9[1], PdAdc10[0], PdAdc10[1], PdPower1[0], PdPower1[1], PdPower2[0], PdPower2[1], PdPower3[0], PdPower3[1]
+                ,PdPower4[0], PdPower4[1], PdPower5[0], PdPower5[1], PdPower6[0], PdPower6[1], PdPower7[0], PdPower7[1], PdPower8[0], PdPower8[1], PdPower9[0], PdPower9[1], PdPower10[0], PdPower10[1], checkSum, Etx[0], Etx[1] };
+            /*for (int i = 0; i < 55; i++)
+                Console.WriteLine(bytesToSend[i]);*/
+            laserClient.Send(bytesToSend);
+
+            seqNum += 1;
+        }
+
+        private void OnReceiveMessageAction(lcb004writeSetCmd obj)
+        {
+            Console.WriteLine("Write Set");
+
+            byte[] Ack = new byte[2] { 0xAC, 0x13 };
+            byte source = 0x01;
+            byte destination = 0x02;
+            byte opcode = 0x04;
+            byte[] dataSize = BitConverter.GetBytes((ushort)43);
+            byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
+            byte cmdFlag = 0x01;
+            byte[] SeedCurrentSetValue = BitConverter.GetBytes((ushort)(obj.SeedCurrentSetValue * 100));
+            byte[] SeedTempSetValue = BitConverter.GetBytes((ushort)(obj.SeedTempSetValue * 1000));
+            byte[] HsTempSetValue = BitConverter.GetBytes((ushort)(obj.HsTempSetValue * 100));
+            byte[] Pa1CurrentSetValue = BitConverter.GetBytes((ushort)(obj.Pa1CurrentSetValue * 1000));
+            byte[] Pa2CurrentSetValue = BitConverter.GetBytes((ushort)(obj.Pa2CurrentSetValue * 1000));
+            byte[] Pa3CurrentSetValue = BitConverter.GetBytes((ushort)(obj.Pa3CurrentSetValue * 1000));
+            byte[] Pa4_1CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_1CurrentSetValueR1 * 1000));
+            byte[] Pa4_1TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_1TimeSetValueR1);
+            byte[] Pa4_1CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_1CurrentSetValueR2 * 1000));
+            byte[] Pa4_1TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_1TimeSetValueR2);
+            byte[] Pa4_1CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_1CurrentSetValueR3 * 1000));
+            byte[] Pa4_1TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_1TimeSetValueR3);
+            byte[] Pa4_2CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_2CurrentSetValueR1 * 1000));
+            byte[] Pa4_2TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_2TimeSetValueR1);
+            byte[] Pa4_2CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_2CurrentSetValueR2 * 1000));
+            byte[] Pa4_2TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_2TimeSetValueR2);
+            byte[] Pa4_2CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_2CurrentSetValueR3 * 1000));
+            byte[] Pa4_2TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_2TimeSetValueR3);
+            byte[] Pa4_3CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_3CurrentSetValueR1 * 1000));
+            byte[] Pa4_3TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_3TimeSetValueR1);
+            byte[] Pa4_3CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_3CurrentSetValueR2 * 1000));
+            byte[] Pa4_3TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_3TimeSetValueR2);
+            byte[] Pa4_3CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_3CurrentSetValueR3 * 1000));
+            byte[] Pa4_3TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_3TimeSetValueR3);
+            byte[] Pa4_4CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_4CurrentSetValueR1 * 1000));
+            byte[] Pa4_4TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_4TimeSetValueR1);
+            byte[] Pa4_4CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_4CurrentSetValueR2 * 1000));
+            byte[] Pa4_4TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_4TimeSetValueR2);
+            byte[] Pa4_4CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_4CurrentSetValueR3 * 1000));
+            byte[] Pa4_4TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_4TimeSetValueR3);
+            byte[] Pa4_5CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_5CurrentSetValueR1 * 1000));
+            byte[] Pa4_5TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_5TimeSetValueR1);
+            byte[] Pa4_5CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_5CurrentSetValueR2 * 1000));
+            byte[] Pa4_5TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_5TimeSetValueR2);
+            byte[] Pa4_5CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_5CurrentSetValueR3 * 1000));
+            byte[] Pa4_5TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_5TimeSetValueR3);
+            byte[] Pa4_6CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR1 * 1000));
+            byte[] Pa4_6TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR1);
+            byte[] Pa4_6CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR2 * 1000));
+            byte[] Pa4_6TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR2);
+            byte[] Pa4_6CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR3 * 1000));
+            byte[] Pa4_6TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR3);
+            byte RfVxpVoltSetValue = (byte)(obj.RfVxpVoltSetValue * 10);
+            byte RfVampVoltSetValue = (byte)(obj.RfVampVoltSetValue * 10);
+            byte[] PolResponseSet = StringToByte(obj.PolResponseSet);
+
+            byte checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + SeedCurrentSetValue[0] + SeedCurrentSetValue[1] + SeedTempSetValue[0] + SeedTempSetValue[1]
+                + HsTempSetValue[0] + HsTempSetValue[1] + Pa1CurrentSetValue[0] + Pa1CurrentSetValue[1] + Pa2CurrentSetValue[0] + Pa2CurrentSetValue[1] + Pa3CurrentSetValue[0] + Pa3CurrentSetValue[1] + Pa4_1CurrentSetValueR1[0] + Pa4_1CurrentSetValueR1[1]
+                + Pa4_1TimeSetValueR1[0] + Pa4_1TimeSetValueR1[1] + Pa4_1CurrentSetValueR2[0] + Pa4_1CurrentSetValueR2[1] + Pa4_1TimeSetValueR2[0] + Pa4_1TimeSetValueR2[1] + Pa4_1CurrentSetValueR3[0] + Pa4_1CurrentSetValueR3[1] + Pa4_1TimeSetValueR3[0] 
+                + Pa4_1TimeSetValueR3[1] + Pa4_2CurrentSetValueR1[0] + Pa4_2CurrentSetValueR1[1] + Pa4_2TimeSetValueR1[0] + Pa4_2TimeSetValueR1[1] + Pa4_2CurrentSetValueR2[0] + Pa4_2CurrentSetValueR2[1] + Pa4_2TimeSetValueR2[0] + Pa4_2TimeSetValueR2[1]
+                + Pa4_2CurrentSetValueR3[0] + Pa4_2CurrentSetValueR3[1] + Pa4_2TimeSetValueR3[0] + Pa4_2TimeSetValueR3[1] + Pa4_3CurrentSetValueR1[0] + Pa4_3CurrentSetValueR1[1] + Pa4_3TimeSetValueR1[0] + Pa4_3TimeSetValueR1[1] + Pa4_3CurrentSetValueR2[0]
+                + Pa4_3CurrentSetValueR2[1] + Pa4_3TimeSetValueR2[0] + Pa4_3TimeSetValueR2[1] + Pa4_3CurrentSetValueR3[0] + Pa4_3CurrentSetValueR3[1] + Pa4_3TimeSetValueR3[0] + Pa4_3TimeSetValueR3[1] + Pa4_4CurrentSetValueR1[0] + Pa4_4CurrentSetValueR1[1]
+                + Pa4_4TimeSetValueR1[0] + Pa4_4TimeSetValueR1[1] + Pa4_4CurrentSetValueR2[0] + Pa4_4CurrentSetValueR2[1] + Pa4_4TimeSetValueR2[0] + Pa4_4TimeSetValueR2[1] + Pa4_4CurrentSetValueR3[0] + Pa4_4CurrentSetValueR3[1] + Pa4_4TimeSetValueR3[0]
+                + Pa4_4TimeSetValueR3[1] + Pa4_5CurrentSetValueR1[0] + Pa4_5CurrentSetValueR1[1] + Pa4_5TimeSetValueR1[0] + Pa4_5TimeSetValueR1[1] + Pa4_5CurrentSetValueR2[0] + Pa4_5CurrentSetValueR2[1] + Pa4_5TimeSetValueR2[0] + Pa4_5TimeSetValueR2[1]
+                + Pa4_5CurrentSetValueR3[0] + Pa4_5CurrentSetValueR3[1] + Pa4_5TimeSetValueR3[0] + Pa4_5TimeSetValueR3[1] + Pa4_6CurrentSetValueR1[0] + Pa4_6CurrentSetValueR1[1] + Pa4_6TimeSetValueR1[0] + Pa4_6TimeSetValueR1[1] + Pa4_6CurrentSetValueR2[0]
+                + Pa4_6CurrentSetValueR2[1] + Pa4_6TimeSetValueR2[0] + Pa4_6TimeSetValueR2[1] + Pa4_6CurrentSetValueR3[0] + Pa4_6CurrentSetValueR3[1] + Pa4_6TimeSetValueR3[0] + Pa4_6TimeSetValueR3[1] + RfVxpVoltSetValue + RfVampVoltSetValue
+                + PolResponseSet[0] + PolResponseSet[1] + PolResponseSet[2] + PolResponseSet[3] + PolResponseSet[4] + PolResponseSet[5] + PolResponseSet[6] + PolResponseSet[7] + PolResponseSet[8] + PolResponseSet[9]);
+            byte[] Etx = new byte[2] { 0xE7, 0xE8 };
+            byte[] bytesToSend = new byte[109] { Ack[0], Ack[1], source, destination, opcode, dataSize[0], dataSize[1], seqNumBytes[0], seqNumBytes[1], cmdFlag, SeedCurrentSetValue[0], SeedCurrentSetValue[1], SeedTempSetValue[0], SeedTempSetValue[1]
+                ,HsTempSetValue[0], HsTempSetValue[1], Pa1CurrentSetValue[0], Pa1CurrentSetValue[1], Pa2CurrentSetValue[0], Pa2CurrentSetValue[1], Pa3CurrentSetValue[0], Pa3CurrentSetValue[1], Pa4_1CurrentSetValueR1[0], Pa4_1CurrentSetValueR1[1]
+                ,Pa4_1TimeSetValueR1[0], Pa4_1TimeSetValueR1[1], Pa4_1CurrentSetValueR2[0], Pa4_1CurrentSetValueR2[1], Pa4_1TimeSetValueR2[0], Pa4_1TimeSetValueR2[1], Pa4_1CurrentSetValueR3[0], Pa4_1CurrentSetValueR3[1], Pa4_1TimeSetValueR3[0]
+                ,Pa4_1TimeSetValueR3[1], Pa4_2CurrentSetValueR1[0], Pa4_2CurrentSetValueR1[1], Pa4_2TimeSetValueR1[0], Pa4_2TimeSetValueR1[1], Pa4_2CurrentSetValueR2[0], Pa4_2CurrentSetValueR2[1], Pa4_2TimeSetValueR2[0], Pa4_2TimeSetValueR2[1]
+                ,Pa4_2CurrentSetValueR3[0], Pa4_2CurrentSetValueR3[1], Pa4_2TimeSetValueR3[0], Pa4_2TimeSetValueR3[1], Pa4_3CurrentSetValueR1[0], Pa4_3CurrentSetValueR1[1], Pa4_3TimeSetValueR1[0], Pa4_3TimeSetValueR1[1], Pa4_3CurrentSetValueR2[0]
+                ,Pa4_3CurrentSetValueR2[1], Pa4_3TimeSetValueR2[0], Pa4_3TimeSetValueR2[1], Pa4_3CurrentSetValueR3[0], Pa4_3CurrentSetValueR3[1], Pa4_3TimeSetValueR3[0], Pa4_3TimeSetValueR3[1], Pa4_4CurrentSetValueR1[0], Pa4_4CurrentSetValueR1[1]
+                ,Pa4_4TimeSetValueR1[0], Pa4_4TimeSetValueR1[1], Pa4_4CurrentSetValueR2[0], Pa4_4CurrentSetValueR2[1], Pa4_4TimeSetValueR2[0], Pa4_4TimeSetValueR2[1], Pa4_4CurrentSetValueR3[0], Pa4_4CurrentSetValueR3[1], Pa4_4TimeSetValueR3[0]
+                ,Pa4_4TimeSetValueR3[1], Pa4_5CurrentSetValueR1[0], Pa4_5CurrentSetValueR1[1], Pa4_5TimeSetValueR1[0], Pa4_5TimeSetValueR1[1], Pa4_5CurrentSetValueR2[0], Pa4_5CurrentSetValueR2[1], Pa4_5TimeSetValueR2[0], Pa4_5TimeSetValueR2[1]
+                ,Pa4_5CurrentSetValueR3[0], Pa4_5CurrentSetValueR3[1], Pa4_5TimeSetValueR3[0], Pa4_5TimeSetValueR3[1], Pa4_6CurrentSetValueR1[0], Pa4_6CurrentSetValueR1[1], Pa4_6TimeSetValueR1[0], Pa4_6TimeSetValueR1[1], Pa4_6CurrentSetValueR2[0]
+                ,Pa4_6CurrentSetValueR2[1], Pa4_6TimeSetValueR2[0], Pa4_6TimeSetValueR2[1], Pa4_6CurrentSetValueR3[0], Pa4_6CurrentSetValueR3[1], Pa4_6TimeSetValueR3[0], Pa4_6TimeSetValueR3[1], RfVxpVoltSetValue, RfVampVoltSetValue
+                ,PolResponseSet[0], PolResponseSet[1], PolResponseSet[2], PolResponseSet[3], PolResponseSet[4], PolResponseSet[5], PolResponseSet[6], PolResponseSet[7], PolResponseSet[8], PolResponseSet[9], checkSum, Etx[0], Etx[1] };
+            /*for (int i = 0; i < 109; i++)
+                Console.WriteLine(bytesToSend[i]);*/
+            laserClient.Send(bytesToSend);
+        }
+
         private string ByteToString(byte[] strByte)
         {
             string str = Encoding.Default.GetString(strByte);
             return str;
         }
+        private byte[] StringToByte(string str)
+        {
+            byte[] StrByte = Encoding.UTF8.GetBytes(str);
+            return StrByte;
+        }
+
         #endregion
         #region dcp
         private void dcpFunc(object obj)
@@ -1446,7 +1801,7 @@ namespace MVVM.ViewModel
                 byte[] bytesToSend = new byte[13] { 0x02, 0x30, 0x34, 0x34, 0x32, 0x30, 0x35, low_temp_alarm_byte[0], low_temp_alarm_byte[1], low_temp_alarm_byte[2], low_temp_alarm_byte[3], low_temp_alarm_byte[4], 0x03 };
                 chillerClient.Send(bytesToSend);
             }
-        }
+        }        
 
         private void chillerCbit(Object state)
         {

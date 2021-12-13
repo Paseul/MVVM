@@ -24,7 +24,6 @@ namespace MVVM.View
     /// </summary>
     public partial class SideView : UserControl
     {
-        SerialPort serial = new SerialPort();
         public SideView()
         {
             InitializeComponent();

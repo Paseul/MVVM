@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVM.View"
+        xmlns:local="clr-namespace:MVVM.ViewModel"
         mc:Ignorable="d"
         Title="SeedStatus" Height="180" Width="270"
+        DataContext="{Binding Source={StaticResource Locator}, Path=SeedStatus}"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
@@ -14,7 +15,7 @@
     <Grid Background="LightGray">
         <TextBlock Text="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" FontWeight="Bold" Margin="8,19,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
         <TextBlock Text="Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" FontWeight="Bold" Margin="8,59,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
-        <TextBlock Text="RF Temp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" FontWeight="Bold" Margin="8,97,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
+        <TextBlock Text="RF TEC" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" FontWeight="Bold" Margin="8,97,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
         <Button x:Name="seedCurrentLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="128,24,0,0" Background="{Binding SeedCurrentLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace MVVM.View
+namespace MVVM.ViewModel
 {
-    class IntToColorConverter : IValueConverter
+    class BoolGrayRedConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -19,17 +19,13 @@ namespace MVVM.View
                 return color;
             }
 
-            if ((int)value == 0)
+            if ((bool)value)
             {
                 color = new SolidColorBrush(Colors.LightGray);
             }
-            if ((int)value == 1)
+            else
             {
-                color = new SolidColorBrush(Colors.Yellow);
-            }
-            if ((int)value == 2)
-            {
-                color = new SolidColorBrush(Colors.Lime);
+                color = new SolidColorBrush(Colors.Red);
             }
 
             return color;
@@ -40,4 +36,5 @@ namespace MVVM.View
             throw new NotImplementedException();
         }
     }
+
 }

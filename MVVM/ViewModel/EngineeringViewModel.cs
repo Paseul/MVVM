@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MVVM.Messages;
 using System;
@@ -13,8 +14,12 @@ namespace MVVM.ViewModel
 {
     public class EngineeringViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private float _seedCurrentReadValue;
+        public RelayCommand OnSetSetCommand { get; set; }
+        public RelayCommand OnSetLoadCommand { get; set; }
+        public RelayCommand OnCalSetCommand { get; set; }
 
+
+        private float _seedCurrentReadValue;
         public float SeedCurrentReadValue
         {
             get { return _seedCurrentReadValue; }
@@ -25,7 +30,6 @@ namespace MVVM.ViewModel
             }
         }
         private float _seedTempReadValue;
-
         public float SeedTempReadValue
         {
             get { return _seedTempReadValue; }
@@ -35,8 +39,17 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private float _hsTempReadValue;
+        public float HsTempReadValue
+        {
+            get { return _hsTempReadValue; }
+            set
+            {
+                _hsTempReadValue = value;
+                NotifyPropertyChanged();
+            }
+        }
         private float _pa1CurrentReadValue;
-
         public float Pa1CurrentReadValue
         {
             get { return _pa1CurrentReadValue; }
@@ -46,9 +59,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa2CurrentReadValue;
-
         public float Pa2CurrentReadValue
         {
             get { return _pa2CurrentReadValue; }
@@ -58,9 +69,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa3CurrentReadValue;
-
         public float Pa3CurrentReadValue
         {
             get { return _pa3CurrentReadValue; }
@@ -70,9 +79,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1CurrentReadValueR1;
-
         public float Pa4_1CurrentReadValueR1
         {
             get { return _pa4_1CurrentReadValueR1; }
@@ -82,9 +89,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1TimeReadValueR1;
-
         public float Pa4_1TimeReadValueR1
         {
             get { return _pa4_1TimeReadValueR1; }
@@ -94,9 +99,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1CurrentReadValueR2;
-
         public float Pa4_1CurrentReadValueR2
         {
             get { return _pa4_1CurrentReadValueR2; }
@@ -106,9 +109,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1TimeReadValueR2;
-
         public float Pa4_1TimeReadValueR2
         {
             get { return _pa4_1TimeReadValueR2; }
@@ -118,9 +119,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1CurrentReadValueR3;
-
         public float Pa4_1CurrentReadValueR3
         {
             get { return _pa4_1CurrentReadValueR3; }
@@ -130,9 +129,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1TimeReadValueR3;
-
         public float Pa4_1TimeReadValueR3
         {
             get { return _pa4_1TimeReadValueR3; }
@@ -142,9 +139,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2CurrentReadValueR1;
-
         public float Pa4_2CurrentReadValueR1
         {
             get { return _pa4_2CurrentReadValueR1; }
@@ -154,9 +149,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2TimeReadValueR1;
-
         public float Pa4_2TimeReadValueR1
         {
             get { return _pa4_2TimeReadValueR1; }
@@ -166,9 +159,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2CurrentReadValueR2;
-
         public float Pa4_2CurrentReadValueR2
         {
             get { return _pa4_2CurrentReadValueR2; }
@@ -178,9 +169,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2TimeReadValueR2;
-
         public float Pa4_2TimeReadValueR2
         {
             get { return _pa4_2TimeReadValueR2; }
@@ -190,9 +179,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2CurrentReadValueR3;
-
         public float Pa4_2CurrentReadValueR3
         {
             get { return _pa4_2CurrentReadValueR3; }
@@ -202,9 +189,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2TimeReadValueR3;
-
         public float Pa4_2TimeReadValueR3
         {
             get { return _pa4_2TimeReadValueR3; }
@@ -214,9 +199,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3CurrentReadValueR1;
-
         public float Pa4_3CurrentReadValueR1
         {
             get { return _pa4_3CurrentReadValueR1; }
@@ -226,9 +209,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3TimeReadValueR1;
-
         public float Pa4_3TimeReadValueR1
         {
             get { return _pa4_3TimeReadValueR1; }
@@ -238,9 +219,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3CurrentReadValueR2;
-
         public float Pa4_3CurrentReadValueR2
         {
             get { return _pa4_3CurrentReadValueR2; }
@@ -250,9 +229,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3TimeReadValueR2;
-
         public float Pa4_3TimeReadValueR2
         {
             get { return _pa4_3TimeReadValueR2; }
@@ -262,9 +239,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3CurrentReadValueR3;
-
         public float Pa4_3CurrentReadValueR3
         {
             get { return _pa4_3CurrentReadValueR3; }
@@ -274,9 +249,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3TimeReadValueR3;
-
         public float Pa4_3TimeReadValueR3
         {
             get { return _pa4_3TimeReadValueR3; }
@@ -286,9 +259,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4CurrentReadValueR1;
-
         public float Pa4_4CurrentReadValueR1
         {
             get { return _pa4_4CurrentReadValueR1; }
@@ -298,9 +269,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4TimeReadValueR1;
-
         public float Pa4_4TimeReadValueR1
         {
             get { return _pa4_4TimeReadValueR1; }
@@ -310,9 +279,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4CurrentReadValueR2;
-
         public float Pa4_4CurrentReadValueR2
         {
             get { return _pa4_4CurrentReadValueR2; }
@@ -322,9 +289,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4TimeReadValueR2;
-
         public float Pa4_4TimeReadValueR2
         {
             get { return _pa4_4TimeReadValueR2; }
@@ -334,9 +299,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4CurrentReadValueR3;
-
         public float Pa4_4CurrentReadValueR3
         {
             get { return _pa4_4CurrentReadValueR3; }
@@ -346,9 +309,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4TimeReadValueR3;
-
         public float Pa4_4TimeReadValueR3
         {
             get { return _pa4_4TimeReadValueR3; }
@@ -358,9 +319,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5CurrentReadValueR1;
-
         public float Pa4_5CurrentReadValueR1
         {
             get { return _pa4_5CurrentReadValueR1; }
@@ -370,9 +329,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5TimeReadValueR1;
-
         public float Pa4_5TimeReadValueR1
         {
             get { return _pa4_5TimeReadValueR1; }
@@ -382,9 +339,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5CurrentReadValueR2;
-
         public float Pa4_5CurrentReadValueR2
         {
             get { return _pa4_5CurrentReadValueR2; }
@@ -394,9 +349,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5TimeReadValueR2;
-
         public float Pa4_5TimeReadValueR2
         {
             get { return _pa4_5TimeReadValueR2; }
@@ -406,9 +359,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5CurrentReadValueR3;
-
         public float Pa4_5CurrentReadValueR3
         {
             get { return _pa4_5CurrentReadValueR3; }
@@ -418,9 +369,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5TimeReadValueR3;
-
         public float Pa4_5TimeReadValueR3
         {
             get { return _pa4_5TimeReadValueR3; }
@@ -430,9 +379,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6CurrentReadValueR1;
-
         public float Pa4_6CurrentReadValueR1
         {
             get { return _pa4_6CurrentReadValueR1; }
@@ -442,9 +389,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6TimeReadValueR1;
-
         public float Pa4_6TimeReadValueR1
         {
             get { return _pa4_6TimeReadValueR1; }
@@ -454,9 +399,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6CurrentReadValueR2;
-
         public float Pa4_6CurrentReadValueR2
         {
             get { return _pa4_6CurrentReadValueR2; }
@@ -466,9 +409,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6TimeReadValueR2;
-
         public float Pa4_6TimeReadValueR2
         {
             get { return _pa4_6TimeReadValueR2; }
@@ -478,9 +419,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6CurrentReadValueR3;
-
         public float Pa4_6CurrentReadValueR3
         {
             get { return _pa4_6CurrentReadValueR3; }
@@ -490,9 +429,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6TimeReadValueR3;
-
         public float Pa4_6TimeReadValueR3
         {
             get { return _pa4_6TimeReadValueR3; }
@@ -502,9 +439,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _rfVxpVoltReadValue;
-
         public float RfVxpVoltReadValue
         {
             get { return _rfVxpVoltReadValue; }
@@ -514,9 +449,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _rfVampVoltReadValue;
-
         public float RfVampVoltReadValue
         {
             get { return _rfVampVoltReadValue; }
@@ -526,9 +459,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private string _polResponseRead;
-
         public string PolResponseRead
         {
             get { return _polResponseRead; }
@@ -539,7 +470,6 @@ namespace MVVM.ViewModel
             }
         }
         private float _seedCurrentSetValue;
-
         public float SeedCurrentSetValue
         {
             get { return _seedCurrentSetValue; }
@@ -550,7 +480,6 @@ namespace MVVM.ViewModel
             }
         }
         private float _seedTempSetValue;
-
         public float SeedTempSetValue
         {
             get { return _seedTempSetValue; }
@@ -560,8 +489,17 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private float _hsTempSetValue;
+        public float HsTempSetValue
+        {
+            get { return _hsTempSetValue; }
+            set
+            {
+                _hsTempSetValue = value;
+                NotifyPropertyChanged();
+            }
+        }
         private float _pa1CurrentSetValue;
-
         public float Pa1CurrentSetValue
         {
             get { return _pa1CurrentSetValue; }
@@ -571,9 +509,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa2CurrentSetValue;
-
         public float Pa2CurrentSetValue
         {
             get { return _pa2CurrentSetValue; }
@@ -583,9 +519,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa3CurrentSetValue;
-
         public float Pa3CurrentSetValue
         {
             get { return _pa3CurrentSetValue; }
@@ -595,9 +529,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1CurrentSetValueR1;
-
         public float Pa4_1CurrentSetValueR1
         {
             get { return _pa4_1CurrentSetValueR1; }
@@ -607,9 +539,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1TimeSetValueR1;
-
         public float Pa4_1TimeSetValueR1
         {
             get { return _pa4_1TimeSetValueR1; }
@@ -619,9 +549,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1CurrentSetValueR2;
-
         public float Pa4_1CurrentSetValueR2
         {
             get { return _pa4_1CurrentSetValueR2; }
@@ -631,9 +559,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1TimeSetValueR2;
-
         public float Pa4_1TimeSetValueR2
         {
             get { return _pa4_1TimeSetValueR2; }
@@ -643,9 +569,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1CurrentSetValueR3;
-
         public float Pa4_1CurrentSetValueR3
         {
             get { return _pa4_1CurrentSetValueR3; }
@@ -655,9 +579,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_1TimeSetValueR3;
-
         public float Pa4_1TimeSetValueR3
         {
             get { return _pa4_1TimeSetValueR3; }
@@ -667,9 +589,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2CurrentSetValueR1;
-
         public float Pa4_2CurrentSetValueR1
         {
             get { return _pa4_2CurrentSetValueR1; }
@@ -679,9 +599,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2TimeSetValueR1;
-
         public float Pa4_2TimeSetValueR1
         {
             get { return _pa4_2TimeSetValueR1; }
@@ -691,9 +609,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2CurrentSetValueR2;
-
         public float Pa4_2CurrentSetValueR2
         {
             get { return _pa4_2CurrentSetValueR2; }
@@ -703,9 +619,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2TimeSetValueR2;
-
         public float Pa4_2TimeSetValueR2
         {
             get { return _pa4_2TimeSetValueR2; }
@@ -715,9 +629,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2CurrentSetValueR3;
-
         public float Pa4_2CurrentSetValueR3
         {
             get { return _pa4_2CurrentSetValueR3; }
@@ -727,9 +639,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_2TimeSetValueR3;
-
         public float Pa4_2TimeSetValueR3
         {
             get { return _pa4_2TimeSetValueR3; }
@@ -739,9 +649,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3CurrentSetValueR1;
-
         public float Pa4_3CurrentSetValueR1
         {
             get { return _pa4_3CurrentSetValueR1; }
@@ -751,9 +659,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3TimeSetValueR1;
-
         public float Pa4_3TimeSetValueR1
         {
             get { return _pa4_3TimeSetValueR1; }
@@ -763,9 +669,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3CurrentSetValueR2;
-
         public float Pa4_3CurrentSetValueR2
         {
             get { return _pa4_3CurrentSetValueR2; }
@@ -775,9 +679,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3TimeSetValueR2;
-
         public float Pa4_3TimeSetValueR2
         {
             get { return _pa4_3TimeSetValueR2; }
@@ -787,9 +689,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3CurrentSetValueR3;
-
         public float Pa4_3CurrentSetValueR3
         {
             get { return _pa4_3CurrentSetValueR3; }
@@ -799,9 +699,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_3TimeSetValueR3;
-
         public float Pa4_3TimeSetValueR3
         {
             get { return _pa4_3TimeSetValueR3; }
@@ -811,9 +709,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4CurrentSetValueR1;
-
         public float Pa4_4CurrentSetValueR1
         {
             get { return _pa4_4CurrentSetValueR1; }
@@ -823,9 +719,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4TimeSetValueR1;
-
         public float Pa4_4TimeSetValueR1
         {
             get { return _pa4_4TimeSetValueR1; }
@@ -835,9 +729,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4CurrentSetValueR2;
-
         public float Pa4_4CurrentSetValueR2
         {
             get { return _pa4_4CurrentSetValueR2; }
@@ -847,9 +739,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4TimeSetValueR2;
-
         public float Pa4_4TimeSetValueR2
         {
             get { return _pa4_4TimeSetValueR2; }
@@ -859,9 +749,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4CurrentSetValueR3;
-
         public float Pa4_4CurrentSetValueR3
         {
             get { return _pa4_4CurrentSetValueR3; }
@@ -871,9 +759,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_4TimeSetValueR3;
-
         public float Pa4_4TimeSetValueR3
         {
             get { return _pa4_4TimeSetValueR3; }
@@ -883,9 +769,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5CurrentSetValueR1;
-
         public float Pa4_5CurrentSetValueR1
         {
             get { return _pa4_5CurrentSetValueR1; }
@@ -895,9 +779,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5TimeSetValueR1;
-
         public float Pa4_5TimeSetValueR1
         {
             get { return _pa4_5TimeSetValueR1; }
@@ -907,9 +789,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5CurrentSetValueR2;
-
         public float Pa4_5CurrentSetValueR2
         {
             get { return _pa4_5CurrentSetValueR2; }
@@ -919,9 +799,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5TimeSetValueR2;
-
         public float Pa4_5TimeSetValueR2
         {
             get { return _pa4_5TimeSetValueR2; }
@@ -931,9 +809,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5CurrentSetValueR3;
-
         public float Pa4_5CurrentSetValueR3
         {
             get { return _pa4_5CurrentSetValueR3; }
@@ -943,9 +819,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_5TimeSetValueR3;
-
         public float Pa4_5TimeSetValueR3
         {
             get { return _pa4_5TimeSetValueR3; }
@@ -955,9 +829,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6CurrentSetValueR1;
-
         public float Pa4_6CurrentSetValueR1
         {
             get { return _pa4_6CurrentSetValueR1; }
@@ -967,9 +839,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6TimeSetValueR1;
-
         public float Pa4_6TimeSetValueR1
         {
             get { return _pa4_6TimeSetValueR1; }
@@ -979,9 +849,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6CurrentSetValueR2;
-
         public float Pa4_6CurrentSetValueR2
         {
             get { return _pa4_6CurrentSetValueR2; }
@@ -991,9 +859,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6TimeSetValueR2;
-
         public float Pa4_6TimeSetValueR2
         {
             get { return _pa4_6TimeSetValueR2; }
@@ -1003,9 +869,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6CurrentSetValueR3;
-
         public float Pa4_6CurrentSetValueR3
         {
             get { return _pa4_6CurrentSetValueR3; }
@@ -1015,9 +879,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _pa4_6TimeSetValueR3;
-
         public float Pa4_6TimeSetValueR3
         {
             get { return _pa4_6TimeSetValueR3; }
@@ -1027,9 +889,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _rfVxpVoltSetValue;
-
         public float RfVxpVoltSetValue
         {
             get { return _rfVxpVoltSetValue; }
@@ -1039,9 +899,7 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private float _rfVampVoltSetValue;
-
         public float RfVampVoltSetValue
         {
             get { return _rfVampVoltSetValue; }
@@ -1051,15 +909,233 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
         private string _polResponseSet;
-
         public string PolResponseSet
         {
             get { return _polResponseSet; }
             set
             {
                 _polResponseSet = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdChannel;
+        public float PdChannel
+        {
+            get { return _pdChannel; }
+            set
+            {
+                _pdChannel = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _tableLength;
+        public float TableLength
+        {
+            get { return _tableLength; }
+            set
+            {
+                _tableLength = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc1;
+        public float PdAdc1
+        {
+            get { return _pdAdc1; }
+            set
+            {
+                _pdAdc1 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc2;
+        public float PdAdc2
+        {
+            get { return _pdAdc2; }
+            set
+            {
+                _pdAdc2 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc3;
+        public float PdAdc3
+        {
+            get { return _pdAdc3; }
+            set
+            {
+                _pdAdc3 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc4;
+        public float PdAdc4
+        {
+            get { return _pdAdc4; }
+            set
+            {
+                _pdAdc4 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc5;
+        public float PdAdc5
+        {
+            get { return _pdAdc5; }
+            set
+            {
+                _pdAdc5 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc6;
+        public float PdAdc6
+        {
+            get { return _pdAdc6; }
+            set
+            {
+                _pdAdc6 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc7;
+        public float PdAdc7
+        {
+            get { return _pdAdc7; }
+            set
+            {
+                _pdAdc7 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc8;
+        public float PdAdc8
+        {
+            get { return _pdAdc8; }
+            set
+            {
+                _pdAdc8 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc9;
+        public float PdAdc9
+        {
+            get { return _pdAdc9; }
+            set
+            {
+                _pdAdc9 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdAdc10;
+        public float PdAdc10
+        {
+            get { return _pdAdc10; }
+            set
+            {
+                _pdAdc10 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower1;
+        public float PdPower1
+        {
+            get { return _pdPower1; }
+            set
+            {
+                _pdPower1 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower2;
+        public float PdPower2
+        {
+            get { return _pdPower2; }
+            set
+            {
+                _pdPower2 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower3;
+        public float PdPower3
+        {
+            get { return _pdPower3; }
+            set
+            {
+                _pdPower3 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower4;
+        public float PdPower4
+        {
+            get { return _pdPower4; }
+            set
+            {
+                _pdPower4 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower5;
+        public float PdPower5
+        {
+            get { return _pdPower5; }
+            set
+            {
+                _pdPower5 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower6;
+        public float PdPower6
+        {
+            get { return _pdPower6; }
+            set
+            {
+                _pdPower6 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower7;
+        public float PdPower7
+        {
+            get { return _pdPower7; }
+            set
+            {
+                _pdPower7 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower8;
+        public float PdPower8
+        {
+            get { return _pdPower8; }
+            set
+            {
+                _pdPower8 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower9;
+        public float PdPower9
+        {
+            get { return _pdPower9; }
+            set
+            {
+                _pdPower9 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pdPower10;
+        public float PdPower10
+        {
+            get { return _pdPower10; }
+            set
+            {
+                _pdPower10 = value;
                 NotifyPropertyChanged();
             }
         }
@@ -1079,12 +1155,108 @@ namespace MVVM.ViewModel
             Messenger.Default.Register<setLowLimit>(this, OnReceiveMessageAction);
             Messenger.Default.Register<pdCalibration>(this, OnReceiveMessageAction);
             Messenger.Default.Register<readSetValue>(this, OnReceiveMessageAction);
+
+            OnSetSetCommand = new RelayCommand(OnSetSetCommandAction, null);
+            OnSetLoadCommand = new RelayCommand(OnSetLoadCommandAction, null);
+            OnCalSetCommand = new RelayCommand(OnCalSetCommandAction, null);
+        }
+
+        private void OnSetSetCommandAction()
+        {
+            var lcb004writeSetCmd = new lcb004writeSetCmd()
+            {
+                SeedCurrentSetValue = SeedCurrentReadValue,
+                SeedTempSetValue = SeedTempReadValue,
+                HsTempSetValue = HsTempReadValue,
+                Pa1CurrentSetValue = Pa1CurrentReadValue,
+                Pa2CurrentSetValue = Pa2CurrentReadValue,
+                Pa3CurrentSetValue = Pa3CurrentReadValue,
+                Pa4_1CurrentSetValueR1 = Pa4_1CurrentReadValueR1,
+                Pa4_1TimeSetValueR1 = Pa4_1TimeReadValueR1,
+                Pa4_1CurrentSetValueR2 = Pa4_1CurrentReadValueR2,
+                Pa4_1TimeSetValueR2 = Pa4_1TimeReadValueR2,
+                Pa4_1CurrentSetValueR3 = Pa4_1CurrentReadValueR3,
+                Pa4_1TimeSetValueR3 = Pa4_1TimeReadValueR3,
+                Pa4_2CurrentSetValueR1 = Pa4_2CurrentReadValueR1,
+                Pa4_2TimeSetValueR1 = Pa4_2TimeReadValueR1,
+                Pa4_2CurrentSetValueR2 = Pa4_2CurrentReadValueR2,
+                Pa4_2TimeSetValueR2 = Pa4_2TimeReadValueR2,
+                Pa4_2CurrentSetValueR3 = Pa4_2CurrentReadValueR3,
+                Pa4_2TimeSetValueR3 = Pa4_2TimeReadValueR3,
+                Pa4_3CurrentSetValueR1 = Pa4_3CurrentReadValueR1,
+                Pa4_3TimeSetValueR1 = Pa4_3TimeReadValueR1,
+                Pa4_3CurrentSetValueR2 = Pa4_3CurrentReadValueR2,
+                Pa4_3TimeSetValueR2 = Pa4_3TimeReadValueR2,
+                Pa4_3CurrentSetValueR3 = Pa4_3CurrentReadValueR3,
+                Pa4_3TimeSetValueR3 = Pa4_3TimeReadValueR3,
+                Pa4_4CurrentSetValueR1 = Pa4_4CurrentReadValueR1,
+                Pa4_4TimeSetValueR1 = Pa4_4TimeReadValueR1,
+                Pa4_4CurrentSetValueR2 = Pa4_4CurrentReadValueR2,
+                Pa4_4TimeSetValueR2 = Pa4_4TimeReadValueR2,
+                Pa4_4CurrentSetValueR3 = Pa4_4CurrentReadValueR3,
+                Pa4_4TimeSetValueR3 = Pa4_4TimeReadValueR3,
+                Pa4_5CurrentSetValueR1 = Pa4_5CurrentReadValueR1,
+                Pa4_5TimeSetValueR1 = Pa4_5TimeReadValueR1,
+                Pa4_5CurrentSetValueR2 = Pa4_5CurrentReadValueR2,
+                Pa4_5TimeSetValueR2 = Pa4_5TimeReadValueR2,
+                Pa4_5CurrentSetValueR3 = Pa4_5CurrentReadValueR3,
+                Pa4_5TimeSetValueR3 = Pa4_5TimeReadValueR3,
+                Pa4_6CurrentSetValueR1 = Pa4_6CurrentReadValueR1,
+                Pa4_6TimeSetValueR1 = Pa4_6TimeReadValueR1,
+                Pa4_6CurrentSetValueR2 = Pa4_6CurrentReadValueR2,
+                Pa4_6TimeSetValueR2 = Pa4_6TimeReadValueR2,
+                Pa4_6CurrentSetValueR3 = Pa4_6CurrentReadValueR3,
+                Pa4_6TimeSetValueR3 = Pa4_6TimeReadValueR3,
+                RfVxpVoltSetValue = RfVxpVoltReadValue,
+                RfVampVoltSetValue = RfVampVoltReadValue,
+                PolResponseSet = PolResponseRead
+            };
+            Messenger.Default.Send(lcb004writeSetCmd);
+        }
+
+        private void OnSetLoadCommandAction()
+        {
+            var lcb004ReadSetCmd = new lcb004ReadSetCmd()
+            {
+                cmd = "readSet",
+            };
+            Messenger.Default.Send(lcb004ReadSetCmd);
+        }
+        private void OnCalSetCommandAction()
+        {
+            var lcb004PdCalCmd = new lcb004PdCalCmd()
+            {
+                PdChannel = PdChannel,
+                TableLength = TableLength,
+                PdAdc1 = PdAdc1,
+                PdAdc2 = PdAdc2,
+                PdAdc3 = PdAdc3,
+                PdAdc4 = PdAdc4,
+                PdAdc5 = PdAdc5,
+                PdAdc6 = PdAdc6,
+                PdAdc7 = PdAdc7,
+                PdAdc8 = PdAdc8,
+                PdAdc9 = PdAdc9,
+                PdAdc10 = PdAdc10,
+                PdPower1 = PdPower1,
+                PdPower2 = PdPower2,
+                PdPower3 = PdPower3,
+                PdPower4 = PdPower4,
+                PdPower5 = PdPower5,
+                PdPower6 = PdPower6,
+                PdPower7 = PdPower7,
+                PdPower8 = PdPower8,
+                PdPower9 = PdPower9,
+                PdPower10 = PdPower10
+            };
+            Messenger.Default.Send(lcb004PdCalCmd);
         }
 
         private void OnReceiveMessageAction(writeSetValue obj)
         {
             SeedCurrentSetValue = obj.SeedCurrentSetValue;
             SeedTempSetValue = obj.SeedTempSetValue;
+            HsTempSetValue = obj.HsTempSetValue;
             Pa1CurrentSetValue = obj.Pa1CurrentSetValue;
             Pa2CurrentSetValue = obj.Pa2CurrentSetValue;
             Pa3CurrentSetValue = obj.Pa3CurrentSetValue;
@@ -1331,6 +1503,7 @@ namespace MVVM.ViewModel
         {
             SeedCurrentReadValue = obj.SeedCurrentReadValue;
             SeedTempReadValue = obj.SeedTempReadValue;
+            HsTempReadValue = obj.HsTempReadValue;
             Pa1CurrentReadValue = obj.Pa1CurrentReadValue;
             Pa2CurrentReadValue = obj.Pa2CurrentReadValue;
             Pa3CurrentReadValue = obj.Pa3CurrentReadValue;

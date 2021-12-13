@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVM.View"
+        xmlns:local="clr-namespace:MVVM.ViewModel"
         mc:Ignorable="d"
         Title="PowerBit" Height="400" Width="404"
+        DataContext="{Binding Source={StaticResource Locator}, Path=PowerBit}"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
@@ -147,12 +148,12 @@
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="amp1_2CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,83,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding amp1_2CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+        <Button x:Name="amp1_2CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,83,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp1_2CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="amp3CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,108,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding amp3CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
+        <Button x:Name="amp3CurrLow" Content="Low" HorizontalAlignment="Left" Margin="229,108,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Background="{Binding Amp3CurrLow, Converter={StaticResource BoolLimeRedConverter}}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>

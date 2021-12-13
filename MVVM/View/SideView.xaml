@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM.View"
+             xmlns:local="clr-namespace:MVVM.ViewModel"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:Command="http://www.galasoft.ch/mvvmlight"
              xmlns:Custom="http://www.galasoft.ch/mvvmlight"
@@ -150,9 +150,9 @@
                                         <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                                     </Button.Effect>
                                 </Button>
-                                <TextBox HorizontalAlignment="Left" Margin="120,72,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="380.2" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                                <TextBox HorizontalAlignment="Left" Margin="120,72,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding VacInputVoltage}" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="269,98,0,0" TextWrapping="Wrap" Text="V" VerticalAlignment="Top" FontSize="24"/>
-                                <TextBox HorizontalAlignment="Left" Margin="120,141,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="34.5" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                                <TextBox HorizontalAlignment="Left" Margin="120,141,0,0" TextWrapping="Wrap" TextAlignment="Right" Text="{Binding VacInputCurrent}" VerticalAlignment="Top" RenderTransformOrigin="1.025,0.188" Height="64" Width="144" Background="#FFEEEEEE" FontWeight="Bold" FontSize="48" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="269,167,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" FontSize="24"/>
                             </Grid>
                         </TabItem>

@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVM"
-             xmlns:realTimeGraphX="clr-namespace:RealTimeGraphX.WPF;assembly=RealTimeGraphX.WPF"
+             xmlns:local="clr-namespace:MVVM.ViewModel"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight" x:Class="MVVM.View.TopView"
              mc:Ignorable="d" 
              DataContext="{Binding Top, Source={StaticResource Locator}}"
@@ -113,22 +112,24 @@
         <Border BorderBrush="Gray" BorderThickness="1">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" TextWrapping="Wrap" Text="Laser Power (kW)" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="19,47,0,0" TextWrapping="Wrap" Text="0.00" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Margin="19,47,0,0" TextWrapping="Wrap" Text="{Binding Pd7}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                 <TextBlock HorizontalAlignment="Left" Margin="377,10,0,0" TextWrapping="Wrap" Text="Coolant Temperature (℃)" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="377,47,0,0" TextWrapping="Wrap" Text="21.1" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBlock HorizontalAlignment="Left" Margin="732,68,0,0" TextWrapping="Wrap" Text="Humidity (%)" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="732,96,0,0" TextWrapping="Wrap" Text="32.2" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <Button Content="STOP" Margin="1002,47,76,26" FontSize="24" FontWeight="Bold" Style="{StaticResource RedButton}" >
+                <TextBox HorizontalAlignment="Left" Margin="377,47,0,0" TextWrapping="Wrap" Text="{Binding PaTemp13}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBlock HorizontalAlignment="Left" Margin="726,29,0,0" TextWrapping="Wrap" Text="SEED Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Margin="729,48,0,0" TextWrapping="Wrap" Text="{Binding SeedHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>                
+                <TextBlock HorizontalAlignment="Left" Margin="733,109,0,0" TextWrapping="Wrap" Text="PA Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Margin="729,128,0,0" TextWrapping="Wrap" Text="{Binding PaHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <Button Content="STOP" Margin="1002,47,76,10" FontSize="24" FontWeight="Bold" Style="{StaticResource RedButton}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <Custom:EventToCommand Command="{Binding OnClickCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button Content="RESET" Margin="870,112,208,26" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}" >
+                <Button Content="RESET" Margin="870,128,208,10" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <Custom:EventToCommand Command="{Binding OnClickCommand}" />
+                            <Custom:EventToCommand Command="{Binding OnResetCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
@@ -138,7 +139,7 @@
                             <Custom:EventToCommand Command="{Binding OnClickCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                </Button>
+                </Button>                
             </Grid>
         </Border>
     </Grid>
