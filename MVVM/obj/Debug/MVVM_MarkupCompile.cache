@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\github\MVVM\MVVM\obj\Debug\
+D:\github\MVVM\MVVM\obj\Debug\
 MVVM
 none
 false
 DEBUG;TRACE
-C:\github\MVVM\MVVM\App.xaml
-14-1431041671
+D:\github\MVVM\MVVM\App.xaml
+14995210344
 
-381276823414
-123-1311433836
+391400827476
+123-1278204518
 MainWindow.xaml;Themes\Generic.xaml;View\AmpCurrent.xaml;View\AmpPD.xaml;View\AmpTemp.xaml;View\AmpVoltage.xaml;View\BitView.xaml;View\ControlView.xaml;View\EngineeringView.xaml;View\EngineeringView2.xaml;View\PowerBit.xaml;View\SeedStatus.xaml;View\SideView.xaml;View\TopView.xaml;
 
 False

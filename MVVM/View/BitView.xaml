@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:Command="http://www.galasoft.ch/mvvmlight"
              xmlns:local="clr-namespace:MVVM.ViewModel"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator}, Path=Bit}"
@@ -10,6 +12,7 @@
     <UserControl.Resources>
         <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
         <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
+        <local:IntToColorConverter x:Key="IntToColorConverter"/>
         <LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#FFF" Offset="0.0"/>
             <GradientStop Color="#CCC" Offset="1.0"/>
@@ -58,10 +61,15 @@
         <StackPanel HorizontalAlignment="Left" Height="322" Margin="10,12,0,0" VerticalAlignment="Top" Width="307" Background="#FFE6E6E0">
             <Grid>
                 <TextBlock TextWrapping="Wrap" Background="#FFC8C8C8" TextAlignment="Center" FontSize="20" FontWeight="Bold" Text="LASER" Height="30" Margin="0,0,0,93"/>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,80,0,0" Background="{Binding SeedStatus, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,80,0,0" Background="{Binding SeedStatus, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                     </Button.Effect>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <Command:EventToCommand Command="{Binding OnSeedStatus}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </Button>
                 <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,120,0,-17" Background="{Binding AmpCurrent, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
                     <Button.Effect>
@@ -73,7 +81,7 @@
                         <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                     </Button.Effect>
                 </Button>
-                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,200,0,-97" Background="{Binding AmpTemp, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+                <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="10,200,0,-97" Background="{Binding AmpTemp, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                     </Button.Effect>

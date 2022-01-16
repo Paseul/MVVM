@@ -115,31 +115,24 @@
                 <TextBox HorizontalAlignment="Left" Margin="19,47,0,0" TextWrapping="Wrap" Text="{Binding Pd7}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                 <TextBlock HorizontalAlignment="Left" Margin="377,10,0,0" TextWrapping="Wrap" Text="Coolant Temperature (℃)" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
                 <TextBox HorizontalAlignment="Left" Margin="377,47,0,0" TextWrapping="Wrap" Text="{Binding PaTemp13}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <TextBlock HorizontalAlignment="Left" Margin="726,29,0,0" TextWrapping="Wrap" Text="SEED Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="729,48,0,0" TextWrapping="Wrap" Text="{Binding SeedHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>                
+                <TextBlock HorizontalAlignment="Left" Margin="727,29,0,0" TextWrapping="Wrap" Text="SEED Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Margin="730,48,0,0" TextWrapping="Wrap" Text="{Binding SeedHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                 <TextBlock HorizontalAlignment="Left" Margin="733,109,0,0" TextWrapping="Wrap" Text="PA Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="729,128,0,0" TextWrapping="Wrap" Text="{Binding PaHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <Button Content="STOP" Margin="1002,47,76,10" FontSize="24" FontWeight="Bold" Style="{StaticResource RedButton}" >
+                <TextBox HorizontalAlignment="Left" Margin="730,128,0,0" TextWrapping="Wrap" Text="{Binding PaHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <Button Content="E-STOP" Margin="1010,47,68,10" FontSize="24" FontWeight="Bold" Style="{StaticResource RedButton}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <Custom:EventToCommand Command="{Binding OnClickCommand}" />
+                            <Custom:EventToCommand Command="{Binding OnStopCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button Content="RESET" Margin="870,128,208,10" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}" >
+                <Button Content="SAVE" Margin="870,47,208,10" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <Custom:EventToCommand Command="{Binding OnResetCommand}" />
+                            <Custom:EventToCommand Command="{Binding OnSaveCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button Content="SAVE" Margin="870,47,208,91" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}" Click="Button_Click">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <Custom:EventToCommand Command="{Binding OnClickCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>                
             </Grid>
         </Border>
     </Grid>

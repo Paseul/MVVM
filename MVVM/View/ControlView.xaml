@@ -116,25 +116,25 @@
         <TextBlock HorizontalAlignment="Left" Margin="789,235,0,0" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Height="18" Width="15" FontWeight="Bold" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="789,303,0,0" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Height="18" Width="15" FontWeight="Bold" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="1072,234,0,0" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" Height="18" Width="15" FontWeight="Bold" Foreground="Black"/>
-        <Rectangle HorizontalAlignment="Left" Height="303" Margin="91,375,0,0" Stroke="Black" VerticalAlignment="Top" Width="944" StrokeThickness="2"/>
-        <StackPanel HorizontalAlignment="Left" Height="23" Margin="93,377,0,0" VerticalAlignment="Top" Width="940" Background="#FFDEDEDE"/>
-        <StackPanel HorizontalAlignment="Left" Height="246" Margin="796,425,0,0" VerticalAlignment="Top" Width="220" Background="#FFDEDEDE"/>
-        <TextBlock HorizontalAlignment="Left" Margin="798,405,0,0" TextWrapping="Wrap" Text="Current" VerticalAlignment="Top" Height="20" Width="60" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="865,379,0,0" TextWrapping="Wrap" Text="Monitoring" VerticalAlignment="Top" Height="20" Width="80" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="891,405,0,0" TextWrapping="Wrap" Text="LD" VerticalAlignment="Top" Height="20" Width="28" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="937,405,0,0" TextWrapping="Wrap" Text="FET" VerticalAlignment="Top" Height="20" Width="50" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="853,430,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="27" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="988,430,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="853,471,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="27" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="988,472,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="853,513,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="988,514,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="853,554,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="988,556,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="853,597,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="988,598,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="853,638,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
-        <TextBlock HorizontalAlignment="Left" Margin="988,637,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="28" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <Rectangle HorizontalAlignment="Left" Height="303" Margin="120,385,0,0" Stroke="Black" VerticalAlignment="Top" Width="944" StrokeThickness="2"/>
+        <StackPanel HorizontalAlignment="Left" Height="23" Margin="122,387,0,0" VerticalAlignment="Top" Width="940" Background="#FFDEDEDE"/>
+        <StackPanel HorizontalAlignment="Left" Height="246" Margin="825,435,0,0" VerticalAlignment="Top" Width="220" Background="#FFDEDEDE"/>
+        <TextBlock HorizontalAlignment="Left" Margin="827,415,0,0" TextWrapping="Wrap" Text="Current" VerticalAlignment="Top" Height="20" Width="60" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="894,389,0,0" TextWrapping="Wrap" Text="Monitoring" VerticalAlignment="Top" Height="20" Width="80" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="920,415,0,0" TextWrapping="Wrap" Text="LD" VerticalAlignment="Top" Height="20" Width="28" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="966,415,0,0" TextWrapping="Wrap" Text="FET" VerticalAlignment="Top" Height="20" Width="50" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="882,440,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="27" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1017,440,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="882,481,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="27" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1017,482,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="882,523,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1017,524,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="882,564,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1017,566,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="882,607,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1017,608,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="27" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="882,648,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="28" Width="22" FontWeight="Bold" FontSize="20" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1017,647,0,0" TextWrapping="Wrap" Text="℃" VerticalAlignment="Top" Height="28" Width="28" FontWeight="Bold" FontSize="20" Foreground="Black"/>
         <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="60,234,0,0" FontWeight="Bold" FontSize="20" Background="{Binding SeedBtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
@@ -142,188 +142,215 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="260,233,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa1BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
+        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="260,234,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa1BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa1Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="462,233,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa2BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
+        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="459,234,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa2BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa2Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="687,234,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa3BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
+        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="684,234,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa3BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa3Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="970,246,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
+        <Button Content="On" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="967,234,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="PA4-1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="111,430,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_1BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+        <Button Content="PA4-1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="140,440,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_1BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4_1Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="PA4-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="111,471,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_2BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+        <Button Content="PA4-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="140,481,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_2BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4_2Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="PA4-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="111,513,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_3BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+        <Button Content="PA4-3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="140,523,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_3BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4_3Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="PA4-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="111,554,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_4BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+        <Button Content="PA4-4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="140,564,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_4BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4_4Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="PA4-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="111,596,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_5BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+        <Button Content="PA4-5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="140,606,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_5BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4_5Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="PA4-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="111,639,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_6BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+        <Button Content="PA4-6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="140,649,0,0" FontWeight="Bold" FontSize="20" Background="{Binding Pa4_6BtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPa4_6Command}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="Polarization Enable" HorizontalAlignment="Left" VerticalAlignment="Top" Width="202" Margin="10,330,0,0" FontWeight="Bold" FontSize="20" Background="{Binding PolBtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="40" Style="{StaticResource SimpleButton}">
+        <Button Content="Polarization Enable" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="15,275,0,0" FontWeight="Bold" FontSize="14" Background="{Binding PolBtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnPolCommand}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <Button Content="SET" HorizontalAlignment="Left" Margin="723,424,0,0" VerticalAlignment="Top" Width="66" Height="247" FontWeight="Bold" FontSize="20">
+        <Button Content="SET" HorizontalAlignment="Left" Margin="752,434,0,0" VerticalAlignment="Top" Width="66" Height="247" FontWeight="Bold" FontSize="20" Style="{StaticResource SimpleButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <Command:EventToCommand Command="{Binding OnSetCommand}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="880,430,0,0" TextWrapping="Wrap" Text="{Binding PaTemp1}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="880,472,0,0" TextWrapping="Wrap" Text="{Binding PaTemp2}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="880,514,0,0" TextWrapping="Wrap" Text="{Binding PaTemp3}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="880,555,0,0" TextWrapping="Wrap" Text="{Binding PaTemp4}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="880,598,0,0" TextWrapping="Wrap" Text="{Binding PaTemp5}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="880,638,0,0" TextWrapping="Wrap" Text="{Binding PaTemp6}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="937,431,0,0" TextWrapping="Wrap" Text="{Binding PaTemp7}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="937,471,0,0" TextWrapping="Wrap" Text="{Binding PaTemp8}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="937,513,0,0" TextWrapping="Wrap" Text="{Binding PaTemp9}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="937,556,0,0" TextWrapping="Wrap" Text="{Binding PaTemp10}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="937,598,0,0" TextWrapping="Wrap" Text="{Binding PaTemp11}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="937,637,0,0" TextWrapping="Wrap" Text="{Binding PaTemp12}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="798,430,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="798,471,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="798,513,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="798,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="798,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="798,638,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
-        <TextBlock HorizontalAlignment="Left" Margin="264,435,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="431,435,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="600,435,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="264,475,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="431,474,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="599,474,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="264,518,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="431,518,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="599,517,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="264,558,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="431,558,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="600,558,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="264,601,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="431,601,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="600,601,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="265,644,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="431,644,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="600,644,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,437,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="509,437,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="678,437,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,477,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="509,476,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="678,476,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,520,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="509,520,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="678,519,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,560,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="509,560,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="678,560,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,603,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="509,603,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="678,603,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="338,646,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="509,646,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="678,646,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="210,431,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="283,431,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="377,431,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="454,431,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="546,431,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="623,431,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="209,471,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="283,471,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="27" Margin="377,471,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="454,470,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="545,470,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="623,470,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="209,514,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="283,514,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="377,514,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="454,514,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="545,513,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="623,513,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="209,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="283,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="377,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="454,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="545,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="623,554,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="210,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="283,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="377,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="454,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="546,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="623,597,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="210,640,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="283,640,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="377,640,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="454,640,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="546,640,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="623,640,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
-        <TextBlock HorizontalAlignment="Left" Margin="257,402,0,0" TextWrapping="Wrap" Text="R1" VerticalAlignment="Top" Height="24" Width="30" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="426,402,0,0" TextWrapping="Wrap" Text="R2" VerticalAlignment="Top" Height="24" Width="30" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="593,403,0,0" TextWrapping="Wrap" Text="R3" VerticalAlignment="Top" Height="24" Width="30" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
-
-        <TextBlock HorizontalAlignment="Left" Margin="329,378,0,0" TextWrapping="Wrap" Text="Current / Rising Time Setting" VerticalAlignment="Top" Height="20" Width="224" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Margin="111,379,0,0" TextWrapping="Wrap" Text="ON / OFF" VerticalAlignment="Top" Height="20" Width="80" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
-
-
-
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="909,440,0,0" TextWrapping="Wrap" Text="{Binding PaTemp1}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="909,482,0,0" TextWrapping="Wrap" Text="{Binding PaTemp2}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="909,524,0,0" TextWrapping="Wrap" Text="{Binding PaTemp3}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="909,565,0,0" TextWrapping="Wrap" Text="{Binding PaTemp4}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="909,608,0,0" TextWrapping="Wrap" Text="{Binding PaTemp5}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="909,648,0,0" TextWrapping="Wrap" Text="{Binding PaTemp6}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="966,441,0,0" TextWrapping="Wrap" Text="{Binding PaTemp7}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="966,481,0,0" TextWrapping="Wrap" Text="{Binding PaTemp8}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="966,523,0,0" TextWrapping="Wrap" Text="{Binding PaTemp9}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="966,566,0,0" TextWrapping="Wrap" Text="{Binding PaTemp10}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="966,608,0,0" TextWrapping="Wrap" Text="{Binding PaTemp11}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="966,647,0,0" TextWrapping="Wrap" Text="{Binding PaTemp12}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="827,440,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="827,481,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="827,523,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="827,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="827,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="827,648,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6Current}" VerticalAlignment="Top" Width="50" FontSize="20" Style="{StaticResource TextBoxStyle1}" />
+        <TextBlock HorizontalAlignment="Left" Margin="293,445,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,445,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="629,445,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="293,485,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,484,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="628,484,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="293,528,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,528,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="628,527,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="293,568,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,568,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="629,568,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="293,611,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,611,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="629,611,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="294,654,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="460,654,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="629,654,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" Height="24" Width="18" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,447,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,447,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,447,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,487,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,486,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,486,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,530,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,530,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,529,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,570,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,570,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,570,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,613,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,613,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,613,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="367,656,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="538,656,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,656,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="239,441,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="312,441,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="406,441,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="483,441,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="575,441,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="652,441,0,0" TextWrapping="Wrap" Text="{Binding Pa4_1TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="238,481,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="312,481,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="27" Margin="406,481,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="483,480,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="574,480,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="652,480,0,0" TextWrapping="Wrap" Text="{Binding Pa4_2TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="238,524,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="312,524,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="406,524,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="483,524,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="574,523,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="652,523,0,0" TextWrapping="Wrap" Text="{Binding Pa4_3TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="238,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="312,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="406,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="483,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="574,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="652,564,0,0" TextWrapping="Wrap" Text="{Binding Pa4_4TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="239,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="312,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="406,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="483,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="575,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="652,607,0,0" TextWrapping="Wrap" Text="{Binding Pa4_5TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="239,650,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6CurrentReadValueR1}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="312,650,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR1}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="406,650,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6CurrentReadValueR2}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="483,650,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR2}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="575,650,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6CurrentReadValueR3}" VerticalAlignment="Top" Width="49" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="652,650,0,0" TextWrapping="Wrap" Text="{Binding Pa4_6TimeReadValueR3}" VerticalAlignment="Top" Width="50" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBlock HorizontalAlignment="Left" Margin="286,412,0,0" TextWrapping="Wrap" Text="R1" VerticalAlignment="Top" Height="24" Width="30" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="455,412,0,0" TextWrapping="Wrap" Text="R2" VerticalAlignment="Top" Height="24" Width="30" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="622,413,0,0" TextWrapping="Wrap" Text="R3" VerticalAlignment="Top" Height="24" Width="30" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="358,388,0,0" TextWrapping="Wrap" Text="Current / Rising Time Setting" VerticalAlignment="Top" Height="20" Width="224" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="140,389,0,0" TextWrapping="Wrap" Text="ON / OFF" VerticalAlignment="Top" Height="20" Width="80" FontWeight="Bold" FontSize="14" Foreground="Black" TextAlignment="Center"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="1130" Height="40" Background="#FFDEDEDE" Margin="10,338,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="15,344,0,0" TextWrapping="Wrap" Text="Delay Time" VerticalAlignment="Top" Height="28" Width="117" FontWeight="Bold" FontSize="20" Foreground="Black" TextAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="143,345,0,0" TextWrapping="Wrap" Text="{Binding DelayTime1}" VerticalAlignment="Top" Width="55" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="309,345,0,0" TextWrapping="Wrap" Text="{Binding DelayTime2}" VerticalAlignment="Top" Width="55" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="508,345,0,0" TextWrapping="Wrap" Text="{Binding DelayTime3}" VerticalAlignment="Top" Width="55" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="733,345,0,0" TextWrapping="Wrap" Text="{Binding DelayTime4}" VerticalAlignment="Top" Width="55" Style="{StaticResource TextBoxStyle1}" FontSize="20" />
+        <TextBlock HorizontalAlignment="Left" Margin="199,350,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="365,350,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="564,350,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="789,350,0,0" TextWrapping="Wrap" Text="ms" VerticalAlignment="Top" Height="22" Width="30" FontWeight="Bold" Foreground="Black" FontSize="18"/>
+        <Button Content="Auto Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="880,345,0,0" FontWeight="Bold" FontSize="20" Background="{Binding AutoBtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <Command:EventToCommand Command="{Binding OnAutoCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="Off" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="1010,345,0,0" FontWeight="Bold" FontSize="20" Background="{Binding OffBtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Height="28" Style="{StaticResource SimpleButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <Command:EventToCommand Command="{Binding OnOffCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+        <Button Content="RESET" Margin="1090,40,30,610" FontSize="24" FontWeight="Bold" Background="{Binding ResetBtnStatus, Converter={StaticResource BoolGrayLimeConverter}}" Style="{StaticResource SimpleButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <Command:EventToCommand Command="{Binding OnResetCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </Grid>
 </UserControl>

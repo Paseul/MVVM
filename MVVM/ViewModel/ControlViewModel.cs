@@ -36,9 +36,12 @@ namespace MVVM.ViewModel
         public RelayCommand OnPa4_5Command { get; set; }
         public RelayCommand OnPa4_6Command { get; set; }
         public RelayCommand OnPolCommand { get; set; }
+        public RelayCommand OnResetCommand { get; set; }
         public RelayCommand OnSetCommand { get; set; }
-        public string imgSourcePath { get; set; }
+        public RelayCommand OnAutoCommand { get; set; }
+        public RelayCommand OnOffCommand { get; set; }
 
+        public string imgSourcePath;      
         private string _backgroundPath;
         public string BackgroundPath
         {
@@ -216,6 +219,36 @@ namespace MVVM.ViewModel
             set
             {
                 _polBtnStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _autoBtnStatus;
+        public bool AutoBtnStatus
+        {
+            get { return _autoBtnStatus; }
+            set
+            {
+                _autoBtnStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _offBtnStatus;
+        public bool OffBtnStatus
+        {
+            get { return _offBtnStatus; }
+            set
+            {
+                _offBtnStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _resetBtnStatus;
+        public bool ResetBtnStatus
+        {
+            get { return _resetBtnStatus; }
+            set
+            {
+                _resetBtnStatus = value;
                 NotifyPropertyChanged();
             }
         }
@@ -1250,6 +1283,46 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private int _delayTime1;
+        public int DelayTime1
+        {
+            get { return _delayTime1; }
+            set
+            {
+                _delayTime1 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _delayTime2;
+        public int DelayTime2
+        {
+            get { return _delayTime2; }
+            set
+            {
+                _delayTime2 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _delayTime3;
+        public int DelayTime3
+        {
+            get { return _delayTime3; }
+            set
+            {
+                _delayTime3 = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _delayTime4;
+        public int DelayTime4
+        {
+            get { return _delayTime4; }
+            set
+            {
+                _delayTime4 = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] string name = null)
@@ -1271,7 +1344,10 @@ namespace MVVM.ViewModel
             OnPa4_5Command = new RelayCommand(OnPa4_5CommandAction, null);
             OnPa4_6Command = new RelayCommand(OnPa4_6CommandAction, null);
             OnPolCommand = new RelayCommand(OnPolCommandAction, null);
+            OnResetCommand = new RelayCommand(OnResetCommandAction, null);
             OnSetCommand = new RelayCommand(OnSetCommandAction, null);
+            OnAutoCommand = new RelayCommand(OnAutoCommandAction, null);
+            OnOffCommand = new RelayCommand(OnOffCommandAction, null);
 
             Messenger.Default.Register<string>(this, MessageReceived);
             Messenger.Default.Register<monValue>(this, OnReceiveMessageAction);
@@ -1284,6 +1360,12 @@ namespace MVVM.ViewModel
             Pa2ImgPath = imgSourcePath + @"\images\PA2_base.png";
             Pa3ImgPath = imgSourcePath + @"\images\PA3_base.png";
             Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";
+
+            DelayTime1 = 1000;
+            DelayTime2 = 1000;
+            DelayTime3 = 1000;
+            DelayTime4 = 1000;
+            PolResponseRead = "ABCDEFGHIJ";
         }
 
         private void MessageReceived(string message)
@@ -1328,114 +1410,265 @@ namespace MVVM.ViewModel
             {
                 Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";
             }
+            else if (message == "stop")
+            {
+                SeedBtnStatus = false;
+                Pa1BtnStatus = false;
+                Pa2BtnStatus = false;
+                Pa3BtnStatus = false;
+                Pa4BtnStatus = false;
+                AutoBtnStatus = false;
+                Pa4_1BtnStatus = false;
+                Pa4_2BtnStatus = false;
+                Pa4_3BtnStatus = false;
+                Pa4_4BtnStatus = false;
+                Pa4_5BtnStatus = false;
+                Pa4_6BtnStatus = false;
+                lcb002CmdSend();
+            }
         }
         private void OnSeedCommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
-            {
-                cmd = "seedOn",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+            if (SeedBtnStatus == false)
+            {                
+                SeedBtnStatus = true;
+            }
+            else
+            {              
+                SeedBtnStatus = false;
+                Pa1BtnStatus = false;
+                Pa2BtnStatus = false;
+                Pa3BtnStatus = false;
+                Pa4_1BtnStatus = false;
+                Pa4_2BtnStatus = false;
+                Pa4_3BtnStatus = false;
+                Pa4_4BtnStatus = false;
+                Pa4_5BtnStatus = false;
+                Pa4_6BtnStatus = false;
+            }
+            lcb002CmdSend();
         }
 
         private void OnPa1CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (SeedBtnStatus)
             {
-                cmd = "amp1On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                if (Pa1BtnStatus == false)
+                {
+                    Pa1BtnStatus = true;
+                }
+                else
+                {
+                    Pa1BtnStatus = false;
+                    Pa2BtnStatus = false;
+                    Pa3BtnStatus = false;
+                    Pa4_1BtnStatus = false;
+                    Pa4_2BtnStatus = false;
+                    Pa4_3BtnStatus = false;
+                    Pa4_4BtnStatus = false;
+                    Pa4_5BtnStatus = false;
+                    Pa4_6BtnStatus = false;
+                }
+                lcb002CmdSend();
+            }
         }
 
         private void OnPa2CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (SeedBtnStatus && Pa1BtnStatus)
             {
-                cmd = "amp2On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                if (Pa2BtnStatus == false)
+                {
+                    Pa2BtnStatus = true;
+                }
+                else
+                {
+                    Pa2BtnStatus = false;
+                    Pa3BtnStatus = false;
+                    Pa4_1BtnStatus = false;
+                    Pa4_2BtnStatus = false;
+                    Pa4_3BtnStatus = false;
+                    Pa4_4BtnStatus = false;
+                    Pa4_5BtnStatus = false;
+                    Pa4_6BtnStatus = false;
+                }
+                lcb002CmdSend();
+            }
         }
 
         private void OnPa3CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (SeedBtnStatus && Pa1BtnStatus && Pa2BtnStatus)
             {
-                cmd = "amp3On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                if (Pa3BtnStatus == false)
+                {
+                    Pa3BtnStatus = true;
+                }
+                else
+                {
+                    Pa3BtnStatus = false;
+                    Pa4_1BtnStatus = false;
+                    Pa4_2BtnStatus = false;
+                    Pa4_3BtnStatus = false;
+                    Pa4_4BtnStatus = false;
+                    Pa4_5BtnStatus = false;
+                    Pa4_6BtnStatus = false;
+                }
+                lcb002CmdSend();
+            }
         }
 
         private void OnPa4CommandAction()
-        {
-            OnPa4_1CommandAction();
-            OnPa4_2CommandAction();
-            OnPa4_3CommandAction();
-            OnPa4_4CommandAction();
-            OnPa4_5CommandAction();
-            OnPa4_6CommandAction();
+        {            
+            if (SeedBtnStatus && Pa1BtnStatus && Pa2BtnStatus && Pa3BtnStatus)
+            {
+                if (Pa4BtnStatus == false)
+                {
+                    Pa4BtnStatus = true;
+                    Pa4_1BtnStatus = true;
+                    Pa4_2BtnStatus = true;
+                    Pa4_3BtnStatus = true;
+                    Pa4_4BtnStatus = true;
+                    Pa4_5BtnStatus = true;
+                    Pa4_6BtnStatus = true;
+                }
+                else
+                {
+                    Pa4BtnStatus = false;
+                    Pa4_1BtnStatus = false;
+                    Pa4_2BtnStatus = false;
+                    Pa4_3BtnStatus = false;
+                    Pa4_4BtnStatus = false;
+                    Pa4_5BtnStatus = false;
+                    Pa4_6BtnStatus = false;
+                }
+                lcb002CmdSend();
+            }            
         }
 
         private void OnPa4_1CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (Pa4_1BtnStatus == false)
             {
-                cmd = "amp4_1On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                Pa4_1BtnStatus = true;
+            }
+            else
+            {
+                Pa4_1BtnStatus = false;
+            }
+            Pa4BtnStatusCheck();
+            lcb002CmdSend();
         }
 
         private void OnPa4_2CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (Pa4_2BtnStatus == false)
             {
-                cmd = "amp4_2On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                Pa4_2BtnStatus = true;
+            }
+            else
+            {
+                Pa4_2BtnStatus = false;
+            }
+            Pa4BtnStatusCheck();
+            lcb002CmdSend();
         }
 
         private void OnPa4_3CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (Pa4_3BtnStatus == false)
             {
-                cmd = "amp4_3On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                Pa4_3BtnStatus = true;
+            }
+            else
+            {
+                Pa4_3BtnStatus = false;
+            }
+            Pa4BtnStatusCheck();
+            lcb002CmdSend();
         }
 
         private void OnPa4_4CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (Pa4_4BtnStatus == false)
             {
-                cmd = "amp4_4On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                Pa4_4BtnStatus = true;
+            }
+            else
+            {
+                Pa4_4BtnStatus = false;
+            }
+            Pa4BtnStatusCheck();
+            lcb002CmdSend();
         }
 
         private void OnPa4_5CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (Pa4_5BtnStatus == false)
             {
-                cmd = "amp4_5On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                Pa4_5BtnStatus = true;
+            }
+            else
+            {
+                Pa4_5BtnStatus = false;
+            }
+            Pa4BtnStatusCheck();
+            lcb002CmdSend();
         }
 
         private void OnPa4_6CommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
+            if (Pa4_6BtnStatus == false)
             {
-                cmd = "amp4_6On",
-            };
-            Messenger.Default.Send(lcb002Cmd);
+                Pa4_6BtnStatus = true;
+            }
+            else
+            {
+                Pa4_6BtnStatus = false;
+            }
+            Pa4BtnStatusCheck();
+            lcb002CmdSend();
+        }
+
+        private void Pa4BtnStatusCheck()
+        {
+            if (Pa4_1BtnStatus && Pa4_2BtnStatus && Pa4_3BtnStatus && Pa4_4BtnStatus && Pa4_5BtnStatus && Pa4_6BtnStatus)
+                Pa4BtnStatus = true;
+            else
+                Pa4BtnStatus = false;
         }
         private void OnPolCommandAction()
         {
+            if (PolBtnStatus == false)
+            {
+                PolBtnStatus = true;
+            }
+            else
+            {
+                PolBtnStatus = false;
+            }
+            lcb002CmdSend();
+        }
+        private async void OnResetCommandAction()
+        {
+            ResetBtnStatus = true;
+            lcb002CmdSend();
+            await Task.Delay(100);
+            ResetBtnStatus = false;
+        }
+        private void lcb002CmdSend()
+        {
             var lcb002Cmd = new lcb002Cmd()
             {
-                cmd = "polOn",
+                reset = Convert.ToInt32(ResetBtnStatus),
+                seed = Convert.ToInt32(SeedBtnStatus)*31 + Convert.ToInt32(PolBtnStatus)*32,
+                amp = Convert.ToInt32(Pa1BtnStatus) + (Convert.ToInt32(Pa2BtnStatus) << 1) + (Convert.ToInt32(Pa3BtnStatus) << 2) + (Convert.ToInt32(Pa4_1BtnStatus) << 3) + (Convert.ToInt32(Pa4_2BtnStatus) << 4)
+                    + (Convert.ToInt32(Pa4_3BtnStatus) << 5) + (Convert.ToInt32(Pa4_4BtnStatus) << 6) + (Convert.ToInt32(Pa4_5BtnStatus) << 7) + (Convert.ToInt32(Pa4_6BtnStatus) << 8)
+
             };
             Messenger.Default.Send(lcb002Cmd);
         }
+
         private void OnSetCommandAction()
         {
             var lcb004writeSetCmd = new lcb004writeSetCmd()
@@ -1488,6 +1721,61 @@ namespace MVVM.ViewModel
             };
             Messenger.Default.Send(lcb004writeSetCmd);
         }
+
+        private async void OnAutoCommandAction()
+        {
+            AutoBtnStatus = true;
+            if (AutoBtnStatus == true)
+            {
+                OnSeedCommandAction();
+                await Task.Delay(DelayTime1);
+            }
+            if (AutoBtnStatus == true)
+            {
+                OnPa1CommandAction();
+                await Task.Delay(DelayTime2);
+            }
+            if (AutoBtnStatus == true)
+            {
+                OnPa2CommandAction();
+                await Task.Delay(DelayTime3);
+            }
+            if (AutoBtnStatus == true)
+            {
+                OnPa3CommandAction();
+                await Task.Delay(DelayTime4);
+            }
+            if (AutoBtnStatus == true)
+            {
+                OnPa4CommandAction();
+            }            
+            AutoBtnStatus = false;
+        }
+
+        private async void OnOffCommandAction()
+        {
+            OffBtnStatus = true;
+
+            SeedBtnStatus = false;
+            Pa1BtnStatus = false;
+            Pa2BtnStatus = false;
+            Pa3BtnStatus = false;
+            Pa4BtnStatus = false;
+            PolBtnStatus = false;
+            AutoBtnStatus = false;
+            Pa4_1BtnStatus = false;
+            Pa4_2BtnStatus = false;
+            Pa4_3BtnStatus = false;
+            Pa4_4BtnStatus = false;
+            Pa4_5BtnStatus = false;
+            Pa4_6BtnStatus = false;
+            lcb002CmdSend();
+
+            await Task.Delay(100);
+           
+            OffBtnStatus = false;
+        }
+
         private void OnReceiveMessageAction(monValue obj)
         {
             SeedCurrent = obj.SeedCurrent;

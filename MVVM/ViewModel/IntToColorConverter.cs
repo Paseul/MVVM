@@ -31,6 +31,10 @@ namespace MVVM.ViewModel
             {
                 color = new SolidColorBrush(Colors.Lime);
             }
+            if ((int)value == 3)
+            {
+                color = new SolidColorBrush(Colors.Red);
+            }
 
             return color;
         }

@@ -80,6 +80,7 @@
     <Compile Include="ViewModel\BoolLimeRedConverter.cs" />
     <Compile Include="ViewModel\ImageConverter.cs" />
     <Compile Include="ViewModel\IntToColorConverter.cs" />
+    <Compile Include="ViewModel\IWindowService.cs" />
     <Compile Include="ViewModel\PowerBitModel.cs" />
     <Compile Include="ViewModel\SeedStatusModel.cs" />
     <Compile Include="Messages\ViewModelMessage.cs" />

@@ -423,6 +423,7 @@ namespace MVVM.Messages
         public float RfVolt { get; set; }
         public float SeedHumid { get; set; }
         public float PaHumid { get; set; }
+        public string PolResponseRead { get; set; }
     }
     class warnMon : MessageBase
     {
@@ -528,6 +529,7 @@ namespace MVVM.Messages
         public bool Chiller { get; set; }
         public bool PaHumid { get; set; }
         public bool SeedHumid { get; set; }
+        public bool RfVMon { get; set; }
     }
     class dcPowerBit : MessageBase
     {
@@ -639,7 +641,9 @@ namespace MVVM.Messages
     }
     class lcb002Cmd : MessageBase
     {
-        public string cmd { get; set; }
+        public int reset { get; set; }
+        public int seed { get; set; }
+        public int amp { get; set; }
     }
     class lcb003Cmd : MessageBase
     {

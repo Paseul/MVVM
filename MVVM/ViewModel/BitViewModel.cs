@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MVVM.Messages;
 using System;
@@ -13,8 +14,8 @@ namespace MVVM.ViewModel
 {
     public class BitViewModel : ViewModelBase, INotifyPropertyChanged
     {
-        private bool _seedStatus;
-        public bool SeedStatus
+        private int _seedStatus;
+        public int SeedStatus
         {
             get { return _seedStatus; }
             set
@@ -43,8 +44,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _ampTemp;
-        public bool AmpTemp
+        private int _ampTemp;
+        public int AmpTemp
         {
             get { return _ampTemp; }
             set
@@ -273,6 +274,34 @@ namespace MVVM.ViewModel
         {
             Messenger.Default.Register<dcpBit>(this, OnReceiveMessageAction);
             Messenger.Default.Register<chillerMon>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<warnMon>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<errorMon>(this, OnReceiveMessageAction);
+        }
+
+        private void OnReceiveMessageAction(warnMon obj)
+        {
+            SeedStatus = (obj.SeedTempHigh | obj.SeedTempLow | obj.SeedTemp1High | obj.SeedTemp1Low | obj.SeedTemp2High | obj.SeedTemp2Low | obj.SeedTemp3High | obj.SeedTemp3Low) ? 1 : 2;
+            AmpTemp = (obj.PaTemp1High | obj.PaTemp1Low | obj.PaTemp2High | obj.PaTemp2Low | obj.PaTemp3High | obj.PaTemp3Low | obj.PaTemp4High | obj.PaTemp4Low
+                | obj.PaTemp5High | obj.PaTemp5Low | obj.PaTemp6High | obj.PaTemp6Low | obj.PaTemp7High | obj.PaTemp7Low | obj.PaTemp8High | obj.PaTemp8Low
+                | obj.PaTemp9High | obj.PaTemp9Low | obj.PaTemp10High | obj.PaTemp10Low | obj.PaTemp11High | obj.PaTemp11Low | obj.PaTemp12High | obj.PaTemp12Low
+                | obj.PaTemp13High | obj.PaTemp13Low | obj.PaTemp14High | obj.PaTemp14Low | obj.PaTemp15High | obj.PaTemp15Low | obj.PaTemp16High | obj.PaTemp16Low) ? 1 : 2;
+        }
+
+        private void OnReceiveMessageAction(errorMon obj)
+        {
+            if (SeedStatus == 1)
+                SeedStatus = (obj.SeedLdCurrentHigh | obj.SeedLdCurrentLow) ? 3 : 1;   
+            else
+                SeedStatus = (obj.SeedLdCurrentHigh | obj.SeedLdCurrentLow) ? 3 : 2;
+
+            AmpCurrent = (obj.Pa1CurrentHigh | obj.Pa1CurrentLow | obj.Pa2CurrentHigh | obj.Pa2CurrentLow | obj.Pa3CurrentHigh | obj.Pa3CurrentLow
+                | obj.Pa4_1CurrentHigh | obj.Pa4_1CurrentLow | obj.Pa4_2CurrentHigh | obj.Pa4_2CurrentLow | obj.Pa4_3CurrentHigh | obj.Pa4_3CurrentLow
+                | obj.Pa4_4CurrentHigh | obj.Pa4_4CurrentLow | obj.Pa4_5CurrentHigh | obj.Pa4_5CurrentLow | obj.Pa4_6CurrentHigh | obj.Pa4_6CurrentLow);
+            AmpVoltage = (obj.Pa1VoltageHigh | obj.Pa1VoltageLow | obj.Pa2VoltageHigh | obj.Pa2VoltageLow | obj.Pa3VoltageHigh | obj.Pa3VoltageLow
+                | obj.Pa4_1VoltageHigh | obj.Pa4_1VoltageLow | obj.Pa4_2VoltageHigh | obj.Pa4_2VoltageLow | obj.Pa4_3VoltageHigh | obj.Pa4_3VoltageLow
+                | obj.Pa4_4VoltageHigh | obj.Pa4_4VoltageLow | obj.Pa4_5VoltageHigh | obj.Pa4_5VoltageLow | obj.Pa4_6VoltageHigh |obj.Pa4_6VoltageLow);
+            AmpPd = (obj.Pd1High | obj.Pd1Low | obj.Pd2High | obj.Pd2Low | obj.Pd3High | obj.Pd3Low | obj.Pd4High | obj.Pd4Low | obj.Pd5High | obj.Pd5Low
+                | obj.Pd6High | obj.Pd6Low | obj.Pd7High | obj.Pd7Low | obj.Pd8High | obj.Pd8Low);
         }
 
         private void OnReceiveMessageAction(dcpBit obj)

@@ -45,6 +45,26 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private int _warnErrorStatus;
+        public int WarnErrorStatus
+        {
+            get { return _warnErrorStatus; }
+            set
+            {
+                _warnErrorStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _laserOnStatus;
+        public bool LaserOnStatus
+        {
+            get { return _laserOnStatus; }
+            set
+            {
+                _laserOnStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
         private bool _seedLdCurrent;
         public bool SeedLdCurrent
         {
@@ -969,17 +989,33 @@ namespace MVVM.ViewModel
             cLowTempAlarmCmd = new RelayCommand(cLowTempAlarmCmdAction, null);
 
             Messenger.Default.Register<LvbBitResult>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<warnMon>(this, OnReceiveMessageAction);
             Messenger.Default.Register<errorMon>(this, OnReceiveMessageAction);
             Messenger.Default.Register<dcpMon>(this, OnReceiveMessageAction);
             Messenger.Default.Register<dcPowerBit>(this, OnReceiveMessageAction);
             Messenger.Default.Register<chillerRcv>(this, OnReceiveMessageAction);
             Messenger.Default.Register<chillerMon>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<string>(this, MessageReceived);
 
             CTargetTempValue = "+21.1";
             CHighTempWarnValue = "+22.2";
             CHighTempAlarmValue = "+23.3";
             CLowTempWarnValue = "+24.4";
             CLowTempAlarmValue = "+25.5";
+        }
+
+        private void MessageReceived(string message)
+        {
+            if (message == "seedOn" || message == "amp1On" || message == "amp2On" || message == "amp3On" || message == "amp4-1On"
+                || message == "amp4-2On" || message == "amp4-3On" || message == "amp4-4On" || message == "amp4-5On" || message == "amp4-6On")
+            {
+                LaserOnStatus = true;
+            }
+            if (message == "seedOff" || message == "amp1Off" || message == "amp2Off" || message == "amp3Off" || message == "amp4-1Off"
+                || message == "amp4-2Off" || message == "amp4-3Off" || message == "amp4-4Off" || message == "amp4-5Off" || message == "amp4-6Off")
+            {
+                LaserOnStatus = false;
+            }
         }
 
         private void cRunCmdAction()
@@ -1144,8 +1180,32 @@ namespace MVVM.ViewModel
             Polarization = obj.polarization;
         }
 
+        private void OnReceiveMessageAction(warnMon obj)
+        {
+            WarnErrorStatus = (obj.SeedTempHigh | obj.SeedTempLow | obj.SeedTemp1High | obj.SeedTemp1Low | obj.SeedTemp2High | obj.SeedTemp2Low | obj.SeedTemp3High | obj.SeedTemp3Low
+                | obj.PaTemp1High | obj.PaTemp1Low | obj.PaTemp2High | obj.PaTemp2Low | obj.PaTemp3High | obj.PaTemp3Low | obj.PaTemp4High | obj.PaTemp4Low
+                | obj.PaTemp5High | obj.PaTemp5Low | obj.PaTemp6High | obj.PaTemp6Low | obj.PaTemp7High | obj.PaTemp7Low | obj.PaTemp8High | obj.PaTemp8Low
+                | obj.PaTemp9High | obj.PaTemp9Low | obj.PaTemp10High | obj.PaTemp10Low | obj.PaTemp11High | obj.PaTemp11Low | obj.PaTemp12High | obj.PaTemp12Low
+                | obj.PaTemp13High | obj.PaTemp13Low | obj.PaTemp14High | obj.PaTemp14Low | obj.PaTemp15High | obj.PaTemp15Low | obj.PaTemp16High | obj.PaTemp16Low) ? 1 : 0;
+        }
+
         private void OnReceiveMessageAction(errorMon obj)
         {
+            if (WarnErrorStatus == 1)
+                WarnErrorStatus = (obj.SeedLdCurrentHigh | obj.SeedLdCurrentLow | obj.Pa1CurrentHigh | obj.Pa1CurrentLow | obj.Pa2CurrentHigh | obj.Pa2CurrentLow | obj.Pa3CurrentHigh | obj.Pa3CurrentLow 
+                    | obj.Pa4_1CurrentHigh | obj.Pa4_1CurrentLow | obj.Pa4_2CurrentHigh | obj.Pa4_2CurrentLow | obj.Pa4_3CurrentHigh | obj.Pa4_3CurrentLow | obj.Pa4_4CurrentHigh | obj.Pa4_4CurrentLow 
+                    | obj.Pa4_5CurrentHigh | obj.Pa4_5CurrentLow | obj.Pa4_6CurrentHigh | obj.Pa4_6CurrentLow | obj.Pa1VoltageHigh | obj.Pa1VoltageLow | obj.Pa2VoltageHigh | obj.Pa2VoltageLow 
+                    | obj.Pa3VoltageHigh | obj.Pa3VoltageLow | obj.Pa4_1VoltageHigh | obj.Pa4_1VoltageLow | obj.Pa4_2VoltageHigh | obj.Pa4_2VoltageLow | obj.Pa4_3VoltageHigh | obj.Pa4_3VoltageLow
+                    | obj.Pa4_4VoltageHigh | obj.Pa4_4VoltageLow | obj.Pa4_5VoltageHigh | obj.Pa4_5VoltageLow | obj.Pa4_6VoltageHigh | obj.Pa4_6VoltageLow | obj.Pd1High | obj.Pd1Low | obj.Pd2High | obj.Pd2Low 
+                    | obj.Pd3High | obj.Pd3Low | obj.Pd4High | obj.Pd4Low | obj.Pd5High | obj.Pd5Low | obj.Pd6High | obj.Pd6Low | obj.Pd7High | obj.Pd7Low | obj.Pd8High | obj.Pd8Low) ? 3 : 1;
+            else
+                WarnErrorStatus = (obj.SeedLdCurrentHigh | obj.SeedLdCurrentLow | obj.Pa1CurrentHigh | obj.Pa1CurrentLow | obj.Pa2CurrentHigh | obj.Pa2CurrentLow | obj.Pa3CurrentHigh | obj.Pa3CurrentLow
+                    | obj.Pa4_1CurrentHigh | obj.Pa4_1CurrentLow | obj.Pa4_2CurrentHigh | obj.Pa4_2CurrentLow | obj.Pa4_3CurrentHigh | obj.Pa4_3CurrentLow | obj.Pa4_4CurrentHigh | obj.Pa4_4CurrentLow
+                    | obj.Pa4_5CurrentHigh | obj.Pa4_5CurrentLow | obj.Pa4_6CurrentHigh | obj.Pa4_6CurrentLow | obj.Pa1VoltageHigh | obj.Pa1VoltageLow | obj.Pa2VoltageHigh | obj.Pa2VoltageLow
+                    | obj.Pa3VoltageHigh | obj.Pa3VoltageLow | obj.Pa4_1VoltageHigh | obj.Pa4_1VoltageLow | obj.Pa4_2VoltageHigh | obj.Pa4_2VoltageLow | obj.Pa4_3VoltageHigh | obj.Pa4_3VoltageLow
+                    | obj.Pa4_4VoltageHigh | obj.Pa4_4VoltageLow | obj.Pa4_5VoltageHigh | obj.Pa4_5VoltageLow | obj.Pa4_6VoltageHigh | obj.Pa4_6VoltageLow | obj.Pd1High | obj.Pd1Low | obj.Pd2High | obj.Pd2Low
+                    | obj.Pd3High | obj.Pd3Low | obj.Pd4High | obj.Pd4Low | obj.Pd5High | obj.Pd5Low | obj.Pd6High | obj.Pd6Low | obj.Pd7High | obj.Pd7Low | obj.Pd8High | obj.Pd8Low) ? 3 : 0;
+
             SeedHumid = obj.SeedHumid;
             PaHumid = obj.PaHumid;
             PaLeak = obj.LeakSensor;

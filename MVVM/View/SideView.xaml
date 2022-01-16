@@ -12,6 +12,7 @@
              d:DesignHeight="1080" d:DesignWidth="340">
     <UserControl.Resources>
         <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
+        <local:BoolGrayLimeConverter x:Key="BoolGrayLimeConverter"/>
         <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
         <local:IntToColorConverter x:Key="IntToColorConverter"/>
         <LinearGradientBrush x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
@@ -83,17 +84,17 @@
             <Border BorderBrush="Gray" BorderThickness="1">
                 <Grid>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="LASER STATUS" VerticalAlignment="Top" Height="24" Width="340" Background="#FFC8C8C8" TextAlignment="Center" FontWeight="Bold" FontSize="18"/>
-                    <Button Content="Laser Ready" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime" BorderBrush="{x:Null}">
+                    <Button Content="Laser Ready" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="{Binding BitStatus, Converter={StaticResource BoolGrayLimeConverter}}" BorderBrush="{x:Null}">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                         </Button.Effect>
                     </Button>
-                    <Button Content="Laser On" HorizontalAlignment="Left" Margin="120,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="Lime" BorderBrush="{x:Null}">
+                    <Button Content="Laser On" HorizontalAlignment="Left" Margin="120,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="{Binding LaserOnStatus, Converter={StaticResource BoolGrayLimeConverter}}" BorderBrush="{x:Null}">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                         </Button.Effect>
                     </Button>
-                    <Button Content="Laser Error" HorizontalAlignment="Left" Margin="230,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="{Binding BitStatus, Converter={StaticResource BoolGrayRedConverter}}" BorderBrush="{x:Null}">
+                    <Button Content="Laser Error" HorizontalAlignment="Left" Margin="230,58,0,0" VerticalAlignment="Top" Width="100" Height="40" FontWeight="Bold" FontSize="16" Background="{Binding WarnErrorStatus, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
                         </Button.Effect>

@@ -14,9 +14,11 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVM.Messages;
 namespace MVVM.ViewModel
 {
-    public class TopViewModel : ViewModelBase
-    {
-        public RelayCommand OnResetCommand { get; set; }
+    public class TopViewModel : ViewModelBase, INotifyPropertyChanged
+    {        
+        public RelayCommand OnSaveCommand { get; set; }
+        public RelayCommand OnStartCommand { get; set; }
+        public RelayCommand OnStopCommand { get; set; }
 
         private float _pd7;
         public float Pd7
@@ -67,8 +69,9 @@ namespace MVVM.ViewModel
 
         public TopViewModel()
         {
-            Messenger.Default.Register<monValue>(this, OnReceiveMessageAction);
-            OnResetCommand = new RelayCommand(OnResetCommandAction, null);
+            Messenger.Default.Register<monValue>(this, OnReceiveMessageAction);            
+            OnSaveCommand = new RelayCommand(OnSaveCommandAction, null);
+            OnStopCommand = new RelayCommand(OnStopCommandAction, null);
         }
 
         private void OnReceiveMessageAction(monValue obj)
@@ -76,15 +79,16 @@ namespace MVVM.ViewModel
             Pd7 = obj.Pd7;
             PaTemp13 = obj.PaTemp13;
             PaHumid = obj.PaHumid;
+            SeedHumid = obj.SeedHumid;
+        }        
+        private void OnSaveCommandAction()
+        {
+            Messenger.Default.Send("save");
         }
 
-        private void OnResetCommandAction()
+        private void OnStopCommandAction()
         {
-            var lcb002Cmd = new lcb002Cmd()
-            {
-                cmd = "resetOn",
-            };
-            Messenger.Default.Send(lcb002Cmd);
-        }
+            Messenger.Default.Send("stop");
+        }        
     }
 }

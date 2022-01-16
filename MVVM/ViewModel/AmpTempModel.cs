@@ -13,8 +13,8 @@ namespace MVVM.ViewModel
 {
     public class AmpTempModel : ViewModelBase, INotifyPropertyChanged
     {
-        private bool _paTemp1High;
-        public bool PaTemp1High
+        private int _paTemp1High;
+        public int PaTemp1High
         {
             get { return _paTemp1High; }
             set
@@ -23,8 +23,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp1Low;
-        public bool PaTemp1Low
+        private int _paTemp1Low;
+        public int PaTemp1Low
         {
             get { return _paTemp1Low; }
             set
@@ -33,8 +33,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp2High;
-        public bool PaTemp2High
+        private int _paTemp2High;
+        public int PaTemp2High
         {
             get { return _paTemp2High; }
             set
@@ -43,8 +43,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp2Low;
-        public bool PaTemp2Low
+        private int _paTemp2Low;
+        public int PaTemp2Low
         {
             get { return _paTemp2Low; }
             set
@@ -53,8 +53,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp3High;
-        public bool PaTemp3High
+        private int _paTemp3High;
+        public int PaTemp3High
         {
             get { return _paTemp3High; }
             set
@@ -63,8 +63,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp3Low;
-        public bool PaTemp3Low
+        private int _paTemp3Low;
+        public int PaTemp3Low
         {
             get { return _paTemp3Low; }
             set
@@ -73,8 +73,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp4High;
-        public bool PaTemp4High
+        private int _paTemp4High;
+        public int PaTemp4High
         {
             get { return _paTemp4High; }
             set
@@ -83,8 +83,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp4Low;
-        public bool PaTemp4Low
+        private int _paTemp4Low;
+        public int PaTemp4Low
         {
             get { return _paTemp4Low; }
             set
@@ -93,8 +93,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp5High;
-        public bool PaTemp5High
+        private int _paTemp5High;
+        public int PaTemp5High
         {
             get { return _paTemp5High; }
             set
@@ -103,8 +103,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp5Low;
-        public bool PaTemp5Low
+        private int _paTemp5Low;
+        public int PaTemp5Low
         {
             get { return _paTemp5Low; }
             set
@@ -113,8 +113,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp6High;
-        public bool PaTemp6High
+        private int _paTemp6High;
+        public int PaTemp6High
         {
             get { return _paTemp6High; }
             set
@@ -123,8 +123,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp6Low;
-        public bool PaTemp6Low
+        private int _paTemp6Low;
+        public int PaTemp6Low
         {
             get { return _paTemp6Low; }
             set
@@ -133,8 +133,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp7High;
-        public bool PaTemp7High
+        private int _paTemp7High;
+        public int PaTemp7High
         {
             get { return _paTemp7High; }
             set
@@ -143,8 +143,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp7Low;
-        public bool PaTemp7Low
+        private int _paTemp7Low;
+        public int PaTemp7Low
         {
             get { return _paTemp7Low; }
             set
@@ -153,8 +153,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp8High;
-        public bool PaTemp8High
+        private int _paTemp8High;
+        public int PaTemp8High
         {
             get { return _paTemp8High; }
             set
@@ -163,8 +163,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp8Low;
-        public bool PaTemp8Low
+        private int _paTemp8Low;
+        public int PaTemp8Low
         {
             get { return _paTemp8Low; }
             set
@@ -173,8 +173,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp9High;
-        public bool PaTemp9High
+        private int _paTemp9High;
+        public int PaTemp9High
         {
             get { return _paTemp9High; }
             set
@@ -183,8 +183,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp9Low;
-        public bool PaTemp9Low
+        private int _paTemp9Low;
+        public int PaTemp9Low
         {
             get { return _paTemp9Low; }
             set
@@ -193,8 +193,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp10High;
-        public bool PaTemp10High
+        private int _paTemp10High;
+        public int PaTemp10High
         {
             get { return _paTemp10High; }
             set
@@ -203,8 +203,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp10Low;
-        public bool PaTemp10Low
+        private int _paTemp10Low;
+        public int PaTemp10Low
         {
             get { return _paTemp10Low; }
             set
@@ -213,8 +213,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp11High;
-        public bool PaTemp11High
+        private int _paTemp11High;
+        public int PaTemp11High
         {
             get { return _paTemp11High; }
             set
@@ -223,8 +223,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp11Low;
-        public bool PaTemp11Low
+        private int _paTemp11Low;
+        public int PaTemp11Low
         {
             get { return _paTemp11Low; }
             set
@@ -233,8 +233,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp12High;
-        public bool PaTemp12High
+        private int _paTemp12High;
+        public int PaTemp12High
         {
             get { return _paTemp12High; }
             set
@@ -243,8 +243,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp12Low;
-        public bool PaTemp12Low
+        private int _paTemp12Low;
+        public int PaTemp12Low
         {
             get { return _paTemp12Low; }
             set
@@ -253,8 +253,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp13High;
-        public bool PaTemp13High
+        private int _paTemp13High;
+        public int PaTemp13High
         {
             get { return _paTemp13High; }
             set
@@ -263,8 +263,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp13Low;
-        public bool PaTemp13Low
+        private int _paTemp13Low;
+        public int PaTemp13Low
         {
             get { return _paTemp13Low; }
             set
@@ -273,8 +273,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp14High;
-        public bool PaTemp14High
+        private int _paTemp14High;
+        public int PaTemp14High
         {
             get { return _paTemp14High; }
             set
@@ -283,8 +283,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp14Low;
-        public bool PaTemp14Low
+        private int _paTemp14Low;
+        public int PaTemp14Low
         {
             get { return _paTemp14Low; }
             set
@@ -293,8 +293,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp15High;
-        public bool PaTemp15High
+        private int _paTemp15High;
+        public int PaTemp15High
         {
             get { return _paTemp15High; }
             set
@@ -303,8 +303,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp15Low;
-        public bool PaTemp15Low
+        private int _paTemp15Low;
+        public int PaTemp15Low
         {
             get { return _paTemp15Low; }
             set
@@ -313,8 +313,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp16High;
-        public bool PaTemp16High
+        private int _paTemp16High;
+        public int PaTemp16High
         {
             get { return _paTemp16High; }
             set
@@ -323,8 +323,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _paTemp16Low;
-        public bool PaTemp16Low
+        private int _paTemp16Low;
+        public int PaTemp16Low
         {
             get { return _paTemp16Low; }
             set
@@ -347,38 +347,38 @@ namespace MVVM.ViewModel
 
         private void OnReceiveMessageAction(warnMon obj)
         {
-            PaTemp1High = obj.PaTemp1High;
-            PaTemp1Low = obj.PaTemp1Low;
-            PaTemp2High = obj.PaTemp2High;
-            PaTemp2Low = obj.PaTemp2Low;
-            PaTemp3High = obj.PaTemp3High;
-            PaTemp3Low = obj.PaTemp3Low;
-            PaTemp4High = obj.PaTemp4High;
-            PaTemp4Low = obj.PaTemp4Low;
-            PaTemp5High = obj.PaTemp5High;
-            PaTemp5Low = obj.PaTemp5Low;
-            PaTemp6High = obj.PaTemp6High;
-            PaTemp6Low = obj.PaTemp6Low;
-            PaTemp7High = obj.PaTemp7High;
-            PaTemp7Low = obj.PaTemp7Low;
-            PaTemp8High = obj.PaTemp8High;
-            PaTemp8Low = obj.PaTemp8Low;
-            PaTemp9High = obj.PaTemp9High;
-            PaTemp9Low = obj.PaTemp9Low;
-            PaTemp10High = obj.PaTemp10High;
-            PaTemp10Low = obj.PaTemp10Low;
-            PaTemp11High = obj.PaTemp11High;
-            PaTemp11Low = obj.PaTemp11Low;
-            PaTemp12High = obj.PaTemp12High;
-            PaTemp12Low = obj.PaTemp12Low;
-            PaTemp13High = obj.PaTemp13High;
-            PaTemp13Low = obj.PaTemp13Low;
-            PaTemp14High = obj.PaTemp14High;
-            PaTemp14Low = obj.PaTemp14Low;
-            PaTemp15High = obj.PaTemp15High;
-            PaTemp15Low = obj.PaTemp15Low;
-            PaTemp16High = obj.PaTemp16High;
-            PaTemp16Low = obj.PaTemp16Low;
+            PaTemp1High = obj.PaTemp1High ? 1 : 2;
+            PaTemp1Low = obj.PaTemp1Low ? 1 : 2;
+            PaTemp2High = obj.PaTemp2High ? 1 : 2;
+            PaTemp2Low = obj.PaTemp2Low ? 1 : 2;
+            PaTemp3High = obj.PaTemp3High ? 1 : 2;
+            PaTemp3Low = obj.PaTemp3Low ? 1 : 2;
+            PaTemp4High = obj.PaTemp4High ? 1 : 2;
+            PaTemp4Low = obj.PaTemp4Low ? 1 : 2;
+            PaTemp5High = obj.PaTemp5High ? 1 : 2;
+            PaTemp5Low = obj.PaTemp5Low ? 1 : 2; 
+            PaTemp6High = obj.PaTemp6High ? 1 : 2; 
+            PaTemp6Low = obj.PaTemp6Low ? 1 : 2; 
+            PaTemp7High = obj.PaTemp7High ? 1 : 2; 
+            PaTemp7Low = obj.PaTemp7Low ? 1 : 2;
+            PaTemp8High = obj.PaTemp8High ? 1 : 2;
+            PaTemp8Low = obj.PaTemp8Low ? 1 : 2;
+            PaTemp9High = obj.PaTemp9High ? 1 : 2;
+            PaTemp9Low = obj.PaTemp9Low ? 1 : 2;
+            PaTemp10High = obj.PaTemp10High ? 1 : 2;
+            PaTemp10Low = obj.PaTemp10Low ? 1 : 2;
+            PaTemp11High = obj.PaTemp11High ? 1 : 2;
+            PaTemp11Low = obj.PaTemp11Low ? 1 : 2;
+            PaTemp12High = obj.PaTemp12High ? 1 : 2;
+            PaTemp12Low = obj.PaTemp12Low ? 1 : 2;
+            PaTemp13High = obj.PaTemp13High ? 1 : 2;
+            PaTemp13Low = obj.PaTemp13Low ? 1 : 2;
+            PaTemp14High = obj.PaTemp14High ? 1 : 2;
+            PaTemp14Low = obj.PaTemp14Low ? 1 : 2;
+            PaTemp15High = obj.PaTemp15High ? 1 : 2;
+            PaTemp15Low = obj.PaTemp15Low ? 1 : 2;
+            PaTemp16High = obj.PaTemp16High ? 1 : 2;
+            PaTemp16Low = obj.PaTemp16Low ? 1 : 2;
         }
     }
 }

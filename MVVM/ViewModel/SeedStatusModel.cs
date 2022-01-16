@@ -13,8 +13,8 @@ namespace MVVM.ViewModel
 {
     public class SeedStatusModel : ViewModelBase, INotifyPropertyChanged
     {
-        private bool _seedTempHigh;
-        public bool SeedTempHigh
+        private int _seedTempHigh;
+        public int SeedTempHigh
         {
             get { return _seedTempHigh; }
             set
@@ -23,8 +23,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTempLow;
-        public bool SeedTempLow
+        private int _seedTempLow;
+        public int SeedTempLow
         {
             get { return _seedTempLow; }
             set
@@ -33,8 +33,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTemp1High;
-        public bool SeedTemp1High
+        private int _seedTemp1High;
+        public int SeedTemp1High
         {
             get { return _seedTemp1High; }
             set
@@ -43,8 +43,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTemp1Low;
-        public bool SeedTemp1Low
+        private int _seedTemp1Low;
+        public int SeedTemp1Low
         {
             get { return _seedTemp1Low; }
             set
@@ -53,8 +53,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTemp2High;
-        public bool SeedTemp2High
+        private int _seedTemp2High;
+        public int SeedTemp2High
         {
             get { return _seedTemp2High; }
             set
@@ -63,8 +63,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTemp2Low;
-        public bool SeedTemp2Low
+        private int _seedTemp2Low;
+        public int SeedTemp2Low
         {
             get { return _seedTemp2Low; }
             set
@@ -73,8 +73,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTemp3High;
-        public bool SeedTemp3High
+        private int _seedTemp3High;
+        public int SeedTemp3High
         {
             get { return _seedTemp3High; }
             set
@@ -83,8 +83,8 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        private bool _seedTemp3Low;
-        public bool SeedTemp3Low
+        private int _seedTemp3Low;
+        public int SeedTemp3Low
         {
             get { return _seedTemp3Low; }
             set
@@ -128,14 +128,14 @@ namespace MVVM.ViewModel
 
         private void OnReceiveMessageAction(warnMon obj)
         {
-            SeedTempHigh = obj.SeedTempHigh;
-            SeedTempLow = obj.SeedTempLow;
-            SeedTemp1High = obj.SeedTemp1High;
-            SeedTemp1Low = obj.SeedTemp1Low;
-            SeedTemp2High = obj.SeedTemp2High;
-            SeedTemp2Low = obj.SeedTemp2Low;
-            SeedTemp3High = obj.SeedTemp3High;
-            SeedTemp3Low = obj.SeedTemp3Low;
+            SeedTempHigh = obj.SeedTempHigh ? 1 : 2;
+            SeedTempLow = obj.SeedTempLow ? 1 : 2;
+            SeedTemp1High = obj.SeedTemp1High ? 1 : 2;
+            SeedTemp1Low = obj.SeedTemp1Low ? 1 : 2;
+            SeedTemp2High = obj.SeedTemp2High ? 1 : 2;
+            SeedTemp2Low = obj.SeedTemp2Low ? 1 : 2;
+            SeedTemp3High = obj.SeedTemp3High ? 1 : 2;
+            SeedTemp3Low = obj.SeedTemp3Low ? 1 : 2;
         }
 
         private void OnReceiveMessageAction(errorMon obj)

@@ -11,6 +11,7 @@
     <Window.Resources>
         <local:BoolGrayRedConverter x:Key="BoolGrayRedConverter"/>
         <local:BoolLimeRedConverter x:Key="BoolLimeRedConverter"/>
+        <local:IntToColorConverter x:Key="IntToColorConverter"/>
     </Window.Resources>
     <Grid Background="LightGray">
         <TextBlock Text="Current" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127" FontWeight="Bold" Margin="8,19,0,0" Background="{x:Null}" FontSize="18" Height="24"/>
@@ -21,12 +22,12 @@
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="seedTempLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="128,63,0,0" Background="{Binding SeedTempLow, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+        <Button x:Name="seedTempLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="128,63,0,0" Background="{Binding SeedTempLow, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="rfTempLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="128,102,0,0" Background="{Binding SeedTemp1Low, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+        <Button x:Name="rfTempLow" Content="Low" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="128,102,0,0" Background="{Binding SeedTemp1Low, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
@@ -36,12 +37,12 @@
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="seedTempHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="190,63,0,0" Background="{Binding SeedTemp1High, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+        <Button x:Name="seedTempHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="190,63,0,0" Background="{Binding SeedTempHigh, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="rfTempHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="190,102,0,0" Background="{Binding SeedTempHigh, Converter={StaticResource BoolLimeRedConverter}}" BorderBrush="{x:Null}">
+        <Button x:Name="rfTempHigh" Content="High" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56" FontWeight="Bold" Margin="190,102,0,0" Background="{Binding SeedTemp1High, Converter={StaticResource IntToColorConverter}}" BorderBrush="{x:Null}">
             <Button.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"/>
             </Button.Effect>
