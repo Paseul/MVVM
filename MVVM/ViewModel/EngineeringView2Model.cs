@@ -15,8 +15,8 @@ namespace MVVM.ViewModel
         public RelayCommand OnLimitSetCommand { get; set; }
         public RelayCommand OnVerReqCommand { get; set; }
 
-        private int _seedCurrLow;
-        public int SeedCurrLow
+        private float _seedCurrLow;
+        public float SeedCurrLow
         {
             get { return _seedCurrLow; }
             set
@@ -25,8 +25,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedCurrLow");
             }
         }
-        private int _seedCurrHigh;
-        public int SeedCurrHigh
+        private float _seedCurrHigh;
+        public float SeedCurrHigh
         {
             get { return _seedCurrHigh; }
             set
@@ -35,8 +35,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedCurrHigh");
             }
         }
-        private int _seedTempLow;
-        public int SeedTempLow
+        private float _seedTempLow;
+        public float SeedTempLow
         {
             get { return _seedTempLow; }
             set
@@ -45,8 +45,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedTempLow");
             }
         }
-        private int _seedTempHigh;
-        public int SeedTempHigh
+        private float _seedTempHigh;
+        public float SeedTempHigh
         {
             get { return _seedTempHigh; }
             set
@@ -55,8 +55,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedTempHigh");
             }
         }
-        private int _pa1CurrLow;
-        public int Pa1CurrLow
+        private float _pa1CurrLow;
+        public float Pa1CurrLow
         {
             get { return _pa1CurrLow; }
             set
@@ -65,8 +65,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa1CurrLow");
             }
         }
-        private int _pa1CurrHigh;
-        public int Pa1CurrHigh
+        private float _pa1CurrHigh;
+        public float Pa1CurrHigh
         {
             get { return _pa1CurrHigh; }
             set
@@ -75,8 +75,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa1CurrHigh");
             }
         }
-        private int _pa1VoltLow;
-        public int Pa1VoltLow
+        private float _pa1VoltLow;
+        public float Pa1VoltLow
         {
             get { return _pa1VoltLow; }
             set
@@ -85,8 +85,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa1VoltLow");
             }
         }
-        private int _pa1VoltHigh;
-        public int Pa1VoltHigh
+        private float _pa1VoltHigh;
+        public float Pa1VoltHigh
         {
             get { return _pa1VoltHigh; }
             set
@@ -95,8 +95,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa1VoltHigh");
             }
         }
-        private int _pa2CurrLow;
-        public int Pa2CurrLow
+        private float _pa2CurrLow;
+        public float Pa2CurrLow
         {
             get { return _pa2CurrLow; }
             set
@@ -105,8 +105,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa2CurrLow");
             }
         }
-        private int _pa2CurrHigh;
-        public int Pa2CurrHigh
+        private float _pa2CurrHigh;
+        public float Pa2CurrHigh
         {
             get { return _pa2CurrHigh; }
             set
@@ -115,8 +115,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa2CurrHigh");
             }
         }
-        private int _pa2VoltLow;
-        public int Pa2VoltLow
+        private float _pa2VoltLow;
+        public float Pa2VoltLow
         {
             get { return _pa2VoltLow; }
             set
@@ -125,8 +125,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa2VoltLow");
             }
         }
-        private int _pa2VoltHigh;
-        public int Pa2VoltHigh
+        private float _pa2VoltHigh;
+        public float Pa2VoltHigh
         {
             get { return _pa2VoltHigh; }
             set
@@ -135,8 +135,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa2VoltHigh");
             }
         }
-        private int _pa3CurrLow;
-        public int Pa3CurrLow
+        private float _pa3CurrLow;
+        public float Pa3CurrLow
         {
             get { return _pa3CurrLow; }
             set
@@ -145,8 +145,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa3CurrLow");
             }
         }
-        private int _pa3CurrHigh;
-        public int Pa3CurrHigh
+        private float _pa3CurrHigh;
+        public float Pa3CurrHigh
         {
             get { return _pa3CurrHigh; }
             set
@@ -155,8 +155,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa3CurrHigh");
             }
         }
-        private int _pa3VoltLow;
-        public int Pa3VoltLow
+        private float _pa3VoltLow;
+        public float Pa3VoltLow
         {
             get { return _pa3VoltLow; }
             set
@@ -165,8 +165,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa3VoltLow");
             }
         }
-        private int _pa3VoltHigh;
-        public int Pa3VoltHigh
+        private float _pa3VoltHigh;
+        public float Pa3VoltHigh
         {
             get { return _pa3VoltHigh; }
             set
@@ -175,8 +175,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa3VoltHigh");
             }
         }
-        private int _pa4_1CurrLow;
-        public int Pa4_1CurrLow
+        private float _pa4_1CurrLow;
+        public float Pa4_1CurrLow
         {
             get { return _pa4_1CurrLow; }
             set
@@ -185,8 +185,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_1CurrLow");
             }
         }
-        private int _pa4_1CurrHigh;
-        public int Pa4_1CurrHigh
+        private float _pa4_1CurrHigh;
+        public float Pa4_1CurrHigh
         {
             get { return _pa4_1CurrHigh; }
             set
@@ -195,8 +195,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_1CurrHigh");
             }
         }
-        private int _pa4_1VoltLow;
-        public int Pa4_1VoltLow
+        private float _pa4_1VoltLow;
+        public float Pa4_1VoltLow
         {
             get { return _pa4_1VoltLow; }
             set
@@ -205,8 +205,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_1VoltLow");
             }
         }
-        private int _pa4_1VoltHigh;
-        public int Pa4_1VoltHigh
+        private float _pa4_1VoltHigh;
+        public float Pa4_1VoltHigh
         {
             get { return _pa4_1VoltHigh; }
             set
@@ -215,8 +215,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_1VoltHigh");
             }
         }
-        private int _pa4_2CurrLow;
-        public int Pa4_2CurrLow
+        private float _pa4_2CurrLow;
+        public float Pa4_2CurrLow
         {
             get { return _pa4_2CurrLow; }
             set
@@ -225,8 +225,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_2CurrLow");
             }
         }
-        private int _pa4_2CurrHigh;
-        public int Pa4_2CurrHigh
+        private float _pa4_2CurrHigh;
+        public float Pa4_2CurrHigh
         {
             get { return _pa4_2CurrHigh; }
             set
@@ -235,8 +235,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_2CurrHigh");
             }
         }
-        private int _pa4_2VoltLow;
-        public int Pa4_2VoltLow
+        private float _pa4_2VoltLow;
+        public float Pa4_2VoltLow
         {
             get { return _pa4_2VoltLow; }
             set
@@ -245,8 +245,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_2VoltLow");
             }
         }
-        private int _pa4_2VoltHigh;
-        public int Pa4_2VoltHigh
+        private float _pa4_2VoltHigh;
+        public float Pa4_2VoltHigh
         {
             get { return _pa4_2VoltHigh; }
             set
@@ -255,8 +255,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_2VoltHigh");
             }
         }
-        private int _pa4_3CurrLow;
-        public int Pa4_3CurrLow
+        private float _pa4_3CurrLow;
+        public float Pa4_3CurrLow
         {
             get { return _pa4_3CurrLow; }
             set
@@ -265,8 +265,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_3CurrLow");
             }
         }
-        private int _pa4_3CurrHigh;
-        public int Pa4_3CurrHigh
+        private float _pa4_3CurrHigh;
+        public float Pa4_3CurrHigh
         {
             get { return _pa4_3CurrHigh; }
             set
@@ -275,8 +275,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_3CurrHigh");
             }
         }
-        private int _pa4_3VoltLow;
-        public int Pa4_3VoltLow
+        private float _pa4_3VoltLow;
+        public float Pa4_3VoltLow
         {
             get { return _pa4_3VoltLow; }
             set
@@ -285,8 +285,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_3VoltLow");
             }
         }
-        private int _pa4_3VoltHigh;
-        public int Pa4_3VoltHigh
+        private float _pa4_3VoltHigh;
+        public float Pa4_3VoltHigh
         {
             get { return _pa4_3VoltHigh; }
             set
@@ -295,8 +295,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_3VoltHigh");
             }
         }
-        private int _pa4_4CurrLow;
-        public int Pa4_4CurrLow
+        private float _pa4_4CurrLow;
+        public float Pa4_4CurrLow
         {
             get { return _pa4_4CurrLow; }
             set
@@ -305,8 +305,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_4CurrLow");
             }
         }
-        private int _pa4_4CurrHigh;
-        public int Pa4_4CurrHigh
+        private float _pa4_4CurrHigh;
+        public float Pa4_4CurrHigh
         {
             get { return _pa4_4CurrHigh; }
             set
@@ -315,8 +315,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_4CurrHigh");
             }
         }
-        private int _pa4_4VoltLow;
-        public int Pa4_4VoltLow
+        private float _pa4_4VoltLow;
+        public float Pa4_4VoltLow
         {
             get { return _pa4_4VoltLow; }
             set
@@ -325,8 +325,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_4VoltLow");
             }
         }
-        private int _pa4_4VoltHigh;
-        public int Pa4_4VoltHigh
+        private float _pa4_4VoltHigh;
+        public float Pa4_4VoltHigh
         {
             get { return _pa4_4VoltHigh; }
             set
@@ -335,8 +335,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_4VoltHigh");
             }
         }
-        private int _pa4_5CurrLow;
-        public int Pa4_5CurrLow
+        private float _pa4_5CurrLow;
+        public float Pa4_5CurrLow
         {
             get { return _pa4_5CurrLow; }
             set
@@ -345,8 +345,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_5CurrLow");
             }
         }
-        private int _pa4_5CurrHigh;
-        public int Pa4_5CurrHigh
+        private float _pa4_5CurrHigh;
+        public float Pa4_5CurrHigh
         {
             get { return _pa4_5CurrHigh; }
             set
@@ -355,8 +355,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_5CurrHigh");
             }
         }
-        private int _pa4_5VoltLow;
-        public int Pa4_5VoltLow
+        private float _pa4_5VoltLow;
+        public float Pa4_5VoltLow
         {
             get { return _pa4_5VoltLow; }
             set
@@ -365,8 +365,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_5VoltLow");
             }
         }
-        private int _pa4_5VoltHigh;
-        public int Pa4_5VoltHigh
+        private float _pa4_5VoltHigh;
+        public float Pa4_5VoltHigh
         {
             get { return _pa4_5VoltHigh; }
             set
@@ -375,8 +375,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_5VoltHigh");
             }
         }
-        private int _pa4_6CurrLow;
-        public int Pa4_6CurrLow
+        private float _pa4_6CurrLow;
+        public float Pa4_6CurrLow
         {
             get { return _pa4_6CurrLow; }
             set
@@ -385,8 +385,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_6CurrLow");
             }
         }
-        private int _pa4_6CurrHigh;
-        public int Pa4_6CurrHigh
+        private float _pa4_6CurrHigh;
+        public float Pa4_6CurrHigh
         {
             get { return _pa4_6CurrHigh; }
             set
@@ -395,8 +395,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_6CurrHigh");
             }
         }
-        private int _pa4_6VoltLow;
-        public int Pa4_6VoltLow
+        private float _pa4_6VoltLow;
+        public float Pa4_6VoltLow
         {
             get { return _pa4_6VoltLow; }
             set
@@ -405,8 +405,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_6VoltLow");
             }
         }
-        private int _pa4_6VoltHigh;
-        public int Pa4_6VoltHigh
+        private float _pa4_6VoltHigh;
+        public float Pa4_6VoltHigh
         {
             get { return _pa4_6VoltHigh; }
             set
@@ -415,8 +415,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pa4_6VoltHigh");
             }
         }
-        private int _pd1Low;
-        public int Pd1Low
+        private float _pd1Low;
+        public float Pd1Low
         {
             get { return _pd1Low; }
             set
@@ -425,8 +425,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd1Low");
             }
         }
-        private int _pd1High;
-        public int Pd1High
+        private float _pd1High;
+        public float Pd1High
         {
             get { return _pd1High; }
             set
@@ -435,8 +435,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd1High");
             }
         }
-        private int _pd2Low;
-        public int Pd2Low
+        private float _pd2Low;
+        public float Pd2Low
         {
             get { return _pd2Low; }
             set
@@ -445,8 +445,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd2Low");
             }
         }
-        private int _pd2High;
-        public int Pd2High
+        private float _pd2High;
+        public float Pd2High
         {
             get { return _pd2High; }
             set
@@ -455,8 +455,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd2High");
             }
         }
-        private int _pd3Low;
-        public int Pd3Low
+        private float _pd3Low;
+        public float Pd3Low
         {
             get { return _pd3Low; }
             set
@@ -465,8 +465,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd3Low");
             }
         }
-        private int _pd3High;
-        public int Pd3High
+        private float _pd3High;
+        public float Pd3High
         {
             get { return _pd3High; }
             set
@@ -475,8 +475,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd3High");
             }
         }
-        private int _pd4Low;
-        public int Pd4Low
+        private float _pd4Low;
+        public float Pd4Low
         {
             get { return _pd4Low; }
             set
@@ -485,8 +485,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd4Low");
             }
         }
-        private int _pd4High;
-        public int Pd4High
+        private float _pd4High;
+        public float Pd4High
         {
             get { return _pd4High; }
             set
@@ -495,8 +495,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd4High");
             }
         }
-        private int _pd5Low;
-        public int Pd5Low
+        private float _pd5Low;
+        public float Pd5Low
         {
             get { return _pd5Low; }
             set
@@ -505,8 +505,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd5Low");
             }
         }
-        private int _pd5High;
-        public int Pd5High
+        private float _pd5High;
+        public float Pd5High
         {
             get { return _pd5High; }
             set
@@ -515,8 +515,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd5High");
             }
         }
-        private int _pd6Low;
-        public int Pd6Low
+        private float _pd6Low;
+        public float Pd6Low
         {
             get { return _pd6Low; }
             set
@@ -525,8 +525,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd6Low");
             }
         }
-        private int _pd6High;
-        public int Pd6High
+        private float _pd6High;
+        public float Pd6High
         {
             get { return _pd6High; }
             set
@@ -535,8 +535,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd6High");
             }
         }
-        private int _pd7Low;
-        public int Pd7Low
+        private float _pd7Low;
+        public float Pd7Low
         {
             get { return _pd7Low; }
             set
@@ -545,8 +545,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd7Low");
             }
         }
-        private int _pd7High;
-        public int Pd7High
+        private float _pd7High;
+        public float Pd7High
         {
             get { return _pd7High; }
             set
@@ -555,8 +555,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("Pd7High");
             }
         }
-        private int _seedTemp1Low;
-        public int SeedTemp1Low
+        private float _seedTemp1Low;
+        public float SeedTemp1Low
         {
             get { return _seedTemp1Low; }
             set
@@ -565,8 +565,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedTemp1Low");
             }
         }
-        private int _seedTemp1High;
-        public int SeedTemp1High
+        private float _seedTemp1High;
+        public float SeedTemp1High
         {
             get { return _seedTemp1High; }
             set
@@ -575,8 +575,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedTemp1High");
             }
         }
-        private int _paTemp1Low;
-        public int PaTemp1Low
+        private float _paTemp1Low;
+        public float PaTemp1Low
         {
             get { return _paTemp1Low; }
             set
@@ -585,8 +585,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp1Low");
             }
         }
-        private int _paTemp1High;
-        public int PaTemp1High
+        private float _paTemp1High;
+        public float PaTemp1High
         {
             get { return _paTemp1High; }
             set
@@ -595,8 +595,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp1High");
             }
         }
-        private int _paTemp2Low;
-        public int PaTemp2Low
+        private float _paTemp2Low;
+        public float PaTemp2Low
         {
             get { return _paTemp2Low; }
             set
@@ -605,8 +605,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp2Low");
             }
         }
-        private int _paTemp2High;
-        public int PaTemp2High
+        private float _paTemp2High;
+        public float PaTemp2High
         {
             get { return _paTemp2High; }
             set
@@ -615,8 +615,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp2High");
             }
         }
-        private int _paTemp3Low;
-        public int PaTemp3Low
+        private float _paTemp3Low;
+        public float PaTemp3Low
         {
             get { return _paTemp3Low; }
             set
@@ -625,8 +625,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp3Low");
             }
         }
-        private int _paTemp3High;
-        public int PaTemp3High
+        private float _paTemp3High;
+        public float PaTemp3High
         {
             get { return _paTemp3High; }
             set
@@ -635,8 +635,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp3High");
             }
         }
-        private int _paTemp4Low;
-        public int PaTemp4Low
+        private float _paTemp4Low;
+        public float PaTemp4Low
         {
             get { return _paTemp4Low; }
             set
@@ -645,8 +645,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp4Low");
             }
         }
-        private int _paTemp4High;
-        public int PaTemp4High
+        private float _paTemp4High;
+        public float PaTemp4High
         {
             get { return _paTemp4High; }
             set
@@ -655,8 +655,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp4High");
             }
         }
-        private int _paTemp5Low;
-        public int PaTemp5Low
+        private float _paTemp5Low;
+        public float PaTemp5Low
         {
             get { return _paTemp5Low; }
             set
@@ -665,8 +665,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp5Low");
             }
         }
-        private int _paTemp5High;
-        public int PaTemp5High
+        private float _paTemp5High;
+        public float PaTemp5High
         {
             get { return _paTemp5High; }
             set
@@ -675,8 +675,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp5High");
             }
         }
-        private int _paTemp6Low;
-        public int PaTemp6Low
+        private float _paTemp6Low;
+        public float PaTemp6Low
         {
             get { return _paTemp6Low; }
             set
@@ -685,8 +685,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp6Low");
             }
         }
-        private int _paTemp6High;
-        public int PaTemp6High
+        private float _paTemp6High;
+        public float PaTemp6High
         {
             get { return _paTemp6High; }
             set
@@ -695,8 +695,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp6High");
             }
         }
-        private int _paTemp7Low;
-        public int PaTemp7Low
+        private float _paTemp7Low;
+        public float PaTemp7Low
         {
             get { return _paTemp7Low; }
             set
@@ -705,8 +705,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp7Low");
             }
         }
-        private int _paTemp7High;
-        public int PaTemp7High
+        private float _paTemp7High;
+        public float PaTemp7High
         {
             get { return _paTemp7High; }
             set
@@ -715,8 +715,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp7High");
             }
         }
-        private int _paTemp8Low;
-        public int PaTemp8Low
+        private float _paTemp8Low;
+        public float PaTemp8Low
         {
             get { return _paTemp8Low; }
             set
@@ -725,8 +725,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp8Low");
             }
         }
-        private int _paTemp8High;
-        public int PaTemp8High
+        private float _paTemp8High;
+        public float PaTemp8High
         {
             get { return _paTemp8High; }
             set
@@ -735,8 +735,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp8High");
             }
         }
-        private int _paTemp9Low;
-        public int PaTemp9Low
+        private float _paTemp9Low;
+        public float PaTemp9Low
         {
             get { return _paTemp9Low; }
             set
@@ -745,8 +745,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp9Low");
             }
         }
-        private int _paTemp9High;
-        public int PaTemp9High
+        private float _paTemp9High;
+        public float PaTemp9High
         {
             get { return _paTemp9High; }
             set
@@ -755,8 +755,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp9High");
             }
         }
-        private int _paTemp10Low;
-        public int PaTemp10Low
+        private float _paTemp10Low;
+        public float PaTemp10Low
         {
             get { return _paTemp10Low; }
             set
@@ -765,8 +765,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp10Low");
             }
         }
-        private int _paTemp10High;
-        public int PaTemp10High
+        private float _paTemp10High;
+        public float PaTemp10High
         {
             get { return _paTemp10High; }
             set
@@ -775,8 +775,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp10High");
             }
         }
-        private int _paTemp11Low;
-        public int PaTemp11Low
+        private float _paTemp11Low;
+        public float PaTemp11Low
         {
             get { return _paTemp11Low; }
             set
@@ -785,8 +785,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp11Low");
             }
         }
-        private int _paTemp11High;
-        public int PaTemp11High
+        private float _paTemp11High;
+        public float PaTemp11High
         {
             get { return _paTemp11High; }
             set
@@ -795,8 +795,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp11High");
             }
         }
-        private int _paTemp12Low;
-        public int PaTemp12Low
+        private float _paTemp12Low;
+        public float PaTemp12Low
         {
             get { return _paTemp12Low; }
             set
@@ -805,8 +805,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp12Low");
             }
         }
-        private int _paTemp12High;
-        public int PaTemp12High
+        private float _paTemp12High;
+        public float PaTemp12High
         {
             get { return _paTemp12High; }
             set
@@ -815,8 +815,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp12High");
             }
         }
-        private int _paTemp13Low;
-        public int PaTemp13Low
+        private float _paTemp13Low;
+        public float PaTemp13Low
         {
             get { return _paTemp13Low; }
             set
@@ -825,8 +825,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp13Low");
             }
         }
-        private int _paTemp13High;
-        public int PaTemp13High
+        private float _paTemp13High;
+        public float PaTemp13High
         {
             get { return _paTemp13High; }
             set
@@ -835,8 +835,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp13High");
             }
         }
-        private int _paTemp14Low;
-        public int PaTemp14Low
+        private float _paTemp14Low;
+        public float PaTemp14Low
         {
             get { return _paTemp14Low; }
             set
@@ -845,8 +845,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp14Low");
             }
         }
-        private int _paTemp14High;
-        public int PaTemp14High
+        private float _paTemp14High;
+        public float PaTemp14High
         {
             get { return _paTemp14High; }
             set
@@ -855,8 +855,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp14High");
             }
         }
-        private int _paTemp15Low;
-        public int PaTemp15Low
+        private float _paTemp15Low;
+        public float PaTemp15Low
         {
             get { return _paTemp15Low; }
             set
@@ -865,8 +865,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp15Low");
             }
         }
-        private int _paTemp15High;
-        public int PaTemp15High
+        private float _paTemp15High;
+        public float PaTemp15High
         {
             get { return _paTemp15High; }
             set
@@ -875,8 +875,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp15High");
             }
         }
-        private int _paTemp16Low;
-        public int PaTemp16Low
+        private float _paTemp16Low;
+        public float PaTemp16Low
         {
             get { return _paTemp16Low; }
             set
@@ -885,8 +885,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp16Low");
             }
         }
-        private int _paTemp16High;
-        public int PaTemp16High
+        private float _paTemp16High;
+        public float PaTemp16High
         {
             get { return _paTemp16High; }
             set
@@ -895,8 +895,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaTemp16High");
             }
         }
-        private int _rfVmonLow;
-        public int RfVmonLow
+        private float _rfVmonLow;
+        public float RfVmonLow
         {
             get { return _rfVmonLow; }
             set
@@ -905,8 +905,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("RfVmonLow");
             }
         }
-        private int _rfVmonHigh;
-        public int RfVmonHigh
+        private float _rfVmonHigh;
+        public float RfVmonHigh
         {
             get { return _rfVmonHigh; }
             set
@@ -915,8 +915,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("RfVmonHigh");
             }
         }
-        private int _seedHumidLow;
-        public int SeedHumidLow
+        private float _seedHumidLow;
+        public float SeedHumidLow
         {
             get { return _seedHumidLow; }
             set
@@ -925,8 +925,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedHumidLow");
             }
         }
-        private int _seedHumidHigh;
-        public int SeedHumidHigh
+        private float _seedHumidHigh;
+        public float SeedHumidHigh
         {
             get { return _seedHumidHigh; }
             set
@@ -935,8 +935,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("SeedHumidHigh");
             }
         }
-        private int _paHumidLow;
-        public int PaHumidLow
+        private float _paHumidLow;
+        public float PaHumidLow
         {
             get { return _paHumidLow; }
             set
@@ -945,8 +945,8 @@ namespace MVVM.ViewModel
                 RaisePropertyChanged("PaHumidLow");
             }
         }
-        private int _paHumidHigh;
-        public int PaHumidHigh
+        private float _paHumidHigh;
+        public float PaHumidHigh
         {
             get { return _paHumidHigh; }
             set
@@ -992,6 +992,101 @@ namespace MVVM.ViewModel
 
             OnLimitSetCommand = new RelayCommand(OnLimitSetCommandAction, null);
             OnVerReqCommand = new RelayCommand(OnVerReqCommandAction, null);
+
+            SeedCurrHigh = 160;
+            SeedTempHigh = 35;
+            Pa1CurrHigh = 6;
+            Pa2CurrHigh = 8;
+            Pa3CurrHigh = 12;
+            Pa4_1CurrHigh = 24;
+            Pa4_2CurrHigh = 24;
+            Pa4_3CurrHigh = 24;
+            Pa4_4CurrHigh = 24;
+            Pa4_5CurrHigh = 24;
+            Pa4_6CurrHigh = 24;
+            Pa1VoltHigh = 6;
+            Pa2VoltHigh = 6;
+            Pa3VoltHigh = 13;
+            Pa4_1VoltHigh = 52;
+            Pa4_2VoltHigh = 52;
+            Pa4_3VoltHigh = 52;
+            Pa4_4VoltHigh = 52;
+            Pa4_5VoltHigh = 52;
+            Pa4_6VoltHigh = 52;
+            Pd1High = 25;
+            Pd2High = 150;
+            Pd3High = 3.5f;
+            Pd4High = 3.5f;
+            Pd5High = 40;
+            Pd6High = 40;
+            Pd7High = 2700;
+            SeedTemp1High = 80;
+            PaTemp1High = 55;
+            PaTemp2High = 55;
+            PaTemp3High = 55;
+            PaTemp4High = 55;
+            PaTemp5High = 55;
+            PaTemp6High = 55;
+            PaTemp7High = 50;
+            PaTemp8High = 50;
+            PaTemp9High = 50;
+            PaTemp10High = 50;
+            PaTemp11High = 50;
+            PaTemp12High = 50;
+            PaTemp13High = 30;
+            PaTemp14High = 40;
+            PaTemp15High = 45;
+            PaTemp16High = 50;
+            RfVmonHigh = 65535;
+            SeedHumidHigh = 70;
+            PaHumidHigh = 70;
+            SeedCurrLow = 3;
+            SeedTempLow = 15;
+            Pa1CurrLow = 0.3f;
+            Pa2CurrLow = 0.3f;
+            Pa3CurrLow = 0.3f;
+            Pa4_1CurrLow = 1f;
+            Pa4_2CurrLow = 1f;
+            Pa4_3CurrLow = 1f;
+            Pa4_4CurrLow = 1f;
+            Pa4_5CurrLow = 1f;
+            Pa4_6CurrLow = 1f;
+            Pa1VoltLow = 1f;
+            Pa2VoltLow = 1f;
+            Pa3VoltLow = 1f;
+            Pa4_1VoltLow = 1f;
+            Pa4_2VoltLow = 1f;
+            Pa4_3VoltLow = 1f;
+            Pa4_4VoltLow = 1f;
+            Pa4_5VoltLow = 1f;
+            Pa4_6VoltLow = 1f;
+            Pd1Low = 0;
+            Pd2Low = 0;
+            Pd3Low = 0;
+            Pd4Low = 0;
+            Pd5Low = 0;
+            Pd6Low = 0;
+            Pd7Low = 0;
+            SeedTemp1Low = 5;
+            PaTemp1Low = 5;
+            PaTemp2Low = 5;
+            PaTemp3Low = 5;
+            PaTemp4Low = 5;
+            PaTemp5Low = 5;
+            PaTemp6Low = 5;
+            PaTemp7Low = 5;
+            PaTemp8Low = 5;
+            PaTemp9Low = 5;
+            PaTemp10Low = 5;
+            PaTemp11Low = 5;
+            PaTemp12Low = 5;
+            PaTemp13Low = 5;
+            PaTemp14Low = 5;
+            PaTemp15Low = 5;
+            PaTemp16Low = 5;
+            RfVmonLow = 0;
+            SeedHumidLow = 1;
+            PaHumidLow = 1;
         }
 
         private void OnLimitSetCommandAction()
@@ -1027,8 +1122,8 @@ namespace MVVM.ViewModel
                 Pd7 = Pd7High,
                 Pd8 = 0,
                 SeedTemp1 = SeedTemp1High,
-                SeedTemp2 = 0,
-                SeedTemp3 = 0,
+                SeedTemp2 = 40,
+                SeedTemp3 = 40,
                 PaTemp1 = PaTemp1High,
                 PaTemp2 = PaTemp2High,
                 PaTemp3 = PaTemp3High,

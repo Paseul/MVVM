@@ -121,7 +121,6 @@ namespace MVVM.Messages
         public float Pa4_6TimeSetValueR3 { get; set; }
         public float RfVxpVoltSetValue { get; set; }
         public float RfVampVoltSetValue { get; set; }
-        public string PolResponseSet { get; set; }
     }
     class writeCalValue : MessageBase
     {
@@ -369,7 +368,6 @@ namespace MVVM.Messages
         public float Pa4_6TimeReadValueR3 { get; set; }
         public float RfVxpVoltReadValue { get; set; }
         public float RfVampVoltReadValue { get; set; }
-        public string PolResponseRead { get; set; }
     }
     class monValue : MessageBase
     {
@@ -423,7 +421,7 @@ namespace MVVM.Messages
         public float RfVolt { get; set; }
         public float SeedHumid { get; set; }
         public float PaHumid { get; set; }
-        public string PolResponseRead { get; set; }
+        public string PolRead { get; set; }
     }
     class warnMon : MessageBase
     {
@@ -644,6 +642,8 @@ namespace MVVM.Messages
         public int reset { get; set; }
         public int seed { get; set; }
         public int amp { get; set; }
+        public int cmd { get; set; }
+        public string pol { get; set; }
     }
     class lcb003Cmd : MessageBase
     {
@@ -696,7 +696,6 @@ namespace MVVM.Messages
         public float Pa4_6TimeSetValueR3 { get; set; }
         public float RfVxpVoltSetValue { get; set; }
         public float RfVampVoltSetValue { get; set; }
-        public string PolResponseSet { get; set; }
     }
 
     class lcb004ReadSetCmd : MessageBase

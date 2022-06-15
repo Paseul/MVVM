@@ -112,6 +112,16 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private bool _seedFlag;
+        public bool SeedFlag
+        {
+            get { return _seedFlag; }
+            set
+            {
+                _seedFlag = value;
+                NotifyPropertyChanged();
+            }
+        }
         private bool _pa1BtnStatus;
         public bool Pa1BtnStatus
         {
@@ -119,6 +129,16 @@ namespace MVVM.ViewModel
             set
             {
                 _pa1BtnStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _paFlag;
+        public bool PaFlag
+        {
+            get { return _paFlag; }
+            set
+            {
+                _paFlag = value;
                 NotifyPropertyChanged();
             }
         }
@@ -219,6 +239,16 @@ namespace MVVM.ViewModel
             set
             {
                 _polBtnStatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _polFlag;
+        public bool PolFlag
+        {
+            get { return _polFlag; }
+            set
+            {
+                _polFlag = value;
                 NotifyPropertyChanged();
             }
         }
@@ -1323,6 +1353,16 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private string _polCmd;
+        public string PolCmd
+        {
+            get { return _polCmd; }
+            set
+            {
+                _polCmd = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] string name = null)
@@ -1361,11 +1401,16 @@ namespace MVVM.ViewModel
             Pa3ImgPath = imgSourcePath + @"\images\PA3_base.png";
             Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";
 
-            DelayTime1 = 1000;
-            DelayTime2 = 1000;
-            DelayTime3 = 1000;
-            DelayTime4 = 1000;
-            PolResponseRead = "ABCDEFGHIJ";
+            DelayTime1 = 150;
+            DelayTime2 = 150;
+            DelayTime3 = 150;
+            DelayTime4 = 150;
+
+            PolCmd = "*MOD?       ";
+
+            SeedFlag = true;
+            lcb002CmdSend();
+            SeedFlag = false;
         }
 
         private void MessageReceived(string message)
@@ -1412,68 +1457,91 @@ namespace MVVM.ViewModel
             }
             else if (message == "stop")
             {
-                SeedBtnStatus = false;
-                Pa1BtnStatus = false;
-                Pa2BtnStatus = false;
-                Pa3BtnStatus = false;
-                Pa4BtnStatus = false;
-                AutoBtnStatus = false;
-                Pa4_1BtnStatus = false;
-                Pa4_2BtnStatus = false;
-                Pa4_3BtnStatus = false;
-                Pa4_4BtnStatus = false;
-                Pa4_5BtnStatus = false;
-                Pa4_6BtnStatus = false;
-                lcb002CmdSend();
-            }
-        }
-        private void OnSeedCommandAction()
-        {
-            if (SeedBtnStatus == false)
-            {                
-                SeedBtnStatus = true;
+                EStopAction();                
             }
             else
-            {              
-                SeedBtnStatus = false;
-                Pa1BtnStatus = false;
-                Pa2BtnStatus = false;
-                Pa3BtnStatus = false;
+            {
+                PolResponseRead = message;
+            }
+        }
+        private async void OnSeedCommandAction()
+        {
+            SeedFlag = true;
+            if (SeedBtnStatus == false)
+            {                
+                SeedBtnStatus = true;                
+            }
+            else
+            {
+                Pa4BtnStatus = false;
                 Pa4_1BtnStatus = false;
                 Pa4_2BtnStatus = false;
                 Pa4_3BtnStatus = false;
                 Pa4_4BtnStatus = false;
                 Pa4_5BtnStatus = false;
                 Pa4_6BtnStatus = false;
+                await Task.Delay(100);
+                lcb002CmdSend();
+
+                Pa3BtnStatus = false;
+                await Task.Delay(100);
+                lcb002CmdSend();
+
+                Pa2BtnStatus = false;
+                await Task.Delay(100);
+                lcb002CmdSend();
+
+                Pa1BtnStatus = false;
+                await Task.Delay(100);
+                lcb002CmdSend();
+
+                SeedBtnStatus = false;
+                await Task.Delay(100);
             }
             lcb002CmdSend();
+            SeedFlag = false;
         }
 
-        private void OnPa1CommandAction()
+        private async void OnPa1CommandAction()
         {
             if (SeedBtnStatus)
             {
                 if (Pa1BtnStatus == false)
                 {
                     Pa1BtnStatus = true;
+                    PaFlag = true;
+                    lcb002CmdSend();
                 }
                 else
-                {
-                    Pa1BtnStatus = false;
-                    Pa2BtnStatus = false;
-                    Pa3BtnStatus = false;
+                {                    
+                    Pa4BtnStatus=false;
                     Pa4_1BtnStatus = false;
                     Pa4_2BtnStatus = false;
                     Pa4_3BtnStatus = false;
                     Pa4_4BtnStatus = false;
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+                    
+                    Pa3BtnStatus = false;
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+
+                    Pa2BtnStatus = false;
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+
+                    Pa1BtnStatus = false;
+                    
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+                    PaFlag = false;
                 }
-                lcb002CmdSend();
             }
         }
 
-        private void OnPa2CommandAction()
+        private async void OnPa2CommandAction()
         {
             if (SeedBtnStatus && Pa1BtnStatus)
             {
@@ -1482,21 +1550,29 @@ namespace MVVM.ViewModel
                     Pa2BtnStatus = true;
                 }
                 else
-                {
-                    Pa2BtnStatus = false;
-                    Pa3BtnStatus = false;
+                {                    
+                    Pa4BtnStatus = false;
                     Pa4_1BtnStatus = false;
                     Pa4_2BtnStatus = false;
                     Pa4_3BtnStatus = false;
                     Pa4_4BtnStatus = false;
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+
+                    Pa3BtnStatus = false;
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+
+                    Pa2BtnStatus = false;
+                    await Task.Delay(100);
                 }
                 lcb002CmdSend();
             }
         }
 
-        private void OnPa3CommandAction()
+        private async void OnPa3CommandAction()
         {
             if (SeedBtnStatus && Pa1BtnStatus && Pa2BtnStatus)
             {
@@ -1506,13 +1582,18 @@ namespace MVVM.ViewModel
                 }
                 else
                 {
-                    Pa3BtnStatus = false;
+                    Pa4BtnStatus = false;
                     Pa4_1BtnStatus = false;
                     Pa4_2BtnStatus = false;
                     Pa4_3BtnStatus = false;
                     Pa4_4BtnStatus = false;
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
+                    await Task.Delay(100);
+                    lcb002CmdSend();
+
+                    Pa3BtnStatus = false;
+                    await Task.Delay(100);
                 }
                 lcb002CmdSend();
             }
@@ -1637,17 +1718,78 @@ namespace MVVM.ViewModel
             else
                 Pa4BtnStatus = false;
         }
-        private void OnPolCommandAction()
+
+        private async void EStopAction()
+        {
+            Pa4BtnStatus = false;
+            AutoBtnStatus = false;
+            Pa4_1BtnStatus = false;
+            Pa4_2BtnStatus = false;
+            Pa4_3BtnStatus = false;
+            Pa4_4BtnStatus = false;
+            Pa4_5BtnStatus = false;
+            Pa4_6BtnStatus = false;
+            lcb002CmdSend();
+            await Task.Delay(100);
+            
+            Pa3BtnStatus = false;
+            lcb002CmdSend();
+            await Task.Delay(100);
+            
+            Pa2BtnStatus = false;
+            lcb002CmdSend();
+            await Task.Delay(100);
+
+            Pa1BtnStatus = false;
+            lcb002CmdSend();
+        }
+
+        private async void OnPolCommandAction()
         {
             if (PolBtnStatus == false)
             {
+                PolFlag = true;
                 PolBtnStatus = true;
+                PolCmd = "*VAR#        ";
+                lcb002CmdSend();
+                await Task.Delay(2500);
+
+                PolCmd = "*AVG 20#       ";
+                lcb002CmdSend();
+                await Task.Delay(2500);
+
+                PolCmd = "*STS 25#        ";
+                lcb002CmdSend();
+                await Task.Delay(2500);
+
+                PolCmd = "*DLY 100#       ";
+                lcb002CmdSend();
+                await Task.Delay(2500);
+
+                PolCmd = "*THH 50#       ";
+                lcb002CmdSend();
+                await Task.Delay(2500);
+
+                PolCmd = "*ENA#       ";
+                lcb002CmdSend();
+                await Task.Delay(2500);
+
+                PolCmd = "*MOD?      ";
+                lcb002CmdSend();
+                PolFlag = false;
             }
             else
             {
+                PolFlag = true;
+                PolCmd = "*DIS#      ";
+                lcb002CmdSend();                
+                await Task.Delay(2500);
+
+                PolCmd = "*MOD?       ";
+                lcb002CmdSend();
                 PolBtnStatus = false;
+                PolFlag = false;
             }
-            lcb002CmdSend();
         }
         private async void OnResetCommandAction()
         {
@@ -1661,10 +1803,11 @@ namespace MVVM.ViewModel
             var lcb002Cmd = new lcb002Cmd()
             {
                 reset = Convert.ToInt32(ResetBtnStatus),
-                seed = Convert.ToInt32(SeedBtnStatus)*31 + Convert.ToInt32(PolBtnStatus)*32,
+                seed = 30 + Convert.ToInt32(SeedBtnStatus) + 32,
                 amp = Convert.ToInt32(Pa1BtnStatus) + (Convert.ToInt32(Pa2BtnStatus) << 1) + (Convert.ToInt32(Pa3BtnStatus) << 2) + (Convert.ToInt32(Pa4_1BtnStatus) << 3) + (Convert.ToInt32(Pa4_2BtnStatus) << 4)
-                    + (Convert.ToInt32(Pa4_3BtnStatus) << 5) + (Convert.ToInt32(Pa4_4BtnStatus) << 6) + (Convert.ToInt32(Pa4_5BtnStatus) << 7) + (Convert.ToInt32(Pa4_6BtnStatus) << 8)
-
+                    + (Convert.ToInt32(Pa4_3BtnStatus) << 5) + (Convert.ToInt32(Pa4_4BtnStatus) << 6) + (Convert.ToInt32(Pa4_5BtnStatus) << 7) + (Convert.ToInt32(Pa4_6BtnStatus) << 8),
+                cmd = Convert.ToInt32(ResetBtnStatus) + Convert.ToInt32(SeedFlag)*2 + Convert.ToInt32(PaFlag) *4 + Convert.ToInt32(PolFlag) *8,
+                pol = PolCmd
             };
             Messenger.Default.Send(lcb002Cmd);
         }
@@ -1717,30 +1860,32 @@ namespace MVVM.ViewModel
                 Pa4_6TimeSetValueR3 = Pa4_6TimeReadValueR3,
                 RfVxpVoltSetValue = RfVxpVoltReadValue,
                 RfVampVoltSetValue = RfVampVoltReadValue,
-                PolResponseSet = PolResponseRead
             };
             Messenger.Default.Send(lcb004writeSetCmd);
+            lcb002CmdSend();
         }
 
         private async void OnAutoCommandAction()
         {
             AutoBtnStatus = true;
-            if (AutoBtnStatus == true)
-            {
-                OnSeedCommandAction();
-                await Task.Delay(DelayTime1);
-            }
-            if (AutoBtnStatus == true)
+            Pa4BtnStatus = false;
+            Pa4_1BtnStatus = false;
+            Pa4_2BtnStatus = false;
+            Pa4_3BtnStatus = false;
+            Pa4_4BtnStatus = false;
+            Pa4_5BtnStatus = false;
+            Pa4_6BtnStatus = false;
+            if (AutoBtnStatus == true && Pa1BtnStatus == false)
             {
                 OnPa1CommandAction();
                 await Task.Delay(DelayTime2);
             }
-            if (AutoBtnStatus == true)
+            if (AutoBtnStatus == true && Pa2BtnStatus == false)
             {
                 OnPa2CommandAction();
                 await Task.Delay(DelayTime3);
             }
-            if (AutoBtnStatus == true)
+            if (AutoBtnStatus == true && Pa3BtnStatus == false)
             {
                 OnPa3CommandAction();
                 await Task.Delay(DelayTime4);
@@ -1755,14 +1900,10 @@ namespace MVVM.ViewModel
         private async void OnOffCommandAction()
         {
             OffBtnStatus = true;
-
-            SeedBtnStatus = false;
-            Pa1BtnStatus = false;
-            Pa2BtnStatus = false;
-            Pa3BtnStatus = false;
-            Pa4BtnStatus = false;
             PolBtnStatus = false;
+
             AutoBtnStatus = false;
+            Pa4BtnStatus = false;
             Pa4_1BtnStatus = false;
             Pa4_2BtnStatus = false;
             Pa4_3BtnStatus = false;
@@ -1770,10 +1911,22 @@ namespace MVVM.ViewModel
             Pa4_5BtnStatus = false;
             Pa4_6BtnStatus = false;
             lcb002CmdSend();
-
             await Task.Delay(100);
-           
+
+            Pa3BtnStatus = false;
+            lcb002CmdSend();
+            await Task.Delay(100);
+
+            Pa2BtnStatus = false;
+            lcb002CmdSend();
+            await Task.Delay(100);
+
+            Pa1BtnStatus = false;
+            lcb002CmdSend();
+            await Task.Delay(100);
+            
             OffBtnStatus = false;
+            PaFlag = false;
         }
 
         private void OnReceiveMessageAction(monValue obj)
@@ -1828,6 +1981,7 @@ namespace MVVM.ViewModel
             RfVolt = obj.RfVolt;
             SeedHumid = obj.SeedHumid;
             PaHumid = obj.PaHumid;
+            PolResponseRead = obj.PolRead;
         }
 
         private void OnReceiveMessageAction(readSetValue obj)
@@ -1875,8 +2029,7 @@ namespace MVVM.ViewModel
             Pa4_6CurrentReadValueR3 = obj.Pa4_6CurrentReadValueR3;
             Pa4_6TimeReadValueR3 = obj.Pa4_6TimeReadValueR3;
             RfVxpVoltReadValue = obj.RfVxpVoltReadValue;
-            RfVampVoltReadValue = obj.RfVampVoltReadValue;
-            PolResponseRead = obj.PolResponseRead;
+            RfVampVoltReadValue = obj.RfVampVoltReadValue;            
         }
     }
 }

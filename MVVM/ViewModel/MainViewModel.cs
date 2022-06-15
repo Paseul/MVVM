@@ -280,7 +280,8 @@ namespace MVVM.ViewModel
             Messenger.Default.Send(LvbBitResult);
         }
         private void lcbCmd(byte[] result)
-        {            
+        {
+            byte[] strByte = new byte[10];
             if (result[1] == 1)
                 Console.WriteLine("Program Reset");
 
@@ -308,7 +309,7 @@ namespace MVVM.ViewModel
                 Messenger.Default.Send("amp3On");
             else
                 Messenger.Default.Send("amp3Off");
-            if (ampResult[3] == true && ampResult[4] == true && ampResult[5] == true && ampResult[6] == true && ampResult[7] == true && ampResult[8] == true)
+            if (ampResult[3] == true || ampResult[4] == true || ampResult[5] == true || ampResult[6] == true || ampResult[7] == true || ampResult[8] == true)
                 Messenger.Default.Send("amp4On");
             else
                 Messenger.Default.Send("amp4Off");
@@ -336,6 +337,9 @@ namespace MVVM.ViewModel
                 Messenger.Default.Send("amp4-6On");
             else
                 Messenger.Default.Send("amp4-6Off");
+            strByte = result.Skip(5).Take(10).ToArray();
+            string polResponse = ByteToString(strByte);
+            Messenger.Default.Send(polResponse);
         }
 
         private void lcbVer(byte[] result)
@@ -369,13 +373,10 @@ namespace MVVM.ViewModel
                     realValue[i] = (float)tempValue;
                 }
 
-                strByte = result.Skip(87).Take(10).ToArray();
-                string polResponse = ByteToString(strByte);
-
                 var writeSetValue = new writeSetValue()
                 {
                     SeedCurrentSetValue =   realValue[0] / 100,
-                    SeedTempSetValue =      realValue[1] / 100,
+                    SeedTempSetValue =      realValue[1] / 1000,
                     HsTempSetValue =        realValue[2] / 100,
                     Pa1CurrentSetValue =    realValue[3] / 1000,
                     Pa2CurrentSetValue =    realValue[4] / 1000,
@@ -416,9 +417,8 @@ namespace MVVM.ViewModel
                     Pa4_6TimeSetValueR2 =   realValue[39],
                     Pa4_6CurrentSetValueR3= realValue[40] / 1000,
                     Pa4_6TimeSetValueR3 =   realValue[41],
-                    RfVxpVoltSetValue =     (float)result[85] / 10,
-                    RfVampVoltSetValue =    (float)result[86] / 10,
-                    PolResponseSet =        polResponse
+                    RfVxpVoltSetValue =     (float)result[85] / 100,
+                    RfVampVoltSetValue =    (float)result[86] / 100
                 };
                 Messenger.Default.Send(writeSetValue);
             }
@@ -490,13 +490,10 @@ namespace MVVM.ViewModel
                     realValue[i] = (float)tempValue;
                 }
 
-                strByte = result.Skip(87).Take(10).ToArray();
-                string polResponse = ByteToString(strByte);
-
                 var readSetValue = new readSetValue()
                 {
                     SeedCurrentReadValue = realValue[0] / 100,
-                    SeedTempReadValue = realValue[1] / 100,
+                    SeedTempReadValue = realValue[1] / 1000,
                     HsTempReadValue = realValue[2] / 100,
                     Pa1CurrentReadValue = realValue[3] / 1000,
                     Pa2CurrentReadValue = realValue[4] / 1000,
@@ -537,9 +534,8 @@ namespace MVVM.ViewModel
                     Pa4_6TimeReadValueR2 = realValue[39],
                     Pa4_6CurrentReadValueR3 = realValue[40] / 1000,
                     Pa4_6TimeReadValueR3 = realValue[41],
-                    RfVxpVoltReadValue = (float)result[85] / 10,
-                    RfVampVoltReadValue = (float)result[86] / 10,
-                    PolResponseRead = polResponse
+                    RfVxpVoltReadValue = (float)result[85] / 100,
+                    RfVampVoltReadValue = (float)result[86] / 100                 
                 };
                 Messenger.Default.Send(readSetValue);
             }
@@ -616,7 +612,7 @@ namespace MVVM.ViewModel
                     RfVolt = realValue[48] / 100,
                     SeedHumid = realValue[49] / 100,
                     PaHumid = realValue[50] / 100,
-                    PolResponseRead = polResponse
+                    PolRead = polResponse
                 };
                 Messenger.Default.Send(monValue);
             }
@@ -764,17 +760,20 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x02;
-                byte[] dataSize = BitConverter.GetBytes((ushort)5);
+                byte[] dataSize = BitConverter.GetBytes((ushort)15);
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
-                byte cmdFlag = 0x07;
+                byte cmdFlag = Convert.ToByte(obj.cmd);
                 byte reset = Convert.ToByte(obj.reset);
                 byte seedControl = Convert.ToByte(obj.seed);
                 byte[] ampControl = BitConverter.GetBytes(obj.amp);
+                byte[] polControl = StringToByte(obj.pol);
                 byte checkSum = 0x00;
                 byte[] Etx = new byte[2] { 0xE7, 0xE8 };
 
-                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + reset + seedControl + ampControl[0] + ampControl[1]);
-                byte[] bytesToSend = new byte[17] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, reset, seedControl, ampControl[1], ampControl[0], checkSum, Etx[0], Etx[1] };
+                checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + reset + seedControl + ampControl[0] + ampControl[1]
+                    + polControl[0] + polControl[1] + polControl[2] + polControl[3] + polControl[4] + polControl[5] + polControl[6] + polControl[7] + polControl[8] + polControl[9]);
+                byte[] bytesToSend = new byte[27] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, reset, seedControl, ampControl[1], ampControl[0],
+                    polControl[0], polControl[1], polControl[2], polControl[3], polControl[4], polControl[5], polControl[6], polControl[7], polControl[8], polControl[9], checkSum, Etx[0], Etx[1] };
                 /*for (int i = 0; i < 17; i++)
                     Console.WriteLine(bytesToSend[i]);*/
                 laserClient.Send(bytesToSend);
@@ -912,7 +911,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)97);
+                byte[] dataSize = BitConverter.GetBytes((ushort)87);
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x01;
                 byte[] SeedCurrentSetValue = BitConverter.GetBytes((ushort)(obj.SeedCurrentSetValue * 100));
@@ -957,9 +956,8 @@ namespace MVVM.ViewModel
                 byte[] Pa4_6TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR2);
                 byte[] Pa4_6CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR3 * 1000));
                 byte[] Pa4_6TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR3);
-                byte RfVxpVoltSetValue = (byte)(obj.RfVxpVoltSetValue * 10);
-                byte RfVampVoltSetValue = (byte)(obj.RfVampVoltSetValue * 10);
-                byte[] PolResponseSet = StringToByte(obj.PolResponseSet);
+                byte[] RfVxpVoltSetValue = BitConverter.GetBytes((ushort)(obj.RfVxpVoltSetValue * 100));
+                byte[] RfVampVoltSetValue = BitConverter.GetBytes((ushort)(obj.RfVampVoltSetValue * 100));
 
                 byte checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + SeedCurrentSetValue[0] + SeedCurrentSetValue[1] + SeedTempSetValue[0] + SeedTempSetValue[1]
                     + HsTempSetValue[0] + HsTempSetValue[1] + Pa1CurrentSetValue[0] + Pa1CurrentSetValue[1] + Pa2CurrentSetValue[0] + Pa2CurrentSetValue[1] + Pa3CurrentSetValue[0] + Pa3CurrentSetValue[1] + Pa4_1CurrentSetValueR1[0] + Pa4_1CurrentSetValueR1[1]
@@ -970,11 +968,10 @@ namespace MVVM.ViewModel
                     + Pa4_4TimeSetValueR1[0] + Pa4_4TimeSetValueR1[1] + Pa4_4CurrentSetValueR2[0] + Pa4_4CurrentSetValueR2[1] + Pa4_4TimeSetValueR2[0] + Pa4_4TimeSetValueR2[1] + Pa4_4CurrentSetValueR3[0] + Pa4_4CurrentSetValueR3[1] + Pa4_4TimeSetValueR3[0]
                     + Pa4_4TimeSetValueR3[1] + Pa4_5CurrentSetValueR1[0] + Pa4_5CurrentSetValueR1[1] + Pa4_5TimeSetValueR1[0] + Pa4_5TimeSetValueR1[1] + Pa4_5CurrentSetValueR2[0] + Pa4_5CurrentSetValueR2[1] + Pa4_5TimeSetValueR2[0] + Pa4_5TimeSetValueR2[1]
                     + Pa4_5CurrentSetValueR3[0] + Pa4_5CurrentSetValueR3[1] + Pa4_5TimeSetValueR3[0] + Pa4_5TimeSetValueR3[1] + Pa4_6CurrentSetValueR1[0] + Pa4_6CurrentSetValueR1[1] + Pa4_6TimeSetValueR1[0] + Pa4_6TimeSetValueR1[1] + Pa4_6CurrentSetValueR2[0]
-                    + Pa4_6CurrentSetValueR2[1] + Pa4_6TimeSetValueR2[0] + Pa4_6TimeSetValueR2[1] + Pa4_6CurrentSetValueR3[0] + Pa4_6CurrentSetValueR3[1] + Pa4_6TimeSetValueR3[0] + Pa4_6TimeSetValueR3[1] + RfVxpVoltSetValue + RfVampVoltSetValue
-                    + PolResponseSet[0] + PolResponseSet[1] + PolResponseSet[2] + PolResponseSet[3] + PolResponseSet[4] + PolResponseSet[5] + PolResponseSet[6] + PolResponseSet[7] + PolResponseSet[8] + PolResponseSet[9]);
+                    + Pa4_6CurrentSetValueR2[1] + Pa4_6TimeSetValueR2[0] + Pa4_6TimeSetValueR2[1] + Pa4_6CurrentSetValueR3[0] + Pa4_6CurrentSetValueR3[1] + Pa4_6TimeSetValueR3[0] + Pa4_6TimeSetValueR3[1] + RfVxpVoltSetValue[0] + RfVampVoltSetValue[0]);
                 Console.WriteLine(checkSum);
                 byte[] Etx = new byte[2] { 0xE7, 0xE8 };
-                byte[] bytesToSend = new byte[109] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, SeedCurrentSetValue[1], SeedCurrentSetValue[0], SeedTempSetValue[1], SeedTempSetValue[0]
+                byte[] bytesToSend = new byte[99] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, SeedCurrentSetValue[1], SeedCurrentSetValue[0], SeedTempSetValue[1], SeedTempSetValue[0]
                     ,HsTempSetValue[1], HsTempSetValue[0], Pa1CurrentSetValue[1], Pa1CurrentSetValue[0], Pa2CurrentSetValue[1], Pa2CurrentSetValue[0], Pa3CurrentSetValue[1], Pa3CurrentSetValue[0], Pa4_1CurrentSetValueR1[1], Pa4_1CurrentSetValueR1[0]
                     ,Pa4_1TimeSetValueR1[1], Pa4_1TimeSetValueR1[0], Pa4_1CurrentSetValueR2[1], Pa4_1CurrentSetValueR2[0], Pa4_1TimeSetValueR2[1], Pa4_1TimeSetValueR2[0], Pa4_1CurrentSetValueR3[1], Pa4_1CurrentSetValueR3[0], Pa4_1TimeSetValueR3[1]
                     ,Pa4_1TimeSetValueR3[0], Pa4_2CurrentSetValueR1[1], Pa4_2CurrentSetValueR1[0], Pa4_2TimeSetValueR1[1], Pa4_2TimeSetValueR1[0], Pa4_2CurrentSetValueR2[1], Pa4_2CurrentSetValueR2[0], Pa4_2TimeSetValueR2[1], Pa4_2TimeSetValueR2[0]
@@ -983,8 +980,8 @@ namespace MVVM.ViewModel
                     ,Pa4_4TimeSetValueR1[1], Pa4_4TimeSetValueR1[0], Pa4_4CurrentSetValueR2[1], Pa4_4CurrentSetValueR2[0], Pa4_4TimeSetValueR2[1], Pa4_4TimeSetValueR2[0], Pa4_4CurrentSetValueR3[1], Pa4_4CurrentSetValueR3[0], Pa4_4TimeSetValueR3[1]
                     ,Pa4_4TimeSetValueR3[0], Pa4_5CurrentSetValueR1[1], Pa4_5CurrentSetValueR1[0], Pa4_5TimeSetValueR1[1], Pa4_5TimeSetValueR1[0], Pa4_5CurrentSetValueR2[1], Pa4_5CurrentSetValueR2[0], Pa4_5TimeSetValueR2[1], Pa4_5TimeSetValueR2[0]
                     ,Pa4_5CurrentSetValueR3[1], Pa4_5CurrentSetValueR3[0], Pa4_5TimeSetValueR3[1], Pa4_5TimeSetValueR3[0], Pa4_6CurrentSetValueR1[1], Pa4_6CurrentSetValueR1[0], Pa4_6TimeSetValueR1[1], Pa4_6TimeSetValueR1[0], Pa4_6CurrentSetValueR2[1]
-                    ,Pa4_6CurrentSetValueR2[0], Pa4_6TimeSetValueR2[1], Pa4_6TimeSetValueR2[0], Pa4_6CurrentSetValueR3[1], Pa4_6CurrentSetValueR3[0], Pa4_6TimeSetValueR3[1], Pa4_6TimeSetValueR3[0], RfVxpVoltSetValue, RfVampVoltSetValue
-                    ,PolResponseSet[0], PolResponseSet[1], PolResponseSet[2], PolResponseSet[3], PolResponseSet[4], PolResponseSet[5], PolResponseSet[6], PolResponseSet[7], PolResponseSet[8], PolResponseSet[9], checkSum, Etx[0], Etx[1] };
+                    ,Pa4_6CurrentSetValueR2[0], Pa4_6TimeSetValueR2[1], Pa4_6TimeSetValueR2[0], Pa4_6CurrentSetValueR3[1], Pa4_6CurrentSetValueR3[0], Pa4_6TimeSetValueR3[1], Pa4_6TimeSetValueR3[0], RfVxpVoltSetValue[0], RfVampVoltSetValue[0]
+                    ,checkSum, Etx[0], Etx[1] };
                 /*for (int i = 0; i < 109; i++)
                     Console.WriteLine(bytesToSend[i]);*/
                 laserClient.Send(bytesToSend);
@@ -1006,7 +1003,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)100);
+                byte[] dataSize = BitConverter.GetBytes((ushort)101);
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x08;
 
@@ -1098,7 +1095,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)100);
+                byte[] dataSize = BitConverter.GetBytes((ushort)101);
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x10;
 
@@ -1198,7 +1195,7 @@ namespace MVVM.ViewModel
                 byte[] bytesToSend = new byte[13] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], reqBit, checkSum, Etx[0], Etx[1] };
                 /*for (int i = 0; i < 109; i++)
                     Console.WriteLine(bytesToSend[i]);*/
-                laserClient.Send(bytesToSend);
+                //laserClient.Send(bytesToSend);
 
                 seqNum += 1;
             }
@@ -1541,7 +1538,7 @@ namespace MVVM.ViewModel
 
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
 
-            FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
+            /*FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
 
             currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
@@ -1557,7 +1554,7 @@ namespace MVVM.ViewModel
                     sw.Write(rcvData.Buffer[i] + ",");
             }
             sw.Close();
-            fs.Close();
+            fs.Close();*/
 
             if (rcvData.Buffer[0] == 2)
             {

@@ -908,17 +908,7 @@ namespace MVVM.ViewModel
                 _rfVampVoltSetValue = value;
                 NotifyPropertyChanged();
             }
-        }
-        private string _polResponseSet;
-        public string PolResponseSet
-        {
-            get { return _polResponseSet; }
-            set
-            {
-                _polResponseSet = value;
-                NotifyPropertyChanged();
-            }
-        }
+        }        
         private float _pdChannel;
         public float PdChannel
         {
@@ -1209,10 +1199,13 @@ namespace MVVM.ViewModel
                 Pa4_6TimeSetValueR3 = Pa4_6TimeReadValueR3,
                 RfVxpVoltSetValue = RfVxpVoltReadValue,
                 RfVampVoltSetValue = RfVampVoltReadValue,
-                PolResponseSet = PolResponseRead
             };
             Messenger.Default.Send(lcb004writeSetCmd);
+            
+            lcb002CmdSend();
         }
+
+        
 
         private void OnSetLoadCommandAction()
         {
@@ -1298,7 +1291,6 @@ namespace MVVM.ViewModel
             Pa4_6TimeSetValueR3 = obj.Pa4_6TimeSetValueR3;
             RfVxpVoltSetValue = obj.RfVxpVoltSetValue;
             RfVampVoltSetValue = obj.RfVampVoltSetValue;
-            PolResponseSet = obj.PolResponseSet;
         }
         private void OnReceiveMessageAction(writeCalValue obj)
         {
@@ -1499,6 +1491,21 @@ namespace MVVM.ViewModel
             Console.WriteLine(obj.PdLaserPower9);
             Console.WriteLine(obj.PdLaserPower10);
         }
+
+        private async void lcb002CmdSend()
+        {
+            var lcb002Cmd = new lcb002Cmd()
+            {
+                seed = 62,
+                reset = 0,
+                amp = 0,
+                pol = "              ",
+                cmd = 2,
+            };
+            await Task.Delay(2000);
+            Messenger.Default.Send(lcb002Cmd);
+        }
+
         private void OnReceiveMessageAction(readSetValue obj)
         {
             SeedCurrentReadValue = obj.SeedCurrentReadValue;
@@ -1545,7 +1552,6 @@ namespace MVVM.ViewModel
             Pa4_6TimeReadValueR3 = obj.Pa4_6TimeReadValueR3;
             RfVxpVoltReadValue = obj.RfVxpVoltReadValue;
             RfVampVoltReadValue = obj.RfVampVoltReadValue;
-            PolResponseRead = obj.PolResponseRead;
         }
     }
 }
