@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Win32;
 using MVVM.Messages;
 using System;
 using System.Collections;
@@ -43,6 +44,11 @@ namespace MVVM.ViewModel
 
         public string imgSourcePath;      
         private string _backgroundPath;
+
+        const string userRoot = "HKEY_CURRENT_USER";
+        const string subkey = "SystemController";
+        const string keyName = userRoot + "\\" + subkey;
+
         public string BackgroundPath
         {
             get { return _backgroundPath; }
@@ -1371,7 +1377,7 @@ namespace MVVM.ViewModel
         }
 
         public ControlViewModel()
-        {
+        {       
             OnSeedCommand = new RelayCommand(OnSeedCommandAction, null);
             OnPa1Command = new RelayCommand(OnPa1CommandAction, null);
             OnPa2Command = new RelayCommand(OnPa2CommandAction, null);
@@ -1399,12 +1405,49 @@ namespace MVVM.ViewModel
             Pa1ImgPath = imgSourcePath + @"\images\PA1_base.png";
             Pa2ImgPath = imgSourcePath + @"\images\PA2_base.png";
             Pa3ImgPath = imgSourcePath + @"\images\PA3_base.png";
-            Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";
+            Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";           
 
-            DelayTime1 = 150;
-            DelayTime2 = 150;
-            DelayTime3 = 150;
-            DelayTime4 = 150;
+            DelayTime1 = int.Parse((string)Registry.GetValue(keyName, "DelayTime1", "150"));
+            DelayTime2 = int.Parse((string)Registry.GetValue(keyName, "DelayTime2", "100"));
+            DelayTime3 = int.Parse((string)Registry.GetValue(keyName, "DelayTime3", "150"));
+            DelayTime4 = int.Parse((string)Registry.GetValue(keyName, "DelayTime4", "100"));
+
+            Pa4_1CurrentReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_1CurrentReadValueR1", "0"));
+            Pa4_1TimeReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_1TimeReadValueR1", "0"));
+            Pa4_1CurrentReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_1CurrentReadValueR2", "0"));
+            Pa4_1TimeReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_1TimeReadValueR2", "0"));
+            Pa4_1CurrentReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_1CurrentReadValueR3", "4"));
+            Pa4_1TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_1TimeReadValueR3", "0"));
+            Pa4_2CurrentReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_2CurrentReadValueR1", "0"));
+            Pa4_2TimeReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_2TimeReadValueR1", "0"));
+            Pa4_2CurrentReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_2CurrentReadValueR2", "0"));
+            Pa4_2TimeReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_2TimeReadValueR2", "0"));
+            Pa4_2CurrentReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_2CurrentReadValueR3", "4"));
+            Pa4_2TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_2TimeReadValueR3", "0"));
+            Pa4_3CurrentReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_3CurrentReadValueR1", "0"));
+            Pa4_3TimeReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_3TimeReadValueR1", "0"));
+            Pa4_3CurrentReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_3CurrentReadValueR2", "0"));
+            Pa4_3TimeReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_3TimeReadValueR2", "0"));
+            Pa4_3CurrentReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_3CurrentReadValueR3", "4"));
+            Pa4_3TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_3TimeReadValueR3", "0"));
+            Pa4_4CurrentReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_4CurrentReadValueR1", "0"));
+            Pa4_4TimeReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_4TimeReadValueR1", "0"));
+            Pa4_4CurrentReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_4CurrentReadValueR2", "0"));
+            Pa4_4TimeReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_4TimeReadValueR2", "0"));
+            Pa4_4CurrentReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_4CurrentReadValueR3", "4"));
+            Pa4_4TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_4TimeReadValueR3", "0"));
+            Pa4_5CurrentReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_5CurrentReadValueR1", "0"));
+            Pa4_5TimeReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_5TimeReadValueR1", "0"));
+            Pa4_5CurrentReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_5CurrentReadValueR2", "0"));
+            Pa4_5TimeReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_5TimeReadValueR2", "0"));
+            Pa4_5CurrentReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_5CurrentReadValueR3", "4"));
+            Pa4_5TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_5TimeReadValueR3", "0"));
+            Pa4_6CurrentReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6CurrentReadValueR1", "0"));
+            Pa4_6TimeReadValueR1 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6TimeReadValueR1", "0"));
+            Pa4_6CurrentReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6CurrentReadValueR2", "0"));
+            Pa4_6TimeReadValueR2 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6TimeReadValueR2", "0"));
+            Pa4_6CurrentReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6CurrentReadValueR3", "4"));
+            Pa4_6TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6TimeReadValueR3", "0"));
 
             PolCmd = "*MOD?       ";
 
@@ -1862,11 +1905,62 @@ namespace MVVM.ViewModel
                 RfVampVoltSetValue = RfVampVoltReadValue,
             };
             Messenger.Default.Send(lcb004writeSetCmd);
+
             lcb002CmdSend();
+
+            Registry.SetValue(keyName, "SeedCurrentReadValue", SeedCurrentReadValue);
+            Registry.SetValue(keyName, "SeedTempReadValue", SeedTempReadValue);
+            Registry.SetValue(keyName, "HsTempReadValue", HsTempReadValue);
+            Registry.SetValue(keyName, "Pa1CurrentReadValue", Pa1CurrentReadValue);
+            Registry.SetValue(keyName, "Pa2CurrentReadValue", Pa2CurrentReadValue);
+            Registry.SetValue(keyName, "Pa3CurrentReadValue", Pa3CurrentReadValue);
+            Registry.SetValue(keyName, "Pa4_1CurrentReadValueR1", Pa4_1CurrentReadValueR1);
+            Registry.SetValue(keyName, "Pa4_1TimeReadValueR1", Pa4_1TimeReadValueR1);
+            Registry.SetValue(keyName, "Pa4_1CurrentReadValueR2", Pa4_1CurrentReadValueR2);
+            Registry.SetValue(keyName, "Pa4_1TimeReadValueR2", Pa4_1TimeReadValueR2);
+            Registry.SetValue(keyName, "Pa4_1CurrentReadValueR3", Pa4_1CurrentReadValueR3);
+            Registry.SetValue(keyName, "Pa4_1TimeReadValueR3", Pa4_1TimeReadValueR3);
+            Registry.SetValue(keyName, "Pa4_2CurrentReadValueR1", Pa4_2CurrentReadValueR1);
+            Registry.SetValue(keyName, "Pa4_2TimeReadValueR1", Pa4_2TimeReadValueR1);
+            Registry.SetValue(keyName, "Pa4_2CurrentReadValueR2", Pa4_2CurrentReadValueR2);
+            Registry.SetValue(keyName, "Pa4_2TimeReadValueR2", Pa4_2TimeReadValueR2);
+            Registry.SetValue(keyName, "Pa4_2CurrentReadValueR3", Pa4_2CurrentReadValueR3);
+            Registry.SetValue(keyName, "Pa4_2TimeReadValueR3", Pa4_2TimeReadValueR3);
+            Registry.SetValue(keyName, "Pa4_3CurrentReadValueR1", Pa4_3CurrentReadValueR1);
+            Registry.SetValue(keyName, "Pa4_3TimeReadValueR1", Pa4_3TimeReadValueR1);
+            Registry.SetValue(keyName, "Pa4_3CurrentReadValueR2", Pa4_3CurrentReadValueR2);
+            Registry.SetValue(keyName, "Pa4_3TimeReadValueR2", Pa4_3TimeReadValueR2);
+            Registry.SetValue(keyName, "Pa4_3CurrentReadValueR3", Pa4_3CurrentReadValueR3);
+            Registry.SetValue(keyName, "Pa4_3TimeReadValueR3", Pa4_3TimeReadValueR3);
+            Registry.SetValue(keyName, "Pa4_4CurrentReadValueR1", Pa4_4CurrentReadValueR1);
+            Registry.SetValue(keyName, "Pa4_4TimeReadValueR1", Pa4_4TimeReadValueR1);
+            Registry.SetValue(keyName, "Pa4_4CurrentReadValueR2", Pa4_4CurrentReadValueR2);
+            Registry.SetValue(keyName, "Pa4_4TimeReadValueR2", Pa4_4TimeReadValueR2);
+            Registry.SetValue(keyName, "Pa4_4CurrentReadValueR3", Pa4_4CurrentReadValueR3);
+            Registry.SetValue(keyName, "Pa4_4TimeReadValueR3", Pa4_4TimeReadValueR3);
+            Registry.SetValue(keyName, "Pa4_5CurrentReadValueR1", Pa4_5CurrentReadValueR1);
+            Registry.SetValue(keyName, "Pa4_5TimeReadValueR1", Pa4_5TimeReadValueR1);
+            Registry.SetValue(keyName, "Pa4_5CurrentReadValueR2", Pa4_5CurrentReadValueR2);
+            Registry.SetValue(keyName, "Pa4_5TimeReadValueR2", Pa4_5TimeReadValueR2);
+            Registry.SetValue(keyName, "Pa4_5CurrentReadValueR3", Pa4_5CurrentReadValueR3);
+            Registry.SetValue(keyName, "Pa4_5TimeReadValueR3", Pa4_5TimeReadValueR3);
+            Registry.SetValue(keyName, "Pa4_6CurrentReadValueR1", Pa4_6CurrentReadValueR1);
+            Registry.SetValue(keyName, "Pa4_6TimeReadValueR1", Pa4_6TimeReadValueR1);
+            Registry.SetValue(keyName, "Pa4_6CurrentReadValueR2", Pa4_6CurrentReadValueR2);
+            Registry.SetValue(keyName, "Pa4_6TimeReadValueR2", Pa4_6TimeReadValueR2);
+            Registry.SetValue(keyName, "Pa4_6CurrentReadValueR3", Pa4_6CurrentReadValueR3);
+            Registry.SetValue(keyName, "Pa4_6TimeReadValueR3", Pa4_6TimeReadValueR3);
+            Registry.SetValue(keyName, "RfVxpVoltReadValue", RfVxpVoltReadValue);
+            Registry.SetValue(keyName, "RfVampVoltReadValue", RfVampVoltReadValue);
         }
 
         private async void OnAutoCommandAction()
         {
+            Registry.SetValue(keyName, "DelayTime1", DelayTime1.ToString());
+            Registry.SetValue(keyName, "DelayTime2", DelayTime2.ToString());
+            Registry.SetValue(keyName, "DelayTime3", DelayTime3.ToString());
+            Registry.SetValue(keyName, "DelayTime4", DelayTime4.ToString());
+
             AutoBtnStatus = true;
             Pa4BtnStatus = false;
             Pa4_1BtnStatus = false;

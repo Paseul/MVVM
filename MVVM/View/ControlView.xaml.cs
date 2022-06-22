@@ -25,6 +25,6 @@ namespace MVVM.View
         public ControlView()
         {
             InitializeComponent();            
-        }  
+        }
     }
 }
