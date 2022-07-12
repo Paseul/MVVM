@@ -543,6 +543,7 @@ namespace MVVM.ViewModel
         private void lcbMon(byte[] result)
         {
             float[] realValue = new float[52];
+            int[] pdAdc = new int[8];
             byte[] tempByte = new byte[2];
             byte[] strByte = new byte[24];
             ushort tempValue;
@@ -559,6 +560,26 @@ namespace MVVM.ViewModel
 
                 strByte = result.Skip(103).Take(24).ToArray();
                 string polResponse = ByteToString(strByte);
+
+                for (int i = 0; i < 8; i++)
+                {
+                    tempByte = result.Skip(2 * i + 127).Take(2).ToArray();
+                    Array.Reverse(tempByte);
+                    pdAdc[i] = BitConverter.ToUInt16(tempByte, 0);
+                }
+
+                var pdAdcValue = new pdAdc()
+                {
+                    PdAdc1Value = pdAdc[0],
+                    PdAdc2Value = pdAdc[1],
+                    PdAdc3Value = pdAdc[2],
+                    PdAdc4Value = pdAdc[3],
+                    PdAdc5Value = pdAdc[4],
+                    PdAdc6Value = pdAdc[5],
+                    PdAdc7Value = pdAdc[6],
+                    PdAdc8Value = pdAdc[7]
+                };
+                Messenger.Default.Send(pdAdcValue);
 
                 var monValue = new monValue()
                 {

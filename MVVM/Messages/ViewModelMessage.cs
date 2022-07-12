@@ -75,6 +75,14 @@ namespace MVVM.Messages
         public int DeviceId { get; set; }
     }
 
+    class polValue : MessageBase
+    {
+        public int PolAvg { get; set; }
+        public int PolSts { get; set; }
+        public int PolDly { get; set; }
+        public int PolThh { get; set; }
+    }
+
     class writeSetValue : MessageBase
     {
         public float SeedCurrentSetValue { get; set; }
@@ -421,8 +429,20 @@ namespace MVVM.Messages
         public float RfVolt { get; set; }
         public float SeedHumid { get; set; }
         public float PaHumid { get; set; }
-        public string PolRead { get; set; }
+        public string PolRead { get; set; }        
     }
+    class pdAdc : MessageBase
+    {
+        public int PdAdc1Value { get; set; }
+        public int PdAdc2Value { get; set; }
+        public int PdAdc3Value { get; set; }
+        public int PdAdc4Value { get; set; }
+        public int PdAdc5Value { get; set; }
+        public int PdAdc6Value { get; set; }
+        public int PdAdc7Value { get; set; }
+        public int PdAdc8Value { get; set; }
+    }
+
     class warnMon : MessageBase
     {
         public bool SeedTempHigh { get; set; }

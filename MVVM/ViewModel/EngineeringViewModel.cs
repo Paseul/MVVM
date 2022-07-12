@@ -1134,6 +1134,126 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private int _polAvg;
+        public int PolAvg
+        {
+            get { return _polAvg; }
+            set
+            {
+                _polAvg = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _polSts;
+        public int PolSts
+        {
+            get { return _polSts; }
+            set
+            {
+                _polSts = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _polDly;
+        public int PolDly
+        {
+            get { return _polDly; }
+            set
+            {
+                _polDly = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _polThh;
+        public int PolThh
+        {
+            get { return _polThh; }
+            set
+            {
+                _polThh = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc1Value;
+        public int PdAdc1Value
+        {
+            get { return _pdAdc1Value; }
+            set
+            {
+                _pdAdc1Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc2Value;
+        public int PdAdc2Value
+        {
+            get { return _pdAdc2Value; }
+            set
+            {
+                _pdAdc2Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc3Value;
+        public int PdAdc3Value
+        {
+            get { return _pdAdc3Value; }
+            set
+            {
+                _pdAdc3Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc4Value;
+        public int PdAdc4Value
+        {
+            get { return _pdAdc4Value; }
+            set
+            {
+                _pdAdc4Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc5Value;
+        public int PdAdc5Value
+        {
+            get { return _pdAdc5Value; }
+            set
+            {
+                _pdAdc5Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc6Value;
+        public int PdAdc6Value
+        {
+            get { return _pdAdc6Value; }
+            set
+            {
+                _pdAdc6Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc7Value;
+        public int PdAdc7Value
+        {
+            get { return _pdAdc7Value; }
+            set
+            {
+                _pdAdc7Value = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _pdAdc8Value;
+        public int PdAdc8Value
+        {
+            get { return _pdAdc8Value; }
+            set
+            {
+                _pdAdc8Value = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] string name = null)
@@ -1150,6 +1270,7 @@ namespace MVVM.ViewModel
             Messenger.Default.Register<setLowLimit>(this, OnReceiveMessageAction);
             Messenger.Default.Register<pdCalibration>(this, OnReceiveMessageAction);
             Messenger.Default.Register<readSetValue>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<pdAdc>(this, OnReceiveMessageAction);
 
             OnSetSetCommand = new RelayCommand(OnSetSetCommandAction, null);
             OnSetLoadCommand = new RelayCommand(OnSetLoadCommandAction, null);
@@ -1222,6 +1343,14 @@ namespace MVVM.ViewModel
             PdPower8 = float.Parse((string)Registry.GetValue(keyName, "PdPower8", "800"));
             PdPower9 = float.Parse((string)Registry.GetValue(keyName, "PdPower9", "900"));
             PdPower10 = float.Parse((string)Registry.GetValue(keyName, "PdPower10", "1000"));
+
+            PolAvg = int.Parse((string)Registry.GetValue(keyName, "PolAvg", "25"));
+            PolSts = int.Parse((string)Registry.GetValue(keyName, "PolSts", "20"));
+            PolDly = int.Parse((string)Registry.GetValue(keyName, "PolDly", "100"));
+            PolThh = int.Parse((string)Registry.GetValue(keyName, "PolThh", "50"));
+
+
+            OnSetLoadCommandAction();            
         }
 
         private void OnSetSetCommandAction()
@@ -1321,6 +1450,8 @@ namespace MVVM.ViewModel
             Registry.SetValue(keyName, "Pa4_6TimeReadValueR3", Pa4_6TimeReadValueR3);
             Registry.SetValue(keyName, "RfVxpVoltReadValue", RfVxpVoltReadValue);
             Registry.SetValue(keyName, "RfVampVoltReadValue", RfVampVoltReadValue);
+
+            OnSetLoadCommandAction();
         }        
 
         private void OnSetLoadCommandAction()
@@ -1330,35 +1461,82 @@ namespace MVVM.ViewModel
                 cmd = "readSet",
             };
             Messenger.Default.Send(lcb004ReadSetCmd);
+
+            var polValue = new polValue()
+            {
+                PolAvg = PolAvg,
+                PolSts = PolSts,
+                PolDly = PolDly,
+                PolThh = PolThh
+            };
+
+            Messenger.Default.Send(polValue);
+
+            Registry.SetValue(keyName, "PolAvg", PolAvg.ToString());
+            Registry.SetValue(keyName, "PolSts", PolSts.ToString());
+            Registry.SetValue(keyName, "PolDly", PolDly.ToString());
+            Registry.SetValue(keyName, "PolThh", PolThh.ToString());
         }
         private void OnCalSetCommandAction()
         {
-            var lcb004PdCalCmd = new lcb004PdCalCmd()
+            if (PdChannel != 7)
             {
-                PdChannel = PdChannel,
-                TableLength = TableLength,
-                PdAdc1 = PdAdc1,
-                PdAdc2 = PdAdc2,
-                PdAdc3 = PdAdc3,
-                PdAdc4 = PdAdc4,
-                PdAdc5 = PdAdc5,
-                PdAdc6 = PdAdc6,
-                PdAdc7 = PdAdc7,
-                PdAdc8 = PdAdc8,
-                PdAdc9 = PdAdc9,
-                PdAdc10 = PdAdc10,
-                PdPower1 = PdPower1,
-                PdPower2 = PdPower2,
-                PdPower3 = PdPower3,
-                PdPower4 = PdPower4,
-                PdPower5 = PdPower5,
-                PdPower6 = PdPower6,
-                PdPower7 = PdPower7,
-                PdPower8 = PdPower8,
-                PdPower9 = PdPower9,
-                PdPower10 = PdPower10
-            };
-            Messenger.Default.Send(lcb004PdCalCmd);
+                var lcb004PdCalCmd = new lcb004PdCalCmd()
+                {
+                    PdChannel = PdChannel,
+                    TableLength = TableLength,
+                    PdAdc1 = PdAdc1,
+                    PdAdc2 = PdAdc2,
+                    PdAdc3 = PdAdc3,
+                    PdAdc4 = PdAdc4,
+                    PdAdc5 = PdAdc5,
+                    PdAdc6 = PdAdc6,
+                    PdAdc7 = PdAdc7,
+                    PdAdc8 = PdAdc8,
+                    PdAdc9 = PdAdc9,
+                    PdAdc10 = PdAdc10,
+                    PdPower1 = PdPower1,
+                    PdPower2 = PdPower2,
+                    PdPower3 = PdPower3,
+                    PdPower4 = PdPower4,
+                    PdPower5 = PdPower5,
+                    PdPower6 = PdPower6,
+                    PdPower7 = PdPower7,
+                    PdPower8 = PdPower8,
+                    PdPower9 = PdPower9,
+                    PdPower10 = PdPower10
+                };
+                Messenger.Default.Send(lcb004PdCalCmd);
+            }
+            else
+            {
+                var lcb004PdCalCmd = new lcb004PdCalCmd()
+                {
+                    PdChannel = PdChannel,
+                    TableLength = TableLength,
+                    PdAdc1 = PdAdc1,
+                    PdAdc2 = PdAdc2,
+                    PdAdc3 = PdAdc3,
+                    PdAdc4 = PdAdc4,
+                    PdAdc5 = PdAdc5,
+                    PdAdc6 = PdAdc6,
+                    PdAdc7 = PdAdc7,
+                    PdAdc8 = PdAdc8,
+                    PdAdc9 = PdAdc9,
+                    PdAdc10 = PdAdc10,
+                    PdPower1 = PdPower1/10,
+                    PdPower2 = PdPower2/10,
+                    PdPower3 = PdPower3/10,
+                    PdPower4 = PdPower4/10,
+                    PdPower5 = PdPower5/10,
+                    PdPower6 = PdPower6/10,
+                    PdPower7 = PdPower7/10,
+                    PdPower8 = PdPower8/10,
+                    PdPower9 = PdPower9/10,
+                    PdPower10 = PdPower10/10
+                };
+                Messenger.Default.Send(lcb004PdCalCmd);
+            }
 
             Registry.SetValue(keyName, "PdChannel", PdChannel);
             Registry.SetValue(keyName, "TableLength", TableLength);
@@ -1691,6 +1869,19 @@ namespace MVVM.ViewModel
             Pa4_6TimeReadValueR3 = obj.Pa4_6TimeReadValueR3;
             RfVxpVoltReadValue = obj.RfVxpVoltReadValue;
             RfVampVoltReadValue = obj.RfVampVoltReadValue;
+        }
+
+        private void OnReceiveMessageAction(pdAdc obj)
+        {
+            PdAdc1Value = obj.PdAdc1Value;
+            PdAdc2Value = obj.PdAdc2Value;
+            PdAdc3Value = obj.PdAdc3Value;
+            PdAdc4Value = obj.PdAdc4Value;
+            PdAdc5Value = obj.PdAdc5Value;
+            PdAdc6Value = obj.PdAdc6Value;
+            PdAdc7Value = obj.PdAdc7Value;
+            PdAdc8Value = obj.PdAdc8Value;
+
         }
     }
 }

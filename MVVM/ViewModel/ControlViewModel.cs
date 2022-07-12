@@ -1369,6 +1369,46 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private int _polAvg;
+        public int PolAvg
+        {
+            get { return _polAvg; }
+            set
+            {
+                _polAvg = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _polSts;
+        public int PolSts
+        {
+            get { return _polSts; }
+            set
+            {
+                _polSts = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _polDly;
+        public int PolDly
+        {
+            get { return _polDly; }
+            set
+            {
+                _polDly = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _polThh;
+        public int PolThh
+        {
+            get { return _polThh; }
+            set
+            {
+                _polThh = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] string name = null)
@@ -1398,6 +1438,7 @@ namespace MVVM.ViewModel
             Messenger.Default.Register<string>(this, MessageReceived);
             Messenger.Default.Register<monValue>(this, OnReceiveMessageAction);
             Messenger.Default.Register<readSetValue>(this, OnReceiveMessageAction);
+            Messenger.Default.Register<polValue>(this, OnReceiveMessageAction);
 
             imgSourcePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
             BackgroundPath = imgSourcePath + @"\images\Background.png";
@@ -1405,7 +1446,9 @@ namespace MVVM.ViewModel
             Pa1ImgPath = imgSourcePath + @"\images\PA1_base.png";
             Pa2ImgPath = imgSourcePath + @"\images\PA2_base.png";
             Pa3ImgPath = imgSourcePath + @"\images\PA3_base.png";
-            Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";           
+            Pa4ImgPath = imgSourcePath + @"\images\PA4_base.png";
+
+            Registry.SetValue(keyName, "", "0");
 
             DelayTime1 = int.Parse((string)Registry.GetValue(keyName, "DelayTime1", "150"));
             DelayTime2 = int.Parse((string)Registry.GetValue(keyName, "DelayTime2", "100"));
@@ -1502,14 +1545,13 @@ namespace MVVM.ViewModel
             {
                 EStopAction();                
             }
-            else
+            /*else
             {
                 PolResponseRead = message;
-            }
+            }*/
         }
         private async void OnSeedCommandAction()
-        {
-            SeedFlag = true;
+        {            
             if (SeedBtnStatus == false)
             {                
                 SeedBtnStatus = true;                
@@ -1524,23 +1566,32 @@ namespace MVVM.ViewModel
                 Pa4_5BtnStatus = false;
                 Pa4_6BtnStatus = false;
                 await Task.Delay(100);
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
 
                 Pa3BtnStatus = false;
                 await Task.Delay(100);
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
 
                 Pa2BtnStatus = false;
                 await Task.Delay(100);
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
 
                 Pa1BtnStatus = false;
                 await Task.Delay(100);
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
 
                 SeedBtnStatus = false;
                 await Task.Delay(100);
             }
+            SeedFlag = true;
             lcb002CmdSend();
             SeedFlag = false;
         }
@@ -1554,6 +1605,7 @@ namespace MVVM.ViewModel
                     Pa1BtnStatus = true;
                     PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
                 }
                 else
                 {                    
@@ -1565,19 +1617,26 @@ namespace MVVM.ViewModel
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
                     
                     Pa3BtnStatus = false;
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
 
                     Pa2BtnStatus = false;
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
 
                     Pa1BtnStatus = false;
                     
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
                     PaFlag = false;
                 }
@@ -1602,16 +1661,22 @@ namespace MVVM.ViewModel
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
 
                     Pa3BtnStatus = false;
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
 
                     Pa2BtnStatus = false;
                     await Task.Delay(100);
                 }
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
             }
         }
 
@@ -1633,12 +1698,16 @@ namespace MVVM.ViewModel
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
                     await Task.Delay(100);
+                    PaFlag = true;
                     lcb002CmdSend();
+                    PaFlag = false;
 
                     Pa3BtnStatus = false;
                     await Task.Delay(100);
                 }
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
             }
         }
 
@@ -1666,13 +1735,15 @@ namespace MVVM.ViewModel
                     Pa4_5BtnStatus = false;
                     Pa4_6BtnStatus = false;
                 }
+                PaFlag = true;
                 lcb002CmdSend();
+                PaFlag = false;
             }            
         }
 
         private void OnPa4_1CommandAction()
         {
-            if (Pa4_1BtnStatus == false)
+            if (Pa3BtnStatus == true && Pa4_1BtnStatus == false)
             {
                 Pa4_1BtnStatus = true;
             }
@@ -1680,13 +1751,15 @@ namespace MVVM.ViewModel
             {
                 Pa4_1BtnStatus = false;
             }
+            PaFlag = true;
             Pa4BtnStatusCheck();
             lcb002CmdSend();
+            PaFlag = false;
         }
 
         private void OnPa4_2CommandAction()
         {
-            if (Pa4_2BtnStatus == false)
+            if (Pa3BtnStatus == true && Pa4_2BtnStatus == false)
             {
                 Pa4_2BtnStatus = true;
             }
@@ -1694,13 +1767,15 @@ namespace MVVM.ViewModel
             {
                 Pa4_2BtnStatus = false;
             }
+            PaFlag = true;
             Pa4BtnStatusCheck();
             lcb002CmdSend();
+            PaFlag = false;
         }
 
         private void OnPa4_3CommandAction()
         {
-            if (Pa4_3BtnStatus == false)
+            if (Pa3BtnStatus == true && Pa4_3BtnStatus == false)
             {
                 Pa4_3BtnStatus = true;
             }
@@ -1708,13 +1783,15 @@ namespace MVVM.ViewModel
             {
                 Pa4_3BtnStatus = false;
             }
+            PaFlag = true;
             Pa4BtnStatusCheck();
             lcb002CmdSend();
+            PaFlag = false;
         }
 
         private void OnPa4_4CommandAction()
         {
-            if (Pa4_4BtnStatus == false)
+            if (Pa3BtnStatus == true && Pa4_4BtnStatus == false)
             {
                 Pa4_4BtnStatus = true;
             }
@@ -1722,13 +1799,15 @@ namespace MVVM.ViewModel
             {
                 Pa4_4BtnStatus = false;
             }
+            PaFlag = true;
             Pa4BtnStatusCheck();
             lcb002CmdSend();
+            PaFlag = false;
         }
 
         private void OnPa4_5CommandAction()
         {
-            if (Pa4_5BtnStatus == false)
+            if (Pa3BtnStatus == true && Pa4_5BtnStatus == false)
             {
                 Pa4_5BtnStatus = true;
             }
@@ -1736,13 +1815,15 @@ namespace MVVM.ViewModel
             {
                 Pa4_5BtnStatus = false;
             }
+            PaFlag = true;
             Pa4BtnStatusCheck();
             lcb002CmdSend();
+            PaFlag = false;
         }
 
         private void OnPa4_6CommandAction()
         {
-            if (Pa4_6BtnStatus == false)
+            if (Pa3BtnStatus == true && Pa4_6BtnStatus == false)
             {
                 Pa4_6BtnStatus = true;
             }
@@ -1750,8 +1831,10 @@ namespace MVVM.ViewModel
             {
                 Pa4_6BtnStatus = false;
             }
+            PaFlag = true;
             Pa4BtnStatusCheck();
             lcb002CmdSend();
+            PaFlag = false;
         }
 
         private void Pa4BtnStatusCheck()
@@ -1797,19 +1880,19 @@ namespace MVVM.ViewModel
                 lcb002CmdSend();
                 await Task.Delay(2500);
 
-                PolCmd = "*AVG 20#       ";
+                PolCmd = "*AVG " + PolAvg.ToString() + "#       ";
                 lcb002CmdSend();
                 await Task.Delay(2500);
 
-                PolCmd = "*STS 25#        ";
+                PolCmd = "*STS " + PolSts.ToString() + "#        ";
                 lcb002CmdSend();
                 await Task.Delay(2500);
 
-                PolCmd = "*DLY 100#       ";
+                PolCmd = "*DLY " + PolDly.ToString() + "#       ";
                 lcb002CmdSend();
                 await Task.Delay(2500);
 
-                PolCmd = "*THH 50#       ";
+                PolCmd = "*THH " + PolThh.ToString() + "#       ";
                 lcb002CmdSend();
                 await Task.Delay(2500);
 
@@ -1836,9 +1919,8 @@ namespace MVVM.ViewModel
         }
         private async void OnResetCommandAction()
         {
-            ResetBtnStatus = true;
+            ResetBtnStatus = true;            
             lcb002CmdSend();
-            await Task.Delay(100);
             ResetBtnStatus = false;
         }
         private void lcb002CmdSend()
@@ -1906,7 +1988,9 @@ namespace MVVM.ViewModel
             };
             Messenger.Default.Send(lcb004writeSetCmd);
 
+            PaFlag = true;
             lcb002CmdSend();
+            PaFlag = false;
 
             Registry.SetValue(keyName, "SeedCurrentReadValue", SeedCurrentReadValue);
             Registry.SetValue(keyName, "SeedTempReadValue", SeedTempReadValue);
@@ -2123,7 +2207,18 @@ namespace MVVM.ViewModel
             Pa4_6CurrentReadValueR3 = obj.Pa4_6CurrentReadValueR3;
             Pa4_6TimeReadValueR3 = obj.Pa4_6TimeReadValueR3;
             RfVxpVoltReadValue = obj.RfVxpVoltReadValue;
-            RfVampVoltReadValue = obj.RfVampVoltReadValue;            
+            RfVampVoltReadValue = obj.RfVampVoltReadValue;
+
+            PaFlag = true;
+            lcb002CmdSend();
+            PaFlag = false;
+        }
+        private void OnReceiveMessageAction(polValue obj)
+        {
+            PolAvg = obj.PolAvg;
+            PolSts = obj.PolSts;
+            PolDly = obj.PolDly;
+            PolThh = obj.PolThh;
         }
     }
 }
