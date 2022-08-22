@@ -3,8 +3,10 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 using MVVM.Messages;
+using MVVM.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -15,6 +17,32 @@ namespace MVVM.ViewModel
 {
     public class EngineeringViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        private ObservableCollection<DataRange> _channelRanges;
+        public ObservableCollection<DataRange> ChannelRanges
+        {
+            get { return _channelRanges; }
+            set { _channelRanges = value; }
+        }
+        private DataRange _selectdChannel;
+        public DataRange SelectdChannel
+        {
+            get { return _selectdChannel; }
+            set { _selectdChannel = value; }
+        }
+
+        private ObservableCollection<DataRange> _lengthRanges;
+        public ObservableCollection<DataRange> LengthRanges
+        {
+            get { return _lengthRanges; }
+            set { _lengthRanges = value; }
+        }
+        private DataRange _selectdLength;
+        public DataRange SelectdLength
+        {
+            get { return _selectdLength; }
+            set { _selectdLength = value; }
+        }
+
         const string userRoot = "HKEY_CURRENT_USER";
         const string subkey = "SystemController";
         const string keyName = userRoot + "\\" + subkey;
@@ -22,6 +50,7 @@ namespace MVVM.ViewModel
         public RelayCommand OnSetSetCommand { get; set; }
         public RelayCommand OnSetLoadCommand { get; set; }
         public RelayCommand OnCalSetCommand { get; set; }
+        public RelayCommand OnLengthSelected { get; set; }
 
 
         private float _seedCurrentReadValue;
@@ -914,26 +943,6 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }        
-        private float _pdChannel;
-        public float PdChannel
-        {
-            get { return _pdChannel; }
-            set
-            {
-                _pdChannel = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private float _tableLength;
-        public float TableLength
-        {
-            get { return _tableLength; }
-            set
-            {
-                _tableLength = value;
-                NotifyPropertyChanged();
-            }
-        }
         private float _pdAdc1;
         public float PdAdc1
         {
@@ -1255,6 +1264,216 @@ namespace MVVM.ViewModel
             }
         }
 
+        private float _table1Opacity;
+        public float Table1Opacity
+        {
+            get { return _table1Opacity; }
+            set
+            {
+                _table1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table1Enable;
+        public bool Table1Enable
+        {
+            get { return _table1Enable; }
+            set
+            {
+                _table1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table2Opacity;
+        public float Table2Opacity
+        {
+            get { return _table2Opacity; }
+            set
+            {
+                _table2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table2Enable;
+        public bool Table2Enable
+        {
+            get { return _table2Enable; }
+            set
+            {
+                _table2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table3Opacity;
+        public float Table3Opacity
+        {
+            get { return _table3Opacity; }
+            set
+            {
+                _table3Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table3Enable;
+        public bool Table3Enable
+        {
+            get { return _table3Enable; }
+            set
+            {
+                _table3Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table4Opacity;
+        public float Table4Opacity
+        {
+            get { return _table4Opacity; }
+            set
+            {
+                _table4Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table4Enable;
+        public bool Table4Enable
+        {
+            get { return _table4Enable; }
+            set
+            {
+                _table4Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table5Opacity;
+        public float Table5Opacity
+        {
+            get { return _table5Opacity; }
+            set
+            {
+                _table5Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table5Enable;
+        public bool Table5Enable
+        {
+            get { return _table5Enable; }
+            set
+            {
+                _table5Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table6Opacity;
+        public float Table6Opacity
+        {
+            get { return _table6Opacity; }
+            set
+            {
+                _table6Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table6Enable;
+        public bool Table6Enable
+        {
+            get { return _table6Enable; }
+            set
+            {
+                _table6Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table7Opacity;
+        public float Table7Opacity
+        {
+            get { return _table7Opacity; }
+            set
+            {
+                _table7Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table7Enable;
+        public bool Table7Enable
+        {
+            get { return _table7Enable; }
+            set
+            {
+                _table7Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table8Opacity;
+        public float Table8Opacity
+        {
+            get { return _table8Opacity; }
+            set
+            {
+                _table8Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table8Enable;
+        public bool Table8Enable
+        {
+            get { return _table8Enable; }
+            set
+            {
+                _table8Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table9Opacity;
+        public float Table9Opacity
+        {
+            get { return _table9Opacity; }
+            set
+            {
+                _table9Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table9Enable;
+        public bool Table9Enable
+        {
+            get { return _table9Enable; }
+            set
+            {
+                _table9Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _table10Opacity;
+        public float Table10Opacity
+        {
+            get { return _table10Opacity; }
+            set
+            {
+                _table10Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _table10Enable;
+        public bool Table10Enable
+        {
+            get { return _table10Enable; }
+            set
+            {
+                _table10Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] string name = null)
         {
@@ -1275,6 +1494,7 @@ namespace MVVM.ViewModel
             OnSetSetCommand = new RelayCommand(OnSetSetCommandAction, null);
             OnSetLoadCommand = new RelayCommand(OnSetLoadCommandAction, null);
             OnCalSetCommand = new RelayCommand(OnCalSetCommandAction, null);
+            OnLengthSelected = new RelayCommand(OnLengthSelectedAction, null);
 
             SeedCurrentReadValue = float.Parse((string)Registry.GetValue(keyName, "SeedCurrentReadValue", "150"));
             SeedTempReadValue = float.Parse((string)Registry.GetValue(keyName, "SeedTempReadValue", "25"));
@@ -1321,8 +1541,6 @@ namespace MVVM.ViewModel
             RfVxpVoltReadValue = float.Parse((string)Registry.GetValue(keyName, "RfVxpVoltReadValue", "0"));
             RfVampVoltReadValue = float.Parse((string)Registry.GetValue(keyName, "RfVampVoltReadValue", "0"));
 
-            PdChannel = float.Parse((string)Registry.GetValue(keyName, "PdChannel", "2"));
-            TableLength = float.Parse((string)Registry.GetValue(keyName, "TableLength", "10"));
             PdAdc1 = float.Parse((string)Registry.GetValue(keyName, "PdAdc1", "1000"));
             PdAdc2 = float.Parse((string)Registry.GetValue(keyName, "PdAdc2", "2000"));
             PdAdc3 = float.Parse((string)Registry.GetValue(keyName, "PdAdc3", "3000"));
@@ -1349,6 +1567,51 @@ namespace MVVM.ViewModel
             PolDly = int.Parse((string)Registry.GetValue(keyName, "PolDly", "100"));
             PolThh = int.Parse((string)Registry.GetValue(keyName, "PolThh", "50"));
 
+            ChannelRanges = new ObservableCollection<DataRange>()
+            {
+                new DataRange(){Range = 1},
+                new DataRange(){Range = 2},
+                new DataRange(){Range = 3},
+                new DataRange(){Range = 4},
+                new DataRange(){Range = 5},
+                new DataRange(){Range = 6},
+                new DataRange(){Range = 7}
+            };
+
+            LengthRanges = new ObservableCollection<DataRange>()
+            {
+                new DataRange(){Range = 1},
+                new DataRange(){Range = 2},
+                new DataRange(){Range = 3},
+                new DataRange(){Range = 4},
+                new DataRange(){Range = 5},
+                new DataRange(){Range = 6},
+                new DataRange(){Range = 7},
+                new DataRange(){Range = 8},
+                new DataRange(){Range = 9},
+                new DataRange(){Range = 10}
+            };
+
+            Table1Opacity = 1;
+            Table1Enable = true;
+            Table2Opacity = 1;
+            Table2Enable = true;
+            Table3Opacity = 1;
+            Table3Enable = true;
+            Table4Opacity = 1;
+            Table4Enable = true;
+            Table5Opacity = 1;
+            Table5Enable = true;
+            Table6Opacity = 1;
+            Table6Enable = true;
+            Table7Opacity = 1;
+            Table7Enable = true;
+            Table8Opacity = 1;
+            Table8Enable = true;
+            Table9Opacity = 1;
+            Table9Enable = true;
+            Table10Opacity = 1;
+            Table10Enable = true;
 
             OnSetLoadCommandAction();            
         }
@@ -1479,12 +1742,12 @@ namespace MVVM.ViewModel
         }
         private void OnCalSetCommandAction()
         {
-            if (PdChannel != 7)
+            if (SelectdChannel.Range != 7)
             {
                 var lcb004PdCalCmd = new lcb004PdCalCmd()
                 {
-                    PdChannel = PdChannel,
-                    TableLength = TableLength,
+                    PdChannel = SelectdChannel.Range,
+                    TableLength = SelectdLength.Range,
                     PdAdc1 = PdAdc1,
                     PdAdc2 = PdAdc2,
                     PdAdc3 = PdAdc3,
@@ -1512,8 +1775,8 @@ namespace MVVM.ViewModel
             {
                 var lcb004PdCalCmd = new lcb004PdCalCmd()
                 {
-                    PdChannel = PdChannel,
-                    TableLength = TableLength,
+                    PdChannel = SelectdChannel.Range,
+                    TableLength = SelectdLength.Range,
                     PdAdc1 = PdAdc1,
                     PdAdc2 = PdAdc2,
                     PdAdc3 = PdAdc3,
@@ -1538,8 +1801,6 @@ namespace MVVM.ViewModel
                 Messenger.Default.Send(lcb004PdCalCmd);
             }
 
-            Registry.SetValue(keyName, "PdChannel", PdChannel);
-            Registry.SetValue(keyName, "TableLength", TableLength);
             Registry.SetValue(keyName, "PdAdc1", PdAdc1);
             Registry.SetValue(keyName, "PdAdc2", PdAdc2);
             Registry.SetValue(keyName, "PdAdc3", PdAdc3);
@@ -1813,7 +2074,7 @@ namespace MVVM.ViewModel
         {
             var lcb002Cmd = new lcb002Cmd()
             {
-                seed = 62,
+                seed = 63,
                 reset = 0,
                 amp = 0,
                 pol = "              ",
@@ -1881,7 +2142,340 @@ namespace MVVM.ViewModel
             PdAdc6Value = obj.PdAdc6Value;
             PdAdc7Value = obj.PdAdc7Value;
             PdAdc8Value = obj.PdAdc8Value;
+        }
 
+        private void OnLengthSelectedAction()
+        {
+            if (SelectdLength.Range == 1)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 0.5f;
+                Table2Enable = false;
+                Table3Opacity = 0.5f;
+                Table3Enable = false;
+                Table4Opacity = 0.5f;
+                Table4Enable = false;
+                Table5Opacity = 0.5f;
+                Table5Enable = false;
+                Table6Opacity = 0.5f;
+                Table6Enable = false;
+                Table7Opacity = 0.5f;
+                Table7Enable = false;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc2 = 0;
+                PdAdc3 = 0;
+                PdAdc4 = 0;
+                PdAdc5 = 0;
+                PdAdc6 = 0;
+                PdAdc7 = 0;
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower2 = 0;
+                PdPower3 = 0;
+                PdPower4 = 0;
+                PdPower5 = 0;
+                PdPower6 = 0;
+                PdPower7 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }    
+
+            else if (SelectdLength.Range == 2)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 0.5f;
+                Table3Enable = false;
+                Table4Opacity = 0.5f;
+                Table4Enable = false;
+                Table5Opacity = 0.5f;
+                Table5Enable = false;
+                Table6Opacity = 0.5f;
+                Table6Enable = false;
+                Table7Opacity = 0.5f;
+                Table7Enable = false;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc3 = 0;
+                PdAdc4 = 0;
+                PdAdc5 = 0;
+                PdAdc6 = 0;
+                PdAdc7 = 0;
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower3 = 0;
+                PdPower4 = 0;
+                PdPower5 = 0;
+                PdPower6 = 0;
+                PdPower7 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range ==3)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 0.5f;
+                Table4Enable = false;
+                Table5Opacity = 0.5f;
+                Table5Enable = false;
+                Table6Opacity = 0.5f;
+                Table6Enable = false;
+                Table7Opacity = 0.5f;
+                Table7Enable = false;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc4 = 0;
+                PdAdc5 = 0;
+                PdAdc6 = 0;
+                PdAdc7 = 0;
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower4 = 0;
+                PdPower5 = 0;
+                PdPower6 = 0;
+                PdPower7 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 4)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 0.5f;
+                Table5Enable = false;
+                Table6Opacity = 0.5f;
+                Table6Enable = false;
+                Table7Opacity = 0.5f;
+                Table7Enable = false;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc5 = 0;
+                PdAdc6 = 0;
+                PdAdc7 = 0;
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower5 = 0;
+                PdPower6 = 0;
+                PdPower7 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 5)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 1;
+                Table5Enable = true;
+                Table6Opacity = 0.5f;
+                Table6Enable = false;
+                Table7Opacity = 0.5f;
+                Table7Enable = false;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc6 = 0;
+                PdAdc7 = 0;
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower6 = 0;
+                PdPower7 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 6)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 1;
+                Table5Enable = true;
+                Table6Opacity = 1;
+                Table6Enable = true;
+                Table7Opacity = 0.5f;
+                Table7Enable = false;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc7 = 0;
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower7 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 7)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 1;
+                Table5Enable = true;
+                Table6Opacity = 1;
+                Table6Enable = true;
+                Table7Opacity = 1;
+                Table7Enable = true;
+                Table8Opacity = 0.5f;
+                Table8Enable = false;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc8 = 0;
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower8 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 8)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 1;
+                Table5Enable = true;
+                Table6Opacity = 1;
+                Table6Enable = true;
+                Table7Opacity = 1;
+                Table7Enable = true;
+                Table8Opacity = 1;
+                Table8Enable = true;
+                Table9Opacity = 0.5f;
+                Table9Enable = false;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc9 = 0;
+                PdAdc10 = 0;
+                PdPower9 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 9)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 1;
+                Table5Enable = true;
+                Table6Opacity = 1;
+                Table6Enable = true;
+                Table7Opacity = 1;
+                Table7Enable = true;
+                Table8Opacity = 1;
+                Table8Enable = true;
+                Table9Opacity = 1;
+                Table9Enable = true;
+                Table10Opacity = 0.5f;
+                Table10Enable = false;
+
+                PdAdc10 = 0;
+                PdPower10 = 0;
+            }
+            else if (SelectdLength.Range == 10)
+            {
+                Table1Opacity = 1;
+                Table1Enable = true;
+                Table2Opacity = 1;
+                Table2Enable = true;
+                Table3Opacity = 1;
+                Table3Enable = true;
+                Table4Opacity = 1;
+                Table4Enable = true;
+                Table5Opacity = 1;
+                Table5Enable = true;
+                Table6Opacity = 1;
+                Table6Enable = true;
+                Table7Opacity = 1;
+                Table7Enable = true;
+                Table8Opacity = 1;
+                Table8Enable = true;
+                Table9Opacity = 1;
+                Table9Enable = true;
+                Table10Opacity = 1;
+                Table10Enable = true;
+            }
         }
     }
 }

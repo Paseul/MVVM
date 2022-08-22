@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DataRange.cs" />
     <Compile Include="ViewModel\AmpCurrentModel.cs" />
     <Compile Include="ViewModel\AmpPDModel.cs" />
     <Compile Include="ViewModel\AmpTempModel.cs" />

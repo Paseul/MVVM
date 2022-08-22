@@ -111,22 +111,22 @@
     <Grid>
         <Border BorderBrush="Gray" BorderThickness="1">
             <Grid>
-                <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" TextWrapping="Wrap" Text="Laser Power (kW)" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="19,47,0,0" TextWrapping="Wrap" Text="{Binding Pd7}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" TextWrapping="Wrap" Text="Laser Power (W)" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Margin="19,47,0,0" TextWrapping="Wrap" Text="{Binding Pd7}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="100" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                 <TextBlock HorizontalAlignment="Left" Margin="377,10,0,0" TextWrapping="Wrap" Text="Coolant Temperature (℃)" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="377,47,0,0" TextWrapping="Wrap" Text="{Binding PaTemp13}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="120" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Margin="377,47,0,0" TextWrapping="Wrap" Text="{Binding PaTemp13}" TextAlignment="Right" VerticalAlignment="Top" Height="141" Width="332" Background="#FFD4D4D4" FontSize="100" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                 <TextBlock HorizontalAlignment="Left" Margin="727,29,0,0" TextWrapping="Wrap" Text="SEED Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
                 <TextBox HorizontalAlignment="Left" Margin="730,48,0,0" TextWrapping="Wrap" Text="{Binding SeedHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
                 <TextBlock HorizontalAlignment="Left" Margin="733,109,0,0" TextWrapping="Wrap" Text="PA Humidity (%)" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
                 <TextBox HorizontalAlignment="Left" Margin="730,128,0,0" TextWrapping="Wrap" Text="{Binding PaHumid}" TextAlignment="Right" VerticalAlignment="Top" Height="60" Width="120" Background="#FFD4D4D4" FontSize="48" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
-                <Button Content="E-STOP" Margin="1010,47,68,10" FontSize="24" FontWeight="Bold" Style="{StaticResource RedButton}" >
+                <Button Content="E-STOP" Margin="990,47,68,10" FontSize="24" FontWeight="Bold" Style="{StaticResource RedButton}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <Custom:EventToCommand Command="{Binding OnStopCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button Content="SAVE" Margin="870,47,208,10" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}">
+                <Button Content="SAVE" Margin="870,47,208,10" FontSize="24" FontWeight="Bold" Style="{StaticResource SimpleButton}" Opacity="0">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <Custom:EventToCommand Command="{Binding OnSaveCommand}" />

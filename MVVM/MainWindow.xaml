@@ -10,7 +10,7 @@
         xmlns:Command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-        Title="MainWindow" Height="960" Width="1540" ResizeMode="NoResize">
+        Title="MainWindow" Height="960" Width="1540" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="340" />

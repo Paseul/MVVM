@@ -257,28 +257,26 @@
         <StackPanel HorizontalAlignment="Left" Height="484" Margin="601,10,0,0" VerticalAlignment="Top" Width="415" Background="White">
             <Grid Height="499">
                 <TextBlock TextWrapping="Wrap" Text="Callibration" Background="#FFC8C8C8" TextAlignment="Center" FontSize="14" FontWeight="Bold" Margin="0,0,0,476"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,47,0,0" TextWrapping="Wrap" Text="{Binding PdChannel}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,72,0,0" TextWrapping="Wrap" Text="{Binding TableLength}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,139,0,0" TextWrapping="Wrap" Text="{Binding PdAdc1}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,164,0,0" TextWrapping="Wrap" Text="{Binding PdAdc2}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,189,0,0" TextWrapping="Wrap" Text="{Binding PdAdc3}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,214,0,0" TextWrapping="Wrap" Text="{Binding PdAdc4}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,239,0,0" TextWrapping="Wrap" Text="{Binding PdAdc5}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,264,0,0" TextWrapping="Wrap" Text="{Binding PdAdc6}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,289,0,0" TextWrapping="Wrap" Text="{Binding PdAdc7}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,314,0,0" TextWrapping="Wrap" Text="{Binding PdAdc8}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,339,0,0" TextWrapping="Wrap" Text="{Binding PdAdc9}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,364,0,0" TextWrapping="Wrap" Text="{Binding PdAdc10}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,139,0,0" TextWrapping="Wrap" Text="{Binding PdPower1}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,164,0,0" TextWrapping="Wrap" Text="{Binding PdPower2}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,189,0,0" TextWrapping="Wrap" Text="{Binding PdPower3}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,214,0,0" TextWrapping="Wrap" Text="{Binding PdPower4}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,0,0,0" TextWrapping="Wrap" Text="{Binding PdPower5}" VerticalAlignment="Center" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,264,0,0" TextWrapping="Wrap" Text="{Binding PdPower6}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,289,0,0" TextWrapping="Wrap" Text="{Binding PdPower7}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,314,0,0" TextWrapping="Wrap" Text="{Binding PdPower8}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,339,0,0" TextWrapping="Wrap" Text="{Binding PdPower9}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Margin="249,364,0,0" TextWrapping="Wrap" Text="{Binding PdPower10}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,139,0,0" TextWrapping="Wrap" Text="{Binding PdAdc1}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table1Enable}" Opacity="{Binding Table1Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,164,0,0" TextWrapping="Wrap" Text="{Binding PdAdc2}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table2Enable}" Opacity="{Binding Table2Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,189,0,0" TextWrapping="Wrap" Text="{Binding PdAdc3}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table3Enable}" Opacity="{Binding Table3Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,214,0,0" TextWrapping="Wrap" Text="{Binding PdAdc4}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table4Enable}" Opacity="{Binding Table4Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,239,0,0" TextWrapping="Wrap" Text="{Binding PdAdc5}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table5Enable}" Opacity="{Binding Table5Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,264,0,0" TextWrapping="Wrap" Text="{Binding PdAdc6}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table6Enable}" Opacity="{Binding Table6Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,289,0,0" TextWrapping="Wrap" Text="{Binding PdAdc7}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table7Enable}" Opacity="{Binding Table7Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,314,0,0" TextWrapping="Wrap" Text="{Binding PdAdc8}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table8Enable}" Opacity="{Binding Table8Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,339,0,0" TextWrapping="Wrap" Text="{Binding PdAdc9}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table9Enable}" Opacity="{Binding Table9Opacity}" />
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="147,364,0,0" TextWrapping="Wrap" Text="{Binding PdAdc10}" VerticalAlignment="Top" Width="78" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table10Enable}" Opacity="{Binding Table10Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,139,0,0" TextWrapping="Wrap" Text="{Binding PdPower1}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table1Enable}" Opacity="{Binding Table1Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,164,0,0" TextWrapping="Wrap" Text="{Binding PdPower2}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table2Enable}" Opacity="{Binding Table2Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,189,0,0" TextWrapping="Wrap" Text="{Binding PdPower3}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table3Enable}" Opacity="{Binding Table3Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,214,0,0" TextWrapping="Wrap" Text="{Binding PdPower4}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table4Enable}" Opacity="{Binding Table4Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,0,0,0" TextWrapping="Wrap" Text="{Binding PdPower5}" VerticalAlignment="Center" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table5Enable}" Opacity="{Binding Table5Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,264,0,0" TextWrapping="Wrap" Text="{Binding PdPower6}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table6Enable}" Opacity="{Binding Table6Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,289,0,0" TextWrapping="Wrap" Text="{Binding PdPower7}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table7Enable}" Opacity="{Binding Table7Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,314,0,0" TextWrapping="Wrap" Text="{Binding PdPower8}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table8Enable}" Opacity="{Binding Table8Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,339,0,0" TextWrapping="Wrap" Text="{Binding PdPower9}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table9Enable}" Opacity="{Binding Table9Opacity}" />
+                <TextBox HorizontalAlignment="Left" Margin="249,364,0,0" TextWrapping="Wrap" Text="{Binding PdPower10}" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="{Binding Table10Enable}" Opacity="{Binding Table10Opacity}" />
                 <TextBlock HorizontalAlignment="Left" Margin="21,138,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
                 <TextBlock HorizontalAlignment="Left" Margin="21,163,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
                 <TextBlock HorizontalAlignment="Left" Margin="21,188,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Height="20" Width="70" FontWeight="Bold" />
@@ -310,14 +308,37 @@
                 <TextBlock TextWrapping="Wrap" Text="6" Height="20" Width="15" FontWeight="Bold" Margin="260,425,140,54" />
                 <TextBlock TextWrapping="Wrap" Text="7" Height="20" Width="15" FontWeight="Bold" Margin="310,425,90,54" />
                 <TextBlock TextWrapping="Wrap" Text="8" Height="20" Width="15" FontWeight="Bold" Margin="360,425,40,54" />
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="10,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc1Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="60,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc2Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="110,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc3Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="160,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc4Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="210,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc5Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="260,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc6Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="310,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc7Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="360,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc8Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="10,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc1Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="60,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc2Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="110,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc3Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="160,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc4Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="210,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc5Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="260,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc6Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="310,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc7Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <TextBox HorizontalAlignment="Left" Height="20" Margin="360,450,0,0" TextWrapping="Wrap" Text="{Binding PdAdc8Value}" VerticalAlignment="Top" Width="45" FontWeight="Bold" Style="{StaticResource TextBoxStyle1}" IsEnabled="False"/>
+                <ComboBox ItemsSource="{Binding ChannelRanges}" SelectedItem="{Binding SelectdChannel}" HorizontalAlignment="Left" Margin="147,46,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Range}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox ItemsSource="{Binding LengthRanges}" SelectedItem="{Binding SelectdLength}" HorizontalAlignment="Left" Margin="147,72,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="9">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding OnLengthSelected}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Range}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
             </Grid>
         </StackPanel>

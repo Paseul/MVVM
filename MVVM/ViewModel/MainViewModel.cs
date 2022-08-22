@@ -53,6 +53,7 @@ namespace MVVM.ViewModel
         public MainViewModel()
         {
             connect();
+            initLog();
             Messenger.Default.Register<string>(this, MessageReceived);
             Messenger.Default.Register<chillerCmd>(this, OnReceiveMessageAction);
             Messenger.Default.Register<lcb002Cmd>(this, OnReceiveMessageAction);
@@ -62,7 +63,59 @@ namespace MVVM.ViewModel
             Messenger.Default.Register<lcb004PdCalCmd>(this, OnReceiveMessageAction);
             Messenger.Default.Register<setHighLimit>(this, OnReceiveMessageAction);
             Messenger.Default.Register<setLowLimit>(this, OnReceiveMessageAction);
-        }       
+        }
+
+        private void initLog()
+        {
+            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
+
+            FileStream fs = new FileStream(currentTime + "_laser" + ".csv", FileMode.Append, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
+            sw.Close();
+            fs.Close();
+
+            fs = new FileStream(currentTime + "_dcp" + ".csv", FileMode.Append, FileAccess.Write);
+            sw = new StreamWriter(fs, Encoding.Unicode);
+            sw.Close();
+            fs.Close();
+
+            StreamReader sr = new StreamReader(currentTime + "_laser" + ".csv");
+            if (sr.ReadLine() == null)
+            {
+                sr.Close();
+                fs = new FileStream(currentTime + "_laser" + ".csv", FileMode.Append, FileAccess.Write);
+                sw = new StreamWriter(fs, Encoding.Unicode);
+                sw.WriteLine("currentTime" + "\t" + "SeedCurrent" + "\t" + "SeedTemp" + "\t" + "Pa1Current" + "\t" + "Pa2Current" + "\t" + "Pa3Current" + "\t" +
+                    "Pa4_1Current" + "\t" + "Pa4_2Current" + "\t" + "Pa4_3Current" + "\t" + "Pa4_4Current" + "\t" + "Pa4_5Current" + "\t" + "Pa4_6Current" + "\t" +
+                    "Pa1Voltage" + "\t" + "Pa2Voltage" + "\t" + "Pa3Voltage" + "\t" + "Pa4_1Voltage" + "\t" + "Pa4_2Voltage" + "\t" + "Pa4_3Voltage" + "\t" +
+                    "Pa4_4Voltage" + "\t" + "Pa4_5Voltage" + "\t" + "Pa4_6Voltage" + "\t" + "Pd1" + "\t" + "Pd2" + "\t" + "Pd3" + "\t" + "Pd4 " + "\t" + "Pd5 " + "\t" +
+                    "Pd6" + "\t" + "Pd7" + "\t" + "Pd8" + "\t" + "SeedTemp1" + "\t" + "SeedTemp2" + "\t" + "SeedTemp3" + "\t" + "PaTemp1" + "\t" + "PaTemp2" + "\t" +
+                    "PaTemp3" + "\t" + "PaTemp4" + "\t" + "PaTemp5" + "\t" + "PaTemp6" + "\t" + "PaTemp7" + "\t" + "PaTemp8" + "\t" + "PaTemp9" + "\t" + "PaTemp10" + "\t" +
+                    "PaTemp11" + "\t" + "PaTemp12" + "\t" + "PaTemp13" + "\t" + "PaTemp14" + "\t" + "PaTemp15" + "\t" + "PaTemp16" + "\t" + "RfVolt" + "\t" + 
+                    "SeedHumid" + "\t" + "PaHumid" + "\t" + "pdAdc1" + "\t" + "pdAdc2" + "\t" + "pdAdc3" + "\t" + "pdAdc4" + "\t" + "pdAdc5" + "\t" + "pdAdc6" + "\t" +
+                    "pdAdc7" + "\t" + "pdAdc8" + "\t" + "PolRead");
+                sw.Close();
+                fs.Close();
+            }
+            else
+                sr.Close();
+
+            sr = new StreamReader(currentTime + "_dcp" + ".csv");
+            if (sr.ReadLine() == null)
+            {
+                sr.Close();
+                fs = new FileStream(currentTime + "_dcp" + ".csv", FileMode.Append, FileAccess.Write);
+                sw = new StreamWriter(fs, Encoding.Unicode);
+                sw.WriteLine("currentTime" + "\t" + "vacInputVoltage" + "\t" + "vacInputCurrent" + "\t" + "powerBoardVoltage" + "\t" + "powerBoardCurrent" + "\t" +
+                    "amp1_2Voltage" + "\t" + "amp1_2Current" + "\t" + "amp3Voltage" + "\t" + "amp3Current" + "\t" + "amp4_1Voltage" + "\t" + "amp4_1Current" + "\t" +
+                    "amp4_2Voltage" + "\t" + "amp4_2Current" + "\t" + "amp4_3Voltage" + "\t" + "amp4_3Current" + "\t" + "amp4_4Voltage" + "\t" + "amp4_4Current" + "\t" +
+                    "amp4_5Voltage" + "\t" + "amp4_5Current" + "\t" + "amp4_6Voltage" + "\t" + "amp4_6Current" + "\t" + "temp" + "\t" + "humidity");
+                sw.Close();
+                fs.Close();
+            }
+            else
+                sr.Close();
+        }
 
         private void connect()
         {
@@ -128,28 +181,7 @@ namespace MVVM.ViewModel
             AsyncStateData data = (AsyncStateData)asyncResult.AsyncState;
             Socket client = data.Socket;                
 
-            AsyncStateData rcvData = asyncResult.AsyncState as AsyncStateData;
-
-            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
-
-            FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
-
-            currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
-
-            sw.Write(currentTime + "\t" + "laser" + "\t");
-            for (int i = 0; i < 1024; i++)
-            {
-                if (rcvData.Buffer[i] == 232 && rcvData.Buffer[i-1] == 231)
-                {
-                    sw.WriteLine(rcvData.Buffer[i]);
-                    break;
-                }                    
-                else
-                    sw.Write(rcvData.Buffer[i] + ",");
-            }
-            sw.Close();
-            fs.Close();
+            AsyncStateData rcvData = asyncResult.AsyncState as AsyncStateData;            
 
             for (int i = 0; i < 1024; i++)
             {
@@ -550,6 +582,14 @@ namespace MVVM.ViewModel
 
             if (result[0] == 1)
             {
+
+                string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
+
+                FileStream fs = new FileStream(currentTime + "_laser" + ".csv", FileMode.Append, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
+
+                currentTime = DateTime.Now.ToString("HH:mm:ss:fff");                                         
+
                 for (int i = 0; i < 51; i++)
                 {
                     tempByte = result.Skip(2 * i + 1).Take(2).ToArray();
@@ -609,7 +649,7 @@ namespace MVVM.ViewModel
                     Pd4 = realValue[24] / 100,
                     Pd5 = realValue[25] / 100,
                     Pd6 = realValue[26] / 100,
-                    Pd7 = realValue[27] / 100,
+                    Pd7 = realValue[27] / 10,
                     Pd8 = realValue[28] / 100,
                     SeedTemp1 = realValue[29] / 100,
                     SeedTemp2 = realValue[30] / 100,
@@ -636,6 +676,71 @@ namespace MVVM.ViewModel
                     PolRead = polResponse
                 };
                 Messenger.Default.Send(monValue);
+
+                sw.Write(currentTime + "\t");
+                sw.Write(realValue[0] / 100 + "\t");
+                sw.Write(realValue[1] / 1000 + "\t");
+                sw.Write(realValue[2] / 1000 + "\t");
+                sw.Write(realValue[3] / 1000 + "\t");
+                sw.Write(realValue[4] / 1000 + "\t");
+                sw.Write(realValue[5] / 1000 + "\t");
+                sw.Write(realValue[6] / 1000 + "\t");
+                sw.Write(realValue[7] / 1000 + "\t");
+                sw.Write(realValue[8] / 1000 + "\t");
+                sw.Write(realValue[9] / 1000 + "\t");
+                sw.Write(realValue[10] / 1000 + "\t");
+                sw.Write(realValue[11] / 1000 + "\t");
+                sw.Write(realValue[12] / 1000 + "\t");
+                sw.Write(realValue[13] / 1000 + "\t");
+                sw.Write(realValue[14] / 1000 + "\t");
+                sw.Write(realValue[15] / 1000 + "\t");
+                sw.Write(realValue[16] / 1000 + "\t");
+                sw.Write(realValue[17] / 1000 + "\t");
+                sw.Write(realValue[18] / 1000 + "\t");
+                sw.Write(realValue[19] / 1000 + "\t");
+                sw.Write(realValue[20] / 1000 + "\t");
+                sw.Write(realValue[21] / 100 + "\t");
+                sw.Write(realValue[22] / 100 + "\t");
+                sw.Write(realValue[23] / 100 + "\t");
+                sw.Write(realValue[24] / 100 + "\t");
+                sw.Write(realValue[25] / 100 + "\t");
+                sw.Write(realValue[26] / 100 + "\t");
+                sw.Write(realValue[27] / 100 + "\t");
+                sw.Write(realValue[28] / 100 + "\t");
+                sw.Write(realValue[29] / 100 + "\t");
+                sw.Write(realValue[30] / 100 + "\t");
+                sw.Write(realValue[31] / 100 + "\t");
+                sw.Write(realValue[32] / 100 + "\t");
+                sw.Write(realValue[33] / 100 + "\t");
+                sw.Write(realValue[34] / 100 + "\t");
+                sw.Write(realValue[35] / 100 + "\t");
+                sw.Write(realValue[36] / 100 + "\t");
+                sw.Write(realValue[37] / 100 + "\t");
+                sw.Write(realValue[38] / 100 + "\t");
+                sw.Write(realValue[39] / 100 + "\t");
+                sw.Write(realValue[40] / 100 + "\t");
+                sw.Write(realValue[41] / 100 + "\t");
+                sw.Write(realValue[42] / 100 + "\t");
+                sw.Write(realValue[43] / 100 + "\t");
+                sw.Write(realValue[44] / 100 + "\t");
+                sw.Write(realValue[45] / 100 + "\t");
+                sw.Write(realValue[46] / 100 + "\t");
+                sw.Write(realValue[47] / 100 + "\t");
+                sw.Write(realValue[48] / 100 + "\t");
+                sw.Write(realValue[49] / 100 + "\t");
+                sw.Write(realValue[50] / 100 + "\t");
+                sw.Write(pdAdc[0] + "\t");
+                sw.Write(pdAdc[1] + "\t");
+                sw.Write(pdAdc[2] + "\t");
+                sw.Write(pdAdc[3] + "\t");
+                sw.Write(pdAdc[4] + "\t");
+                sw.Write(pdAdc[5] + "\t");
+                sw.Write(pdAdc[6] + "\t");
+                sw.Write(pdAdc[7] + "\t");
+                sw.WriteLine(polResponse);
+
+                sw.Close();
+                fs.Close();
             }
             if (result[0] == 2)
             {
@@ -692,51 +797,51 @@ namespace MVVM.ViewModel
 
                 string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
 
-                FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
+                FileStream fs = new FileStream(currentTime + "_worning" + ".csv", FileMode.Append, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
 
                 currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
 
-                if (bitResult[0] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTempHigh");
-                if (bitResult[1] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTempLow");
-                if (bitResult[4] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTemp1High");
-                if (bitResult[5] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTemp1Low");
-                if (bitResult[6] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTemp2High");
-                if (bitResult[7] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTemp2Low");
-                if (bitResult[8] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTemp3High");
-                if (bitResult[9] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "SeedTemp3Low");
-                if (bitResult[10] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp1High");
-                if (bitResult[11] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp1Low");
-                if (bitResult[12] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp2High");
-                if (bitResult[13] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp2Low");
-                if (bitResult[14] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp3High");
-                if (bitResult[15] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp3Low");
-                if (bitResult[16] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp4High");
-                if (bitResult[17] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp4Low");
-                if (bitResult[18] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp5High");
-                if (bitResult[19] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp5Low");
-                if (bitResult[20] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp6High");
-                if (bitResult[21] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp6Low");
-                if (bitResult[22] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp7High");
-                if (bitResult[23] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp7Low");
-                if (bitResult[24] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp8High");
-                if (bitResult[25] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp8Low");
-                if (bitResult[26] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp9High");
-                if (bitResult[27] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp9Low");
-                if (bitResult[28] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp10High");
-                if (bitResult[29] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp10Low");
-                if (bitResult[30] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp11High");
-                if (bitResult[31] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp11Low");
-                if (bitResult[32] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp12High");
-                if (bitResult[33] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp12Low");
-                if (bitResult[34] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp13High");
-                if (bitResult[35] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp13Low");
-                if (bitResult[36] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp14High");
-                if (bitResult[37] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp14Low");
-                if (bitResult[38] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp15High");
-                if (bitResult[39] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp15Low");
-                if (bitResult[40] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp16High");
-                if (bitResult[41] == true) sw.Write(currentTime + "\t" + "wornMon" + "\t" + "PaTemp16Low");
+                if (bitResult[0] == true) sw.WriteLine(currentTime + "\t" + "SeedTempHigh");
+                if (bitResult[1] == true) sw.WriteLine(currentTime + "\t" + "SeedTempLow");
+                if (bitResult[4] == true) sw.WriteLine(currentTime + "\t" + "SeedTemp1High");
+                if (bitResult[5] == true) sw.WriteLine(currentTime + "\t" + "SeedTemp1Low");
+                if (bitResult[6] == true) sw.WriteLine(currentTime + "\t" + "SeedTemp2High");
+                if (bitResult[7] == true) sw.WriteLine(currentTime + "\t" + "SeedTemp2Low");
+                if (bitResult[8] == true) sw.WriteLine(currentTime + "\t" + "SeedTemp3High");
+                if (bitResult[9] == true) sw.WriteLine(currentTime + "\t" + "SeedTemp3Low");
+                if (bitResult[10] == true) sw.WriteLine(currentTime + "\t" + "PaTemp1High");
+                if (bitResult[11] == true) sw.WriteLine(currentTime + "\t" + "PaTemp1Low");
+                if (bitResult[12] == true) sw.WriteLine(currentTime + "\t" + "PaTemp2High");
+                if (bitResult[13] == true) sw.WriteLine(currentTime + "\t" + "PaTemp2Low");
+                if (bitResult[14] == true) sw.WriteLine(currentTime + "\t" + "PaTemp3High");
+                if (bitResult[15] == true) sw.WriteLine(currentTime + "\t" + "PaTemp3Low");
+                if (bitResult[16] == true) sw.WriteLine(currentTime + "\t" + "PaTemp4High");
+                if (bitResult[17] == true) sw.WriteLine(currentTime + "\t" + "PaTemp4Low");
+                if (bitResult[18] == true) sw.WriteLine(currentTime + "\t" + "PaTemp5High");
+                if (bitResult[19] == true) sw.WriteLine(currentTime + "\t" + "PaTemp5Low");
+                if (bitResult[20] == true) sw.WriteLine(currentTime + "\t" + "PaTemp6High");
+                if (bitResult[21] == true) sw.WriteLine(currentTime + "\t" + "PaTemp6Low");
+                if (bitResult[22] == true) sw.WriteLine(currentTime + "\t" + "PaTemp7High");
+                if (bitResult[23] == true) sw.WriteLine(currentTime + "\t" + "PaTemp7Low");
+                if (bitResult[24] == true) sw.WriteLine(currentTime + "\t" + "PaTemp8High");
+                if (bitResult[25] == true) sw.WriteLine(currentTime + "\t" + "PaTemp8Low");
+                if (bitResult[26] == true) sw.WriteLine(currentTime + "\t" + "PaTemp9High");
+                if (bitResult[27] == true) sw.WriteLine(currentTime + "\t" + "PaTemp9Low");
+                if (bitResult[28] == true) sw.WriteLine(currentTime + "\t" + "PaTemp10High");
+                if (bitResult[29] == true) sw.WriteLine(currentTime + "\t" + "PaTemp10Low");
+                if (bitResult[30] == true) sw.WriteLine(currentTime + "\t" + "PaTemp11High");
+                if (bitResult[31] == true) sw.WriteLine(currentTime + "\t" + "PaTemp11Low");
+                if (bitResult[32] == true) sw.WriteLine(currentTime + "\t" + "PaTemp12High");
+                if (bitResult[33] == true) sw.WriteLine(currentTime + "\t" + "PaTemp12Low");
+                if (bitResult[34] == true) sw.WriteLine(currentTime + "\t" + "PaTemp13High");
+                if (bitResult[35] == true) sw.WriteLine(currentTime + "\t" + "PaTemp13Low");
+                if (bitResult[36] == true) sw.WriteLine(currentTime + "\t" + "PaTemp14High");
+                if (bitResult[37] == true) sw.WriteLine(currentTime + "\t" + "PaTemp14Low");
+                if (bitResult[38] == true) sw.WriteLine(currentTime + "\t" + "PaTemp15High");
+                if (bitResult[39] == true) sw.WriteLine(currentTime + "\t" + "PaTemp15Low");
+                if (bitResult[40] == true) sw.WriteLine(currentTime + "\t" + "PaTemp16High");
+                if (bitResult[41] == true) sw.WriteLine(currentTime + "\t" + "PaTemp16Low");
 
                 sw.Close();
                 fs.Close();
@@ -816,71 +921,71 @@ namespace MVVM.ViewModel
 
                 string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
 
-                FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
+                FileStream fs = new FileStream(currentTime + "_error" + ".csv", FileMode.Append, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
 
                 currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
 
-                if (bitResult[0] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "SeedLdCurrentLow");
-                if (bitResult[1] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "SeedLdCurrentHigh");
-                if (bitResult[2] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa1CurrentLow");
-                if (bitResult[3] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa1CurrentHigh");
-                if (bitResult[4] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa2CurrentLow");
-                if (bitResult[5] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa2CurrentHigh");
-                if (bitResult[6] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa3CurrentLow");
-                if (bitResult[7] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa3CurrentHigh");
-                if (bitResult[8] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_1CurrentLow");
-                if (bitResult[9] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_1CurrentHigh");
-                if (bitResult[10] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_2CurrentLow");
-                if (bitResult[11] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_2CurrentHigh");
-                if (bitResult[12] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_3CurrentLow");
-                if (bitResult[13] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_3CurrentHigh");
-                if (bitResult[14] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_4CurrentLow");
-                if (bitResult[15] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_4CurrentHigh");
-                if (bitResult[16] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_5CurrentLow");
-                if (bitResult[17] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_5CurrentHigh");
-                if (bitResult[18] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_6CurrentLow");
-                if (bitResult[19] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_6CurrentHigh");
-                if (bitResult[20] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa1VoltageLow");
-                if (bitResult[21] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa1VoltageHigh");
-                if (bitResult[22] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa2VoltageLow");
-                if (bitResult[23] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa2VoltageHigh");
-                if (bitResult[24] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa3VoltageLow");
-                if (bitResult[25] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa3VoltageHigh");
-                if (bitResult[26] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_1VoltageLow");
-                if (bitResult[27] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_1VoltageHigh");
-                if (bitResult[28] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_2VoltageLow");
-                if (bitResult[29] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_2VoltageHigh");
-                if (bitResult[30] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_3VoltageLow");
-                if (bitResult[31] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_3VoltageHigh");
-                if (bitResult[32] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_4VoltageLow");
-                if (bitResult[33] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_4VoltageHigh");
-                if (bitResult[34] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_5VoltageLow");
-                if (bitResult[35] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_5VoltageHigh");
-                if (bitResult[36] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_6VoltageLow");
-                if (bitResult[37] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pa4_6VoltageHigh");
-                if (bitResult[38] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd1Low");
-                if (bitResult[39] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd1High");
-                if (bitResult[40] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd2Low");
-                if (bitResult[41] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd2High");
-                if (bitResult[42] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd3Low");
-                if (bitResult[43] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd3High");
-                if (bitResult[44] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd4Low");
-                if (bitResult[45] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd4High");
-                if (bitResult[46] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd5Low");
-                if (bitResult[47] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd5High");
-                if (bitResult[48] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd6Low");
-                if (bitResult[49] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd6High");
-                if (bitResult[50] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd7Low");
-                if (bitResult[51] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd7High");
-                if (bitResult[52] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd8Low");
-                if (bitResult[53] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Pd8High");
-                if (bitResult[54] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "LeakSensor");
-                if (bitResult[55] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "E_Stop");
-                if (bitResult[56] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "Chiller");
-                if (bitResult[57] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "PaHumid");
-                if (bitResult[58] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "SeedHumid");
-                if (bitResult[59] == true) sw.Write(currentTime + "\t" + "errorMon" + "\t" + "RfVMon");
+                if (bitResult[0] == true) sw.WriteLine(currentTime + "\t"+ "SeedLdCurrentLow");
+                if (bitResult[1] == true) sw.WriteLine(currentTime + "\t"+ "SeedLdCurrentHigh");
+                if (bitResult[2] == true) sw.WriteLine(currentTime + "\t"+ "Pa1CurrentLow");
+                if (bitResult[3] == true) sw.WriteLine(currentTime + "\t"+ "Pa1CurrentHigh");
+                if (bitResult[4] == true) sw.WriteLine(currentTime + "\t"+ "Pa2CurrentLow");
+                if (bitResult[5] == true) sw.WriteLine(currentTime + "\t"+ "Pa2CurrentHigh");
+                if (bitResult[6] == true) sw.WriteLine(currentTime + "\t"+ "Pa3CurrentLow");
+                if (bitResult[7] == true) sw.WriteLine(currentTime + "\t"+ "Pa3CurrentHigh");
+                if (bitResult[8] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_1CurrentLow");
+                if (bitResult[9] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_1CurrentHigh");
+                if (bitResult[10] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_2CurrentLow");
+                if (bitResult[11] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_2CurrentHigh");
+                if (bitResult[12] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_3CurrentLow");
+                if (bitResult[13] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_3CurrentHigh");
+                if (bitResult[14] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_4CurrentLow");
+                if (bitResult[15] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_4CurrentHigh");
+                if (bitResult[16] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_5CurrentLow");
+                if (bitResult[17] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_5CurrentHigh");
+                if (bitResult[18] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_6CurrentLow");
+                if (bitResult[19] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_6CurrentHigh");
+                if (bitResult[20] == true) sw.WriteLine(currentTime + "\t"+ "Pa1VoltageLow");
+                if (bitResult[21] == true) sw.WriteLine(currentTime + "\t"+ "Pa1VoltageHigh");
+                if (bitResult[22] == true) sw.WriteLine(currentTime + "\t"+ "Pa2VoltageLow");
+                if (bitResult[23] == true) sw.WriteLine(currentTime + "\t"+ "Pa2VoltageHigh");
+                if (bitResult[24] == true) sw.WriteLine(currentTime + "\t"+ "Pa3VoltageLow");
+                if (bitResult[25] == true) sw.WriteLine(currentTime + "\t"+ "Pa3VoltageHigh");
+                if (bitResult[26] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_1VoltageLow");
+                if (bitResult[27] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_1VoltageHigh");
+                if (bitResult[28] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_2VoltageLow");
+                if (bitResult[29] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_2VoltageHigh");
+                if (bitResult[30] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_3VoltageLow");
+                if (bitResult[31] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_3VoltageHigh");
+                if (bitResult[32] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_4VoltageLow");
+                if (bitResult[33] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_4VoltageHigh");
+                if (bitResult[34] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_5VoltageLow");
+                if (bitResult[35] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_5VoltageHigh");
+                if (bitResult[36] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_6VoltageLow");
+                if (bitResult[37] == true) sw.WriteLine(currentTime + "\t"+ "Pa4_6VoltageHigh");
+                if (bitResult[38] == true) sw.WriteLine(currentTime + "\t"+ "Pd1Low");
+                if (bitResult[39] == true) sw.WriteLine(currentTime + "\t"+ "Pd1High");
+                if (bitResult[40] == true) sw.WriteLine(currentTime + "\t"+ "Pd2Low");
+                if (bitResult[41] == true) sw.WriteLine(currentTime + "\t"+ "Pd2High");
+                if (bitResult[42] == true) sw.WriteLine(currentTime + "\t"+ "Pd3Low");
+                if (bitResult[43] == true) sw.WriteLine(currentTime + "\t"+ "Pd3High");
+                if (bitResult[44] == true) sw.WriteLine(currentTime + "\t"+ "Pd4Low");
+                if (bitResult[45] == true) sw.WriteLine(currentTime + "\t"+ "Pd4High");
+                if (bitResult[46] == true) sw.WriteLine(currentTime + "\t"+ "Pd5Low");
+                if (bitResult[47] == true) sw.WriteLine(currentTime + "\t"+ "Pd5High");
+                if (bitResult[48] == true) sw.WriteLine(currentTime + "\t"+ "Pd6Low");
+                if (bitResult[49] == true) sw.WriteLine(currentTime + "\t"+ "Pd6High");
+                if (bitResult[50] == true) sw.WriteLine(currentTime + "\t"+ "Pd7Low");
+                if (bitResult[51] == true) sw.WriteLine(currentTime + "\t"+ "Pd7High");
+                if (bitResult[52] == true) sw.WriteLine(currentTime + "\t"+ "Pd8Low");
+                if (bitResult[53] == true) sw.WriteLine(currentTime + "\t"+ "Pd8High");
+                if (bitResult[54] == true) sw.WriteLine(currentTime + "\t"+ "LeakSensor");
+                if (bitResult[55] == true) sw.WriteLine(currentTime + "\t"+ "E_Stop");
+                if (bitResult[56] == true) sw.WriteLine(currentTime + "\t"+ "Chiller");
+                if (bitResult[57] == true) sw.WriteLine(currentTime + "\t"+ "PaHumid");
+                if (bitResult[58] == true) sw.WriteLine(currentTime + "\t"+ "SeedHumid");
+                if (bitResult[59] == true) sw.WriteLine(currentTime + "\t"+ "RfVMon");
 
                 sw.Close();
                 fs.Close();
@@ -1112,7 +1217,7 @@ namespace MVVM.ViewModel
                     + Pa4_4TimeSetValueR3[1] + Pa4_5CurrentSetValueR1[0] + Pa4_5CurrentSetValueR1[1] + Pa4_5TimeSetValueR1[0] + Pa4_5TimeSetValueR1[1] + Pa4_5CurrentSetValueR2[0] + Pa4_5CurrentSetValueR2[1] + Pa4_5TimeSetValueR2[0] + Pa4_5TimeSetValueR2[1]
                     + Pa4_5CurrentSetValueR3[0] + Pa4_5CurrentSetValueR3[1] + Pa4_5TimeSetValueR3[0] + Pa4_5TimeSetValueR3[1] + Pa4_6CurrentSetValueR1[0] + Pa4_6CurrentSetValueR1[1] + Pa4_6TimeSetValueR1[0] + Pa4_6TimeSetValueR1[1] + Pa4_6CurrentSetValueR2[0]
                     + Pa4_6CurrentSetValueR2[1] + Pa4_6TimeSetValueR2[0] + Pa4_6TimeSetValueR2[1] + Pa4_6CurrentSetValueR3[0] + Pa4_6CurrentSetValueR3[1] + Pa4_6TimeSetValueR3[0] + Pa4_6TimeSetValueR3[1] + RfVxpVoltSetValue[0] + RfVampVoltSetValue[0]);
-                Console.WriteLine(checkSum);
+
                 byte[] Etx = new byte[2] { 0xE7, 0xE8 };
                 byte[] bytesToSend = new byte[99] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, SeedCurrentSetValue[1], SeedCurrentSetValue[0], SeedTempSetValue[1], SeedTempSetValue[0]
                     ,HsTempSetValue[1], HsTempSetValue[0], Pa1CurrentSetValue[1], Pa1CurrentSetValue[0], Pa2CurrentSetValue[1], Pa2CurrentSetValue[0], Pa3CurrentSetValue[1], Pa3CurrentSetValue[0], Pa4_1CurrentSetValueR1[1], Pa4_1CurrentSetValueR1[0]
@@ -1411,28 +1516,7 @@ namespace MVVM.ViewModel
             Socket client = data.Socket;
 
             AsyncStateData rcvData = asyncResult.AsyncState as AsyncStateData;
-
-            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
-
-            FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
-
-            currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
-
-            sw.Write(currentTime + "\t" + "dcp" + "\t");
-            for (int i = 0; i < 1024; i++)
-            {
-                if (rcvData.Buffer[i] == 232 && rcvData.Buffer[i - 1] == 231)
-                {
-                    sw.WriteLine(rcvData.Buffer[i]);
-                    break;
-                }
-                else
-                    sw.Write(rcvData.Buffer[i] + ",");
-            }
-            sw.Close();
-            fs.Close();
-
+                        
             for (int i = 0; i < 1024; i++)
             {              
                 if (rcvData.Buffer[i] == 172 && rcvData.Buffer[i + 1] == 19)
@@ -1547,6 +1631,23 @@ namespace MVVM.ViewModel
                 };
 
                 Messenger.Default.Send(dcpMon);
+
+                string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
+
+                FileStream fs = new FileStream(currentTime + "_dcp" + ".csv", FileMode.Append, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
+
+                currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
+
+                sw.Write(currentTime + "\t");
+                for (int i = 0; i < 21; i++)
+                {                   
+                    sw.Write(realValue[i]/100 + "\t");                    
+                }
+                sw.WriteLine(realValue[21] / 100);
+
+                sw.Close();
+                fs.Close();
 
             }
             else if (result[0] == 2)
@@ -1679,25 +1780,7 @@ namespace MVVM.ViewModel
 
             AsyncStateData rcvData = asyncResult.AsyncState as AsyncStateData;
 
-            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
-
-            /*FileStream fs = new FileStream(currentTime + "_Logging" + ".csv", FileMode.Append, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
-
-            currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
-
-            sw.Write(currentTime + "\t" + "chiller" + "\t");
-            for (int i = 0; i < 13; i++)
-            {
-                if (i == 12)
-                {
-                    sw.WriteLine(rcvData.Buffer[i]);
-                }
-                else
-                    sw.Write(rcvData.Buffer[i] + ",");
-            }
-            sw.Close();
-            fs.Close();*/
+            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");                       
 
             if (rcvData.Buffer[0] == 2)
             {
@@ -1739,6 +1822,11 @@ namespace MVVM.ViewModel
                 }
                 else if (rcvData.Buffer[1] == 49 && rcvData.Buffer[2] == 53)
                 {
+                    FileStream fs = new FileStream(currentTime + "_chiller" + ".csv", FileMode.Append, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fs, Encoding.Unicode);
+
+                    currentTime = DateTime.Now.ToString("HH:mm:ss:fff");
+                                        
                     if (rcvData.Buffer[3] == 48)
                     {
                         byte[] result = rcvData.Buffer.Skip(7).Take(5).ToArray();
@@ -1750,6 +1838,8 @@ namespace MVVM.ViewModel
                         };
 
                         Messenger.Default.Send(chillerRcv);
+     
+                        sw.WriteLine(currentTime + "\t" + "ch0_temp" + "\t" + data);     
                     }
                     else if (rcvData.Buffer[3] == 49)
                     {
@@ -1762,6 +1852,8 @@ namespace MVVM.ViewModel
                         };
 
                         Messenger.Default.Send(chillerRcv);
+
+                        sw.WriteLine(currentTime + "\t" + "ch1_temp" + "\t" + data);
                     }
                     else if (rcvData.Buffer[3] == 52)
                     {                        
@@ -1832,6 +1924,8 @@ namespace MVVM.ViewModel
 
                         Messenger.Default.Send(chillerRcv);
                     }
+                    sw.Close();
+                    fs.Close();
                 }
             }
             try

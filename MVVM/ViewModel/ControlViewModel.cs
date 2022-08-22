@@ -20,11 +20,28 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using MVVM.Model;
+using System.Collections.ObjectModel;
 
 namespace MVVM.ViewModel
 {
     public class ControlViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        private ObservableCollection<DataRange> _dataRanges;
+
+        public ObservableCollection<DataRange> DataRanges
+        {
+            get { return _dataRanges; }
+            set { _dataRanges = value; }
+        }
+
+        private DataRange _selectdData;
+        public DataRange SelectdData
+        {
+            get { return _selectdData; }
+            set { _selectdData = value; }
+        }
+
         public RelayCommand OnSeedCommand { get; set; }
         public RelayCommand OnPa1Command { get; set; }
         public RelayCommand OnPa2Command { get; set; }
@@ -41,6 +58,13 @@ namespace MVVM.ViewModel
         public RelayCommand OnSetCommand { get; set; }
         public RelayCommand OnAutoCommand { get; set; }
         public RelayCommand OnOffCommand { get; set; }
+        public RelayCommand OnPa4_1Selected { get; set; }
+        public RelayCommand OnPa4_2Selected { get; set; }
+        public RelayCommand OnPa4_3Selected { get; set; }
+        public RelayCommand OnPa4_4Selected { get; set; }
+        public RelayCommand OnPa4_5Selected { get; set; }
+        public RelayCommand OnPa4_6Selected { get; set; }
+
 
         public string imgSourcePath;      
         private string _backgroundPath;
@@ -1409,6 +1433,251 @@ namespace MVVM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private float _pa4_1r1Opacity;
+        public float Pa4_1r1Opacity
+        {
+            get { return _pa4_1r1Opacity; }
+            set
+            {
+                _pa4_1r1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_1r1Enable;
+        public bool Pa4_1r1Enable
+        {
+            get { return _pa4_1r1Enable; }
+            set
+            {
+                _pa4_1r1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pa4_1r2Opacity;
+        public float Pa4_1r2Opacity
+        {
+            get { return _pa4_1r2Opacity; }
+            set
+            {
+                _pa4_1r2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_1r2Enable;
+        public bool Pa4_1r2Enable
+        {
+            get { return _pa4_1r2Enable; }
+            set
+            {
+                _pa4_1r2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _pa4_2r1Opacity;
+        public float Pa4_2r1Opacity
+        {
+            get { return _pa4_2r1Opacity; }
+            set
+            {
+                _pa4_2r1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_2r1Enable;
+        public bool Pa4_2r1Enable
+        {
+            get { return _pa4_2r1Enable; }
+            set
+            {
+                _pa4_2r1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pa4_2r2Opacity;
+        public float Pa4_2r2Opacity
+        {
+            get { return _pa4_2r2Opacity; }
+            set
+            {
+                _pa4_2r2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_2r2Enable;
+        public bool Pa4_2r2Enable
+        {
+            get { return _pa4_2r2Enable; }
+            set
+            {
+                _pa4_2r2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _pa4_3r1Opacity;
+        public float Pa4_3r1Opacity
+        {
+            get { return _pa4_3r1Opacity; }
+            set
+            {
+                _pa4_3r1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_3r1Enable;
+        public bool Pa4_3r1Enable
+        {
+            get { return _pa4_3r1Enable; }
+            set
+            {
+                _pa4_3r1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pa4_3r2Opacity;
+        public float Pa4_3r2Opacity
+        {
+            get { return _pa4_3r2Opacity; }
+            set
+            {
+                _pa4_3r2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_3r2Enable;
+        public bool Pa4_3r2Enable
+        {
+            get { return _pa4_3r2Enable; }
+            set
+            {
+                _pa4_3r2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _pa4_4r1Opacity;
+        public float Pa4_4r1Opacity
+        {
+            get { return _pa4_4r1Opacity; }
+            set
+            {
+                _pa4_4r1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_4r1Enable;
+        public bool Pa4_4r1Enable
+        {
+            get { return _pa4_4r1Enable; }
+            set
+            {
+                _pa4_4r1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pa4_4r2Opacity;
+        public float Pa4_4r2Opacity
+        {
+            get { return _pa4_4r2Opacity; }
+            set
+            {
+                _pa4_4r2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_4r2Enable;
+        public bool Pa4_4r2Enable
+        {
+            get { return _pa4_4r2Enable; }
+            set
+            {
+                _pa4_4r2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _pa4_5r1Opacity;
+        public float Pa4_5r1Opacity
+        {
+            get { return _pa4_5r1Opacity; }
+            set
+            {
+                _pa4_5r1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_5r1Enable;
+        public bool Pa4_5r1Enable
+        {
+            get { return _pa4_5r1Enable; }
+            set
+            {
+                _pa4_5r1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pa4_5r2Opacity;
+        public float Pa4_5r2Opacity
+        {
+            get { return _pa4_5r2Opacity; }
+            set
+            {
+                _pa4_5r2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_5r2Enable;
+        public bool Pa4_5r2Enable
+        {
+            get { return _pa4_5r2Enable; }
+            set
+            {
+                _pa4_5r2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private float _pa4_6r1Opacity;
+        public float Pa4_6r1Opacity
+        {
+            get { return _pa4_6r1Opacity; }
+            set
+            {
+                _pa4_6r1Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_6r1Enable;
+        public bool Pa4_6r1Enable
+        {
+            get { return _pa4_6r1Enable; }
+            set
+            {
+                _pa4_6r1Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private float _pa4_6r2Opacity;
+        public float Pa4_6r2Opacity
+        {
+            get { return _pa4_6r2Opacity; }
+            set
+            {
+                _pa4_6r2Opacity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _pa4_6r2Enable;
+        public bool Pa4_6r2Enable
+        {
+            get { return _pa4_6r2Enable; }
+            set
+            {
+                _pa4_6r2Enable = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] string name = null)
@@ -1434,6 +1703,12 @@ namespace MVVM.ViewModel
             OnSetCommand = new RelayCommand(OnSetCommandAction, null);
             OnAutoCommand = new RelayCommand(OnAutoCommandAction, null);
             OnOffCommand = new RelayCommand(OnOffCommandAction, null);
+            OnPa4_1Selected = new RelayCommand(OnPa4_1SelectedAction, null);
+            OnPa4_2Selected = new RelayCommand(OnPa4_2SelectedAction, null);
+            OnPa4_3Selected = new RelayCommand(OnPa4_3SelectedAction, null);
+            OnPa4_4Selected = new RelayCommand(OnPa4_4SelectedAction, null);
+            OnPa4_5Selected = new RelayCommand(OnPa4_5SelectedAction, null);
+            OnPa4_6Selected = new RelayCommand(OnPa4_6SelectedAction, null);
 
             Messenger.Default.Register<string>(this, MessageReceived);
             Messenger.Default.Register<monValue>(this, OnReceiveMessageAction);
@@ -1493,6 +1768,38 @@ namespace MVVM.ViewModel
             Pa4_6TimeReadValueR3 = float.Parse((string)Registry.GetValue(keyName, "Pa4_6TimeReadValueR3", "0"));
 
             PolCmd = "*MOD?       ";
+
+            DataRanges = new ObservableCollection<DataRange>()
+            {
+                new DataRange(){Range = 1},
+                new DataRange(){Range = 2},
+                new DataRange(){Range = 3}
+            };
+
+            Pa4_1r1Opacity = 0.5f;
+            Pa4_1r1Enable = false;
+            Pa4_1r2Opacity = 0.5f;
+            Pa4_1r2Enable = false;
+            Pa4_2r1Opacity = 0.5f;
+            Pa4_2r1Enable = false;
+            Pa4_2r2Opacity = 0.5f;
+            Pa4_2r2Enable = false;
+            Pa4_3r1Opacity = 0.5f;
+            Pa4_3r1Enable = false;
+            Pa4_3r2Opacity = 0.5f;
+            Pa4_3r2Enable = false;
+            Pa4_4r1Opacity = 0.5f;
+            Pa4_4r1Enable = false;
+            Pa4_4r2Opacity = 0.5f;
+            Pa4_4r2Enable = false;
+            Pa4_5r1Opacity = 0.5f;
+            Pa4_5r1Enable = false;
+            Pa4_5r2Opacity = 0.5f;
+            Pa4_5r2Enable = false;
+            Pa4_6r1Opacity = 0.5f;
+            Pa4_6r1Enable = false;
+            Pa4_6r2Opacity = 0.5f;
+            Pa4_6r2Enable = false;
 
             SeedFlag = true;
             lcb002CmdSend();
@@ -1847,27 +2154,32 @@ namespace MVVM.ViewModel
 
         private async void EStopAction()
         {
+            PolBtnStatus = false;
+
             Pa4BtnStatus = false;
-            AutoBtnStatus = false;
             Pa4_1BtnStatus = false;
             Pa4_2BtnStatus = false;
             Pa4_3BtnStatus = false;
             Pa4_4BtnStatus = false;
             Pa4_5BtnStatus = false;
             Pa4_6BtnStatus = false;
+            PaFlag = true;
             lcb002CmdSend();
             await Task.Delay(100);
-            
+
             Pa3BtnStatus = false;
             lcb002CmdSend();
             await Task.Delay(100);
-            
+
             Pa2BtnStatus = false;
             lcb002CmdSend();
             await Task.Delay(100);
 
             Pa1BtnStatus = false;
             lcb002CmdSend();
+            await Task.Delay(100);
+
+            PaFlag = false;
         }
 
         private async void OnPolCommandAction()
@@ -2088,6 +2400,7 @@ namespace MVVM.ViewModel
             Pa4_4BtnStatus = false;
             Pa4_5BtnStatus = false;
             Pa4_6BtnStatus = false;
+            PaFlag = true;
             lcb002CmdSend();
             await Task.Delay(100);
 
@@ -2213,12 +2526,199 @@ namespace MVVM.ViewModel
             lcb002CmdSend();
             PaFlag = false;
         }
+
         private void OnReceiveMessageAction(polValue obj)
         {
             PolAvg = obj.PolAvg;
             PolSts = obj.PolSts;
             PolDly = obj.PolDly;
             PolThh = obj.PolThh;
+        }
+
+        private void OnPa4_1SelectedAction()
+        {
+            if (SelectdData.Range == 1)
+            {
+                Pa4_1r1Opacity = 0.5f;
+                Pa4_1r1Enable = false;
+                Pa4_1r2Opacity = 0.5f;
+                Pa4_1r2Enable = false;
+                Pa4_1CurrentReadValueR1 = 0;
+                Pa4_1TimeReadValueR1 = 0;
+                Pa4_1CurrentReadValueR2 = 0;
+                Pa4_1TimeReadValueR2 = 0;
+            }
+            else if (SelectdData.Range == 2)
+            {
+                Pa4_1r1Opacity = 0.5f;
+                Pa4_1r1Enable = false;
+                Pa4_1r2Opacity = 1f;
+                Pa4_1r2Enable = true;
+                Pa4_1CurrentReadValueR1 = 0;
+                Pa4_1TimeReadValueR1 = 0;
+            }
+            else if (SelectdData.Range == 3)
+            {
+                Pa4_1r1Opacity = 1f;
+                Pa4_1r1Enable = true;
+                Pa4_1r2Opacity = 1f;
+                Pa4_1r2Enable = true;
+            }
+        }
+
+        private void OnPa4_2SelectedAction()
+        {
+            if (SelectdData.Range == 1)
+            {
+                Pa4_2r1Opacity = 0.5f;
+                Pa4_2r1Enable = false;
+                Pa4_2r2Opacity = 0.5f;
+                Pa4_2r2Enable = false;
+                Pa4_2CurrentReadValueR1 = 0;
+                Pa4_2TimeReadValueR1 = 0;
+                Pa4_2CurrentReadValueR2 = 0;
+                Pa4_2TimeReadValueR2 = 0;
+            }
+            else if (SelectdData.Range == 2)
+            {
+                Pa4_2r1Opacity = 0.5f;
+                Pa4_2r1Enable = false;
+                Pa4_2r2Opacity = 1f;
+                Pa4_2r2Enable = true;
+                Pa4_2CurrentReadValueR1 = 0;
+                Pa4_2TimeReadValueR1 = 0;
+            }
+            else if (SelectdData.Range == 3)
+            {
+                Pa4_2r1Opacity = 1f;
+                Pa4_2r1Enable = true;
+                Pa4_2r2Opacity = 1f;
+                Pa4_2r2Enable = true;
+            }
+        }
+
+        private void OnPa4_3SelectedAction()
+        {
+            if (SelectdData.Range == 1)
+            {
+                Pa4_3r1Opacity = 0.5f;
+                Pa4_3r1Enable = false;
+                Pa4_3r2Opacity = 0.5f;
+                Pa4_3r2Enable = false;
+                Pa4_3CurrentReadValueR1 = 0;
+                Pa4_3TimeReadValueR1 = 0;
+                Pa4_3CurrentReadValueR2 = 0;
+                Pa4_3TimeReadValueR2 = 0;
+            }
+            else if (SelectdData.Range == 2)
+            {
+                Pa4_3r1Opacity = 0.5f;
+                Pa4_3r1Enable = false;
+                Pa4_3r2Opacity = 1f;
+                Pa4_3r2Enable = true;
+                Pa4_3CurrentReadValueR1 = 0;
+                Pa4_3TimeReadValueR1 = 0;
+            }
+            else if (SelectdData.Range == 3)
+            {
+                Pa4_3r1Opacity = 1f;
+                Pa4_3r1Enable = true;
+                Pa4_3r2Opacity = 1f;
+                Pa4_3r2Enable = true;
+            }
+        }
+
+        private void OnPa4_4SelectedAction()
+        {
+            if (SelectdData.Range == 1)
+            {
+                Pa4_4r1Opacity = 0.5f;
+                Pa4_4r1Enable = false;
+                Pa4_4r2Opacity = 0.5f;
+                Pa4_4r2Enable = false;
+                Pa4_4CurrentReadValueR1 = 0;
+                Pa4_4TimeReadValueR1 = 0;
+                Pa4_4CurrentReadValueR2 = 0;
+                Pa4_4TimeReadValueR2 = 0;
+            }
+            else if (SelectdData.Range == 2)
+            {
+                Pa4_4r1Opacity = 0.5f;
+                Pa4_4r1Enable = false;
+                Pa4_4r2Opacity = 1f;
+                Pa4_4r2Enable = true;
+                Pa4_4CurrentReadValueR1 = 0;
+                Pa4_4TimeReadValueR1 = 0;
+            }
+            else if (SelectdData.Range == 3)
+            {
+                Pa4_4r1Opacity = 1f;
+                Pa4_4r1Enable = true;
+                Pa4_4r2Opacity = 1f;
+                Pa4_4r2Enable = true;
+            }
+        }
+
+        private void OnPa4_5SelectedAction()
+        {
+            if (SelectdData.Range == 1)
+            {
+                Pa4_5r1Opacity = 0.5f;
+                Pa4_5r1Enable = false;
+                Pa4_5r2Opacity = 0.5f;
+                Pa4_5r2Enable = false;
+                Pa4_5CurrentReadValueR1 = 0;
+                Pa4_5TimeReadValueR1 = 0;
+                Pa4_5CurrentReadValueR2 = 0;
+                Pa4_5TimeReadValueR2 = 0;
+            }
+            else if (SelectdData.Range == 2)
+            {
+                Pa4_5r1Opacity = 0.5f;
+                Pa4_5r1Enable = false;
+                Pa4_5r2Opacity = 1f;
+                Pa4_5r2Enable = true;
+                Pa4_5CurrentReadValueR1 = 0;
+                Pa4_5TimeReadValueR1 = 0;
+            }
+            else if (SelectdData.Range == 3)
+            {
+                Pa4_5r1Opacity = 1f;
+                Pa4_5r1Enable = true;
+                Pa4_5r2Opacity = 1f;
+                Pa4_5r2Enable = true;
+            }
+        }
+
+        private void OnPa4_6SelectedAction()
+        {
+            if (SelectdData.Range == 1)
+            {
+                Pa4_6r1Opacity = 0.5f;
+                Pa4_6r1Enable = false;
+                Pa4_6r2Opacity = 0.5f;
+                Pa4_6r2Enable = false;
+                Pa4_6CurrentReadValueR1 = 0;
+                Pa4_6TimeReadValueR1 = 0;
+                Pa4_6CurrentReadValueR2 = 0;
+                Pa4_6TimeReadValueR2 = 0;
+            }
+            else if (SelectdData.Range == 2)
+            {
+                Pa4_6r1Opacity = 0.5f;
+                Pa4_6r1Enable = false;
+                Pa4_6r2Opacity = 1f;
+                Pa4_6r2Enable = true;
+                Pa4_6CurrentReadValueR1 = 0;
+                Pa4_6TimeReadValueR1 = 0;
+            }
+            else if (SelectdData.Range == 3)
+            {
+                Pa4_6r1Opacity = 1f;
+                Pa4_6r1Enable = true;
+                Pa4_6r2Opacity = 1f;
+                Pa4_6r2Enable = true;
+            }
         }
     }
 }
