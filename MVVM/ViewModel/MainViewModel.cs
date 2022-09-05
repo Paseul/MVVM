@@ -88,12 +88,13 @@ namespace MVVM.ViewModel
                 sw.WriteLine("currentTime" + "\t" + "SeedCurrent" + "\t" + "SeedTemp" + "\t" + "Pa1Current" + "\t" + "Pa2Current" + "\t" + "Pa3Current" + "\t" +
                     "Pa4_1Current" + "\t" + "Pa4_2Current" + "\t" + "Pa4_3Current" + "\t" + "Pa4_4Current" + "\t" + "Pa4_5Current" + "\t" + "Pa4_6Current" + "\t" +
                     "Pa1Voltage" + "\t" + "Pa2Voltage" + "\t" + "Pa3Voltage" + "\t" + "Pa4_1Voltage" + "\t" + "Pa4_2Voltage" + "\t" + "Pa4_3Voltage" + "\t" +
-                    "Pa4_4Voltage" + "\t" + "Pa4_5Voltage" + "\t" + "Pa4_6Voltage" + "\t" + "Pd1" + "\t" + "Pd2" + "\t" + "Pd3" + "\t" + "Pd4 " + "\t" + "Pd5 " + "\t" +
-                    "Pd6" + "\t" + "Pd7" + "\t" + "Pd8" + "\t" + "SeedTemp1" + "\t" + "SeedTemp2" + "\t" + "SeedTemp3" + "\t" + "PaTemp1" + "\t" + "PaTemp2" + "\t" +
-                    "PaTemp3" + "\t" + "PaTemp4" + "\t" + "PaTemp5" + "\t" + "PaTemp6" + "\t" + "PaTemp7" + "\t" + "PaTemp8" + "\t" + "PaTemp9" + "\t" + "PaTemp10" + "\t" +
-                    "PaTemp11" + "\t" + "PaTemp12" + "\t" + "PaTemp13" + "\t" + "PaTemp14" + "\t" + "PaTemp15" + "\t" + "PaTemp16" + "\t" + "RfVolt" + "\t" + 
-                    "SeedHumid" + "\t" + "PaHumid" + "\t" + "pdAdc1" + "\t" + "pdAdc2" + "\t" + "pdAdc3" + "\t" + "pdAdc4" + "\t" + "pdAdc5" + "\t" + "pdAdc6" + "\t" +
-                    "pdAdc7" + "\t" + "pdAdc8" + "\t" + "PolRead");
+                    "Pa4_4Voltage" + "\t" + "Pa4_5Voltage" + "\t" + "Pa4_6Voltage" + "\t" + "Pd1(Seed)" + "\t" + "Pd2(1st Out)" + "\t" + "Pd3(3rd Reverse)" + "\t" + 
+                    "Pd4(2nd Out)" + "\t" + "Pd5(4th Reverse)" + "\t" + "Pd6(3rd Out)" + "\t" + "Pd7(4th Out)" + "\t" + "Pd8" + "\t" + "SeedTemp1" + "\t" + 
+                    "SeedTemp2" + "\t" + "SeedTemp3" + "\t" + "4-LD1 Temp" + "\t" + "4-LD2 Temp" + "\t" + "4-LD3 Temp" + "\t" + "4-LD4 Temp" + "\t" + 
+                    "4-LD5 Temp" + "\t" + "4-LD6 Temp" + "\t" + "4-FET1 Temp" + "\t" + "4-FET2 Temp" + "\t" + "4-FET3 Temp" + "\t" + "4-FET4 Temp" + "\t" +
+                    "4-FET5 Temp" + "\t" + "4-FET6 Temp" + "\t" + "Chiller Plate Temp" + "\t" + "TFB Temp" + "\t" + "Pump Dump Temp" + "\t" + "3rd LD Temp" + "\t" + 
+                    "RfVolt" + "\t" + "SeedHumid" + "\t" + "PaHumid" + "\t" + "pdAdc1" + "\t" + "pdAdc2" + "\t" + "pdAdc3" + "\t" + "pdAdc4" + "\t" + 
+                    "pdAdc5" + "\t" + "pdAdc6" + "\t" + "pdAdc7" + "\t" + "pdAdc8" + "\t" + "PolRead");
                 sw.Close();
                 fs.Close();
             }
@@ -449,8 +450,8 @@ namespace MVVM.ViewModel
                     Pa4_6TimeSetValueR2 =   realValue[39],
                     Pa4_6CurrentSetValueR3= realValue[40] / 1000,
                     Pa4_6TimeSetValueR3 =   realValue[41],
-                    RfVxpVoltSetValue =     (float)result[85] / 100,
-                    RfVampVoltSetValue =    (float)result[86] / 100
+                    RfVxpVoltSetValue =     (float)result[85] / 1000,
+                    RfVampVoltSetValue =    (float)result[86] / 1000
                 };
                 Messenger.Default.Send(writeSetValue);
             }
@@ -566,10 +567,13 @@ namespace MVVM.ViewModel
                     Pa4_6TimeReadValueR2 = realValue[39],
                     Pa4_6CurrentReadValueR3 = realValue[40] / 1000,
                     Pa4_6TimeReadValueR3 = realValue[41],
-                    RfVxpVoltReadValue = (float)result[85] / 100,
-                    RfVampVoltReadValue = (float)result[86] / 100                 
+                    RfVxpVoltReadValue = (float)result[85] / 1000,
+                    RfVampVoltReadValue = (float)result[86] / 1000                 
                 };
                 Messenger.Default.Send(readSetValue);
+
+                Console.WriteLine("Receive: " + result[85]);
+                Console.WriteLine("Receive: " + result[86]);
             }
         }
         private void lcbMon(byte[] result)
@@ -1008,7 +1012,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x02;
-                byte[] dataSize = BitConverter.GetBytes((ushort)15);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(15));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = Convert.ToByte(obj.cmd);
                 byte reset = Convert.ToByte(obj.reset);
@@ -1019,9 +1023,9 @@ namespace MVVM.ViewModel
                 byte[] Etx = new byte[2] { 0xE7, 0xE8 };
 
                 checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + reset + seedControl + ampControl[0] + ampControl[1]
-                    + polControl[0] + polControl[1] + polControl[2] + polControl[3] + polControl[4] + polControl[5] + polControl[6] + polControl[7] + polControl[8] + polControl[9]);
-                byte[] bytesToSend = new byte[27] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, reset, seedControl, ampControl[1], ampControl[0],
-                    polControl[0], polControl[1], polControl[2], polControl[3], polControl[4], polControl[5], polControl[6], polControl[7], polControl[8], polControl[9], checkSum, Etx[0], Etx[1] };
+                    + polControl[0] + polControl[1] + polControl[2] + polControl[3] + polControl[4] + polControl[5] + polControl[6] + polControl[7] + polControl[8] + polControl[9] + polControl[10]);
+                byte[] bytesToSend = new byte[28] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, reset, seedControl, ampControl[1], ampControl[0],
+                    polControl[0], polControl[1], polControl[2], polControl[3], polControl[4], polControl[5], polControl[6], polControl[7], polControl[8], polControl[9], polControl[10], checkSum, Etx[0], Etx[1] };
                 /*for (int i = 0; i < 17; i++)
                     Console.WriteLine(bytesToSend[i]);*/
                 laserClient.Send(bytesToSend);
@@ -1042,7 +1046,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x03;
-                byte[] dataSize = BitConverter.GetBytes((ushort)2);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(2));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x01;
                 byte reqVer = 0x01;
@@ -1074,7 +1078,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)0);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(0));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x80;
                 byte readSet = 0x01;
@@ -1084,7 +1088,7 @@ namespace MVVM.ViewModel
                 if (obj.cmd == "readSet")
                 {
                     Console.WriteLine("readSet");
-                    dataSize = BitConverter.GetBytes((ushort)2);
+                    dataSize = BitConverter.GetBytes(Convert.ToUInt16(2));
                     checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + readSet);
                     byte[] bytesToSend = new byte[14] { Ack[0], Ack[1], source, destination, opcode, dataSize[1], dataSize[0], seqNumBytes[1], seqNumBytes[0], cmdFlag, readSet, checkSum, Etx[0], Etx[1] };
                     /*for (int i = 0; i < 14; i++)
@@ -1107,31 +1111,31 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)43);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(43));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x40;
                 byte PdChannel = (byte)obj.PdChannel;
                 byte TableLength = (byte)obj.TableLength;
-                byte[] PdAdc1 = BitConverter.GetBytes((ushort)obj.PdAdc1);
-                byte[] PdAdc2 = BitConverter.GetBytes((ushort)obj.PdAdc2);
-                byte[] PdAdc3 = BitConverter.GetBytes((ushort)obj.PdAdc3);
-                byte[] PdAdc4 = BitConverter.GetBytes((ushort)obj.PdAdc4);
-                byte[] PdAdc5 = BitConverter.GetBytes((ushort)obj.PdAdc5);
-                byte[] PdAdc6 = BitConverter.GetBytes((ushort)obj.PdAdc6);
-                byte[] PdAdc7 = BitConverter.GetBytes((ushort)obj.PdAdc7);
-                byte[] PdAdc8 = BitConverter.GetBytes((ushort)obj.PdAdc8);
-                byte[] PdAdc9 = BitConverter.GetBytes((ushort)obj.PdAdc9);
-                byte[] PdAdc10 = BitConverter.GetBytes((ushort)obj.PdAdc10);
-                byte[] PdPower1 = BitConverter.GetBytes((ushort)(obj.PdPower1 * 100));
-                byte[] PdPower2 = BitConverter.GetBytes((ushort)(obj.PdPower2 * 100));
-                byte[] PdPower3 = BitConverter.GetBytes((ushort)(obj.PdPower3 * 100));
-                byte[] PdPower4 = BitConverter.GetBytes((ushort)(obj.PdPower4 * 100));
-                byte[] PdPower5 = BitConverter.GetBytes((ushort)(obj.PdPower5 * 100));
-                byte[] PdPower6 = BitConverter.GetBytes((ushort)(obj.PdPower6 * 100));
-                byte[] PdPower7 = BitConverter.GetBytes((ushort)(obj.PdPower7 * 100));
-                byte[] PdPower8 = BitConverter.GetBytes((ushort)(obj.PdPower8 * 100));
-                byte[] PdPower9 = BitConverter.GetBytes((ushort)(obj.PdPower9 * 100));
-                byte[] PdPower10 = BitConverter.GetBytes((ushort)(obj.PdPower10 * 100)); 
+                byte[] PdAdc1 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc1));
+                byte[] PdAdc2 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc2));
+                byte[] PdAdc3 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc3));
+                byte[] PdAdc4 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc4));
+                byte[] PdAdc5 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc5));
+                byte[] PdAdc6 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc6));
+                byte[] PdAdc7 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc7));
+                byte[] PdAdc8 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc8));
+                byte[] PdAdc9 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc9));
+                byte[] PdAdc10 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdAdc10));
+                byte[] PdPower1 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower1 * 100));
+                byte[] PdPower2 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower2 * 100));
+                byte[] PdPower3 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower3 * 100));
+                byte[] PdPower4 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower4 * 100));
+                byte[] PdPower5 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower5 * 100));
+                byte[] PdPower6 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower6 * 100));
+                byte[] PdPower7 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower7 * 100));
+                byte[] PdPower8 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower8 * 100));
+                byte[] PdPower9 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower9 * 100));
+                byte[] PdPower10 = BitConverter.GetBytes(Convert.ToUInt16(obj.PdPower10 * 100)); 
                 byte checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + PdChannel + TableLength + PdAdc1[0] + PdAdc1[1] + PdAdc2[0] + PdAdc2[1] + PdAdc3[0] + PdAdc3[1]
                     + PdAdc4[0] + PdAdc4[1] + PdAdc5[0] + PdAdc5[1] + PdAdc6[0] + PdAdc6[1] + PdAdc7[0] + PdAdc7[1] + PdAdc8[0] + PdAdc8[1] + PdAdc9[0] + PdAdc9[1] + PdAdc10[0] + PdAdc10[1] + PdPower1[0] + PdPower1[1] + PdPower2[0] + PdPower2[1]
                      + PdPower3[0] + PdPower3[1] + PdPower4[0] + PdPower4[1] + PdPower5[0] + PdPower5[1] + PdPower6[0] + PdPower6[1] + PdPower7[0] + PdPower7[1] + PdPower8[0] + PdPower8[1] + PdPower9[0] + PdPower9[1] + PdPower10[0] + PdPower10[1]);
@@ -1159,53 +1163,56 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)87);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(87));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x01;
-                byte[] SeedCurrentSetValue = BitConverter.GetBytes((ushort)(obj.SeedCurrentSetValue * 100));
-                byte[] SeedTempSetValue = BitConverter.GetBytes((ushort)(obj.SeedTempSetValue * 1000));
-                byte[] HsTempSetValue = BitConverter.GetBytes((ushort)(obj.HsTempSetValue * 100));
-                byte[] Pa1CurrentSetValue = BitConverter.GetBytes((ushort)(obj.Pa1CurrentSetValue * 1000));
-                byte[] Pa2CurrentSetValue = BitConverter.GetBytes((ushort)(obj.Pa2CurrentSetValue * 1000));
-                byte[] Pa3CurrentSetValue = BitConverter.GetBytes((ushort)(obj.Pa3CurrentSetValue * 1000));
-                byte[] Pa4_1CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_1CurrentSetValueR1 * 1000));
-                byte[] Pa4_1TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_1TimeSetValueR1);
-                byte[] Pa4_1CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_1CurrentSetValueR2 * 1000));
-                byte[] Pa4_1TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_1TimeSetValueR2);
-                byte[] Pa4_1CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_1CurrentSetValueR3 * 1000));
-                byte[] Pa4_1TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_1TimeSetValueR3);
-                byte[] Pa4_2CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_2CurrentSetValueR1 * 1000));
-                byte[] Pa4_2TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_2TimeSetValueR1);
-                byte[] Pa4_2CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_2CurrentSetValueR2 * 1000));
-                byte[] Pa4_2TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_2TimeSetValueR2);
-                byte[] Pa4_2CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_2CurrentSetValueR3 * 1000));
-                byte[] Pa4_2TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_2TimeSetValueR3);
-                byte[] Pa4_3CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_3CurrentSetValueR1 * 1000));
-                byte[] Pa4_3TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_3TimeSetValueR1);
-                byte[] Pa4_3CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_3CurrentSetValueR2 * 1000));
-                byte[] Pa4_3TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_3TimeSetValueR2);
-                byte[] Pa4_3CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_3CurrentSetValueR3 * 1000));
-                byte[] Pa4_3TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_3TimeSetValueR3);
-                byte[] Pa4_4CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_4CurrentSetValueR1 * 1000));
-                byte[] Pa4_4TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_4TimeSetValueR1);
-                byte[] Pa4_4CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_4CurrentSetValueR2 * 1000));
-                byte[] Pa4_4TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_4TimeSetValueR2);
-                byte[] Pa4_4CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_4CurrentSetValueR3 * 1000));
-                byte[] Pa4_4TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_4TimeSetValueR3);
-                byte[] Pa4_5CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_5CurrentSetValueR1 * 1000));
-                byte[] Pa4_5TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_5TimeSetValueR1);
-                byte[] Pa4_5CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_5CurrentSetValueR2 * 1000));
-                byte[] Pa4_5TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_5TimeSetValueR2);
-                byte[] Pa4_5CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_5CurrentSetValueR3 * 1000));
-                byte[] Pa4_5TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_5TimeSetValueR3);
-                byte[] Pa4_6CurrentSetValueR1 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR1 * 1000));
-                byte[] Pa4_6TimeSetValueR1 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR1);
-                byte[] Pa4_6CurrentSetValueR2 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR2 * 1000));
-                byte[] Pa4_6TimeSetValueR2 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR2);
-                byte[] Pa4_6CurrentSetValueR3 = BitConverter.GetBytes((ushort)(obj.Pa4_6CurrentSetValueR3 * 1000));
-                byte[] Pa4_6TimeSetValueR3 = BitConverter.GetBytes((ushort)obj.Pa4_6TimeSetValueR3);
-                byte[] RfVxpVoltSetValue = BitConverter.GetBytes((ushort)(obj.RfVxpVoltSetValue * 100));
-                byte[] RfVampVoltSetValue = BitConverter.GetBytes((ushort)(obj.RfVampVoltSetValue * 100));
+                byte[] SeedCurrentSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedCurrentSetValue * 100));
+                byte[] SeedTempSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTempSetValue * 1000));
+                byte[] HsTempSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.HsTempSetValue * 100));
+                byte[] Pa1CurrentSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa1CurrentSetValue * 1000));
+                byte[] Pa2CurrentSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa2CurrentSetValue * 1000));
+                byte[] Pa3CurrentSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa3CurrentSetValue * 1000));
+                byte[] Pa4_1CurrentSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1CurrentSetValueR1 * 1000));
+                byte[] Pa4_1TimeSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1TimeSetValueR1));
+                byte[] Pa4_1CurrentSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1CurrentSetValueR2 * 1000));
+                byte[] Pa4_1TimeSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1TimeSetValueR2));
+                byte[] Pa4_1CurrentSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1CurrentSetValueR3 * 1000));
+                byte[] Pa4_1TimeSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1TimeSetValueR3));
+                byte[] Pa4_2CurrentSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2CurrentSetValueR1 * 1000));
+                byte[] Pa4_2TimeSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2TimeSetValueR1));
+                byte[] Pa4_2CurrentSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2CurrentSetValueR2 * 1000));
+                byte[] Pa4_2TimeSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2TimeSetValueR2));
+                byte[] Pa4_2CurrentSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2CurrentSetValueR3 * 1000));
+                byte[] Pa4_2TimeSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2TimeSetValueR3));
+                byte[] Pa4_3CurrentSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3CurrentSetValueR1 * 1000));
+                byte[] Pa4_3TimeSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3TimeSetValueR1));
+                byte[] Pa4_3CurrentSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3CurrentSetValueR2 * 1000));
+                byte[] Pa4_3TimeSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3TimeSetValueR2));
+                byte[] Pa4_3CurrentSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3CurrentSetValueR3 * 1000));
+                byte[] Pa4_3TimeSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3TimeSetValueR3));
+                byte[] Pa4_4CurrentSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4CurrentSetValueR1 * 1000));
+                byte[] Pa4_4TimeSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4TimeSetValueR1));
+                byte[] Pa4_4CurrentSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4CurrentSetValueR2 * 1000));
+                byte[] Pa4_4TimeSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4TimeSetValueR2));
+                byte[] Pa4_4CurrentSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4CurrentSetValueR3 * 1000));
+                byte[] Pa4_4TimeSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4TimeSetValueR3));
+                byte[] Pa4_5CurrentSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5CurrentSetValueR1 * 1000));
+                byte[] Pa4_5TimeSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5TimeSetValueR1));
+                byte[] Pa4_5CurrentSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5CurrentSetValueR2 * 1000));
+                byte[] Pa4_5TimeSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5TimeSetValueR2));
+                byte[] Pa4_5CurrentSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5CurrentSetValueR3 * 1000));
+                byte[] Pa4_5TimeSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5TimeSetValueR3));
+                byte[] Pa4_6CurrentSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6CurrentSetValueR1 * 1000));
+                byte[] Pa4_6TimeSetValueR1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6TimeSetValueR1));
+                byte[] Pa4_6CurrentSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6CurrentSetValueR2 * 1000));
+                byte[] Pa4_6TimeSetValueR2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6TimeSetValueR2));
+                byte[] Pa4_6CurrentSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6CurrentSetValueR3 * 1000));
+                byte[] Pa4_6TimeSetValueR3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6TimeSetValueR3));
+                byte[] RfVxpVoltSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.RfVxpVoltSetValue * 1000));
+                byte[] RfVampVoltSetValue = BitConverter.GetBytes(Convert.ToUInt16(obj.RfVampVoltSetValue * 1000));
+
+                Console.WriteLine("Send: " + RfVxpVoltSetValue[0]);
+                Console.WriteLine("Send: " + RfVampVoltSetValue[0]);
 
                 byte checkSum = (byte)(Ack[0] + Ack[1] + source + destination + opcode + dataSize[0] + dataSize[1] + seqNumBytes[0] + seqNumBytes[1] + cmdFlag + SeedCurrentSetValue[0] + SeedCurrentSetValue[1] + SeedTempSetValue[0] + SeedTempSetValue[1]
                     + HsTempSetValue[0] + HsTempSetValue[1] + Pa1CurrentSetValue[0] + Pa1CurrentSetValue[1] + Pa2CurrentSetValue[0] + Pa2CurrentSetValue[1] + Pa3CurrentSetValue[0] + Pa3CurrentSetValue[1] + Pa4_1CurrentSetValueR1[0] + Pa4_1CurrentSetValueR1[1]
@@ -1251,58 +1258,58 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)101);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(101));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x08;
 
-                byte[] SeedCurrent = BitConverter.GetBytes((ushort)(obj.SeedCurrent * 100));
-                byte[] SeedTemp = BitConverter.GetBytes((ushort)(obj.SeedTemp * 1000));
-                byte[] Pa1Current = BitConverter.GetBytes((ushort)(obj.Pa1Current * 1000));
-                byte[] Pa2Current = BitConverter.GetBytes((ushort)(obj.Pa2Current * 1000));
-                byte[] Pa3Current = BitConverter.GetBytes((ushort)(obj.Pa3Current * 1000));
-                byte[] Pa4_1Current = BitConverter.GetBytes((ushort)(obj.Pa4_1Current * 1000));
-                byte[] Pa4_2Current = BitConverter.GetBytes((ushort)(obj.Pa4_2Current * 1000));
-                byte[] Pa4_3Current = BitConverter.GetBytes((ushort)(obj.Pa4_3Current * 1000));
-                byte[] Pa4_4Current = BitConverter.GetBytes((ushort)(obj.Pa4_4Current * 1000));
-                byte[] Pa4_5Current = BitConverter.GetBytes((ushort)(obj.Pa4_5Current * 1000));
-                byte[] Pa4_6Current = BitConverter.GetBytes((ushort)(obj.Pa4_6Current * 1000));
-                byte[] Pa1Voltage = BitConverter.GetBytes((ushort)(obj.Pa1Voltage * 1000));
-                byte[] Pa2Voltage = BitConverter.GetBytes((ushort)(obj.Pa2Voltage * 1000));
-                byte[] Pa3Voltage = BitConverter.GetBytes((ushort)(obj.Pa3Voltage * 1000));
-                byte[] Pa4_1Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_1Voltage * 1000));
-                byte[] Pa4_2Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_2Voltage * 1000));
-                byte[] Pa4_3Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_3Voltage * 1000));
-                byte[] Pa4_4Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_4Voltage * 1000));
-                byte[] Pa4_5Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_5Voltage * 1000));
-                byte[] Pa4_6Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_6Voltage * 1000));
-                byte[] Pd1 = BitConverter.GetBytes((ushort)(obj.Pd1 * 100));
-                byte[] Pd2 = BitConverter.GetBytes((ushort)(obj.Pd2 * 100));
-                byte[] Pd3 = BitConverter.GetBytes((ushort)(obj.Pd3 * 100));
-                byte[] Pd4 = BitConverter.GetBytes((ushort)(obj.Pd4 * 100));
-                byte[] Pd5 = BitConverter.GetBytes((ushort)(obj.Pd5 * 100));
-                byte[] Pd6 = BitConverter.GetBytes((ushort)(obj.Pd6 * 100));
-                byte[] Pd7 = BitConverter.GetBytes((ushort)(obj.Pd7 * 100));
-                byte[] Pd8 = BitConverter.GetBytes((ushort)(obj.Pd8 * 100));
-                byte[] SeedTemp1 = BitConverter.GetBytes((ushort)(obj.SeedTemp1 * 100));
-                byte[] SeedTemp2 = BitConverter.GetBytes((ushort)(obj.SeedTemp2 * 100));
-                byte[] SeedTemp3 = BitConverter.GetBytes((ushort)(obj.SeedTemp3 * 100));
-                byte[] PaTemp1 = BitConverter.GetBytes((ushort)(obj.PaTemp1 * 100));
-                byte[] PaTemp2 = BitConverter.GetBytes((ushort)(obj.PaTemp2 * 100));
-                byte[] PaTemp3 = BitConverter.GetBytes((ushort)(obj.PaTemp3 * 100));
-                byte[] PaTemp4 = BitConverter.GetBytes((ushort)(obj.PaTemp4 * 100));
-                byte[] PaTemp5 = BitConverter.GetBytes((ushort)(obj.PaTemp5 * 100));
-                byte[] PaTemp6 = BitConverter.GetBytes((ushort)(obj.PaTemp6 * 100));
-                byte[] PaTemp7 = BitConverter.GetBytes((ushort)(obj.PaTemp7 * 100));
-                byte[] PaTemp8 = BitConverter.GetBytes((ushort)(obj.PaTemp8 * 100));
-                byte[] PaTemp9 = BitConverter.GetBytes((ushort)(obj.PaTemp9 * 100));
-                byte[] PaTemp10 = BitConverter.GetBytes((ushort)(obj.PaTemp10 * 100));
-                byte[] PaTemp11 = BitConverter.GetBytes((ushort)(obj.PaTemp11 * 100));
-                byte[] PaTemp12 = BitConverter.GetBytes((ushort)(obj.PaTemp12 * 100));
-                byte[] PaTemp13 = BitConverter.GetBytes((ushort)(obj.PaTemp13 * 100));
-                byte[] PaTemp14 = BitConverter.GetBytes((ushort)(obj.PaTemp14 * 100));
-                byte[] PaTemp15 = BitConverter.GetBytes((ushort)(obj.PaTemp15 * 100));
-                byte[] PaTemp16 = BitConverter.GetBytes((ushort)(obj.PaTemp16 * 100));
-                byte[] RfVmon = BitConverter.GetBytes((ushort)obj.RfVmon);
+                byte[] SeedCurrent = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedCurrent * 100));
+                byte[] SeedTemp = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp * 1000));
+                byte[] Pa1Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa1Current * 1000));
+                byte[] Pa2Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa2Current * 1000));
+                byte[] Pa3Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa3Current * 1000));
+                byte[] Pa4_1Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1Current * 1000));
+                byte[] Pa4_2Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2Current * 1000));
+                byte[] Pa4_3Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3Current * 1000));
+                byte[] Pa4_4Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4Current * 1000));
+                byte[] Pa4_5Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5Current * 1000));
+                byte[] Pa4_6Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6Current * 1000));
+                byte[] Pa1Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa1Voltage * 1000));
+                byte[] Pa2Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa2Voltage * 1000));
+                byte[] Pa3Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa3Voltage * 1000));
+                byte[] Pa4_1Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1Voltage * 1000));
+                byte[] Pa4_2Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2Voltage * 1000));
+                byte[] Pa4_3Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3Voltage * 1000));
+                byte[] Pa4_4Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4Voltage * 1000));
+                byte[] Pa4_5Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5Voltage * 1000));
+                byte[] Pa4_6Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6Voltage * 1000));
+                byte[] Pd1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd1 * 100));
+                byte[] Pd2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd2 * 100));
+                byte[] Pd3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd3 * 100));
+                byte[] Pd4 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd4 * 100));
+                byte[] Pd5 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd5 * 100));
+                byte[] Pd6 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd6 * 100));
+                byte[] Pd7 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd7 * 100));
+                byte[] Pd8 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd8 * 100));
+                byte[] SeedTemp1 = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp1 * 100));
+                byte[] SeedTemp2 = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp2 * 100));
+                byte[] SeedTemp3 = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp3 * 100));
+                byte[] PaTemp1 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp1 * 100));
+                byte[] PaTemp2 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp2 * 100));
+                byte[] PaTemp3 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp3 * 100));
+                byte[] PaTemp4 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp4 * 100));
+                byte[] PaTemp5 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp5 * 100));
+                byte[] PaTemp6 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp6 * 100));
+                byte[] PaTemp7 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp7 * 100));
+                byte[] PaTemp8 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp8 * 100));
+                byte[] PaTemp9 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp9 * 100));
+                byte[] PaTemp10 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp10 * 100));
+                byte[] PaTemp11 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp11 * 100));
+                byte[] PaTemp12 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp12 * 100));
+                byte[] PaTemp13 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp13 * 100));
+                byte[] PaTemp14 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp14 * 100));
+                byte[] PaTemp15 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp15 * 100));
+                byte[] PaTemp16 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp16 * 100));
+                byte[] RfVmon = BitConverter.GetBytes(Convert.ToUInt16(obj.RfVmon));
                 byte SeedHumid = (byte)obj.SeedHumid;
                 byte PaHumid = (byte)obj.PaHumid;
 
@@ -1343,58 +1350,58 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x04;
-                byte[] dataSize = BitConverter.GetBytes((ushort)101);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(101));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte cmdFlag = 0x10;
 
-                byte[] SeedCurrent = BitConverter.GetBytes((ushort)(obj.SeedCurrent * 100));
-                byte[] SeedTemp = BitConverter.GetBytes((ushort)(obj.SeedTemp * 1000));
-                byte[] Pa1Current = BitConverter.GetBytes((ushort)(obj.Pa1Current * 1000));
-                byte[] Pa2Current = BitConverter.GetBytes((ushort)(obj.Pa2Current * 1000));
-                byte[] Pa3Current = BitConverter.GetBytes((ushort)(obj.Pa3Current * 1000));
-                byte[] Pa4_1Current = BitConverter.GetBytes((ushort)(obj.Pa4_1Current * 1000));
-                byte[] Pa4_2Current = BitConverter.GetBytes((ushort)(obj.Pa4_2Current * 1000));
-                byte[] Pa4_3Current = BitConverter.GetBytes((ushort)(obj.Pa4_3Current * 1000));
-                byte[] Pa4_4Current = BitConverter.GetBytes((ushort)(obj.Pa4_4Current * 1000));
-                byte[] Pa4_5Current = BitConverter.GetBytes((ushort)(obj.Pa4_5Current * 1000));
-                byte[] Pa4_6Current = BitConverter.GetBytes((ushort)(obj.Pa4_6Current * 1000));
-                byte[] Pa1Voltage = BitConverter.GetBytes((ushort)(obj.Pa1Voltage * 1000));
-                byte[] Pa2Voltage = BitConverter.GetBytes((ushort)(obj.Pa2Voltage * 1000));
-                byte[] Pa3Voltage = BitConverter.GetBytes((ushort)(obj.Pa3Voltage * 1000));
-                byte[] Pa4_1Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_1Voltage * 1000));
-                byte[] Pa4_2Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_2Voltage * 1000));
-                byte[] Pa4_3Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_3Voltage * 1000));
-                byte[] Pa4_4Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_4Voltage * 1000));
-                byte[] Pa4_5Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_5Voltage * 1000));
-                byte[] Pa4_6Voltage = BitConverter.GetBytes((ushort)(obj.Pa4_6Voltage * 1000));
-                byte[] Pd1 = BitConverter.GetBytes((ushort)(obj.Pd1 * 100));
-                byte[] Pd2 = BitConverter.GetBytes((ushort)(obj.Pd2 * 100));
-                byte[] Pd3 = BitConverter.GetBytes((ushort)(obj.Pd3 * 100));
-                byte[] Pd4 = BitConverter.GetBytes((ushort)(obj.Pd4 * 100));
-                byte[] Pd5 = BitConverter.GetBytes((ushort)(obj.Pd5 * 100));
-                byte[] Pd6 = BitConverter.GetBytes((ushort)(obj.Pd6 * 100));
-                byte[] Pd7 = BitConverter.GetBytes((ushort)(obj.Pd7 * 100));
-                byte[] Pd8 = BitConverter.GetBytes((ushort)(obj.Pd8 * 100));
-                byte[] SeedTemp1 = BitConverter.GetBytes((ushort)(obj.SeedTemp1 * 100));
-                byte[] SeedTemp2 = BitConverter.GetBytes((ushort)(obj.SeedTemp2 * 100));
-                byte[] SeedTemp3 = BitConverter.GetBytes((ushort)(obj.SeedTemp3 * 100));
-                byte[] PaTemp1 = BitConverter.GetBytes((ushort)(obj.PaTemp1 * 100));
-                byte[] PaTemp2 = BitConverter.GetBytes((ushort)(obj.PaTemp2 * 100));
-                byte[] PaTemp3 = BitConverter.GetBytes((ushort)(obj.PaTemp3 * 100));
-                byte[] PaTemp4 = BitConverter.GetBytes((ushort)(obj.PaTemp4 * 100));
-                byte[] PaTemp5 = BitConverter.GetBytes((ushort)(obj.PaTemp5 * 100));
-                byte[] PaTemp6 = BitConverter.GetBytes((ushort)(obj.PaTemp6 * 100));
-                byte[] PaTemp7 = BitConverter.GetBytes((ushort)(obj.PaTemp7 * 100));
-                byte[] PaTemp8 = BitConverter.GetBytes((ushort)(obj.PaTemp8 * 100));
-                byte[] PaTemp9 = BitConverter.GetBytes((ushort)(obj.PaTemp9 * 100));
-                byte[] PaTemp10 = BitConverter.GetBytes((ushort)(obj.PaTemp10 * 100));
-                byte[] PaTemp11 = BitConverter.GetBytes((ushort)(obj.PaTemp11 * 100));
-                byte[] PaTemp12 = BitConverter.GetBytes((ushort)(obj.PaTemp12 * 100));
-                byte[] PaTemp13 = BitConverter.GetBytes((ushort)(obj.PaTemp13 * 100));
-                byte[] PaTemp14 = BitConverter.GetBytes((ushort)(obj.PaTemp14 * 100));
-                byte[] PaTemp15 = BitConverter.GetBytes((ushort)(obj.PaTemp15 * 100));
-                byte[] PaTemp16 = BitConverter.GetBytes((ushort)(obj.PaTemp16 * 100));
-                byte[] RfVmon = BitConverter.GetBytes((ushort)obj.RfVmon);
+                byte[] SeedCurrent = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedCurrent * 100));
+                byte[] SeedTemp = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp * 1000));
+                byte[] Pa1Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa1Current * 1000));
+                byte[] Pa2Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa2Current * 1000));
+                byte[] Pa3Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa3Current * 1000));
+                byte[] Pa4_1Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1Current * 1000));
+                byte[] Pa4_2Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2Current * 1000));
+                byte[] Pa4_3Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3Current * 1000));
+                byte[] Pa4_4Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4Current * 1000));
+                byte[] Pa4_5Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5Current * 1000));
+                byte[] Pa4_6Current = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6Current * 1000));
+                byte[] Pa1Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa1Voltage * 1000));
+                byte[] Pa2Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa2Voltage * 1000));
+                byte[] Pa3Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa3Voltage * 1000));
+                byte[] Pa4_1Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_1Voltage * 1000));
+                byte[] Pa4_2Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_2Voltage * 1000));
+                byte[] Pa4_3Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_3Voltage * 1000));
+                byte[] Pa4_4Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_4Voltage * 1000));
+                byte[] Pa4_5Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_5Voltage * 1000));
+                byte[] Pa4_6Voltage = BitConverter.GetBytes(Convert.ToUInt16(obj.Pa4_6Voltage * 1000));
+                byte[] Pd1 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd1 * 100));
+                byte[] Pd2 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd2 * 100));
+                byte[] Pd3 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd3 * 100));
+                byte[] Pd4 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd4 * 100));
+                byte[] Pd5 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd5 * 100));
+                byte[] Pd6 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd6 * 100));
+                byte[] Pd7 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd7 * 100));
+                byte[] Pd8 = BitConverter.GetBytes(Convert.ToUInt16(obj.Pd8 * 100));
+                byte[] SeedTemp1 = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp1 * 100));
+                byte[] SeedTemp2 = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp2 * 100));
+                byte[] SeedTemp3 = BitConverter.GetBytes(Convert.ToUInt16(obj.SeedTemp3 * 100));
+                byte[] PaTemp1 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp1 * 100));
+                byte[] PaTemp2 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp2 * 100));
+                byte[] PaTemp3 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp3 * 100));
+                byte[] PaTemp4 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp4 * 100));
+                byte[] PaTemp5 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp5 * 100));
+                byte[] PaTemp6 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp6 * 100));
+                byte[] PaTemp7 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp7 * 100));
+                byte[] PaTemp8 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp8 * 100));
+                byte[] PaTemp9 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp9 * 100));
+                byte[] PaTemp10 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp10 * 100));
+                byte[] PaTemp11 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp11 * 100));
+                byte[] PaTemp12 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp12 * 100));
+                byte[] PaTemp13 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp13 * 100));
+                byte[] PaTemp14 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp14 * 100));
+                byte[] PaTemp15 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp15 * 100));
+                byte[] PaTemp16 = BitConverter.GetBytes(Convert.ToUInt16(obj.PaTemp16 * 100));
+                byte[] RfVmon = BitConverter.GetBytes(Convert.ToUInt16(obj.RfVmon));
                 byte SeedHumid = (byte)obj.SeedHumid;
                 byte PaHumid = (byte)obj.PaHumid;
 
@@ -1434,7 +1441,7 @@ namespace MVVM.ViewModel
                 byte source = 0x01;
                 byte destination = 0x02;
                 byte opcode = 0x01;
-                byte[] dataSize = BitConverter.GetBytes((ushort)1);
+                byte[] dataSize = BitConverter.GetBytes(Convert.ToUInt16(1));
                 byte[] seqNumBytes = BitConverter.GetBytes(seqNum);
                 byte reqBit = (byte)laserBit;
 

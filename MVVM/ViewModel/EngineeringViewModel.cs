@@ -1666,8 +1666,8 @@ namespace MVVM.ViewModel
                 RfVampVoltSetValue = RfVampVoltReadValue,
             };
             Messenger.Default.Send(lcb004writeSetCmd);
-            
-            lcb002CmdSend();
+
+            Messenger.Default.Send("lcb002");
 
             Registry.SetValue(keyName, "SeedCurrentReadValue", SeedCurrentReadValue);
             Registry.SetValue(keyName, "SeedTempReadValue", SeedTempReadValue);
@@ -2068,20 +2068,6 @@ namespace MVVM.ViewModel
             Console.WriteLine(obj.PdLaserPower8);
             Console.WriteLine(obj.PdLaserPower9);
             Console.WriteLine(obj.PdLaserPower10);
-        }
-
-        private async void lcb002CmdSend()
-        {
-            var lcb002Cmd = new lcb002Cmd()
-            {
-                seed = 63,
-                reset = 0,
-                amp = 0,
-                pol = "              ",
-                cmd = 2,
-            };
-            await Task.Delay(2000);
-            Messenger.Default.Send(lcb002Cmd);
         }
 
         private void OnReceiveMessageAction(readSetValue obj)

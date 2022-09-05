@@ -1852,10 +1852,15 @@ namespace MVVM.ViewModel
             {
                 EStopAction();                
             }
-            /*else
+            else if (message == "lcb002")
             {
-                PolResponseRead = message;
-            }*/
+                if (SeedBtnStatus == true)
+                {
+                    SeedFlag = true;
+                    lcb002CmdSend();
+                    SeedFlag = false;
+                }
+            }
         }
         private async void OnSeedCommandAction()
         {            
@@ -2203,6 +2208,7 @@ namespace MVVM.ViewModel
                 PolCmd = "*DLY " + PolDly.ToString() + "#       ";
                 lcb002CmdSend();
                 await Task.Delay(2500);
+                Console.WriteLine(PolCmd);
 
                 PolCmd = "*THH " + PolThh.ToString() + "#       ";
                 lcb002CmdSend();
